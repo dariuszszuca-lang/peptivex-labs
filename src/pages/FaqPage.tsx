@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import HexPattern from '../components/home/HexPattern';
 
 interface FaqItem {
   q_pl: string;
@@ -92,11 +93,15 @@ export default function FaqPage() {
   ];
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-16">
-      <h1 className="text-white text-3xl font-extrabold mb-4">FAQ</h1>
-      <p className="text-white/50 mb-12">
-        {pl ? 'Najczęściej zadawane pytania.' : 'Frequently asked questions.'}
-      </p>
+    <div>
+      <div className="relative overflow-hidden section-warm py-16">
+        <HexPattern className="text-amber-500/[0.02]" />
+        <div className="max-w-3xl mx-auto px-4 relative z-10">
+          <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">FAQ</p>
+          <h1 className="text-white text-3xl font-extrabold mb-4">{pl ? 'Najczęściej zadawane pytania' : 'Frequently Asked Questions'}</h1>
+        </div>
+      </div>
+    <div className="max-w-3xl mx-auto px-4 py-12">
 
       {categories.map(cat => {
         const items = FAQ_ITEMS.filter(f => f.category === cat.key);
@@ -133,6 +138,7 @@ export default function FaqPage() {
           </div>
         );
       })}
+    </div>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Mail, Send, Clock, MessageCircle } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import HexPattern from '../components/home/HexPattern';
 
 export default function ContactPage() {
   const { lang } = useLanguage();
@@ -16,17 +17,25 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-16">
-      <h1 className="text-white text-3xl font-extrabold mb-4">
-        {pl ? 'Kontakt' : 'Contact'}
-      </h1>
-      <p className="text-white/50 mb-12 max-w-xl">
-        {pl
-          ? 'Masz pytanie dotyczące produktu, zamówienia lub współpracy? Napisz do nas — odpowiadamy w ciągu 24h.'
-          : 'Have a question about a product, order, or partnership? Write to us — we respond within 24h.'
-        }
-      </p>
+    <div>
+      {/* Header */}
+      <div className="relative overflow-hidden section-warm py-16">
+        <HexPattern className="text-amber-500/[0.02]" />
+        <div className="max-w-4xl mx-auto px-4 relative z-10">
+          <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Kontakt' : 'Contact'}</p>
+          <h1 className="text-white text-3xl font-extrabold mb-4">
+            {pl ? 'Napisz do nas' : 'Get in Touch'}
+          </h1>
+          <p className="text-white/50 max-w-xl">
+            {pl
+              ? 'Masz pytanie dotyczące produktu, zamówienia lub współpracy? Odpowiadamy w ciągu 24h.'
+              : 'Have a question about a product, order, or partnership? We respond within 24h.'
+            }
+          </p>
+        </div>
+      </div>
 
+      <div className="max-w-4xl mx-auto px-4 py-12">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Contact Info */}
         <div className="flex flex-col gap-4">
@@ -130,6 +139,7 @@ export default function ContactPage() {
             </form>
           )}
         </div>
+      </div>
       </div>
     </div>
   );

@@ -1,14 +1,19 @@
 import { useLanguage } from '../contexts/LanguageContext';
+import HexPattern from '../components/home/HexPattern';
 
 export default function TermsPage() {
   const { lang } = useLanguage();
   const pl = lang === 'pl';
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-16">
-      <h1 className="text-white text-3xl font-extrabold mb-8">
-        {pl ? 'Regulamin' : 'Terms & Conditions'}
-      </h1>
+    <div>
+      <div className="relative overflow-hidden section-warm py-16">
+        <HexPattern className="text-amber-500/[0.02]" />
+        <div className="max-w-3xl mx-auto px-4 relative z-10">
+          <h1 className="text-white text-3xl font-extrabold">{pl ? 'Regulamin' : 'Terms & Conditions'}</h1>
+        </div>
+      </div>
+    <div className="max-w-3xl mx-auto px-4 py-12">
 
       <div className="prose-custom flex flex-col gap-8">
         <section>
@@ -67,6 +72,7 @@ export default function TermsPage() {
           }</p>
         </section>
       </div>
+    </div>
     </div>
   );
 }
