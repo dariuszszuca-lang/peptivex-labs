@@ -11,6 +11,7 @@ export default function ProductsPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState('');
 
+  const pl = lang === 'pl';
   const activeCategory = searchParams.get('category') as ProductCategory | null;
 
   const categories: ProductCategory[] = ['healing', 'anti-aging', 'metabolic', 'growth-hormone', 'cognitive', 'weight-loss', 'mitochondrial', 'melanogenesis', 'cosmeceutical'];
@@ -32,9 +33,16 @@ export default function ProductsPage() {
   }, [activeCategory, search]);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-10">
-      {/* Header */}
-      <h1 className="text-white text-2xl font-bold mb-6">{t('nav.products')}</h1>
+    <div>
+      {/* Header with background */}
+      <div className="relative overflow-hidden section-warm py-12">
+        <div className="max-w-6xl mx-auto px-4 relative z-10">
+          <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Katalog' : 'Catalog'}</p>
+          <h1 className="text-white text-3xl font-extrabold mb-2">{t('nav.products')}</h1>
+          <p className="text-white/40 text-sm">{pl ? '19 peptydów badawczych. Czystość >98%.' : '19 research peptides. Purity >98%.'}</p>
+        </div>
+      </div>
+    <div className="max-w-6xl mx-auto px-4 py-8">
 
       {/* Search + Filters */}
       <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -87,6 +95,7 @@ export default function ProductsPage() {
           {lang === 'pl' ? 'Brak produktów pasujących do filtrów.' : 'No products match your filters.'}
         </div>
       )}
+    </div>
     </div>
   );
 }
