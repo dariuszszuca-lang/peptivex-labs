@@ -15,6 +15,7 @@ import TermsPage from './pages/TermsPage';
 import PrivacyPage from './pages/PrivacyPage';
 import BlogPostPage from './pages/BlogPostPage';
 import LegalNoticePage from './pages/LegalNoticePage';
+import PeptideGuidePage from './pages/PeptideGuidePage';
 import AdminLayout from './pages/admin/AdminLayout';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminProducts from './pages/admin/AdminProducts';
@@ -48,6 +49,7 @@ export default function App() {
               <Route path="terms" element={<TermsPage />} />
               <Route path="privacy" element={<PrivacyPage />} />
               <Route path="legal" element={<LegalNoticePage />} />
+              <Route path="guide" element={<PeptideGuidePage />} />
             </Route>
 
             {/* EN Routes */}
@@ -64,6 +66,7 @@ export default function App() {
               <Route path="terms" element={<TermsPage />} />
               <Route path="privacy" element={<PrivacyPage />} />
               <Route path="legal" element={<LegalNoticePage />} />
+              <Route path="guide" element={<PeptideGuidePage />} />
             </Route>
 
             {/* Admin Panel */}

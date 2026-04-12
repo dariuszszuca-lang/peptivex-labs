@@ -38,6 +38,7 @@ export default function Footer() {
               <Link to={`/${lang}/blog`} className="text-white/30 hover:text-white/60 text-sm transition-colors">Blog</Link>
               <Link to={`/${lang}/about`} className="text-white/30 hover:text-white/60 text-sm transition-colors">{t('nav.about')}</Link>
               <Link to={`/${lang}/contact`} className="text-white/30 hover:text-white/60 text-sm transition-colors">{t('nav.contact')}</Link>
+              <Link to={`/${lang}/guide`} className="text-white/30 hover:text-white/60 text-sm transition-colors">{pl ? 'Przewodnik' : 'Guide'}</Link>
               <Link to={`/${lang}/faq`} className="text-white/30 hover:text-white/60 text-sm transition-colors">FAQ</Link>
             </div>
           </div>
