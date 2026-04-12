@@ -20,13 +20,19 @@ export default function Header() {
         </Link>
 
         {/* Nav */}
-        <nav className="flex items-center gap-6">
-          <Link to={`/${lang}`} className="text-white/50 hover:text-white text-sm transition-colors">
-            {t('nav.home')}
-          </Link>
+        <nav className="flex items-center gap-4 sm:gap-6">
           <Link to={`/${lang}/products`} className="text-white/50 hover:text-white text-sm transition-colors flex items-center gap-1.5">
             <FlaskConical size={14} />
             {t('nav.products')}
+          </Link>
+          <Link to={`/${lang}/blog`} className="text-white/50 hover:text-white text-sm transition-colors hidden sm:block">
+            Blog
+          </Link>
+          <Link to={`/${lang}/about`} className="text-white/50 hover:text-white text-sm transition-colors hidden sm:block">
+            {t('nav.about')}
+          </Link>
+          <Link to={`/${lang}/contact`} className="text-white/50 hover:text-white text-sm transition-colors hidden sm:block">
+            {t('nav.contact')}
           </Link>
 
           {/* Lang Toggle */}

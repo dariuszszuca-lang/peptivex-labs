@@ -10,3 +10,16 @@ body {
 #root {
   min-height: 100vh;
 }
+
+.prose-custom h2 {
+  color: #f0f0f2;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.prose-custom p {
+  color: rgba(255,255,255,0.45);
+  font-size: 0.875rem;
+  line-height: 1.75;
+}
