@@ -36,8 +36,12 @@ export default function CartPage() {
           const price = item.product[priceKey];
           return (
             <div key={item.product.id} className="bg-white/[0.03] border border-white/[0.08] rounded-xl p-4 flex items-center gap-4">
-              <div className="w-14 h-14 bg-white/[0.03] rounded-lg flex items-center justify-center shrink-0">
-                <span className="text-2xl opacity-20">🧪</span>
+              <div className="w-14 h-14 bg-white/[0.03] rounded-lg overflow-hidden shrink-0">
+                <img
+                  src={item.product.image || (item.product.format === 'pen' ? '/images/products/retatrutide-pens.jpg' : '/images/products/bpc-157-vial.png')}
+                  alt={name}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="flex-1 min-w-0">
                 <h3 className="text-white text-sm font-semibold truncate">{name}</h3>

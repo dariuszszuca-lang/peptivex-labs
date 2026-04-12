@@ -4,6 +4,9 @@ import type { Product } from '../../types';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useCart } from '../../contexts/CartContext';
 
+const DEFAULT_VIAL = '/images/products/bpc-157-vial.png';
+const DEFAULT_PEN = '/images/products/retatrutide-pens.jpg';
+
 export default function ProductCard({ product }: { product: Product }) {
   const { lang, formatPrice } = useLanguage();
   const { addItem } = useCart();
@@ -13,22 +16,41 @@ export default function ProductCard({ product }: { product: Product }) {
   const price = lang === 'pl' ? product.price_pln : product.price_gbp;
   const stock = lang === 'pl' ? product.stock_pl : product.stock_uk;
   const inStock = stock > 0;
+  const imgSrc = product.image || (product.format === 'pen' ? DEFAULT_PEN : DEFAULT_VIAL);
 
   return (
-    <div className="group bg-white/[0.03] border border-white/[0.08] rounded-xl overflow-hidden hover:border-amber-500/30 transition-all duration-300">
-      {/* Image placeholder */}
-      <Link to={`/${lang}/product/${product.slug}`} className="block relative aspect-square bg-gradient-to-b from-white/[0.02] to-transparent flex items-center justify-center">
-        <div className="text-5xl opacity-30 group-hover:opacity-50 transition-opacity">🧪</div>
-        {product.featured && (
-          <span className="absolute top-3 left-3 bg-amber-500 text-black text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">
-            {lang === 'pl' ? 'Wyróżniony' : 'Featured'}
-          </span>
-        )}
-        {product.format === 'pen' && (
-          <span className="absolute top-3 right-3 bg-teal-500/20 text-teal-300 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">
-            PEN
-          </span>
-        )}
+    <div className="group product-card bg-white/[0.03] border border-white/[0.08] rounded-xl overflow-hidden hover:border-amber-500/30 transition-all duration-300">
+      {/* Image */}
+      <Link to={`/${lang}/product/${product.slug}`} className="block relative aspect-square overflow-hidden">
+        {/* Gradient frame */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40 z-10" />
+        {/* Subtle corner glow */}
+        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-amber-500/[0.08] to-transparent z-10" />
+
+        <img
+          src={imgSrc}
+          alt={name}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+
+        {/* Badges */}
+        <div className="absolute top-3 left-3 z-20 flex flex-col gap-1.5">
+          {product.featured && (
+            <span className="bg-amber-500 text-black text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-lg">
+              {lang === 'pl' ? 'Wyróżniony' : 'Featured'}
+            </span>
+          )}
+          {product.format === 'pen' && (
+            <span className="bg-teal-500/80 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-lg">
+              PEN
+            </span>
+          )}
+        </div>
+
+        {/* Dosage badge bottom-right */}
+        <span className="absolute bottom-3 right-3 z-20 bg-black/60 backdrop-blur-sm text-white/80 text-[10px] font-bold px-2.5 py-1 rounded-full border border-white/10">
+          {product.dosage}
+        </span>
       </Link>
 
       {/* Info */}

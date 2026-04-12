@@ -41,8 +41,17 @@ export default function ProductDetailPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         {/* Image */}
-        <div className="bg-white/[0.02] border border-white/[0.06] rounded-2xl aspect-square flex items-center justify-center">
-          <div className="text-8xl opacity-20">🧪</div>
+        <div className="relative bg-white/[0.02] border border-white/[0.06] rounded-2xl aspect-square overflow-hidden group">
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/30 z-10" />
+          <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-amber-500/[0.06] to-transparent z-10" />
+          <img
+            src={product.image || (product.format === 'pen' ? '/images/products/retatrutide-pens.jpg' : '/images/products/bpc-157-vial.png')}
+            alt={name}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+          <span className="absolute bottom-4 right-4 z-20 bg-black/60 backdrop-blur-sm text-white/80 text-xs font-bold px-3 py-1.5 rounded-full border border-white/10">
+            {product.dosage}
+          </span>
         </div>
 
         {/* Info */}
