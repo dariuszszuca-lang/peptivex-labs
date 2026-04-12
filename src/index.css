@@ -11,6 +11,7 @@ body {
   min-height: 100vh;
 }
 
+/* ====== PROSE (Terms, Privacy) ====== */
 .prose-custom h2 {
   color: #f0f0f2;
   font-size: 1.1rem;
@@ -22,4 +23,156 @@ body {
   color: rgba(255,255,255,0.45);
   font-size: 0.875rem;
   line-height: 1.75;
+}
+
+/* ====== GRADIENT TEXT ====== */
+.text-gradient {
+  background: linear-gradient(135deg, #f59e0b 0%, #14b8a6 50%, #f59e0b 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 200% center; }
+}
+
+/* ====== HERO BACKGROUND ====== */
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 50%, rgba(249,115,22,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 80% 30%, rgba(20,184,166,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 80% 40% at 50% 100%, rgba(249,115,22,0.04) 0%, transparent 60%);
+}
+
+.hero-glow {
+  position: absolute;
+  top: 20%;
+  right: 15%;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(249,115,22,0.12) 0%, transparent 70%);
+  filter: blur(60px);
+  animation: pulse-glow 6s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+/* ====== DNA HELIX ====== */
+.dna-container {
+  width: 220px;
+  height: 500px;
+  position: relative;
+}
+
+.dna-helix {
+  width: 100%;
+  height: 100%;
+  animation: dna-float 8s ease-in-out infinite;
+}
+
+@keyframes dna-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(2deg); }
+}
+
+.dna-backbone-left,
+.dna-backbone-right {
+  fill: none;
+  stroke-width: 1.5;
+  stroke-dasharray: 8 4;
+  animation: dna-dash 3s linear infinite;
+}
+
+.dna-backbone-left {
+  stroke: rgba(249,115,22,0.3);
+}
+
+.dna-backbone-right {
+  stroke: rgba(20,184,166,0.3);
+}
+
+@keyframes dna-dash {
+  to { stroke-dashoffset: -24; }
+}
+
+.dna-dot-left {
+  fill: rgba(249,115,22,0.6);
+  animation: dna-pulse 2s ease-in-out infinite;
+}
+
+.dna-dot-right {
+  fill: rgba(20,184,166,0.6);
+  animation: dna-pulse 2s ease-in-out infinite;
+}
+
+@keyframes dna-pulse {
+  0%, 100% { r: 3; opacity: 0.5; }
+  50% { r: 5; opacity: 1; }
+}
+
+.dna-bridge {
+  stroke: rgba(255,255,255,0.08);
+  stroke-width: 1;
+  animation: bridge-glow 2s ease-in-out infinite;
+}
+
+@keyframes bridge-glow {
+  0%, 100% { stroke: rgba(255,255,255,0.05); }
+  50% { stroke: rgba(249,115,22,0.15); }
+}
+
+.dna-center {
+  fill: rgba(249,115,22,0.4);
+  animation: center-pulse 2s ease-in-out infinite;
+}
+
+@keyframes center-pulse {
+  0%, 100% { r: 1; opacity: 0.2; }
+  50% { r: 3; opacity: 0.6; }
+}
+
+/* ====== PARTICLE FIELD ====== */
+.particle-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(249,115,22,0.5);
+  animation: particle-drift linear infinite;
+}
+
+@keyframes particle-drift {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% { opacity: 0.4; }
+  90% { opacity: 0.4; }
+  100% {
+    transform: translateY(-120px) translateX(40px);
+    opacity: 0;
+  }
+}
+
+/* ====== MOLECULE GRID ====== */
+.molecule-grid {
+  position: absolute;
+  inset: 0;
+  color: white;
+  pointer-events: none;
 }
