@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, FlaskConical, Shield, Truck, Zap, Award, Beaker, ChevronDown, ChevronUp, Heart, Hourglass, Flame, Dumbbell, Brain, type LucideIcon} from 'lucide-react';
+import { ArrowRight, FlaskConical, Shield, Truck, Zap, Award, Beaker, ChevronDown, Heart, Hourglass, Flame, Dumbbell, Brain, type LucideIcon} from 'lucide-react';
 import { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { PRODUCTS } from '../data/products';
