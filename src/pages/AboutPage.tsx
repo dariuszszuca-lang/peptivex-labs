@@ -115,7 +115,7 @@ export default function AboutPage() {
             </div>
             <div className="relative">
               <div className="rounded-2xl overflow-hidden border border-white/[0.06] shadow-[0_20px_60px_rgba(0,0,0,0.4)]">
-                <img src="/images/products/retatrutide-box-front.jpg" alt="PEPTIVEX LABS" className="w-full aspect-[4/5] object-cover" />
+                <img src="/images/products/retatrutide-box-holo.jpg" alt="PEPTIVEX LABS" className="w-full aspect-[4/5] object-cover" />
               </div>
               {/* Floating badge */}
               <div className="absolute -bottom-4 -left-4 bg-[#0e0c09] border border-amber-500/20 rounded-xl p-4 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
