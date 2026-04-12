@@ -282,64 +282,114 @@ export default function HomePage() {
       </section>
 
       {/* =================== FAQ =================== */}
-      <section className="relative section-warm">
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-amber-900/[0.06] via-[#0c0a08] to-amber-900/[0.08]" />
+        <HexPattern className="text-amber-500/[0.02]" />
         <div className="absolute inset-0 noise-overlay" />
-        <div className="max-w-3xl mx-auto px-4 py-20 relative z-10">
-          <div className="text-center mb-12">
-            <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">FAQ</p>
-            <h2 className="text-white text-2xl font-bold mb-3">
-              {pl ? 'Najczęściej zadawane pytania' : 'Frequently Asked Questions'}
-            </h2>
-          </div>
-          <div className="flex flex-col gap-2">
-            {faqs.map((faq, i) => (
-              <div key={i} className="bg-white/[0.04] border border-white/[0.08] rounded-xl overflow-hidden hover:border-white/[0.12] transition-colors">
-                <button
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full flex items-center justify-between px-6 py-4 text-left"
-                >
-                  <span className="text-white text-sm font-medium pr-4">{faq.q}</span>
-                  {openFaq === i ? <ChevronUp size={16} className="text-amber-500 shrink-0" /> : <ChevronDown size={16} className="text-white/30 shrink-0" />}
-                </button>
-                {openFaq === i && (
-                  <div className="px-6 pb-4">
-                    <p className="text-white/50 text-sm leading-relaxed">{faq.a}</p>
-                  </div>
-                )}
+        <div className="max-w-4xl mx-auto px-4 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+            {/* Left — heading + image */}
+            <div className="lg:col-span-2">
+              <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">FAQ</p>
+              <h2 className="text-white text-3xl font-extrabold mb-4">
+                {pl ? 'Masz pytania?' : 'Got Questions?'}
+              </h2>
+              <p className="text-white/40 text-sm leading-relaxed mb-6">
+                {pl
+                  ? 'Zebraliśmy odpowiedzi na najczęściej zadawane pytania. Nie znalazłeś odpowiedzi? Napisz do nas.'
+                  : 'We\'ve gathered answers to the most common questions. Can\'t find your answer? Contact us.'
+                }
+              </p>
+              <div className="rounded-2xl overflow-hidden border border-white/[0.06] hidden lg:block">
+                <img src="/images/brand/peptivex-box.png" alt="" className="w-full h-48 object-cover opacity-60" />
               </div>
-            ))}
-          </div>
-          <div className="text-center mt-8">
-            <Link to={`/${lang}/faq`} className="text-amber-500/60 hover:text-amber-400 text-sm">
-              {pl ? 'Wszystkie pytania →' : 'All questions →'}
-            </Link>
+              <Link to={`/${lang}/faq`} className="mt-6 inline-flex items-center gap-2 text-amber-500 hover:text-amber-400 text-sm font-medium border border-amber-500/20 px-5 py-2 rounded-xl hover:bg-amber-500/5 transition-all">
+                {pl ? 'Wszystkie pytania' : 'All questions'} <ArrowRight size={14} />
+              </Link>
+            </div>
+
+            {/* Right — FAQ items */}
+            <div className="lg:col-span-3 flex flex-col gap-3">
+              {faqs.map((faq, i) => (
+                <div
+                  key={i}
+                  className={`faq-card rounded-2xl overflow-hidden transition-all duration-300 ${
+                    openFaq === i
+                      ? 'bg-gradient-to-r from-amber-500/[0.06] to-transparent border border-amber-500/20 shadow-[0_0_30px_rgba(249,115,22,0.06)]'
+                      : 'bg-white/[0.03] border border-white/[0.06] hover:border-white/[0.1]'
+                  }`}
+                >
+                  <button
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                    className="w-full flex items-center gap-4 px-6 py-5 text-left"
+                  >
+                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 ${
+                      openFaq === i
+                        ? 'bg-amber-500/20 text-amber-400'
+                        : 'bg-white/[0.04] text-white/20'
+                    }`}>
+                      <span className="text-xs font-bold">{String(i + 1).padStart(2, '0')}</span>
+                    </div>
+                    <span className={`font-medium pr-4 transition-colors ${openFaq === i ? 'text-white' : 'text-white/70'}`}>{faq.q}</span>
+                    <div className={`shrink-0 transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`}>
+                      <ChevronDown size={16} className={openFaq === i ? 'text-amber-500' : 'text-white/20'} />
+                    </div>
+                  </button>
+                  {openFaq === i && (
+                    <div className="px-6 pb-5 pl-[4.5rem]">
+                      <p className="text-white/50 text-sm leading-[1.8]">{faq.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* =================== CTA BANNER =================== */}
-      <section className="relative overflow-hidden cta-section">
-        <div className="absolute inset-0 bg-gradient-to-r from-amber-900/20 via-[#1a1008] to-teal-900/15" />
-        <HexPattern className="text-amber-500/[0.04]" />
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-600/20 via-[#1a1008] to-amber-900/10" />
+        <HexPattern className="text-amber-500/[0.05]" />
         <ParticleField />
         <div className="absolute inset-0 noise-overlay" />
-        <div className="max-w-4xl mx-auto px-4 py-24 text-center relative z-10">
-          <h2 className="text-white text-3xl sm:text-4xl font-extrabold mb-4">
-            {pl ? 'Gotowy na badania?' : 'Ready for Research?'}
+        {/* Glow orbs */}
+        <div className="absolute top-1/2 left-1/4 w-[300px] h-[300px] rounded-full bg-amber-500/[0.08] blur-[80px]" />
+        <div className="absolute top-1/2 right-1/4 w-[200px] h-[200px] rounded-full bg-teal-500/[0.05] blur-[60px]" />
+
+        <div className="max-w-4xl mx-auto px-4 py-28 text-center relative z-10">
+          <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 rounded-full px-4 py-1.5 mb-6">
+            <span className="w-2 h-2 bg-amber-500 rounded-full animate-pulse" />
+            <span className="text-amber-400 text-xs font-medium">{pl ? 'Wysyłka w 24h' : '24h dispatch'}</span>
+          </div>
+          <h2 className="text-white text-4xl sm:text-5xl font-extrabold mb-5 leading-tight">
+            {pl ? (
+              <>Gotowy na<br /><span className="text-gradient">badania?</span></>
+            ) : (
+              <>Ready for<br /><span className="text-gradient">research?</span></>
+            )}
           </h2>
-          <p className="text-white/50 mb-8 max-w-md mx-auto">
+          <p className="text-white/50 text-lg mb-10 max-w-lg mx-auto">
             {pl
-              ? 'Zamów peptydy badawcze najwyższej jakości z szybką dostawą InPost.'
-              : 'Order highest quality research peptides with fast InPost delivery.'
+              ? 'Peptydy o czystości >98% z certyfikatem HPLC. Szybka dostawa InPost. Bezpieczne płatności Stripe.'
+              : 'Peptides with >98% purity, HPLC certified. Fast InPost delivery. Secure Stripe payments.'
             }
           </p>
-          <Link
-            to={`/${lang}/products`}
-            className="cta-primary inline-flex items-center gap-2 bg-amber-500 text-black font-bold px-8 py-4 rounded-xl hover:bg-amber-400 transition-all text-sm"
-          >
-            {pl ? 'Przeglądaj produkty' : 'Browse Products'}
-            <ArrowRight size={16} />
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link
+              to={`/${lang}/products`}
+              className="cta-primary inline-flex items-center justify-center gap-2 bg-amber-500 text-black font-bold px-8 py-4 rounded-xl hover:bg-amber-400 transition-all text-sm"
+            >
+              {pl ? 'Przeglądaj produkty' : 'Browse Products'}
+              <ArrowRight size={16} />
+            </Link>
+            <Link
+              to={`/${lang}/contact`}
+              className="inline-flex items-center justify-center gap-2 bg-white/[0.06] border border-white/[0.1] text-white font-medium px-8 py-4 rounded-xl hover:bg-white/[0.1] transition-all text-sm"
+            >
+              {pl ? 'Skontaktuj się' : 'Contact Us'}
+            </Link>
+          </div>
         </div>
       </section>
     </div>
