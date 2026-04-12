@@ -28,7 +28,7 @@
     "format": "Forma",
     "category": "Kategoria",
     "researchOnly": "ODCZYNNIK LABORATORYJNY",
-    "researchSub": "Do celów badawczych. Nie jest lekiem, żywnością ani kosmetykiem. Nie do spożycia przez ludzi.",
+    "researchSub": "Wyłącznie do zastosowań badawczych i laboratoryjnych. Produkt nie jest zarejestrowanym lekiem ani suplementem diety.",
     "vial": "Fiolka (liofilizat)",
     "pen": "Pen (wstrzykiwacz)",
     "capsule": "Kapsułki",
@@ -56,7 +56,7 @@
   },
   "footer": {
     "research": "Wszystkie produkty wyłącznie do celów badawczych.",
-    "disclaimer": "PEPTIVEX LABS nie jest placówką medyczną. Produkty nie są przeznaczone do spożycia przez ludzi.",
+    "disclaimer": "PEPTIVEX LABS nie jest placówką medyczną. Produkty wyłącznie do zastosowań badawczych i laboratoryjnych.",
     "rights": "Wszelkie prawa zastrzeżone."
   },
   "categories": {

@@ -28,7 +28,7 @@
     "format": "Format",
     "category": "Category",
     "researchOnly": "RESEARCH USE ONLY",
-    "researchSub": "This product is a laboratory reagent for research purposes only. Not a drug, food, or cosmetic. Not for human consumption.",
+    "researchSub": "For research and laboratory use only. This product is not a registered drug or dietary supplement.",
     "vial": "Vial (lyophilized)",
     "pen": "Pen (injector)",
     "capsule": "Capsules",
@@ -56,7 +56,7 @@
   },
   "footer": {
     "research": "All products are for research purposes only.",
-    "disclaimer": "PEPTIVEX LABS is not a medical facility. Products are not intended for human consumption.",
+    "disclaimer": "PEPTIVEX LABS is not a medical facility. Products are for research and laboratory use only.",
     "rights": "All rights reserved."
   },
   "categories": {
