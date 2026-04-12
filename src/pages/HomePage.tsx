@@ -307,7 +307,7 @@ export default function HomePage() {
                 }
               </p>
               <div className="rounded-2xl overflow-hidden border border-white/[0.06] hidden lg:block">
-                <img src="/images/products/retatrutide-pens-20mg.jpg" alt="" className="w-full h-48 object-cover opacity-70" />
+                <img src="/images/products/retatrutide-pens-20mg.jpg" alt="PEPTIVEX LABS Retatrutide research peptide pens" className="w-full h-48 object-cover opacity-70" />
               </div>
               <Link to={`/${lang}/faq`} className="mt-6 inline-flex items-center gap-2 text-amber-500 hover:text-amber-400 text-sm font-medium border border-amber-500/20 px-5 py-2 rounded-xl hover:bg-amber-500/5 transition-all">
                 {pl ? 'Wszystkie pytania' : 'All questions'} <ArrowRight size={14} />

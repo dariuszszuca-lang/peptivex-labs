@@ -35,7 +35,7 @@ export default function AboutPage() {
       {/* Hero — full width with product image */}
       <div className="relative overflow-hidden min-h-[50vh] flex items-center">
         <div className="absolute inset-0">
-          <img src="/images/products/retatrutide-pens.jpg" alt="" className="w-full h-full object-cover" />
+          <img src="/images/products/retatrutide-pens.jpg" alt="PEPTIVEX LABS research peptide products — Retatrutide injector pens" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0c0a08] via-[#0c0a08]/90 to-[#0c0a08]/60" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0c0a08] via-transparent to-[#0c0a08]/40" />
         </div>
