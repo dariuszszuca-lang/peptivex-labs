@@ -467,4 +467,187 @@ export const BLOG_POSTS: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'longevity-peptide-framework',
+    title_pl: 'Framework longevity: jak peptydy wpisują się w strategię zdrowia',
+    title_en: 'The Longevity Framework: How Peptides Fit Into a Health Strategy',
+    excerpt_pl: 'Peptydy to nie magiczne rozwiązanie — to precyzyjne narzędzia, które działają najlepiej na solidnym fundamencie zdrowia. Poznaj framework 3 poziomów.',
+    excerpt_en: 'Peptides are not a magic solution — they are precision tools that work best on a solid health foundation. Learn the 3-level framework.',
+    date: '2026-04-12',
+    category: 'Strategy',
+    readTime: 10,
+    heroImage: '/images/brand/types-of-peptides.png',
+    sections_pl: [
+      {
+        heading: 'Peptydy to narzędzia, nie skróty',
+        paragraphs: [
+          'W ostatnich latach peptydy stały się jednym z najgorętszych tematów w świecie longevity i optymalizacji zdrowia. Słyszysz o peptydach na odchudzanie, regenerację, odmładzanie skóry, wydajność kognitywną. Ale rozmowy online bywają chaotyczne — protokoły się różnią, informacje są niepełne, a łatwo się pogubić w ilości opcji.',
+          'Peptydy to krótkie łańcuchy aminokwasów, które działają jako celowane molekuły sygnałowe. Wpływają na konkretne szlaki biologiczne związane z metabolizmem, naprawą tkanek, stanem zapalnym i starzeniem. Wiele peptydów występuje naturalnie w ludzkiej fizjologii — insulina, GLP-1, oksytocyna to wszystko peptydy.',
+          'Ale peptydy nie są magicznym rozwiązaniem. To narzędzia wpływające na sygnalizację biologiczną — nie skróty zastępujące fundamentalne nawyki zdrowotne. Działają najlepiej gdy są nakładane na solidny fundament stylu życia, odżywiania i równowagi hormonalnej.',
+        ],
+      },
+      {
+        heading: 'Framework 3 poziomów',
+        image: '/images/brand/hero-brand.png',
+        paragraphs: [
+          'Zanim omówimy peptydy, ważne jest zrozumienie gdzie wpisują się w szerszą strategię zdrowia. Optymalizację można podzielić na trzy poziomy:',
+        ],
+        list: [
+          'Poziom 1: Fundament zdrowia — jakość snu, trening siłowy i ruch, odpowiednie spożycie białka, stabilny poziom cukru we krwi, zarządzanie stresem. Jeśli te filary nie są na miejscu, peptydy nie przyniosą znaczących długoterminowych rezultatów.',
+          'Poziom 2: Optymalizacja hormonalna — hormony wpływają na metabolizm, energię, nastrój i skład ciała. Optymalizacja estrogenów, progesteronu, testosteronu i hormonów tarczycy może diametralnie poprawić ogólne zdrowie.',
+          'Poziom 3: Precyzyjne narzędzia — gdy fundament i hormony są zaadresowane, celowane interwencje mogą doprecyzować konkretne szlaki biologiczne. Tu właśnie wchodzą peptydy. Wspierają zdrowie metaboliczne, naprawę tkanek, funkcje kognitywne, regenerację skóry i odporność komórkową.',
+        ],
+      },
+      {
+        heading: 'Kategorie peptydów badawczych',
+        paragraphs: [
+          'Zamiast stosować wiele peptydów naraz, skuteczniejsze jest podejście warstwowe, które zmienia się w czasie w zależności od celów i fizjologii. Peptydy można podzielić na trzy grupy strategiczne:',
+        ],
+        list: [
+          'Peptydy fundamentalne — stosowane długoterminowo jako baza (NAD+, GHK-Cu)',
+          'Peptydy sezonowe — stosowane cyklicznie w określonych okresach (BPC-157, TB-500 na regenerację; CJC-1295 + Ipamorelin na GH)',
+          'Peptydy sytuacyjne — stosowane doraźnie w odpowiedzi na konkretne potrzeby (Selank na stres, Melanotan 2 na fotoprotekcję)',
+        ],
+      },
+      {
+        heading: 'Odchudzanie i metabolizm',
+        image: '/images/products/retatrutide-pens-20mg.jpg',
+        paragraphs: [
+          'Kategoria Fat Loss / Metabolic to najszybciej rosnący segment peptydów badawczych. Kluczowe molekuły to:',
+          'Retatrutide (GLP-3) — potrójny agonista receptorów GLP-1, GIP i glukagonu. Najnowsza generacja, faza 3 badań klinicznych Eli Lilly. Format pen (wstrzykiwacz), dawkowanie 0.5-2mg tygodniowo z powolną titracją.',
+          'MOTS-c — unikalny peptyd kodowany przez mitochondrialne DNA. Działa przez szlak AMPK, poprawiając wrażliwość na insulinę i metabolizm glukozy. Dawkowanie: 0.5-1mg, 3-5x/tydzień, unikać jedzenia 30 min po dawce.',
+          '5-Amino-1MQ — inhibitor NNMT, który zwiększa poziom NAD+ 1.2-1.6x w komórkach. Redukcja tkanki tłuszczowej bez wpływu na apetyt — unikalny mechanizm.',
+        ],
+      },
+      {
+        heading: 'Regeneracja i gojenie',
+        image: '/images/products/bpc-157-vial.png',
+        paragraphs: [
+          'BPC-157 i TB-500 to dwa najczęściej badane peptydy regeneracyjne. Ich połączenie jest popularne w protokołach badawczych ze względu na komplementarne mechanizmy:',
+          'BPC-157 (250-500mcg dziennie, 4-12 tygodni) — stymuluje angiogenezę przez VEGFR2, chroni błonę śluzową przewodu pokarmowego, wykazuje właściwości neuroprotekcyjne. Unikalny wśród peptydów — stabilny w kwaśnym środowisku żołądka.',
+          'TB-500 (500mcg dziennie, 6-12 tygodni) — mobilizuje komórki macierzyste, promuje angiogenezę i remodelowanie cytoszkieletu. Badany w kontekście gojenia ran, naprawy serca i regeneracji ścięgien.',
+          'GHK-Cu (1.7-2mg dziennie, 4-8 tygodni) — peptyd miedziowy modulujący ekspresję ponad 4000 genów. Stymuluje syntezę kolagenu, elastyny i glikozaminoglikanów. Stosowany w badaniach nad regeneracją skóry i stymulacją mieszków włosowych.',
+        ],
+      },
+      {
+        heading: 'Longevity i mitochondria',
+        paragraphs: [
+          'Starzenie komórkowe jest ściśle związane ze spadkiem funkcji mitochondriów i poziomu NAD+. Kluczowe peptydy w tej kategorii:',
+          'NAD+ (20-100mg na iniekcję, 2-3x/tydzień, SubQ lub IM) — centralny koenzym dla sirtuiny, PARP i fosforylacji oksydacyjnej. Suplementacja NAD+ jest intensywnie badana w kontekście chorób neurodegeneracyjnych i starzenia.',
+          'SS-31 / Elamipretide (0.5-1mg, 5 dni on/2 off, 6-8 tygodni) — selektywnie celuje w wewnętrzną błonę mitochondrialną. Stabilizuje kristy, redukuje stres oksydacyjny. Stosować rano lub po sesji sauny/red-light. Naprzemiennie z dniami NAD+.',
+          'MOTS-c (0.5-1mg, 3-5x/tydzień) — peptyd mitochondrialny regulujący metabolizm przez szlak AMPK. Dobrze łączy się z NAD+ dla wsparcia mitochondrialnego.',
+        ],
+      },
+      {
+        heading: 'Hormon wzrostu — CJC-1295 + Ipamorelin',
+        paragraphs: [
+          'Połączenie CJC-1295 No DAC z Ipamorelin to jeden z najlepiej przebadanych stacków peptydowych. Oba peptydy stymulują wydzielanie hormonu wzrostu, ale przez różne mechanizmy — razem dają synergistyczny efekt pulsacyjnego uwalniania GH.',
+          'CJC-1295 No DAC (200-250mcg per dawka) — analog GHRH, stymuluje przysadkę do uwalniania GH w naturalnym rytmie pulsacyjnym. Krótki okres półtrwania (~30 min) daje badaczom precyzyjną kontrolę nad dawkowaniem.',
+          'Ipamorelin (200-300mcg per dawka) — najbardziej selektywny GHRP, nie wpływa na oś ACTH-kortyzol ani prolaktynę. Podawanie wieczorem na czczo (2-3h po posiłku), 5 dni on / 2 off, cykl 6-12 tygodni.',
+          'Ten stack jest preferowany nad syntetycznym GH ze względu na fizjologiczny wzorzec pulsacyjnego uwalniania i mniejsze ryzyko efektów ubocznych.',
+        ],
+      },
+      {
+        heading: 'Funkcje kognitywne i nastrój',
+        paragraphs: [
+          'Selank (250mcg, donosowo lub SubQ, 2-3 dni/tydzień, 4-6 tygodni) — heptapeptyd opracowany przez Rosyjską Akademię Nauk. Moduluje neurotransmisję GABAergiczną z efektem anksjolitycznym porównywalnym z benzodiazepinami — bez tolerancji, uzależnienia i sedacji. Wpływa na noradrenalinę, serotoninę i dopaminę.',
+          'To jedna z niewielu substancji łączących efekt anksjolityczny z psychostymulującym/antiastenicznym — redukuje lęk bez powodowania senności.',
+        ],
+      },
+      {
+        heading: 'Badania na ludziach vs badania na zwierzętach',
+        paragraphs: [
+          'Ważne rozróżnienie: poziom dowodów naukowych różni się znacząco między peptydami. Niektóre (jak tirzepatid czy tesamorelin) przeszły badania kliniczne u ludzi lub zostały zatwierdzone jako leki. Inne są nadal we wczesnych fazach badań — głównie na modelach zwierzęcych.',
+          'Na przykład MOTS-c i BPC-157 wzbudzają duże zainteresowanie na podstawie obiecujących wyników w badaniach na zwierzętach — metabolizm, naprawa tkanek, sygnalizacja komórkowa. Jednak duże badania kliniczne oceniające ich bezpieczeństwo i długoterminowe efekty u ludzi są nadal ograniczone.',
+          'Badania na zwierzętach dostarczają cennych informacji o mechanizmach biologicznych, ale wyniki obserwowane u zwierząt nie zawsze przekładają się bezpośrednio na ludzi. Dlatego peptydy oparte głównie na badaniach przedklinicznych należy traktować z dodatkową ostrożnością.',
+        ],
+      },
+    ],
+    sections_en: [
+      {
+        heading: 'Peptides are tools, not shortcuts',
+        paragraphs: [
+          'Over the past few years, peptides have become one of the most talked-about tools in the world of longevity and health optimization. You hear about peptides for fat loss, recovery, skin rejuvenation, cognitive performance. But online conversations can be chaotic — protocols vary widely, information is often incomplete, and it\'s easy to feel overwhelmed.',
+          'Peptides are short chains of amino acids that act as targeted signaling molecules. They influence specific biological pathways involved in metabolism, repair, inflammation, and aging. Many peptides exist naturally in human physiology — insulin, GLP-1, oxytocin are all peptides.',
+          'But peptides are not a magic solution. They are tools that influence biological signaling — not shortcuts that replace foundational health habits. They work best when layered on top of a strong foundation of lifestyle habits, nutrition, and hormone balance.',
+        ],
+      },
+      {
+        heading: 'The 3-Level Framework',
+        image: '/images/brand/hero-brand.png',
+        paragraphs: [
+          'Before discussing peptides, it\'s important to understand where they fit within a larger health strategy. Optimization can be divided into three levels:',
+        ],
+        list: [
+          'Level 1: Foundational Health — sleep quality, strength training and movement, adequate protein intake, stable blood sugar, stress management. If these pillars are not in place, peptides will not produce meaningful long-term results.',
+          'Level 2: Hormone Optimization — hormones influence metabolism, energy, mood, and body composition. Optimizing estrogen, progesterone, testosterone, and thyroid hormones can dramatically improve overall health.',
+          'Level 3: Precision Tools — once the foundation and hormones are addressed, targeted interventions can refine specific biological pathways. This is where peptides come in. They support metabolic health, tissue repair, cognitive function, skin regeneration, and cellular resilience.',
+        ],
+      },
+      {
+        heading: 'Research peptide categories',
+        paragraphs: [
+          'Rather than stacking numerous peptides simultaneously, a more effective approach is a layered strategy that changes over time depending on goals and physiology. Peptides fall into three strategic groups:',
+        ],
+        list: [
+          'Foundational peptides — used long-term as a base (NAD+, GHK-Cu)',
+          'Seasonal peptides — used cyclically in specific periods (BPC-157, TB-500 for healing; CJC-1295 + Ipamorelin for GH)',
+          'Situational peptides — used as needed in response to specific requirements (Selank for stress, Melanotan 2 for photoprotection)',
+        ],
+      },
+      {
+        heading: 'Weight loss and metabolism',
+        image: '/images/products/retatrutide-pens-20mg.jpg',
+        paragraphs: [
+          'The Fat Loss / Metabolic category is the fastest-growing segment of research peptides. Key molecules include:',
+          'Retatrutide (GLP-3) — triple agonist targeting GLP-1, GIP, and glucagon receptors. Latest generation, phase 3 clinical trials by Eli Lilly. Pen format (injector), dosing 0.5-2mg weekly with slow titration.',
+          'MOTS-c — unique peptide encoded by mitochondrial DNA. Acts through the AMPK pathway, improving insulin sensitivity and glucose metabolism. Dosing: 0.5-1mg, 3-5x/week, avoid eating 30 min post-dose.',
+          '5-Amino-1MQ — NNMT inhibitor that increases NAD+ levels 1.2-1.6x in cells. Fat tissue reduction without appetite suppression — unique mechanism.',
+        ],
+      },
+      {
+        heading: 'Regeneration and healing',
+        image: '/images/products/bpc-157-vial.png',
+        paragraphs: [
+          'BPC-157 and TB-500 are the two most studied regenerative peptides. Their combination is popular in research protocols due to complementary mechanisms:',
+          'BPC-157 (250-500mcg daily, 4-12 weeks) — stimulates angiogenesis via VEGFR2, protects GI tract mucosa, exhibits neuroprotective properties. Unique among peptides — stable in acidic stomach environment.',
+          'TB-500 (500mcg daily, 6-12 weeks) — mobilizes stem cells, promotes angiogenesis and cytoskeleton remodeling. Studied for wound healing, cardiac repair, and tendon regeneration.',
+          'GHK-Cu (1.7-2mg daily, 4-8 weeks) — copper peptide modulating expression of over 4,000 genes. Stimulates collagen, elastin, and glycosaminoglycan synthesis. Used in skin regeneration and hair follicle stimulation research.',
+        ],
+      },
+      {
+        heading: 'Longevity and mitochondria',
+        paragraphs: [
+          'Cellular aging is closely linked to declining mitochondrial function and NAD+ levels. Key peptides in this category:',
+          'NAD+ (20-100mg per injection, 2-3x/week, SubQ or IM) — central coenzyme for sirtuins, PARPs, and oxidative phosphorylation. NAD+ supplementation is intensively studied in the context of neurodegenerative diseases and aging.',
+          'SS-31 / Elamipretide (0.5-1mg, 5 days on/2 off, 6-8 weeks) — selectively targets the inner mitochondrial membrane. Stabilizes cristae, reduces oxidative stress. Use morning or after sauna/red-light sessions. Alternate with NAD+ days.',
+          'MOTS-c (0.5-1mg, 3-5x/week) — mitochondrial peptide regulating metabolism through the AMPK pathway. Pairs well with NAD+ for mitochondrial support.',
+        ],
+      },
+      {
+        heading: 'Growth hormone — CJC-1295 + Ipamorelin',
+        paragraphs: [
+          'The CJC-1295 No DAC + Ipamorelin combination is one of the best-studied peptide stacks. Both peptides stimulate growth hormone secretion through different mechanisms — together they produce a synergistic pulsatile GH release effect.',
+          'CJC-1295 No DAC (200-250mcg per dose) — GHRH analog, stimulates the pituitary to release GH in a natural pulsatile rhythm. Short half-life (~30 min) gives researchers precise dosing control.',
+          'Ipamorelin (200-300mcg per dose) — the most selective GHRP, does not affect the ACTH-cortisol axis or prolactin. Administered in the evening fasted (2-3h after meal), 5 days on / 2 off, 6-12 week cycles.',
+          'This stack is preferred over synthetic GH due to the physiological pulsatile release pattern and lower side effect risk.',
+        ],
+      },
+      {
+        heading: 'Cognitive function and mood',
+        paragraphs: [
+          'Selank (250mcg, intranasal or SubQ, 2-3 days/week, 4-6 weeks) — a heptapeptide developed at the Russian Academy of Sciences. Modulates GABAergic neurotransmission with anxiolytic effects comparable to benzodiazepines — without tolerance, dependence, or sedation. Influences noradrenaline, serotonin, and dopamine.',
+          'It is one of the few substances combining anxiolytic with psychostimulant/antiasthenic effects — reduces anxiety without causing drowsiness.',
+        ],
+      },
+      {
+        heading: 'Human vs animal research',
+        paragraphs: [
+          'An important distinction: the level of scientific evidence varies significantly across peptides. Some (like tirzepatide or tesamorelin) have been studied in human clinical trials or developed into approved medications. Others are still in earlier stages — primarily studied in animal models.',
+          'For example, MOTS-c and BPC-157 have generated significant interest based on promising findings in animal studies — metabolism, tissue repair, cellular signaling. However, large-scale human clinical trials evaluating their safety and long-term effects are still limited.',
+          'Animal studies provide valuable insights into biological mechanisms, but results observed in animals do not always translate directly to humans. For this reason, peptides primarily supported by preclinical research should be approached with an additional level of caution.',
+        ],
+      },
+    ],
+  },
 ];
