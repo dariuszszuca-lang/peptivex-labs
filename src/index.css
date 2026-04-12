@@ -321,6 +321,29 @@ body {
   box-shadow: 0 8px 30px rgba(0,0,0,0.2), 0 0 20px rgba(249,115,22,0.05);
 }
 
+/* ====== CATEGORY CARD ====== */
+.cat-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.cat-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(249,115,22,0.25);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.3), 0 0 30px rgba(249,115,22,0.08);
+}
+
+/* ====== WHY CARD ====== */
+.why-card {
+  cursor: default;
+}
+
+.why-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 50px rgba(0,0,0,0.3), 0 0 30px rgba(249,115,22,0.06);
+}
+
 /* ====== PRODUCT CARD ====== */
 .product-card {
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;

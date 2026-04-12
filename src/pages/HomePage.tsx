@@ -171,31 +171,40 @@ export default function HomePage() {
       </section>
 
       {/* =================== CATEGORIES =================== */}
-      <section className="relative overflow-hidden section-dark">
-        <HexPattern className="text-teal-500/[0.02]" />
-        <div className="max-w-6xl mx-auto px-4 py-16 relative z-10">
-          <div className="text-center mb-10">
-            <h2 className="text-white text-2xl font-bold mb-3">
+      <section className="relative overflow-hidden section-dark py-20">
+        <HexPattern className="text-amber-500/[0.03]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-amber-500/[0.04] blur-[120px]" />
+        <div className="max-w-6xl mx-auto px-4 relative z-10">
+          <div className="text-center mb-14">
+            <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Eksploruj' : 'Explore'}</p>
+            <h2 className="text-white text-3xl font-extrabold mb-4">
               {pl ? 'Kategorie peptydów' : 'Peptide Categories'}
             </h2>
-            <p className="text-white/40 text-sm">
+            <p className="text-white/40 text-sm max-w-md mx-auto">
               {pl ? 'Znajdź peptyd dopasowany do Twojego obszaru badań.' : 'Find the peptide matching your research area.'}
             </p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-            {categories.map(cat => (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            {categories.map((cat, i) => (
               <Link
                 key={cat.key}
                 to={`/${lang}/products?category=${cat.key}`}
-                className="group bg-white/[0.03] border border-white/[0.08] rounded-xl p-5 text-center hover:border-amber-500/30 hover:bg-amber-500/[0.03] transition-all"
+                className="group cat-card relative rounded-2xl p-6 text-center transition-all duration-300"
+                style={{ animationDelay: `${i * 100}ms` }}
               >
-                <div className="w-10 h-10 mx-auto mb-3 rounded-lg bg-white/[0.04] border border-white/[0.06] flex items-center justify-center group-hover:border-amber-500/20 transition-colors">
-                  <cat.icon size={20} className={cat.color} />
+                {/* Glow border on hover */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-amber-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ padding: '1px' }}>
+                  <div className="w-full h-full rounded-2xl bg-[#0e0c09]" />
                 </div>
-                <span className="text-white/70 text-sm font-medium group-hover:text-white transition-colors block mb-1">
-                  {t(`categories.${cat.key}`)}
-                </span>
-                <span className="text-white/20 text-xs">{cat.count} {pl ? 'prod.' : 'items'}</span>
+                <div className="relative z-10">
+                  <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-white/[0.06] to-white/[0.02] border border-white/[0.08] flex items-center justify-center group-hover:border-amber-500/30 group-hover:shadow-[0_0_20px_rgba(249,115,22,0.15)] transition-all duration-300">
+                    <cat.icon size={24} className={`${cat.color} group-hover:scale-110 transition-transform duration-300`} />
+                  </div>
+                  <span className="text-white/80 text-sm font-semibold group-hover:text-white transition-colors block mb-1">
+                    {t(`categories.${cat.key}`)}
+                  </span>
+                  <span className="text-white/25 text-xs">{cat.count} {pl ? 'prod.' : 'items'}</span>
+                </div>
               </Link>
             ))}
           </div>
@@ -203,26 +212,34 @@ export default function HomePage() {
       </section>
 
       {/* =================== WHY PEPTIVEX =================== */}
-      <section className="relative overflow-hidden section-accent">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-900/10 via-transparent to-teal-900/10" />
+      <section className="relative overflow-hidden py-24">
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-900/[0.12] via-[#0c0a08] to-teal-900/[0.06]" />
+        <HexPattern className="text-amber-500/[0.03]" />
         <div className="absolute inset-0 noise-overlay" />
-        <div className="max-w-6xl mx-auto px-4 py-20 relative z-10">
-          <div className="text-center mb-12">
+        <div className="max-w-6xl mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
             <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">
               {pl ? 'Dlaczego my' : 'Why Us'}
             </p>
-            <h2 className="text-white text-3xl font-extrabold mb-4">
+            <h2 className="text-white text-3xl sm:text-4xl font-extrabold mb-4">
               {pl ? 'Dlaczego PEPTIVEX LABS?' : 'Why PEPTIVEX LABS?'}
             </h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-amber-500 to-teal-500 rounded-full mx-auto mt-6" />
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((f, i) => (
-              <div key={i} className="group feature-card bg-white/[0.04] border border-white/[0.08] rounded-xl p-6 hover:border-amber-500/20 transition-all">
-                <div className="w-10 h-10 bg-amber-500/10 border border-amber-500/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-amber-500/15 transition-colors">
-                  <f.icon size={18} className="text-amber-500" />
+              <div key={i} className="group why-card relative rounded-2xl overflow-hidden transition-all duration-300">
+                {/* Animated border gradient */}
+                <div className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-b from-amber-500/20 via-transparent to-teal-500/10 opacity-50 group-hover:opacity-100 transition-opacity duration-500" >
+                  <div className="w-full h-full rounded-2xl bg-[#0e0c09]" />
                 </div>
-                <h3 className="text-white font-semibold mb-2">{f.title}</h3>
-                <p className="text-white/40 text-sm leading-relaxed">{f.desc}</p>
+                <div className="relative z-10 p-7">
+                  <div className="w-12 h-12 bg-gradient-to-br from-amber-500/15 to-amber-500/5 border border-amber-500/20 rounded-xl flex items-center justify-center mb-5 group-hover:shadow-[0_0_25px_rgba(249,115,22,0.2)] group-hover:scale-110 transition-all duration-300">
+                    <f.icon size={22} className="text-amber-400" />
+                  </div>
+                  <h3 className="text-white text-lg font-bold mb-2">{f.title}</h3>
+                  <p className="text-white/45 text-sm leading-relaxed">{f.desc}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -230,26 +247,34 @@ export default function HomePage() {
       </section>
 
       {/* =================== HOW IT WORKS =================== */}
-      <section className="relative section-dark">
-        <HexPattern className="text-white/[0.01]" />
-        <div className="max-w-4xl mx-auto px-4 py-16 relative z-10">
-          <div className="text-center mb-12">
-            <h2 className="text-white text-2xl font-bold mb-3">
+      <section className="relative section-dark py-20">
+        <HexPattern className="text-amber-500/[0.02]" />
+        <div className="max-w-5xl mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Proces' : 'Process'}</p>
+            <h2 className="text-white text-3xl font-extrabold mb-4">
               {pl ? 'Jak to działa?' : 'How It Works'}
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-0">
             {[
-              { step: '01', title: pl ? 'Wybierz peptydy' : 'Choose Peptides', desc: pl ? 'Przejrzyj katalog i dodaj do koszyka.' : 'Browse the catalog and add to cart.' },
-              { step: '02', title: pl ? 'Zapłać bezpiecznie' : 'Pay Securely', desc: pl ? 'Stripe: karty, BLIK, P24. Szyfrowane.' : 'Stripe: cards, BLIK, P24. Encrypted.' },
-              { step: '03', title: pl ? 'Odbierz z InPost' : 'Collect from InPost', desc: pl ? 'Paczkomat PL lub Locker UK. 1-3 dni.' : 'Paczkomat PL or Locker UK. 1-3 days.' },
+              { step: '01', title: pl ? 'Wybierz peptydy' : 'Choose Peptides', desc: pl ? 'Przejrzyj katalog, porównaj produkty i dodaj do koszyka.' : 'Browse the catalog, compare products and add to cart.', icon: FlaskConical },
+              { step: '02', title: pl ? 'Zapłać bezpiecznie' : 'Pay Securely', desc: pl ? 'Stripe obsługuje karty, BLIK i Przelewy24. Pełne szyfrowanie.' : 'Stripe handles cards, BLIK and Przelewy24. Full encryption.', icon: Shield },
+              { step: '03', title: pl ? 'Odbierz z InPost' : 'Collect from InPost', desc: pl ? 'Paczkomat w Polsce lub Locker w UK. Dyskretna paczka, 1-3 dni.' : 'Paczkomat in Poland or Locker in UK. Discreet package, 1-3 days.', icon: Truck },
             ].map((s, i) => (
-              <div key={i} className="text-center group">
-                <div className="w-14 h-14 bg-gradient-to-br from-amber-500/20 to-teal-500/10 border border-amber-500/20 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                  <span className="text-amber-400 font-bold">{s.step}</span>
+              <div key={i} className="relative text-center px-8 py-10 group">
+                {/* Connector line */}
+                {i < 2 && (
+                  <div className="hidden sm:block absolute top-1/3 right-0 w-full h-[1px] bg-gradient-to-r from-transparent via-amber-500/20 to-transparent translate-x-1/2 z-0" />
+                )}
+                <div className="relative z-10">
+                  <div className="w-16 h-16 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-amber-500/15 to-amber-500/5 border border-amber-500/15 flex items-center justify-center group-hover:shadow-[0_0_30px_rgba(249,115,22,0.2)] group-hover:scale-110 transition-all duration-300">
+                    <s.icon size={24} className="text-amber-400" />
+                  </div>
+                  <div className="text-amber-500/40 text-xs font-bold mb-2 tracking-widest">{s.step}</div>
+                  <h3 className="text-white font-bold text-lg mb-2">{s.title}</h3>
+                  <p className="text-white/40 text-sm leading-relaxed">{s.desc}</p>
                 </div>
-                <h3 className="text-white font-semibold mb-2">{s.title}</h3>
-                <p className="text-white/40 text-sm">{s.desc}</p>
               </div>
             ))}
           </div>
