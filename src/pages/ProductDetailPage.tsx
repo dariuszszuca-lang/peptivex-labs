@@ -7,6 +7,8 @@ import { PRODUCTS } from '../data/products';
 import { DisclaimerFull } from '../components/product/DisclaimerBadge';
 import HexPattern from '../components/home/HexPattern';
 import SeoHead from '../components/SeoHead';
+import { PROTOCOLS } from '../data/protocols';
+import { Beaker, Clock, Calendar, Layers, Thermometer } from 'lucide-react';
 
 export default function ProductDetailPage() {
   const { slug } = useParams();
@@ -177,6 +179,60 @@ export default function ProductDetailPage() {
             {product.disclaimer && <DisclaimerFull />}
           </div>
         </div>
+
+        {/* Research Protocol Reference */}
+        {PROTOCOLS[product.id] && (() => {
+          const proto = PROTOCOLS[product.id];
+          const protocolItems = [
+            { icon: Beaker, label: pl ? 'Rekonstytucja' : 'Reconstitution', value: proto.reconstitution },
+            { icon: FlaskConical, label: pl ? 'Stężenie' : 'Concentration', value: proto.concentration },
+            { icon: Plus, label: pl ? 'Typowa dawka' : 'Typical Dose', value: proto.typicalDose },
+            { icon: Clock, label: 'Timing', value: proto.timing },
+            { icon: Calendar, label: pl ? 'Częstotliwość' : 'Frequency', value: proto.frequency },
+            { icon: Layers, label: pl ? 'Długość cyklu' : 'Cycle Length', value: proto.cycleLength },
+            { icon: Thermometer, label: pl ? 'Przechowywanie' : 'Storage', value: proto.storage },
+          ];
+          return (
+            <div className="mt-16">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500/15 to-amber-500/5 border border-amber-500/15 flex items-center justify-center">
+                  <Beaker size={18} className="text-amber-400" />
+                </div>
+                <div>
+                  <h2 className="text-white text-xl font-bold">
+                    {pl ? 'Protokół badawczy — dane referencyjne' : 'Research Protocol Reference'}
+                  </h2>
+                  <p className="text-white/30 text-xs">{pl ? 'Dane edukacyjne — nie stanowią porady medycznej' : 'Educational data — not medical advice'}</p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {protocolItems.map((item, i) => (
+                  <div key={i} className="bg-white/[0.03] border border-white/[0.06] rounded-xl p-4 hover:border-amber-500/15 transition-colors">
+                    <div className="flex items-center gap-2 mb-2">
+                      <item.icon size={14} className="text-amber-500/60" />
+                      <span className="text-white/40 text-xs uppercase tracking-wide">{item.label}</span>
+                    </div>
+                    <p className="text-white text-sm font-medium">{item.value}</p>
+                  </div>
+                ))}
+              </div>
+
+              {proto.stackNotes && (
+                <div className="mt-4 bg-amber-500/[0.04] border border-amber-500/10 rounded-xl p-4">
+                  <p className="text-amber-500/60 text-xs uppercase tracking-wide mb-1">{pl ? 'Notatki / Stacki' : 'Notes / Stacks'}</p>
+                  <p className="text-white/60 text-sm">{proto.stackNotes}</p>
+                </div>
+              )}
+
+              <p className="text-white/15 text-[10px] mt-4 text-center">
+                {pl
+                  ? 'Dane referencyjne na podstawie opublikowanych przewodników badawczych. Wyłącznie do celów edukacyjnych i laboratoryjnych.'
+                  : 'Reference data based on published research guides. For educational and laboratory purposes only.'}
+              </p>
+            </div>
+          );
+        })()}
 
         {/* Related products */}
         {related.length > 0 && (

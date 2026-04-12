@@ -21,6 +21,16 @@ export const PRODUCTS: Product[] = [
     disclaimer: true,
     featured: true,
     order: 1,
+    protocol: {
+      reconstitution: 'Pre-filled pen — no reconstitution needed',
+      concentration: '40mg per pen',
+      typicalDose: '0.5–2.0 mg weekly (titrated)',
+      timing: 'AM or PM',
+      frequency: '1x weekly',
+      cycleLength: '8–48 weeks',
+      stackNotes: 'Triple agonist (GLP-1/GIP/Glucagon). Titrate slowly: start low, increase over weeks.',
+      storage: '-20°C lyophilized; 2-8°C after reconstitution, use within 30 days',
+    },
   },
   {
     id: 'retatrutide-20mg',

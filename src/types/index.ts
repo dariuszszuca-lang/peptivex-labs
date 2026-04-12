@@ -23,6 +23,16 @@ export interface Product {
   dosage: string;
   image?: string;
   disclaimer: boolean;
+  protocol?: {
+    reconstitution: string;
+    concentration: string;
+    typicalDose: string;
+    timing: string;
+    frequency: string;
+    cycleLength: string;
+    stackNotes?: string;
+    storage: string;
+  };
   featured: boolean;
   order: number;
 }
