@@ -77,9 +77,26 @@ export const BLOG_POSTS: BlogPost[] = [
         heading: 'Najczęściej badane peptydy',
         image: '/images/products/bpc-157-vial.png',
         paragraphs: [
-          'BPC-157 to jeden z najszerzej badanych peptydów regeneracyjnych. Jest to 15-aminokwasowy peptyd pochodzący z białka ludzkiego soku żołądkowego, badany w kontekście gojenia tkanek, ochrony jelit i neuroprotekcji.',
-          'TB-500 (analog Tymozyny Beta-4) to kolejny popularny peptyd badawczy, opisywany jako "jedna z najbardziej aktywnych molekuł gojenia ran" w literaturze naukowej.',
-          'Retatrutide — potrójny agonista receptorów GLP-1, GIP i glukagonu — jest obecnie w fazie 3 badań klinicznych i wzbudza ogromne zainteresowanie w dziedzinie metabolizmu.',
+          'BPC-157 to jeden z najszerzej badanych peptydów regeneracyjnych. Jest to 15-aminokwasowy peptyd pochodzący z białka ludzkiego soku żołądkowego, badany w kontekście gojenia tkanek, ochrony jelit i neuroprotekcji. Sekwencja aminokwasowa: Gly-Glu-Pro-Pro-Pro-Gly-Lys-Pro-Ala-Asp-Asp-Ala-Gly-Leu-Val. Działanie obejmuje aktywację receptora VEGFR2, kompleksów FAK-paksylina oraz szlaku JAK-2.',
+          'TB-500 (analog Tymozyny Beta-4) to 43-aminokwasowy peptyd badany jako jedna z najbardziej aktywnych molekuł gojenia ran w literaturze naukowej. Mobilizuje komórki macierzyste i progenitorowe do miejsca urazu, promuje angiogenezę i redukuje apoptozę. Często badany w połączeniu z BPC-157 dla efektu synergistycznego.',
+          'NAD+ (Dinukleotyd nikotynamidoadeninowy) to koenzym centralny dla ponad 500 reakcji enzymatycznych w organizmie. Jego poziom spada drastycznie z wiekiem, co łączy się ze starzeniem komórkowym i chorobami neurodegeneracyjnymi. Badania z 2026 roku wskazują na potencjał w modelach choroby Alzheimera i Parkinsona.',
+          'Retatrutide — potrójny agonista receptorów GLP-1, GIP i glukagonu (tzw. "GLP-3") — jest obecnie w fazie 3 badań klinicznych prowadzonych przez Eli Lilly. Wzbudza ogromne zainteresowanie w dziedzinie metabolizmu jako jeden z najbardziej obiecujących peptydów metabolicznych nowej generacji.',
+        ],
+      },
+      {
+        heading: 'Peptydy a białka — czym się różnią?',
+        paragraphs: [
+          'Granica między peptydami a białkami jest umowna i opiera się głównie na długości łańcucha aminokwasowego. Peptydy to łańcuchy do około 50 aminokwasów, białka — powyżej 50. Jednak kluczowa różnica leży w funkcji: peptydy działają głównie jako sygnały i regulatory, podczas gdy białka pełnią funkcje strukturalne i enzymatyczne.',
+          'Peptydy badawcze są syntetyzowane chemicznie (metoda SPPS), co pozwala na precyzyjną kontrolę sekwencji i czystości. Białka natomiast są zazwyczaj produkowane metodami biotechnologicznymi — rekombinantnie w komórkach bakteryjnych lub drożdżowych. Ta różnica w produkcji wpływa na koszt, skalę i czystość końcowego produktu.',
+          'W kontekście badawczym peptydy mają przewagę nad białkami pod względem stabilności, kosztu produkcji i łatwości modyfikacji. Można łatwo wprowadzać zmianyw sekwencji, dodawać grupy ochronne czy tworzyć analogi o zmodyfikowanych właściwościach farmakologicznych.',
+        ],
+      },
+      {
+        heading: 'Zastosowania peptydów w nauce — obszary badań',
+        paragraphs: [
+          'Peptydy badawcze znajdują zastosowanie w szerokim spektrum dziedzin naukowych. Medycyna regeneracyjna wykorzystuje peptydy takie jak BPC-157 i TB-500 do badania mechanizmów gojenia tkanek. Endokrynologia bada peptydy uwalniające hormon wzrostu (CJC-1295, Ipamorelin) w kontekście fizjologii osi somatotropowej.',
+          'Neurobiologia korzysta z peptydów kognitywnych jak Selank do badania mechanizmów lękowych i neuroplastyczności. Dermatologia badawcza eksploruje GHK-Cu i SNAP-8 jako potencjalne narzędzia w badaniach nad regeneracją skóry. Metabolizm i otyłość to obszar, w którym Retatrutide, MOTS-c i 5-Amino-1MQ otwierają nowe kierunki badawcze.',
+          'Warto podkreślić, że większość dostępnych danych pochodzi z badań przedklinicznych (in vitro i modele zwierzęce). Pełne badania kliniczne z udziałem ludzi są prowadzone tylko dla nielicznych peptydów, takich jak Retatrutide (faza 3, Eli Lilly). Dlatego peptydy badawcze są sprzedawane wyłącznie do celów laboratoryjnych i naukowych.',
         ],
       },
     ],
@@ -130,9 +147,26 @@ export const BLOG_POSTS: BlogPost[] = [
         heading: 'Most researched peptides',
         image: '/images/products/bpc-157-vial.png',
         paragraphs: [
-          'BPC-157 is one of the most widely studied regenerative peptides. It is a 15-amino acid peptide derived from human gastric juice protein, studied for tissue healing, gut protection, and neuroprotection.',
-          'TB-500 (Thymosin Beta-4 analog) is another popular research peptide, described as "one of the most active wound-healing molecules" in scientific literature.',
-          'Retatrutide — a triple agonist targeting GLP-1, GIP, and glucagon receptors — is currently in phase 3 clinical trials and generates enormous interest in metabolic science.',
+          'BPC-157 is one of the most widely studied regenerative peptides. It is a 15-amino acid peptide derived from human gastric juice protein (sequence: Gly-Glu-Pro-Pro-Pro-Gly-Lys-Pro-Ala-Asp-Asp-Ala-Gly-Leu-Val). Its mechanism involves VEGFR2 receptor activation, FAK-paxillin complexes, and JAK-2 signaling. Studied for tissue healing, gut protection, and neuroprotection.',
+          'TB-500 (Thymosin Beta-4 analog) is a 43-amino acid peptide studied as one of the most active wound-healing molecules in scientific literature. It mobilizes stem and progenitor cells to injury sites, promotes angiogenesis, and reduces apoptosis. Frequently studied in combination with BPC-157 for synergistic effects.',
+          'NAD+ (Nicotinamide Adenine Dinucleotide) is a coenzyme central to over 500 enzymatic reactions. Its levels decline sharply with age, linked to cellular aging and neurodegenerative diseases. 2026 research points to potential in Alzheimer\'s and Parkinson\'s disease models.',
+          'Retatrutide — a triple agonist targeting GLP-1, GIP, and glucagon receptors (nicknamed "GLP-3") — is currently in phase 3 clinical trials conducted by Eli Lilly. It generates enormous interest in metabolic science as one of the most promising next-generation metabolic peptides.',
+        ],
+      },
+      {
+        heading: 'Peptides vs. proteins — what\'s the difference?',
+        paragraphs: [
+          'The boundary between peptides and proteins is conventional, based mainly on amino acid chain length. Peptides are chains of up to approximately 50 amino acids, proteins — above 50. However, the key difference lies in function: peptides primarily act as signals and regulators, while proteins serve structural and enzymatic roles.',
+          'Research peptides are chemically synthesized (SPPS method), allowing precise control over sequence and purity. Proteins are typically produced biotechnologically — recombinantly in bacterial or yeast cells. This production difference affects cost, scale, and final product purity.',
+          'In the research context, peptides have advantages over proteins in terms of stability, production cost, and ease of modification. Sequence changes, protective groups, and analogs with modified pharmacological properties can be easily introduced.',
+        ],
+      },
+      {
+        heading: 'Applications of peptides in science — research areas',
+        paragraphs: [
+          'Research peptides find applications across a wide spectrum of scientific fields. Regenerative medicine uses peptides like BPC-157 and TB-500 to study tissue healing mechanisms. Endocrinology studies growth hormone releasing peptides (CJC-1295, Ipamorelin) in the context of somatotropic axis physiology.',
+          'Neurobiology uses cognitive peptides like Selank to study anxiety mechanisms and neuroplasticity. Research dermatology explores GHK-Cu and SNAP-8 as potential tools in skin regeneration studies. Metabolism and obesity is an area where Retatrutide, MOTS-c, and 5-Amino-1MQ open new research directions.',
+          'It is worth noting that most available data comes from preclinical studies (in vitro and animal models). Full human clinical trials are being conducted for only a few peptides, such as Retatrutide (phase 3, Eli Lilly). This is why research peptides are sold exclusively for laboratory and scientific purposes.',
         ],
       },
     ],
