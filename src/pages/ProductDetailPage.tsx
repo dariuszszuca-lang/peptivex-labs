@@ -6,6 +6,7 @@ import { useCart } from '../contexts/CartContext';
 import { PRODUCTS } from '../data/products';
 import { DisclaimerFull } from '../components/product/DisclaimerBadge';
 import HexPattern from '../components/home/HexPattern';
+import SeoHead from '../components/SeoHead';
 
 export default function ProductDetailPage() {
   const { slug } = useParams();
@@ -35,8 +36,35 @@ export default function ProductDetailPage() {
   // Related products (same category, exclude current)
   const related = PRODUCTS.filter(p => p.category === product.category && p.id !== product.id).slice(0, 3);
 
+  const productSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name,
+    description,
+    image: `https://peptivexlabs.com${product.image || '/images/products/bpc-157-vial.png'}`,
+    sku: product.id,
+    brand: { '@type': 'Brand', name: 'PEPTIVEX LABS' },
+    category: `Research Peptides / ${product.category}`,
+    url: `https://peptivexlabs.com/${lang}/product/${product.slug}`,
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: pl ? 'PLN' : 'GBP',
+      price: (price / 100).toFixed(2),
+      availability: inStock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
+      itemCondition: 'https://schema.org/NewCondition',
+      seller: { '@type': 'Organization', name: 'PEPTIVEX LABS' },
+    },
+  };
+
   return (
     <div>
+      <SeoHead
+        title={`${name} — ${product.dosage}`}
+        description={(pl ? product.short_pl : product.short_en) + ` ${formatPrice(price)}. PEPTIVEX LABS.`}
+        path={`/${lang}/product/${product.slug}`}
+        image={product.image ? `https://peptivexlabs.com${product.image}` : undefined}
+        schema={productSchema}
+      />
       {/* Breadcrumb with bg */}
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-amber-900/[0.06] to-transparent" />

@@ -5,6 +5,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { PRODUCTS } from '../data/products';
 import ProductCard from '../components/product/ProductCard';
 import HexPattern from '../components/home/HexPattern';
+import SeoHead from '../components/SeoHead';
 import ParticleField from '../components/home/ParticleField';
 import type { ProductCategory } from '../types';
 
@@ -29,6 +30,11 @@ export default function ProductsPage() {
 
   return (
     <div>
+      <SeoHead
+        title={pl ? 'Katalog peptydów badawczych' : 'Research Peptide Catalog'}
+        description={pl ? '19 peptydów badawczych o czystości >98% HPLC. BPC-157, Retatrutide, NAD+, GHK-Cu, Ipamorelin. Szybka dostawa InPost.' : '19 research peptides with >98% HPLC purity. BPC-157, Retatrutide, NAD+, GHK-Cu, Ipamorelin. Fast InPost delivery.'}
+        path={`/${lang}/products`}
+      />
       {/* Hero header */}
       <div className="relative overflow-hidden py-16 sm:py-20">
         <div className="absolute inset-0 bg-gradient-to-b from-amber-900/[0.1] via-[#0c0a08] to-[#0c0a08]" />

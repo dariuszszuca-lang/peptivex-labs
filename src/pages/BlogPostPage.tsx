@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Calendar, Clock } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { BLOG_POSTS } from '../data/blogPosts';
+import SeoHead from '../components/SeoHead';
 
 export default function BlogPostPage() {
   const { slug } = useParams();
@@ -22,6 +23,25 @@ export default function BlogPostPage() {
 
   return (
     <div className="relative">
+      <SeoHead
+        title={title}
+        description={pl ? post.excerpt_pl : post.excerpt_en}
+        path={`/${lang}/blog/${post.slug}`}
+        image={`https://peptivexlabs.com${post.heroImage}`}
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: title,
+          description: pl ? post.excerpt_pl : post.excerpt_en,
+          image: `https://peptivexlabs.com${post.heroImage}`,
+          datePublished: post.date,
+          dateModified: post.date,
+          author: { '@type': 'Organization', name: 'PEPTIVEX LABS', url: 'https://peptivexlabs.com' },
+          publisher: { '@type': 'Organization', name: 'PEPTIVEX LABS', logo: { '@type': 'ImageObject', url: 'https://peptivexlabs.com/favicon.png' } },
+          inLanguage: lang,
+          articleSection: post.category,
+        }}
+      />
       {/* Hero banner */}
       <div className="relative h-64 sm:h-80 overflow-hidden">
         <img src={post.heroImage} alt={title} className="w-full h-full object-cover" />

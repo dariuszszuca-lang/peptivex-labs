@@ -8,6 +8,7 @@ import DnaHelix from '../components/home/DnaHelix';
 import ParticleField from '../components/home/ParticleField';
 import HexPattern from '../components/home/HexPattern';
 import LabBackground from '../components/home/LabBackground';
+import SeoHead from '../components/SeoHead';
 
 export default function HomePage() {
   const { lang, t } = useLanguage();
@@ -61,6 +62,11 @@ export default function HomePage() {
 
   return (
     <div>
+      <SeoHead
+        title={pl ? 'Peptydy badawcze premium' : 'Premium Research Peptides'}
+        description={pl ? 'PEPTIVEX LABS — peptydy badawcze o czystości >98% HPLC. BPC-157, Retatrutide, NAD+, GHK-Cu. Szybka dostawa InPost. Bezpieczne płatności Stripe.' : 'PEPTIVEX LABS — research peptides with >98% HPLC purity. BPC-157, Retatrutide, NAD+, GHK-Cu. Fast InPost delivery. Secure Stripe payments.'}
+        path={`/${lang}`}
+      />
       {/* =================== HERO =================== */}
       <section className="relative overflow-hidden min-h-[85vh] flex items-center hero-section">
         <div className="absolute inset-0">

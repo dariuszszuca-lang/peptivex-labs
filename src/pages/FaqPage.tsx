@@ -3,6 +3,7 @@ import { ChevronDown, ArrowRight, Search, FlaskConical, Truck, CreditCard, Packa
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import HexPattern from '../components/home/HexPattern';
+import SeoHead from '../components/SeoHead';
 import type { LucideIcon } from 'lucide-react';
 
 interface FaqItem {
@@ -106,6 +107,20 @@ export default function FaqPage() {
 
   return (
     <div>
+      <SeoHead
+        title={pl ? 'FAQ — Najczęściej zadawane pytania' : 'FAQ — Frequently Asked Questions'}
+        description={pl ? 'Odpowiedzi na pytania o peptydy badawcze, wysyłkę InPost, płatności Stripe, przechowywanie i zwroty. PEPTIVEX LABS.' : 'Answers about research peptides, InPost shipping, Stripe payments, storage and returns. PEPTIVEX LABS.'}
+        path={`/${lang}/faq`}
+        schema={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: FAQ_DATA.flatMap(cat => cat.items.map(item => ({
+            '@type': 'Question',
+            name: pl ? item.q_pl : item.q_en,
+            acceptedAnswer: { '@type': 'Answer', text: pl ? item.a_pl : item.a_en },
+          }))),
+        }}
+      />
       {/* Hero */}
       <div className="relative overflow-hidden py-16 sm:py-20">
         <div className="absolute inset-0 bg-gradient-to-b from-amber-900/[0.1] via-[#0c0a08] to-[#0c0a08]" />

@@ -2,6 +2,7 @@ import { FlaskConical, Shield, Thermometer, Award, Truck, Beaker, ArrowRight, Ch
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import HexPattern from '../components/home/HexPattern';
+import SeoHead from '../components/SeoHead';
 import ParticleField from '../components/home/ParticleField';
 
 export default function AboutPage() {
@@ -26,6 +27,11 @@ export default function AboutPage() {
 
   return (
     <div>
+      <SeoHead
+        title={pl ? 'O nas — PEPTIVEX LABS' : 'About Us — PEPTIVEX LABS'}
+        description={pl ? 'Peptydy badawcze o czystości >98% HPLC. Czym się wyróżniamy: synteza SPPS, certyfikaty analizy, szybka dostawa InPost, bezpieczne płatności Stripe.' : 'Research peptides with >98% HPLC purity. What sets us apart: SPPS synthesis, certificates of analysis, fast InPost delivery, secure Stripe payments.'}
+        path={`/${lang}/about`}
+      />
       {/* Hero — full width with product image */}
       <div className="relative overflow-hidden min-h-[50vh] flex items-center">
         <div className="absolute inset-0">
