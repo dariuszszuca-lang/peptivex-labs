@@ -21,7 +21,7 @@ export default function ProductCard({ product }: { product: Product }) {
         <div className="text-5xl opacity-30 group-hover:opacity-50 transition-opacity">🧪</div>
         {product.featured && (
           <span className="absolute top-3 left-3 bg-amber-500 text-black text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">
-            Featured
+            {lang === 'pl' ? 'Wyróżniony' : 'Featured'}
           </span>
         )}
         {product.format === 'pen' && (
