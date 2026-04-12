@@ -119,7 +119,7 @@ export default function AboutPage() {
               </div>
               {/* Floating badge */}
               <div className="absolute -bottom-4 -left-4 bg-[#0e0c09] border border-amber-500/20 rounded-xl p-4 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-                <p className="text-amber-400 text-2xl font-extrabold">>98%</p>
+                <p className="text-amber-400 text-2xl font-extrabold">&gt;98%</p>
                 <p className="text-white/40 text-xs">{pl ? 'Czystość HPLC' : 'HPLC Purity'}</p>
               </div>
             </div>
