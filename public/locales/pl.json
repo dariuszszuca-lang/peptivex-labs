@@ -1,0 +1,73 @@
+{
+  "nav": {
+    "home": "Strona główna",
+    "products": "Produkty",
+    "cart": "Koszyk",
+    "about": "O nas",
+    "contact": "Kontakt"
+  },
+  "splash": {
+    "title": "Wybierz region",
+    "subtitle": "Dostawa i ceny zależą od wybranego regionu",
+    "pl": "Polska",
+    "uk": "United Kingdom",
+    "plDesc": "Wysyłka InPost Paczkomaty · Ceny w PLN",
+    "ukDesc": "InPost Lockers · Prices in GBP"
+  },
+  "home": {
+    "hero": "Pioneering Research. Premium Peptides.",
+    "heroSub": "Peptydy badawcze najwyższej jakości. Wyłącznie do celów naukowych.",
+    "shopNow": "Zobacz produkty",
+    "featured": "Wyróżnione produkty",
+    "categories": "Kategorie"
+  },
+  "product": {
+    "addToCart": "Dodaj do koszyka",
+    "outOfStock": "Brak w magazynie",
+    "dosage": "Dawka",
+    "format": "Forma",
+    "category": "Kategoria",
+    "researchOnly": "ODCZYNNIK LABORATORYJNY",
+    "researchSub": "Do celów badawczych. Nie jest lekiem, żywnością ani kosmetykiem. Nie do spożycia przez ludzi.",
+    "vial": "Fiolka (liofilizat)",
+    "pen": "Pen (wstrzykiwacz)",
+    "capsule": "Kapsułki",
+    "spray": "Spray"
+  },
+  "cart": {
+    "title": "Koszyk",
+    "empty": "Koszyk jest pusty",
+    "total": "Suma",
+    "checkout": "Przejdź do płatności",
+    "remove": "Usuń",
+    "continueShopping": "Kontynuuj zakupy"
+  },
+  "checkout": {
+    "title": "Płatność",
+    "name": "Imię i nazwisko",
+    "email": "Email",
+    "phone": "Telefon",
+    "selectLocker": "Wybierz Paczkomat",
+    "disclaimer": "Potwierdzam, że ten zakup jest wyłącznie do celów badawczych. Jestem wykwalifikowanym specjalistą.",
+    "pay": "Zapłać",
+    "shipping": "Dostawa",
+    "shippingCost": "12,99 zł",
+    "freeFrom": "Darmowa od 500 zł"
+  },
+  "footer": {
+    "research": "Wszystkie produkty wyłącznie do celów badawczych.",
+    "disclaimer": "PEPTIVEX LABS nie jest placówką medyczną. Produkty nie są przeznaczone do spożycia przez ludzi.",
+    "rights": "Wszelkie prawa zastrzeżone."
+  },
+  "categories": {
+    "healing": "Regeneracja",
+    "anti-aging": "Anti-aging",
+    "metabolic": "Metabolizm",
+    "growth-hormone": "Hormon wzrostu",
+    "cognitive": "Kognitywne",
+    "melanogenesis": "Melanogeneza",
+    "mitochondrial": "Mitochondria",
+    "cosmeceutical": "Kosmeceutyki",
+    "weight-loss": "Odchudzanie"
+  }
+}
