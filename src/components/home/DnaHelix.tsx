@@ -1,37 +1,64 @@
 export default function DnaHelix() {
-  const pairs = 14;
-
   return (
-    <div className="dna-container" aria-hidden="true">
-      <svg viewBox="0 0 200 600" className="dna-helix" xmlns="http://www.w3.org/2000/svg">
-        {Array.from({ length: pairs }).map((_, i) => {
-          const y = 20 + i * 40;
-          const delay = i * 0.15;
-          return (
-            <g key={i} className="dna-pair" style={{ animationDelay: `${delay}s` }}>
-              {/* Left strand */}
-              <circle cx="60" cy={y} r="4" className="dna-dot-left" style={{ animationDelay: `${delay}s` }} />
-              {/* Right strand */}
-              <circle cx="140" cy={y} r="4" className="dna-dot-right" style={{ animationDelay: `${delay}s` }} />
-              {/* Bridge */}
-              <line x1="64" y1={y} x2="136" y2={y} className="dna-bridge" style={{ animationDelay: `${delay}s` }} />
-              {/* Glow */}
-              <circle cx="100" cy={y} r="2" className="dna-center" style={{ animationDelay: `${delay}s` }} />
-            </g>
-          );
-        })}
+    <div className="hero-molecule" aria-hidden="true">
+      {/* Central rotating molecule */}
+      <div className="mol-core">
+        {/* Orbiting rings */}
+        <div className="mol-ring mol-ring-1" />
+        <div className="mol-ring mol-ring-2" />
+        <div className="mol-ring mol-ring-3" />
 
-        {/* Left backbone */}
-        <path
-          d="M60,20 Q30,60 60,100 Q90,140 60,180 Q30,220 60,260 Q90,300 60,340 Q30,380 60,420 Q90,460 60,500 Q30,540 60,580"
-          className="dna-backbone-left"
-        />
-        {/* Right backbone */}
-        <path
-          d="M140,20 Q170,60 140,100 Q110,140 140,180 Q170,220 140,260 Q110,300 140,340 Q170,380 140,420 Q110,460 140,500 Q170,540 140,580"
-          className="dna-backbone-right"
-        />
+        {/* Center glow */}
+        <div className="mol-center" />
+
+        {/* Orbiting atoms */}
+        <div className="mol-orbit mol-orbit-1">
+          <div className="mol-atom mol-atom-amber" />
+        </div>
+        <div className="mol-orbit mol-orbit-2">
+          <div className="mol-atom mol-atom-teal" />
+        </div>
+        <div className="mol-orbit mol-orbit-3">
+          <div className="mol-atom mol-atom-white" />
+        </div>
+
+        {/* Floating data points */}
+        <div className="mol-data mol-data-1">
+          <span className="mol-label">HPLC</span>
+          <span className="mol-value">&gt;98%</span>
+        </div>
+        <div className="mol-data mol-data-2">
+          <span className="mol-label">MW</span>
+          <span className="mol-value">1419 Da</span>
+        </div>
+        <div className="mol-data mol-data-3">
+          <span className="mol-label">pH</span>
+          <span className="mol-value">6.8</span>
+        </div>
+      </div>
+
+      {/* Connecting lines radiating out */}
+      <svg className="mol-connections" viewBox="0 0 400 400">
+        <circle cx="200" cy="200" r="60" className="mol-circle-inner" />
+        <circle cx="200" cy="200" r="120" className="mol-circle-mid" />
+        <circle cx="200" cy="200" r="180" className="mol-circle-outer" />
+
+        {/* Peptide chain suggestion */}
+        <path d="M80,200 Q120,160 160,200 Q200,240 240,200 Q280,160 320,200" className="mol-peptide-path" />
+        <path d="M80,220 Q120,260 160,220 Q200,180 240,220 Q280,260 320,220" className="mol-peptide-path mol-peptide-path-2" />
+
+        {/* Nodes on chains */}
+        {[80, 120, 160, 200, 240, 280, 320].map((x, i) => (
+          <circle key={i} cx={x} cy={200 + (i % 2 ? -20 : 20) * Math.sin(i)} r={3 + (i % 3)} className="mol-node" style={{ animationDelay: `${i * 0.3}s` }} />
+        ))}
+
+        {/* Floating measurement lines */}
+        <line x1="50" y1="100" x2="90" y2="100" className="mol-measure" />
+        <line x1="310" y1="300" x2="350" y2="300" className="mol-measure" style={{ animationDelay: '2s' }} />
       </svg>
+
+      {/* Scanning line */}
+      <div className="mol-scan" />
     </div>
   );
 }

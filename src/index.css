@@ -67,78 +67,254 @@ body {
   50% { opacity: 0.8; transform: scale(1.1); }
 }
 
-/* ====== DNA HELIX ====== */
-.dna-container {
-  width: 220px;
-  height: 500px;
+/* ====== HERO MOLECULE ====== */
+.hero-molecule {
+  width: 400px;
+  height: 400px;
   position: relative;
+  animation: mol-float 10s ease-in-out infinite;
 }
 
-.dna-helix {
+@keyframes mol-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.mol-core {
+  position: absolute;
+  inset: 0;
+}
+
+/* Orbiting rings */
+.mol-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid;
+}
+
+.mol-ring-1 {
+  inset: 60px;
+  border-color: rgba(249,115,22,0.15);
+  animation: mol-spin 20s linear infinite;
+}
+
+.mol-ring-2 {
+  inset: 30px;
+  border-color: rgba(20,184,166,0.1);
+  animation: mol-spin 30s linear infinite reverse;
+}
+
+.mol-ring-3 {
+  inset: 90px;
+  border-color: rgba(255,255,255,0.05);
+  animation: mol-spin 15s linear infinite;
+}
+
+@keyframes mol-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Center glow */
+.mol-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  margin: -12px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(249,115,22,0.8) 0%, rgba(249,115,22,0) 70%);
+  box-shadow: 0 0 40px rgba(249,115,22,0.4), 0 0 80px rgba(249,115,22,0.15);
+  animation: center-breathe 3s ease-in-out infinite;
+}
+
+@keyframes center-breathe {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.5); opacity: 1; }
+}
+
+/* Orbiting atoms */
+.mol-orbit {
+  position: absolute;
+  inset: 0;
+  animation: mol-spin linear infinite;
+}
+
+.mol-orbit-1 { animation-duration: 8s; }
+.mol-orbit-2 { animation-duration: 12s; animation-direction: reverse; }
+.mol-orbit-3 { animation-duration: 18s; }
+
+.mol-atom {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 15px currentColor;
+}
+
+.mol-atom-amber {
+  top: 60px;
+  left: 50%;
+  margin-left: -5px;
+  background: #f59e0b;
+  color: #f59e0b;
+}
+
+.mol-atom-teal {
+  bottom: 30px;
+  right: 60px;
+  background: #14b8a6;
+  color: #14b8a6;
+}
+
+.mol-atom-white {
+  top: 50%;
+  left: 90px;
+  margin-top: -5px;
+  background: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.5);
+  width: 6px;
+  height: 6px;
+}
+
+/* Floating data labels */
+.mol-data {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 6px 10px;
+  animation: data-float 6s ease-in-out infinite;
+}
+
+.mol-label {
+  font-size: 9px;
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.mol-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: #f59e0b;
+}
+
+.mol-data-1 {
+  top: 30px;
+  right: 20px;
+  animation-delay: 0s;
+}
+
+.mol-data-2 {
+  bottom: 60px;
+  left: 10px;
+  animation-delay: 2s;
+}
+
+.mol-data-3 {
+  top: 50%;
+  right: -10px;
+  animation-delay: 4s;
+}
+
+@keyframes data-float {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50% { transform: translateY(-8px); opacity: 1; }
+}
+
+/* SVG connections */
+.mol-connections {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  animation: dna-float 8s ease-in-out infinite;
 }
 
-@keyframes dna-float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(2deg); }
-}
-
-.dna-backbone-left,
-.dna-backbone-right {
+.mol-circle-inner,
+.mol-circle-mid,
+.mol-circle-outer {
   fill: none;
-  stroke-width: 1.5;
-  stroke-dasharray: 8 4;
-  animation: dna-dash 3s linear infinite;
+  stroke-dasharray: 4 8;
 }
 
-.dna-backbone-left {
-  stroke: rgba(249,115,22,0.3);
-}
-
-.dna-backbone-right {
-  stroke: rgba(20,184,166,0.3);
-}
-
-@keyframes dna-dash {
-  to { stroke-dashoffset: -24; }
-}
-
-.dna-dot-left {
-  fill: rgba(249,115,22,0.6);
-  animation: dna-pulse 2s ease-in-out infinite;
-}
-
-.dna-dot-right {
-  fill: rgba(20,184,166,0.6);
-  animation: dna-pulse 2s ease-in-out infinite;
-}
-
-@keyframes dna-pulse {
-  0%, 100% { r: 3; opacity: 0.5; }
-  50% { r: 5; opacity: 1; }
-}
-
-.dna-bridge {
-  stroke: rgba(255,255,255,0.08);
+.mol-circle-inner {
+  stroke: rgba(249,115,22,0.12);
   stroke-width: 1;
-  animation: bridge-glow 2s ease-in-out infinite;
+  animation: mol-spin 25s linear infinite;
 }
 
-@keyframes bridge-glow {
-  0%, 100% { stroke: rgba(255,255,255,0.05); }
-  50% { stroke: rgba(249,115,22,0.15); }
+.mol-circle-mid {
+  stroke: rgba(20,184,166,0.08);
+  stroke-width: 0.5;
+  animation: mol-spin 40s linear infinite reverse;
 }
 
-.dna-center {
-  fill: rgba(249,115,22,0.4);
-  animation: center-pulse 2s ease-in-out infinite;
+.mol-circle-outer {
+  stroke: rgba(255,255,255,0.04);
+  stroke-width: 0.5;
+  animation: mol-spin 60s linear infinite;
 }
 
-@keyframes center-pulse {
-  0%, 100% { r: 1; opacity: 0.2; }
-  50% { r: 3; opacity: 0.6; }
+.mol-peptide-path {
+  fill: none;
+  stroke: rgba(249,115,22,0.15);
+  stroke-width: 1.5;
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: draw-path 4s ease-in-out infinite alternate;
+}
+
+.mol-peptide-path-2 {
+  stroke: rgba(20,184,166,0.12);
+  animation-delay: 2s;
+}
+
+@keyframes draw-path {
+  to { stroke-dashoffset: 0; }
+}
+
+.mol-node {
+  fill: rgba(249,115,22,0.6);
+  animation: node-pulse 2s ease-in-out infinite;
+}
+
+@keyframes node-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; fill: rgba(20,184,166,0.8); }
+}
+
+.mol-measure {
+  stroke: rgba(255,255,255,0.1);
+  stroke-width: 1;
+  stroke-dasharray: 2 3;
+  animation: measure-blink 3s ease-in-out infinite;
+}
+
+@keyframes measure-blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0.5; }
+}
+
+/* Scanning line */
+.mol-scan {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(249,115,22,0.3), transparent);
+  animation: scan-down 4s ease-in-out infinite;
+}
+
+@keyframes scan-down {
+  0% { top: 0; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
 }
 
 /* ====== PARTICLE FIELD ====== */
