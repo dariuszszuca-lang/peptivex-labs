@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, FlaskConical, Shield, Truck, Zap, Award, Beaker, ChevronDown, ChevronUp } from 'lucide-react';
+import { ArrowRight, FlaskConical, Shield, Truck, Zap, Award, Beaker, ChevronDown, ChevronUp, Heart, Hourglass, Flame, Dumbbell, Brain, Sparkles, type LucideIcon } from 'lucide-react';
 import { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { PRODUCTS } from '../data/products';
@@ -50,13 +50,13 @@ export default function HomePage() {
     { icon: Beaker, title: pl ? 'Szeroki wybór' : 'Wide Selection', desc: pl ? 'Peptydy regeneracyjne, metaboliczne, anti-aging i więcej.' : 'Regenerative, metabolic, anti-aging peptides and more.' },
   ];
 
-  const categories = [
-    { key: 'healing', emoji: '🧬', count: PRODUCTS.filter(p => p.category === 'healing').length },
-    { key: 'anti-aging', emoji: '⏳', count: PRODUCTS.filter(p => p.category === 'anti-aging').length },
-    { key: 'metabolic', emoji: '🔥', count: PRODUCTS.filter(p => p.category === 'metabolic').length },
-    { key: 'growth-hormone', emoji: '💪', count: PRODUCTS.filter(p => p.category === 'growth-hormone').length },
-    { key: 'weight-loss', emoji: '⚡', count: PRODUCTS.filter(p => p.category === 'weight-loss').length },
-    { key: 'cognitive', emoji: '🧠', count: PRODUCTS.filter(p => p.category === 'cognitive').length },
+  const categories: { key: string; icon: LucideIcon; color: string; count: number }[] = [
+    { key: 'healing', icon: Heart, color: 'text-rose-400', count: PRODUCTS.filter(p => p.category === 'healing').length },
+    { key: 'anti-aging', icon: Hourglass, color: 'text-violet-400', count: PRODUCTS.filter(p => p.category === 'anti-aging').length },
+    { key: 'metabolic', icon: Flame, color: 'text-orange-400', count: PRODUCTS.filter(p => p.category === 'metabolic').length },
+    { key: 'growth-hormone', icon: Dumbbell, color: 'text-emerald-400', count: PRODUCTS.filter(p => p.category === 'growth-hormone').length },
+    { key: 'weight-loss', icon: Zap, color: 'text-amber-400', count: PRODUCTS.filter(p => p.category === 'weight-loss').length },
+    { key: 'cognitive', icon: Brain, color: 'text-sky-400', count: PRODUCTS.filter(p => p.category === 'cognitive').length },
   ];
 
   return (
@@ -189,7 +189,9 @@ export default function HomePage() {
                 to={`/${lang}/products?category=${cat.key}`}
                 className="group bg-white/[0.03] border border-white/[0.08] rounded-xl p-5 text-center hover:border-amber-500/30 hover:bg-amber-500/[0.03] transition-all"
               >
-                <span className="text-2xl block mb-2">{cat.emoji}</span>
+                <div className="w-10 h-10 mx-auto mb-3 rounded-lg bg-white/[0.04] border border-white/[0.06] flex items-center justify-center group-hover:border-amber-500/20 transition-colors">
+                  <cat.icon size={20} className={cat.color} />
+                </div>
                 <span className="text-white/70 text-sm font-medium group-hover:text-white transition-colors block mb-1">
                   {t(`categories.${cat.key}`)}
                 </span>
