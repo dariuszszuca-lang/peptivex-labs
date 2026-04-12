@@ -1,0 +1,73 @@
+{
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "cart": "Cart",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "splash": {
+    "title": "Select Your Region",
+    "subtitle": "Shipping and pricing depend on your selected region",
+    "pl": "Polska",
+    "uk": "United Kingdom",
+    "plDesc": "InPost Paczkomaty shipping · Prices in PLN",
+    "ukDesc": "InPost Lockers · Prices in GBP"
+  },
+  "home": {
+    "hero": "Pioneering Research. Premium Peptides.",
+    "heroSub": "Highest quality research peptides. For laboratory and research use only.",
+    "shopNow": "Browse Products",
+    "featured": "Featured Products",
+    "categories": "Categories"
+  },
+  "product": {
+    "addToCart": "Add to Cart",
+    "outOfStock": "Out of Stock",
+    "dosage": "Dosage",
+    "format": "Format",
+    "category": "Category",
+    "researchOnly": "RESEARCH USE ONLY",
+    "researchSub": "For research and laboratory use only. This product is not a registered drug or dietary supplement.",
+    "vial": "Vial (lyophilized)",
+    "pen": "Pen (injector)",
+    "capsule": "Capsules",
+    "spray": "Spray"
+  },
+  "cart": {
+    "title": "Cart",
+    "empty": "Your cart is empty",
+    "total": "Total",
+    "checkout": "Proceed to Checkout",
+    "remove": "Remove",
+    "continueShopping": "Continue Shopping"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "name": "Full Name",
+    "email": "Email",
+    "phone": "Phone",
+    "selectLocker": "Select InPost Locker",
+    "disclaimer": "I confirm this purchase is for research purposes only. I am a qualified professional.",
+    "pay": "Pay Now",
+    "shipping": "Shipping",
+    "shippingCost": "£7.66",
+    "freeFrom": "Free over £100"
+  },
+  "footer": {
+    "research": "All products are for research purposes only.",
+    "disclaimer": "PEPTIVEX LABS is not a medical facility. Products are for research and laboratory use only.",
+    "rights": "All rights reserved."
+  },
+  "categories": {
+    "healing": "Healing",
+    "anti-aging": "Anti-Aging",
+    "metabolic": "Metabolic",
+    "growth-hormone": "Growth Hormone",
+    "cognitive": "Cognitive",
+    "melanogenesis": "Melanogenesis",
+    "mitochondrial": "Mitochondrial",
+    "cosmeceutical": "Cosmeceutical",
+    "weight-loss": "Weight Loss"
+  }
+}

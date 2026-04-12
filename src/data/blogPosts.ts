@@ -213,11 +213,34 @@ export const BLOG_POSTS: BlogPost[] = [
         ],
       },
       {
+        heading: 'Dawkowanie w badaniach przedklinicznych',
+        paragraphs: [
+          'W badaniach na modelach zwierzęcych BPC-157 stosowano w dawkach od 6 do 50 mcg/kg masy ciała, podawanych raz lub dwa razy dziennie. Drogi podania obejmowały iniekcje podskórne, dootrzewnowe oraz podawanie doustne — co jest nietypowe dla peptydów, które zazwyczaj są rozkładane w przewodzie pokarmowym.',
+          'Stabilność BPC-157 w kwaśnym środowisku żołądka (pochodzenie z białka soku żołądkowego) sprawia, że jest jednym z nielicznych peptydów wykazujących aktywność po podaniu doustnym w modelach zwierzęcych. Ta cecha jest przedmiotem intensywnych badań.',
+          'Ekwiwalent ludzki dawek stosowanych w badaniach zwierzęcych szacowany jest na 200-500 mcg dziennie, jednak brak jest jeszcze ustalonych protokołów klinicznych. Pilotażowe badanie z 2025 roku testowało dawki dożylne do 20 mg u ludzi.',
+        ],
+      },
+      {
+        heading: 'Synergia z innymi peptydami',
+        paragraphs: [
+          'W literaturze przedklinicznej BPC-157 jest często badany w połączeniu z TB-500 (Thymosin Beta-4). Hipoteza synergii opiera się na komplementarnych mechanizmach: BPC-157 stymuluje angiogenezę i ochronę tkanek, podczas gdy TB-500 mobilizuje komórki macierzyste i wspiera remodelowanie cytoszkieletu.',
+          'Połączenie BPC-157 z peptydami uwalniającymi hormon wzrostu (CJC-1295, Ipamorelin) jest również przedmiotem badań — hormon wzrostu odgrywa kluczową rolę w regeneracji tkanek, co teoretycznie może wzmacniać efekty regeneracyjne BPC-157.',
+        ],
+      },
+      {
         heading: 'Bezpieczeństwo i status regulacyjny',
         paragraphs: [
-          'Pilotażowe badanie z 2025 roku z udziałem ludzi, w którym BPC-157 podawano dożylnie w dawkach do 20 mg, nie wykazało istotnych działań niepożądanych na serce, wątrobę ani nerki.',
-          'BPC-157 nie jest zatwierdzony przez FDA ani EMA do stosowania terapeutycznego u ludzi. Jest klasyfikowany jako odczynnik badawczy. Znajduje się na liście substancji zabronionych USADA w sporcie wyczynowym.',
-          'Należy zauważyć, że zdecydowana większość dostępnych danych pochodzi z badań na zwierzętach. Pełne badania kliniczne z udziałem ludzi są nadal potrzebne.',
+          'Pilotażowe badanie z 2025 roku z udziałem ludzi, w którym BPC-157 podawano dożylnie w dawkach do 20 mg, nie wykazało istotnych działań niepożądanych na serce, wątrobę ani nerki. Jest to jedno z pierwszych kontrolowanych badań bezpieczeństwa BPC-157 u ludzi.',
+          'BPC-157 jest sklasyfikowany przez FDA jako substancja kategorii 2 (Category 2 bulk substance) — nie może być legalnie stosowany w recepturze aptecznej w USA. Nie jest zatwierdzony przez EMA w Europie. Znajduje się na liście substancji zabronionych USADA w sporcie wyczynowym.',
+          'Jednym z teoretycznych ryzyk jest promowanie angiogenezy, co w kontekście istniejących nowotworów wymaga ostrożności. Jednak w dotychczasowych badaniach przedklinicznych nie zaobserwowano efektów prokarcinogennych.',
+          'Należy podkreślić, że zdecydowana większość danych pochodzi z badań na modelach zwierzęcych. Mimo obiecujących wyników, pełne randomizowane badania kliniczne z udziałem ludzi są nadal konieczne do potwierdzenia bezpieczeństwa i skuteczności.',
+        ],
+      },
+      {
+        heading: 'Przechowywanie BPC-157',
+        paragraphs: [
+          'BPC-157 w formie liofilizowanej (proszek) należy przechowywać w temperaturze -20°C, chroniony przed światłem i wilgocią. W tych warunkach peptyd zachowuje stabilność przez wiele miesięcy.',
+          'Po rekonstytucji wodą bakteriostatyczną roztwór należy przechowywać w lodówce (2-8°C) i zużyć w ciągu 30 dni. Nie zamrażać ponownie roztworu — wielokrotne cykle zamrażania-rozmrażania degradują peptyd i obniżają jego aktywność.',
         ],
       },
     ],
@@ -253,11 +276,34 @@ export const BLOG_POSTS: BlogPost[] = [
         ],
       },
       {
+        heading: 'Dosing in preclinical studies',
+        paragraphs: [
+          'In animal model studies, BPC-157 was administered at doses of 6 to 50 mcg/kg body weight, given once or twice daily. Routes of administration included subcutaneous, intraperitoneal injections, and oral administration — unusual for peptides typically degraded in the gastrointestinal tract.',
+          'BPC-157\'s stability in the acidic stomach environment (due to its origin from gastric juice protein) makes it one of the few peptides showing activity after oral administration in animal models. This characteristic is the subject of intensive research.',
+          'The human equivalent of doses used in animal studies is estimated at 200-500 mcg daily, though established clinical protocols do not yet exist. The 2025 pilot study tested intravenous doses up to 20 mg in humans.',
+        ],
+      },
+      {
+        heading: 'Synergy with other peptides',
+        paragraphs: [
+          'In preclinical literature, BPC-157 is frequently studied in combination with TB-500 (Thymosin Beta-4). The synergy hypothesis is based on complementary mechanisms: BPC-157 stimulates angiogenesis and tissue protection, while TB-500 mobilizes stem cells and supports cytoskeleton remodeling.',
+          'The combination of BPC-157 with growth hormone releasing peptides (CJC-1295, Ipamorelin) is also under investigation — growth hormone plays a critical role in tissue regeneration, which could theoretically enhance the regenerative effects of BPC-157.',
+        ],
+      },
+      {
         heading: 'Safety and regulatory status',
         paragraphs: [
-          'A 2025 pilot human study, where BPC-157 was administered intravenously at doses up to 20 mg, showed no significant adverse effects on the heart, liver, or kidneys.',
-          'BPC-157 is not approved by the FDA or EMA for human therapeutic use. It is classified as a research reagent. It appears on the USADA prohibited substance list in competitive sports.',
-          'It should be noted that the vast majority of available data comes from animal studies. Full human clinical trials are still needed.',
+          'A 2025 pilot human study, where BPC-157 was administered intravenously at doses up to 20 mg, showed no significant adverse effects on the heart, liver, or kidneys. This is one of the first controlled safety studies of BPC-157 in humans.',
+          'BPC-157 is classified by the FDA as a Category 2 bulk substance — it cannot legally be used in pharmacy compounding in the USA. It is not approved by the EMA in Europe. It appears on the USADA prohibited substance list in competitive sports.',
+          'One theoretical risk is angiogenesis promotion, which requires caution in the context of existing tumors. However, procarcinogenic effects have not been observed in preclinical studies to date.',
+          'It should be emphasized that the vast majority of data comes from animal model studies. Despite promising results, full randomized clinical trials in humans are still necessary to confirm safety and efficacy.',
+        ],
+      },
+      {
+        heading: 'Storing BPC-157',
+        paragraphs: [
+          'Lyophilized BPC-157 (powder) should be stored at -20°C, protected from light and moisture. Under these conditions, the peptide maintains stability for many months.',
+          'After reconstitution with bacteriostatic water, the solution should be refrigerated (2-8°C) and used within 30 days. Do not re-freeze the solution — repeated freeze-thaw cycles degrade the peptide and reduce its activity.',
         ],
       },
     ],
@@ -321,6 +367,30 @@ export const BLOG_POSTS: BlogPost[] = [
           'Zbyt energiczne mieszanie — może zniszczyć strukturę peptydu',
         ],
       },
+      {
+        heading: 'Woda bakteriostatyczna — co to jest?',
+        paragraphs: [
+          'Woda bakteriostatyczna (BAC water) to sterylna woda z dodatkiem 0.9% alkoholu benzylowego. Alkohol benzylowy działa jako konserwant, zapobiegając rozwojowi bakterii w roztworze. Dzięki temu roztwór peptydu pozostaje bezpieczny do użycia przez dłuższy czas.',
+          'Nie używaj zwykłej wody destylowanej, wody do iniekcji ani soli fizjologicznej bez konserwantu — w tych roztworach bakterie mogą się rozmnażać, co kontaminuje peptyd i czyni go bezużytecznym (a potencjalnie niebezpiecznym).',
+          'Woda bakteriostatyczna jest dostępna w fiolkach 10ml lub 30ml. Jedna fiolka 10ml wystarczy do rekonstytucji kilku peptydów. Przechowuj ją w lodówce po otwarciu.',
+        ],
+      },
+      {
+        heading: 'Ile wody dodać? Obliczanie stężenia',
+        paragraphs: [
+          'Ilość wody dodawanej do fiolki peptydu zależy od pożądanego stężenia roztworu. Ogólna zasada: im mniej wody, tym wyższe stężenie — ale zbyt stężony roztwór może być trudny do precyzyjnego dawkowania.',
+          'Przykład: dla fiolki BPC-157 5mg — dodanie 2ml wody bakteriostatycznej daje stężenie 2.5mg/ml (2500mcg/ml). Jeśli badawcza dawka to 250mcg, odpowiada to 0.1ml (10 jednostek na strzykawce insulinowej U-100). Dostępne są kalkulatory online ułatwiające te obliczenia.',
+          'Ważne: zapisz ilość dodanej wody na fiolce markerem lub etykietą. Po kilku dniach łatwo zapomnieć jakie stężenie przygotowałeś.',
+        ],
+      },
+      {
+        heading: 'Transport peptydów',
+        paragraphs: [
+          'Przy zamawianiu peptydów online kluczowe jest, aby dostawca stosował odpowiednie metody pakowania. Liofilizowane peptydy są relatywnie odporne na krótkotrwałe wahania temperatury podczas transportu — kilka dni w temperaturze pokojowej nie powinno znacząco wpłynąć na ich jakość.',
+          'Jednak po otrzymaniu przesyłki należy niezwłocznie umieścić peptydy w zamrażarce (-20°C). Nie pozostawiaj ich na parapecie, w samochodzie ani w innym miejscu narażonym na ciepło i światło.',
+          'W PEPTIVEX LABS wysyłamy peptydy w dyskretnym opakowaniu przez InPost Paczkomaty (Polska) i InPost Lockers (UK), z zachowaniem odpowiednich warunków transportu.',
+        ],
+      },
     ],
     sections_en: [
       {
@@ -369,6 +439,30 @@ export const BLOG_POSTS: BlogPost[] = [
           'Direct sunlight — UV breaks down peptide bonds',
           'Contamination — always use sterile needles and syringes',
           'Too vigorous mixing — can destroy the peptide structure',
+        ],
+      },
+      {
+        heading: 'Bacteriostatic water — what is it?',
+        paragraphs: [
+          'Bacteriostatic water (BAC water) is sterile water with 0.9% benzyl alcohol added. Benzyl alcohol acts as a preservative, preventing bacterial growth in the solution. This keeps the peptide solution safe for use over an extended period.',
+          'Do not use regular distilled water, water for injection, or saline without preservative — bacteria can multiply in these solutions, contaminating the peptide and rendering it useless (and potentially dangerous).',
+          'Bacteriostatic water is available in 10ml or 30ml vials. One 10ml vial is sufficient for reconstituting several peptides. Store it in the refrigerator after opening.',
+        ],
+      },
+      {
+        heading: 'How much water to add? Calculating concentration',
+        paragraphs: [
+          'The amount of water added to a peptide vial depends on the desired solution concentration. General rule: less water means higher concentration — but too concentrated a solution can be difficult to dose precisely.',
+          'Example: for a BPC-157 5mg vial — adding 2ml of bacteriostatic water gives a concentration of 2.5mg/ml (2500mcg/ml). If the research dose is 250mcg, that corresponds to 0.1ml (10 units on a U-100 insulin syringe). Online calculators are available to simplify these calculations.',
+          'Important: write the amount of water added on the vial with a marker or label. After a few days, it is easy to forget what concentration you prepared.',
+        ],
+      },
+      {
+        heading: 'Transporting peptides',
+        paragraphs: [
+          'When ordering peptides online, it is crucial that the supplier uses appropriate packaging methods. Lyophilized peptides are relatively resistant to short-term temperature fluctuations during transport — a few days at room temperature should not significantly affect their quality.',
+          'However, upon receiving the shipment, peptides should be immediately placed in the freezer (-20°C). Do not leave them on a windowsill, in a car, or in any other location exposed to heat and light.',
+          'At PEPTIVEX LABS, we ship peptides in discreet packaging via InPost Paczkomaty (Poland) and InPost Lockers (UK), maintaining appropriate transport conditions.',
         ],
       },
     ],
