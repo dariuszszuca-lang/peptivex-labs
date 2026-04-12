@@ -54,6 +54,9 @@ export default function Footer() {
               <Link to={`/${lang}/privacy`} className="text-white/30 hover:text-white/60 text-sm transition-colors">
                 {pl ? 'Polityka prywatności' : 'Privacy Policy'}
               </Link>
+              <Link to={`/${lang}/legal`} className="text-white/30 hover:text-white/60 text-sm transition-colors">
+                {pl ? 'Informacja prawna' : 'Legal Notice'}
+              </Link>
             </div>
             <div className="bg-amber-500/[0.08] border border-amber-500/20 rounded-lg px-3 py-2">
               <p className="text-amber-500 text-[10px] font-semibold uppercase tracking-wide mb-0.5">⚠ {t('product.researchOnly')}</p>
