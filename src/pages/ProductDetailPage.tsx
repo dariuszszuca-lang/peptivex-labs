@@ -184,13 +184,13 @@ export default function ProductDetailPage() {
         {PROTOCOLS[product.id] && (() => {
           const proto = PROTOCOLS[product.id];
           const protocolItems = [
-            { icon: Beaker, label: pl ? 'Rekonstytucja' : 'Reconstitution', value: proto.reconstitution },
-            { icon: FlaskConical, label: pl ? 'Stężenie' : 'Concentration', value: proto.concentration },
-            { icon: Plus, label: pl ? 'Typowa dawka' : 'Typical Dose', value: proto.typicalDose },
-            { icon: Clock, label: 'Timing', value: proto.timing },
-            { icon: Calendar, label: pl ? 'Częstotliwość' : 'Frequency', value: proto.frequency },
-            { icon: Layers, label: pl ? 'Długość cyklu' : 'Cycle Length', value: proto.cycleLength },
-            { icon: Thermometer, label: pl ? 'Przechowywanie' : 'Storage', value: proto.storage },
+            { icon: Beaker, label: pl ? 'Rekonstytucja' : 'Reconstitution', value: proto.reconstitution[lang] },
+            { icon: FlaskConical, label: pl ? 'Stężenie' : 'Concentration', value: proto.concentration[lang] },
+            { icon: Plus, label: pl ? 'Typowa dawka' : 'Typical Dose', value: proto.typicalDose[lang] },
+            { icon: Clock, label: 'Timing', value: proto.timing[lang] },
+            { icon: Calendar, label: pl ? 'Częstotliwość' : 'Frequency', value: proto.frequency[lang] },
+            { icon: Layers, label: pl ? 'Długość cyklu' : 'Cycle Length', value: proto.cycleLength[lang] },
+            { icon: Thermometer, label: pl ? 'Przechowywanie' : 'Storage', value: proto.storage[lang] },
           ];
           return (
             <div className="mt-16">
@@ -221,7 +221,7 @@ export default function ProductDetailPage() {
               {proto.stackNotes && (
                 <div className="mt-4 bg-amber-500/[0.04] border border-amber-500/10 rounded-xl p-4">
                   <p className="text-amber-500/60 text-xs uppercase tracking-wide mb-1">{pl ? 'Notatki / Stacki' : 'Notes / Stacks'}</p>
-                  <p className="text-white/60 text-sm">{proto.stackNotes}</p>
+                  <p className="text-white/60 text-sm">{proto.stackNotes[lang]}</p>
                 </div>
               )}
 
