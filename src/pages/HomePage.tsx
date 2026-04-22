@@ -176,6 +176,74 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* =================== PROBLEM → PEPTIDE =================== */}
+      <section className="relative overflow-hidden py-24">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0c0a08] via-amber-900/[0.06] to-[#0c0a08]" />
+        <HexPattern className="text-amber-500/[0.03]" />
+        <div className="absolute top-1/3 left-1/4 w-[350px] h-[350px] rounded-full bg-amber-500/[0.05] blur-[100px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] rounded-full bg-teal-500/[0.04] blur-[80px]" />
+        <div className="max-w-5xl mx-auto px-4 relative z-10">
+          <div className="text-center mb-14">
+            <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Rozwiązania' : 'Solutions'}</p>
+            <h2 className="text-white text-3xl sm:text-4xl font-extrabold mb-4">
+              {pl ? (
+                <>Jaki masz <span className="text-gradient">problem badawczy</span>?</>
+              ) : (
+                <>What's your <span className="text-gradient">research focus</span>?</>
+              )}
+            </h2>
+            <p className="text-white/40 text-sm max-w-lg mx-auto">
+              {pl ? 'Każdy peptyd celuje w konkretny szlak biologiczny. Znajdź ten dopasowany do Twojego obszaru badań.' : 'Each peptide targets a specific biological pathway. Find the one matching your research area.'}
+            </p>
+            <div className="w-16 h-1 bg-gradient-to-r from-amber-500 to-teal-500 rounded-full mx-auto mt-6" />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {([
+              { problem: pl ? 'Wolna regeneracja tkanek' : 'Slow tissue recovery', solution: 'BPC-157 + TB-500', icon: '🧬', color: 'from-rose-500/15 to-rose-500/5', border: 'hover:border-rose-500/30', slug: 'bpc-157-5mg' },
+              { problem: pl ? 'Spadek energii z wiekiem' : 'Age-related energy decline', solution: 'NAD+', icon: '⚡', color: 'from-amber-500/15 to-amber-500/5', border: 'hover:border-amber-500/30', slug: 'nad-500mg' },
+              { problem: pl ? 'Niski hormon wzrostu' : 'Low growth hormone', solution: 'CJC-1295 + Ipamorelin', icon: '💪', color: 'from-emerald-500/15 to-emerald-500/5', border: 'hover:border-emerald-500/30', slug: 'cjc-1295-no-dac-5mg' },
+              { problem: pl ? 'Wolny metabolizm' : 'Slow metabolism', solution: 'Retatrutide', icon: '🔥', color: 'from-orange-500/15 to-orange-500/5', border: 'hover:border-orange-500/30', slug: 'retatrutide-40mg' },
+              { problem: pl ? 'Lęk i stres' : 'Anxiety & stress', solution: 'Selank', icon: '🧠', color: 'from-sky-500/15 to-sky-500/5', border: 'hover:border-sky-500/30', slug: 'selank-5mg' },
+              { problem: pl ? 'Starzenie skóry' : 'Skin aging', solution: 'GHK-Cu + SNAP-8', icon: '✨', color: 'from-violet-500/15 to-violet-500/5', border: 'hover:border-violet-500/30', slug: 'ghk-cu-50mg' },
+              { problem: pl ? 'Dysfunkcja mitochondriów' : 'Mitochondrial dysfunction', solution: 'SS-31 + MOTS-c', icon: '🔋', color: 'from-teal-500/15 to-teal-500/5', border: 'hover:border-teal-500/30', slug: 'ss-31-10mg' },
+              { problem: pl ? 'Redukcja tkanki tłuszczowej' : 'Fat tissue reduction', solution: '5-Amino-1MQ', icon: '📉', color: 'from-pink-500/15 to-pink-500/5', border: 'hover:border-pink-500/30', slug: '5-amino-1mq-10mg' },
+            ]).map((item, i) => (
+              <Link
+                key={i}
+                to={`/${lang}/product/${item.slug}`}
+                className={`group relative rounded-2xl overflow-hidden transition-all duration-300 border border-white/[0.06] ${item.border}`}
+              >
+                {/* Gradient border on hover */}
+                <div className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-b from-amber-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-full h-full rounded-2xl bg-[#0e0c09]" />
+                </div>
+                <div className="relative z-10 p-5">
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.color} border border-white/[0.06] flex items-center justify-center mb-4 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(249,115,22,0.1)] transition-all duration-300`}>
+                    <span className="text-xl">{item.icon}</span>
+                  </div>
+                  <p className="text-white/50 text-xs uppercase tracking-wide mb-1.5">{pl ? 'Problem' : 'Problem'}</p>
+                  <h3 className="text-white font-bold text-sm mb-3 leading-snug">{item.problem}</h3>
+                  <div className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+                    <p className="text-amber-400 text-sm font-semibold">{item.solution}</p>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <Link
+              to={`/${lang}/guide`}
+              className="inline-flex items-center gap-2 text-amber-500 hover:text-amber-400 text-sm font-medium border border-amber-500/20 px-6 py-2.5 rounded-xl hover:bg-amber-500/5 transition-all"
+            >
+              {pl ? 'Pełny przewodnik po peptydach' : 'Full peptide guide'} <ArrowRight size={14} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* =================== CATEGORIES =================== */}
       <section className="relative overflow-hidden section-dark py-20">
         <HexPattern className="text-amber-500/[0.03]" />
