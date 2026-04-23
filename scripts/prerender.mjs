@@ -14,6 +14,10 @@ const productSlugs = [
   'mots-c-10mg', 'ss-31-10mg', 'cjc-1295-no-dac-5mg', 'melanotan-2-10mg',
   '5-amino-1mq-10mg', 'ipamorelin-5mg', 'ipamorelin-10mg',
   'selank-5mg', 'selank-10mg', 'snap-8-10mg',
+  'klow-80mg', 'glow-70mg', 'bac-water-10ml',
+  'retatrutide-set-60mg',
+  'combo-nad-motsc-bac', 'combo-cjc-ipa-bac',
+  'combo-bpc-tb-bac', 'combo-reta-motsc-bac',
 ];
 const blogSlugs = ['what-are-peptides', 'bpc-157-research-overview', 'peptide-storage-guide', 'longevity-peptide-framework'];
 const staticPages = ['', '/products', '/about', '/faq', '/contact', '/blog', '/terms', '/privacy', '/legal', '/guide', '/cart'];
