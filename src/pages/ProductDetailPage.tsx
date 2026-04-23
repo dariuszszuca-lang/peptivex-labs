@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, ShoppingCart, Plus, Minus, FlaskConical, Truck, Shield, Check } from 'lucide-react';
+import { ArrowLeft, ShoppingCart, Plus, Minus, FlaskConical, Truck, Shield, Check, FileText, Award } from 'lucide-react';
 import { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useCart } from '../contexts/CartContext';
@@ -125,11 +125,12 @@ export default function ProductDetailPage() {
             <p className="text-white/45 text-[15px] leading-[1.8]">{description}</p>
 
             {/* Trust signals */}
-            <div className="grid grid-cols-3 gap-3">
+            <div className={`grid gap-3 ${product.coa ? 'grid-cols-2 sm:grid-cols-4' : 'grid-cols-3'}`}>
               {[
                 { icon: FlaskConical, text: pl ? 'Czystość >98%' : 'Purity >98%' },
                 { icon: Truck, text: pl ? 'Wysyłka 24h' : '24h Dispatch' },
                 { icon: Shield, text: 'Stripe Secure' },
+                ...(product.coa ? [{ icon: Award, text: pl ? 'COA dostępne' : 'COA Available' }] : []),
               ].map((ts, i) => (
                 <div key={i} className="flex items-center gap-2 p-2.5 rounded-lg bg-white/[0.03] border border-white/[0.06]">
                   <ts.icon size={14} className="text-amber-500/60 shrink-0" />
@@ -137,6 +138,33 @@ export default function ProductDetailPage() {
                 </div>
               ))}
             </div>
+
+            {/* COA (Certificate of Analysis) */}
+            {product.coa && (
+              <a
+                href={product.coa}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between gap-3 p-3 rounded-xl bg-amber-500/[0.05] border border-amber-500/20 hover:bg-amber-500/10 hover:border-amber-500/40 transition-all group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">
+                    <FileText size={16} className="text-amber-400" />
+                  </div>
+                  <div>
+                    <p className="text-white text-sm font-semibold">
+                      {pl ? 'Certyfikat analizy (COA)' : 'Certificate of Analysis (COA)'}
+                    </p>
+                    <p className="text-white/40 text-xs">
+                      {pl ? 'Niezależne badanie czystości produktu — pobierz PDF' : 'Independent third-party purity test — download PDF'}
+                    </p>
+                  </div>
+                </div>
+                <span className="text-amber-400 text-xs font-bold uppercase tracking-wide group-hover:translate-x-1 transition-transform">
+                  PDF →
+                </span>
+              </a>
+            )}
 
             {/* Stock */}
             <div className="flex items-center gap-2">

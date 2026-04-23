@@ -1,7 +1,7 @@
 export type Lang = 'pl' | 'en';
 export type Currency = 'PLN' | 'GBP';
 export type ProductFormat = 'vial' | 'pen' | 'capsule' | 'spray';
-export type ProductCategory = 'healing' | 'anti-aging' | 'metabolic' | 'growth-hormone' | 'cognitive' | 'melanogenesis' | 'mitochondrial' | 'cosmeceutical' | 'weight-loss';
+export type ProductCategory = 'healing' | 'anti-aging' | 'metabolic' | 'growth-hormone' | 'cognitive' | 'melanogenesis' | 'mitochondrial' | 'cosmeceutical' | 'weight-loss' | 'blend' | 'combo' | 'accessory';
 export type OrderStatus = 'new' | 'paid' | 'shipped' | 'delivered' | 'cancelled';
 export type ShippingRegion = 'pl' | 'uk';
 
@@ -22,6 +22,8 @@ export interface Product {
   format: ProductFormat;
   dosage: string;
   image?: string;
+  gallery?: string[];
+  coa?: string;
   disclaimer: boolean;
   protocol?: {
     reconstitution: string;

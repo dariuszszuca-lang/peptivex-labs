@@ -19,7 +19,7 @@ const LanguageContext = createContext<LanguageContextType | null>(null);
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>(() => {
     const saved = localStorage.getItem('px-lang');
-    return (saved === 'pl' || saved === 'en') ? saved : 'pl';
+    return (saved === 'pl' || saved === 'en') ? saved : 'en';
   });
   const [translations, setTranslations] = useState<Translations>({});
 

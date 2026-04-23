@@ -1,9 +1,17 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function SplashPage() {
   const { setLang } = useLanguage();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const saved = localStorage.getItem('px-lang');
+    if (saved === 'pl' || saved === 'en') {
+      navigate(`/${saved}`, { replace: true });
+    }
+  }, [navigate]);
 
   const select = (lang: 'pl' | 'en') => {
     setLang(lang);
@@ -30,6 +38,17 @@ export default function SplashPage() {
         <p className="text-white/40 text-sm mb-10">Shipping and pricing depend on your selected region</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* UK — primary market, shown first */}
+          <button
+            onClick={() => select('en')}
+            className="group relative bg-white/[0.03] border border-white/10 rounded-xl p-8 hover:border-amber-500/50 hover:bg-white/[0.06] transition-all duration-300 cursor-pointer"
+          >
+            <div className="text-4xl mb-4">🇬🇧</div>
+            <h2 className="text-white text-lg font-semibold mb-2">United Kingdom</h2>
+            <p className="text-white/40 text-sm">InPost Lockers · GBP</p>
+            <div className="absolute inset-0 rounded-xl border-2 border-amber-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+          </button>
+
           {/* Poland */}
           <button
             onClick={() => select('pl')}
@@ -38,17 +57,6 @@ export default function SplashPage() {
             <div className="text-4xl mb-4">🇵🇱</div>
             <h2 className="text-white text-lg font-semibold mb-2">Polska</h2>
             <p className="text-white/40 text-sm">InPost Paczkomaty · PLN</p>
-            <div className="absolute inset-0 rounded-xl border-2 border-amber-500 opacity-0 group-hover:opacity-100 transition-opacity" />
-          </button>
-
-          {/* UK */}
-          <button
-            onClick={() => select('en')}
-            className="group relative bg-white/[0.03] border border-white/10 rounded-xl p-8 hover:border-amber-500/50 hover:bg-white/[0.06] transition-all duration-300 cursor-pointer"
-          >
-            <div className="text-4xl mb-4">🇬🇧</div>
-            <h2 className="text-white text-lg font-semibold mb-2">United Kingdom</h2>
-            <p className="text-white/40 text-sm">InPost Lockers · GBP</p>
             <div className="absolute inset-0 rounded-xl border-2 border-amber-500 opacity-0 group-hover:opacity-100 transition-opacity" />
           </button>
         </div>

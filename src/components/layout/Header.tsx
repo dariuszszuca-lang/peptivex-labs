@@ -57,13 +57,31 @@ export default function Header() {
 
         {/* Right side */}
         <div className="flex items-center gap-3">
-          {/* Lang Toggle */}
-          <button
-            onClick={() => setLang(lang === 'pl' ? 'en' : 'pl')}
-            className="text-xs px-2.5 py-1.5 rounded-full bg-white/[0.06] text-white/50 hover:text-white border border-white/10 hover:border-amber-500/30 transition-all"
-          >
-            {lang === 'pl' ? '🇬🇧 EN' : '🇵🇱 PL'}
-          </button>
+          {/* Lang Toggle — UK first (primary market) */}
+          <div className="flex items-center gap-0.5 bg-white/[0.06] border border-white/10 rounded-full p-0.5">
+            <button
+              onClick={() => setLang('en')}
+              className={`text-xs px-2 py-1 rounded-full transition-all ${
+                lang === 'en'
+                  ? 'bg-amber-500 text-black font-semibold'
+                  : 'text-white/50 hover:text-white'
+              }`}
+              aria-label="English"
+            >
+              🇬🇧 EN
+            </button>
+            <button
+              onClick={() => setLang('pl')}
+              className={`text-xs px-2 py-1 rounded-full transition-all ${
+                lang === 'pl'
+                  ? 'bg-amber-500 text-black font-semibold'
+                  : 'text-white/50 hover:text-white'
+              }`}
+              aria-label="Polski"
+            >
+              🇵🇱 PL
+            </button>
+          </div>
 
           {/* Cart */}
           <Link
