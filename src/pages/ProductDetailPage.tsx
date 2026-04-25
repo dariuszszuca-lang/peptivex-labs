@@ -40,22 +40,34 @@ export default function ProductDetailPage() {
 
   const productSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Product',
-    name,
-    description,
-    image: `https://peptivexlabs.com${product.image || '/images/products/bpc-157-vial.png'}`,
-    sku: product.id,
-    brand: { '@type': 'Brand', name: 'PEPTIVEX LABS' },
-    category: `Research Peptides / ${product.category}`,
-    url: `https://peptivexlabs.com/${lang}/product/${product.slug}`,
-    offers: {
-      '@type': 'Offer',
-      priceCurrency: pl ? 'PLN' : 'GBP',
-      price: (price / 100).toFixed(2),
-      availability: inStock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
-      itemCondition: 'https://schema.org/NewCondition',
-      seller: { '@type': 'Organization', name: 'PEPTIVEX LABS' },
-    },
+    '@graph': [
+      {
+        '@type': 'Product',
+        name,
+        description,
+        image: `https://peptivexlabs.com${product.image || '/images/products/bpc-157-vial.png'}`,
+        sku: product.id,
+        brand: { '@type': 'Brand', name: 'PEPTIVEX LABS' },
+        category: `Research Peptides / ${product.category}`,
+        url: `https://peptivexlabs.com/${lang}/product/${product.slug}`,
+        offers: {
+          '@type': 'Offer',
+          priceCurrency: pl ? 'PLN' : 'GBP',
+          price: (price / 100).toFixed(2),
+          availability: inStock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
+          itemCondition: 'https://schema.org/NewCondition',
+          seller: { '@type': 'Organization', name: 'PEPTIVEX LABS' },
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: pl ? 'Strona główna' : 'Home', item: `https://peptivexlabs.com/${lang}` },
+          { '@type': 'ListItem', position: 2, name: pl ? 'Produkty' : 'Products', item: `https://peptivexlabs.com/${lang}/products` },
+          { '@type': 'ListItem', position: 3, name, item: `https://peptivexlabs.com/${lang}/product/${product.slug}` },
+        ],
+      },
+    ],
   };
 
   return (

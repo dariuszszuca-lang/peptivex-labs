@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Trash2, Plus, Minus, ArrowLeft, CreditCard, Loader2 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useCart } from '../contexts/CartContext';
+import SeoHead from '../components/SeoHead';
 
 export default function CartPage() {
   const { lang, t, formatPrice } = useLanguage();
@@ -38,9 +39,19 @@ export default function CartPage() {
   const shippingCost = total >= shippingThreshold ? 0 : (lang === 'pl' ? 1299 : 766);
   const grandTotal = total + shippingCost;
 
+  const seoBlock = (
+    <SeoHead
+      title={lang === 'pl' ? 'Koszyk' : 'Cart'}
+      description=""
+      path={`/${lang}/cart`}
+      noIndex
+    />
+  );
+
   if (items.length === 0) {
     return (
       <div className="max-w-2xl mx-auto px-4 py-20 text-center">
+        {seoBlock}
         <div className="text-5xl mb-6 opacity-20">🛒</div>
         <h1 className="text-white text-xl font-bold mb-3">{t('cart.empty')}</h1>
         <Link to={`/${lang}/products`} className="text-amber-500 hover:text-amber-400 text-sm inline-flex items-center gap-1.5">
@@ -52,6 +63,7 @@ export default function CartPage() {
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">
+      {seoBlock}
       <h1 className="text-white text-2xl font-bold mb-8">{t('cart.title')}</h1>
 
       {/* Items */}

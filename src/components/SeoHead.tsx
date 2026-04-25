@@ -7,9 +7,10 @@ interface SeoHeadProps {
   path: string;
   image?: string;
   schema?: object;
+  noIndex?: boolean;
 }
 
-export default function SeoHead({ title, description, path, image, schema }: SeoHeadProps) {
+export default function SeoHead({ title, description, path, image, schema, noIndex }: SeoHeadProps) {
   const { lang } = useLanguage();
   const altLang = lang === 'pl' ? 'en' : 'pl';
   const altPath = path.replace(`/${lang}`, `/${altLang}`);
@@ -22,9 +23,10 @@ export default function SeoHead({ title, description, path, image, schema }: Seo
       <html lang={lang} />
       <title>{title} | PEPTIVEX LABS</title>
       <meta name="description" content={description} />
-      <link rel="canonical" href={fullUrl} />
-      <link rel="alternate" hrefLang={lang} href={fullUrl} />
-      <link rel="alternate" hrefLang={altLang} href={altUrl} />
+      {noIndex && <meta name="robots" content="noindex, nofollow" />}
+      {!noIndex && <link rel="canonical" href={fullUrl} />}
+      {!noIndex && <link rel="alternate" hrefLang={lang} href={fullUrl} />}
+      {!noIndex && <link rel="alternate" hrefLang={altLang} href={altUrl} />}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={fullUrl} />

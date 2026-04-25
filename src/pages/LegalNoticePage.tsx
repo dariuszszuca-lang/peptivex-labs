@@ -1,5 +1,6 @@
 import { useLanguage } from '../contexts/LanguageContext';
 import HexPattern from '../components/home/HexPattern';
+import SeoHead from '../components/SeoHead';
 import { AlertTriangle } from 'lucide-react';
 
 export default function LegalNoticePage() {
@@ -52,6 +53,14 @@ export default function LegalNoticePage() {
 
   return (
     <div>
+      <SeoHead
+        title={pl ? 'Informacja prawna' : 'Legal Notice'}
+        description={pl
+          ? 'Zastrzeżenia prawne PEPTIVEX LABS — odczynniki laboratoryjne wyłącznie do badań, nie do użytku na ludziach ani zwierzętach.'
+          : 'PEPTIVEX LABS legal notice — laboratory reagents for research only, not for human or animal use.'
+        }
+        path={`/${lang}/legal`}
+      />
       {/* Hero */}
       <div className="relative overflow-hidden py-16">
         <div className="absolute inset-0 bg-gradient-to-b from-red-900/[0.1] via-[#0c0a08] to-[#0c0a08]" />

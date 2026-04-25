@@ -1,5 +1,6 @@
 import { useLanguage } from '../contexts/LanguageContext';
 import HexPattern from '../components/home/HexPattern';
+import SeoHead from '../components/SeoHead';
 
 export default function TermsPage() {
   const { lang } = useLanguage();
@@ -25,6 +26,14 @@ export default function TermsPage() {
 
   return (
     <div>
+      <SeoHead
+        title={pl ? 'Regulamin' : 'Terms & Conditions'}
+        description={pl
+          ? 'Regulamin sklepu PEPTIVEX LABS — warunki sprzedaży, charakter produktów (odczynniki badawcze), płatności, dostawa, zwroty.'
+          : 'PEPTIVEX LABS terms — sale conditions, research-only product nature, payments, shipping, returns.'
+        }
+        path={`/${lang}/terms`}
+      />
       <div className="relative overflow-hidden py-16">
         <div className="absolute inset-0 bg-gradient-to-b from-amber-900/[0.08] to-transparent" />
         <HexPattern className="text-amber-500/[0.02]" />

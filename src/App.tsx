@@ -18,6 +18,7 @@ import LegalNoticePage from './pages/LegalNoticePage';
 import PeptideGuidePage from './pages/PeptideGuidePage';
 import SuccessPage from './pages/SuccessPage';
 import CancelPage from './pages/CancelPage';
+import NotFoundPage from './pages/NotFoundPage';
 import AdminLayout from './pages/admin/AdminLayout';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminProducts from './pages/admin/AdminProducts';
@@ -87,7 +88,14 @@ export default function App() {
               <Route path="settings" element={<AdminSettings />} />
             </Route>
 
-            {/* Catch all */}
+            {/* 404 within /pl and /en */}
+            <Route path="/pl/*" element={<Layout />}>
+              <Route path="*" element={<NotFoundPage />} />
+            </Route>
+            <Route path="/en/*" element={<Layout />}>
+              <Route path="*" element={<NotFoundPage />} />
+            </Route>
+            {/* Catch all (no lang prefix) */}
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </CartProvider>

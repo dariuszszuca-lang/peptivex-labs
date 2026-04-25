@@ -4,6 +4,7 @@ import { CheckCircle2, ArrowRight, Mail } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useCart } from '../contexts/CartContext';
 import HexPattern from '../components/home/HexPattern';
+import SeoHead from '../components/SeoHead';
 
 export default function SuccessPage() {
   const { lang } = useLanguage();
@@ -18,6 +19,12 @@ export default function SuccessPage() {
 
   return (
     <div className="relative overflow-hidden min-h-[70vh]">
+      <SeoHead
+        title={pl ? 'Dziękujemy za zamówienie' : 'Thank you for your order'}
+        description=""
+        path={`/${lang}/success`}
+        noIndex
+      />
       <div className="absolute inset-0 bg-gradient-to-b from-emerald-900/[0.15] via-[#0c0a08] to-[#0c0a08]" />
       <HexPattern className="text-emerald-500/[0.03]" />
 

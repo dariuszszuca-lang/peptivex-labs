@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { XCircle, ArrowLeft } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import HexPattern from '../components/home/HexPattern';
+import SeoHead from '../components/SeoHead';
 
 export default function CancelPage() {
   const { lang } = useLanguage();
@@ -9,6 +10,12 @@ export default function CancelPage() {
 
   return (
     <div className="relative overflow-hidden min-h-[70vh]">
+      <SeoHead
+        title={pl ? 'Płatność anulowana' : 'Payment cancelled'}
+        description=""
+        path={`/${lang}/cancel`}
+        noIndex
+      />
       <div className="absolute inset-0 bg-gradient-to-b from-red-900/[0.1] via-[#0c0a08] to-[#0c0a08]" />
       <HexPattern className="text-red-500/[0.02]" />
 

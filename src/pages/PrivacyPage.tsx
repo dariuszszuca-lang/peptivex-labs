@@ -1,5 +1,6 @@
 import { useLanguage } from '../contexts/LanguageContext';
 import HexPattern from '../components/home/HexPattern';
+import SeoHead from '../components/SeoHead';
 
 export default function PrivacyPage() {
   const { lang } = useLanguage();
@@ -27,6 +28,14 @@ export default function PrivacyPage() {
 
   return (
     <div>
+      <SeoHead
+        title={pl ? 'Polityka prywatności' : 'Privacy Policy'}
+        description={pl
+          ? 'Polityka prywatności PEPTIVEX LABS — RODO/GDPR, jakie dane zbieramy, cookies, prawa użytkownika, kontakt z Administratorem.'
+          : 'PEPTIVEX LABS privacy policy — GDPR, data we collect, cookies, user rights, Data Controller contact.'
+        }
+        path={`/${lang}/privacy`}
+      />
       <div className="relative overflow-hidden py-16">
         <div className="absolute inset-0 bg-gradient-to-b from-amber-900/[0.08] to-transparent" />
         <HexPattern className="text-amber-500/[0.02]" />

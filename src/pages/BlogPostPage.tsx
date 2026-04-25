@@ -30,16 +30,28 @@ export default function BlogPostPage() {
         image={`https://peptivexlabs.com${post.heroImage}`}
         schema={{
           '@context': 'https://schema.org',
-          '@type': 'Article',
-          headline: title,
-          description: pl ? post.excerpt_pl : post.excerpt_en,
-          image: `https://peptivexlabs.com${post.heroImage}`,
-          datePublished: post.date,
-          dateModified: post.date,
-          author: { '@type': 'Organization', name: 'PEPTIVEX LABS', url: 'https://peptivexlabs.com' },
-          publisher: { '@type': 'Organization', name: 'PEPTIVEX LABS', logo: { '@type': 'ImageObject', url: 'https://peptivexlabs.com/favicon.png' } },
-          inLanguage: lang,
-          articleSection: post.category,
+          '@graph': [
+            {
+              '@type': 'Article',
+              headline: title,
+              description: pl ? post.excerpt_pl : post.excerpt_en,
+              image: `https://peptivexlabs.com${post.heroImage}`,
+              datePublished: post.date,
+              dateModified: post.date,
+              author: { '@type': 'Organization', name: 'PEPTIVEX LABS', url: 'https://peptivexlabs.com' },
+              publisher: { '@type': 'Organization', name: 'PEPTIVEX LABS', logo: { '@type': 'ImageObject', url: 'https://peptivexlabs.com/favicon.png' } },
+              inLanguage: lang,
+              articleSection: post.category,
+            },
+            {
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                { '@type': 'ListItem', position: 1, name: pl ? 'Strona główna' : 'Home', item: `https://peptivexlabs.com/${lang}` },
+                { '@type': 'ListItem', position: 2, name: 'Blog', item: `https://peptivexlabs.com/${lang}/blog` },
+                { '@type': 'ListItem', position: 3, name: title, item: `https://peptivexlabs.com/${lang}/blog/${post.slug}` },
+              ],
+            },
+          ],
         }}
       />
       {/* Hero banner */}

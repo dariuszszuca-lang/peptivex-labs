@@ -3,6 +3,7 @@ import { Calendar, ArrowRight, Clock } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { BLOG_POSTS } from '../data/blogPosts';
 import HexPattern from '../components/home/HexPattern';
+import SeoHead from '../components/SeoHead';
 
 export default function BlogPage() {
   const { lang } = useLanguage();
@@ -10,6 +11,14 @@ export default function BlogPage() {
 
   return (
     <div>
+      <SeoHead
+        title={pl ? 'Blog — Wiedza o peptydach' : 'Blog — Peptide Knowledge'}
+        description={pl
+          ? 'Artykuły, protokoły badawcze i przewodniki o peptydach badawczych: BPC-157, Retatrutide, NAD+, GHK-Cu i innych.'
+          : 'Articles, research protocols and guides about research peptides: BPC-157, Retatrutide, NAD+, GHK-Cu and more.'
+        }
+        path={`/${lang}/blog`}
+      />
       {/* Header with background */}
       <div className="relative overflow-hidden section-warm py-16">
         <HexPattern className="text-amber-500/[0.02]" />

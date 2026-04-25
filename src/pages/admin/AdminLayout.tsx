@@ -1,6 +1,7 @@
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { LayoutDashboard, Package, ShoppingCart, Users, BarChart3, Settings, Truck, CreditCard, LogOut, ArrowLeft, Loader2 } from 'lucide-react';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 export default function AdminLayout() {
   const navigate = useNavigate();
@@ -81,6 +82,10 @@ export default function AdminLayout() {
 
   return (
     <div className="min-h-screen bg-[#0c0a08] flex">
+      <Helmet>
+        <title>Admin — PEPTIVEX LABS</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       {/* Sidebar */}
       <aside className={`${collapsed ? 'w-16' : 'w-56'} bg-[#0a0908] border-r border-amber-500/[0.06] flex flex-col transition-all duration-200 shrink-0`}>
         {/* Logo */}

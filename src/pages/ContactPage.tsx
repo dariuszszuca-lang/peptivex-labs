@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Mail, Send, Clock, MessageCircle, Building2 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import HexPattern from '../components/home/HexPattern';
+import SeoHead from '../components/SeoHead';
 
 export default function ContactPage() {
   const { lang } = useLanguage();
@@ -16,6 +17,14 @@ export default function ContactPage() {
 
   return (
     <div>
+      <SeoHead
+        title={pl ? 'Kontakt' : 'Contact'}
+        description={pl
+          ? 'Skontaktuj się z PEPTIVEX LABS — pytania o produkty, zamówienia, współpracę. Odpowiadamy w ciągu 24h w dni robocze.'
+          : 'Contact PEPTIVEX LABS — questions about products, orders, partnerships. We respond within 24h on business days.'
+        }
+        path={`/${lang}/contact`}
+      />
       {/* Hero */}
       <div className="relative overflow-hidden py-16 sm:py-20">
         <div className="absolute inset-0 bg-gradient-to-b from-amber-900/[0.1] via-[#0c0a08] to-[#0c0a08]" />
