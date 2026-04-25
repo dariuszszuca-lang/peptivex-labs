@@ -65,10 +65,15 @@ export default function AdminProducts() {
           <h1 className="text-white text-2xl font-bold mb-1">Produkty</h1>
           <p className="text-white/40 text-sm">{products.length} produktów w katalogu</p>
         </div>
-        <button className="flex items-center gap-2 bg-amber-500 text-black font-semibold px-4 py-2 rounded-lg hover:bg-amber-400 transition-colors text-sm">
-          <Plus size={16} />
-          Dodaj produkt
-        </button>
+      </div>
+
+      {/* Source-of-truth notice */}
+      <div className="bg-amber-500/[0.06] border border-amber-500/20 rounded-xl p-4 mb-6 text-xs text-white/60">
+        <p className="font-semibold text-amber-400 mb-1">⚠ Produkty są zarządzane w kodzie</p>
+        <p>
+          Lista produktów, ceny (PLN/GBP) i opisy są w pliku <code className="bg-white/[0.04] px-1.5 py-0.5 rounded">src/data/products.ts</code> oraz <code className="bg-white/[0.04] px-1.5 py-0.5 rounded">api/_products.ts</code> (kopia dla Stripe).
+          Edycja w panelu poniżej jest <strong>tylko lokalna</strong> — nie zapisuje się do bazy. Aby trwale zmienić produkt: edytuj kod, commit, push do GitHub.
+        </p>
       </div>
 
       {/* Search */}
