@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
+import { useLocation } from 'react-router-dom';
 import type { Lang, Currency, ShippingRegion } from '../types';
 
 interface Translations {
@@ -16,12 +17,30 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | null>(null);
 
+function readUrlLang(): Lang | null {
+  if (typeof window === 'undefined') return null;
+  const seg = window.location.pathname.split('/')[1];
+  return seg === 'pl' || seg === 'en' ? seg : null;
+}
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
+  const location = useLocation();
   const [lang, setLangState] = useState<Lang>(() => {
+    const fromUrl = readUrlLang();
+    if (fromUrl) return fromUrl;
     const saved = localStorage.getItem('px-lang');
     return (saved === 'pl' || saved === 'en') ? saved : 'en';
   });
   const [translations, setTranslations] = useState<Translations>({});
+
+  // URL is the source of truth — sync lang state with URL prefix on every route change
+  useEffect(() => {
+    const seg = location.pathname.split('/')[1];
+    if ((seg === 'pl' || seg === 'en') && seg !== lang) {
+      setLangState(seg);
+      localStorage.setItem('px-lang', seg);
+    }
+  }, [location.pathname, lang]);
 
   const currency: Currency = lang === 'pl' ? 'PLN' : 'GBP';
   const region: ShippingRegion = lang === 'pl' ? 'pl' : 'uk';
