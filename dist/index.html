@@ -5,7 +5,41 @@
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-site-verification" content="oRi-P0NEgBqkTaeJfyclbgX7pbgzTWke4lien3e2ekI" />
     <title>PEPTIVEX LABS — Research Peptides</title>
+
+    <!-- Google Analytics 4 (Consent Mode v2 — GDPR compliant) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3J3SWMS9DT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+
+      // Default: deny everything until user accepts via cookie banner
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied',
+        'functionality_storage': 'denied',
+        'personalization_storage': 'denied',
+        'wait_for_update': 500
+      });
+
+      // Restore existing consent from localStorage (so returning users keep their choice)
+      try {
+        var saved = localStorage.getItem('px-cookie-consent');
+        if (saved) {
+          var c = JSON.parse(saved);
+          gtag('consent', 'update', {
+            'analytics_storage': c.analytics ? 'granted' : 'denied',
+            'functionality_storage': c.functional ? 'granted' : 'denied'
+          });
+        }
+      } catch (e) {}
+
+      gtag('js', new Date());
+      gtag('config', 'G-3J3SWMS9DT', { anonymize_ip: true });
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -52,8 +86,8 @@
       }
     }
     </script>
-    <script type="module" crossorigin src="/assets/index-C4u0dKKI.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-Bv1oFzdT.css">
+    <script type="module" crossorigin src="/assets/index-CgJ8BF-F.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DzOIWwE5.css">
   </head>
   <body>
     <div id="root"></div>
