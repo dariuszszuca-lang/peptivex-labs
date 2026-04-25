@@ -2,6 +2,23 @@ import { useState, useEffect } from 'react';
 import { Cookie, X, Shield, ChevronDown, ChevronUp } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
+declare global {
+  interface Window {
+    dataLayer?: unknown[];
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
+function updateConsent(analytics: boolean, functional: boolean) {
+  if (typeof window === 'undefined' || !window.dataLayer) return;
+  // Use dataLayer directly to ensure it works even if gtag is not exposed globally
+  window.dataLayer.push(['consent', 'update', {
+    analytics_storage: analytics ? 'granted' : 'denied',
+    functionality_storage: functional ? 'granted' : 'denied',
+    personalization_storage: functional ? 'granted' : 'denied',
+  }]);
+}
+
 export default function CookieBanner() {
   const { lang } = useLanguage();
   const pl = lang === 'pl';
@@ -24,16 +41,19 @@ export default function CookieBanner() {
 
   const acceptAll = () => {
     localStorage.setItem('px-cookie-consent', JSON.stringify({ necessary: true, functional: true, analytics: true, date: new Date().toISOString() }));
+    updateConsent(true, true);
     setVisible(false);
   };
 
   const acceptSelected = () => {
     localStorage.setItem('px-cookie-consent', JSON.stringify({ ...preferences, date: new Date().toISOString() }));
+    updateConsent(preferences.analytics, preferences.functional);
     setVisible(false);
   };
 
   const rejectOptional = () => {
     localStorage.setItem('px-cookie-consent', JSON.stringify({ necessary: true, functional: false, analytics: false, date: new Date().toISOString() }));
+    updateConsent(false, false);
     setVisible(false);
   };
 
