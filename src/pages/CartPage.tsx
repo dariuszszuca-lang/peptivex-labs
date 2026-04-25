@@ -1,11 +1,36 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Trash2, Plus, Minus, ArrowLeft, CreditCard } from 'lucide-react';
+import { Trash2, Plus, Minus, ArrowLeft, CreditCard, Loader2 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useCart } from '../contexts/CartContext';
 
 export default function CartPage() {
   const { lang, t, formatPrice } = useLanguage();
   const { items, removeItem, updateQuantity, totalPrice } = useCart();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleCheckout = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          items: items.map(i => ({ productId: i.product.id, quantity: i.quantity })),
+          lang,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Checkout failed');
+      if (data.url) window.location.href = data.url;
+      else throw new Error('No checkout URL returned');
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Checkout failed');
+      setLoading(false);
+    }
+  };
 
   const priceKey = lang === 'pl' ? 'price_pln' as const : 'price_gbp' as const;
   const total = totalPrice(priceKey);
@@ -90,14 +115,18 @@ export default function CartPage() {
           <span className="text-amber-400 text-2xl font-extrabold">{formatPrice(grandTotal)}</span>
         </div>
 
-        {/* Checkout button — placeholder for Stripe */}
+        {/* Checkout button */}
         <button
-          className="w-full mt-6 bg-amber-500 text-black font-semibold py-3 rounded-lg hover:bg-amber-400 transition-colors flex items-center justify-center gap-2"
-          onClick={() => alert('Stripe checkout — coming soon')}
+          disabled={loading}
+          className="w-full mt-6 bg-amber-500 text-black font-semibold py-3 rounded-lg hover:bg-amber-400 transition-colors flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+          onClick={handleCheckout}
         >
-          <CreditCard size={16} />
-          {t('checkout.pay')}
+          {loading ? <Loader2 size={16} className="animate-spin" /> : <CreditCard size={16} />}
+          {loading ? (lang === 'pl' ? 'Przekierowuję...' : 'Redirecting...') : t('checkout.pay')}
         </button>
+        {error && (
+          <p className="text-red-400 text-xs text-center mt-3">{error}</p>
+        )}
         <p className="text-white/20 text-[10px] text-center mt-3">
           {lang === 'pl' ? 'Stripe · BLIK · Przelewy24 · Karty' : 'Stripe · Card payments'}
         </p>

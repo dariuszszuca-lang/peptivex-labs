@@ -16,6 +16,8 @@ import PrivacyPage from './pages/PrivacyPage';
 import BlogPostPage from './pages/BlogPostPage';
 import LegalNoticePage from './pages/LegalNoticePage';
 import PeptideGuidePage from './pages/PeptideGuidePage';
+import SuccessPage from './pages/SuccessPage';
+import CancelPage from './pages/CancelPage';
 import AdminLayout from './pages/admin/AdminLayout';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminProducts from './pages/admin/AdminProducts';
@@ -50,6 +52,8 @@ export default function App() {
               <Route path="privacy" element={<PrivacyPage />} />
               <Route path="legal" element={<LegalNoticePage />} />
               <Route path="guide" element={<PeptideGuidePage />} />
+              <Route path="success" element={<SuccessPage />} />
+              <Route path="cancel" element={<CancelPage />} />
             </Route>
 
             {/* EN Routes */}
@@ -67,6 +71,8 @@ export default function App() {
               <Route path="privacy" element={<PrivacyPage />} />
               <Route path="legal" element={<LegalNoticePage />} />
               <Route path="guide" element={<PeptideGuidePage />} />
+              <Route path="success" element={<SuccessPage />} />
+              <Route path="cancel" element={<CancelPage />} />
             </Route>
 
             {/* Admin Panel */}
