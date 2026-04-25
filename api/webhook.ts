@@ -54,9 +54,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       const session = event.data.object as Stripe.Checkout.Session;
       const shippingDetails = (session as unknown as { shipping_details?: { address: { line1?: string | null; line2?: string | null; postal_code?: string | null; city?: string | null; country?: string | null }; name: string } }).shipping_details;
 
+      // Retrieve full session with line items expanded
+      const fullSession = await stripe.checkout.sessions.retrieve(session.id, {
+        expand: ['line_items'],
+      });
+
+      const items = (fullSession.line_items?.data || []).map(li => ({
+        name: li.description || 'Product',
+        quantity: li.quantity || 1,
+        amount: li.amount_total || 0,
+      }));
+
       const lang = (session.metadata?.lang as 'pl' | 'en' | 'es') || 'en';
       const customerEmail = session.customer_details?.email;
       const customerName = session.customer_details?.name || '';
+      const customerPhone = session.customer_details?.phone || null;
 
       const orderData = {
         orderId: session.id,
@@ -64,6 +76,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         currency: session.currency || 'gbp',
         customerName,
         customerEmail: customerEmail || '',
+        customerPhone,
+        items,
         shippingAddress: shippingDetails?.address || null,
         lang,
       };

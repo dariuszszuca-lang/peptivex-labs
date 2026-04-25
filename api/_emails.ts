@@ -1,9 +1,17 @@
+interface OrderItem {
+  name: string;
+  quantity: number;
+  amount: number;
+}
+
 interface OrderEmailData {
   orderId: string;
   amountTotal: number;
   currency: string;
   customerName: string;
   customerEmail: string;
+  customerPhone?: string | null;
+  items: OrderItem[];
   shippingAddress?: {
     line1?: string | null;
     line2?: string | null;
@@ -143,6 +151,14 @@ export function buildAdminEmail(data: OrderEmailData): { subject: string; html: 
   const amount = formatPrice(data.amountTotal, data.currency);
   const address = formatAddress(data.shippingAddress);
 
+  const itemsHtml = data.items.map(it => `
+    <div class="row">
+      <span class="value">${it.quantity}× ${it.name}</span>
+      <span class="value">${formatPrice(it.amount, data.currency)}</span>
+    </div>`).join('');
+
+  const itemsText = data.items.map(it => `  ${it.quantity}× ${it.name} — ${formatPrice(it.amount, data.currency)}`).join('\n');
+
   const html = `<!doctype html><html><head><meta charset="utf-8">${baseStyle}</head><body>
 <div class="wrapper">
   <div class="card">
@@ -150,8 +166,12 @@ export function buildAdminEmail(data: OrderEmailData): { subject: string; html: 
     <h1>${c.adminHeading}</h1>
     <div class="row"><span class="label">Order ID</span><span class="value">#${id}</span></div>
     <div class="row"><span class="label">Amount</span><span class="amount">${amount}</span></div>
-    <div class="row"><span class="label">Customer</span><span class="value">${data.customerName || '—'}</span></div>
+    <p style="margin:24px 0 8px 0; color:rgba(255,255,255,0.4); font-size:13px; text-transform:uppercase; letter-spacing:0.05em;">Items</p>
+    ${itemsHtml}
+    <p style="margin:24px 0 8px 0; color:rgba(255,255,255,0.4); font-size:13px; text-transform:uppercase; letter-spacing:0.05em;">Customer</p>
+    <div class="row"><span class="label">Name</span><span class="value">${data.customerName || '—'}</span></div>
     <div class="row"><span class="label">Email</span><span class="value">${data.customerEmail}</span></div>
+    ${data.customerPhone ? `<div class="row"><span class="label">Phone</span><span class="value">${data.customerPhone}</span></div>` : ''}
     <div class="row"><span class="label">Lang</span><span class="value">${data.lang.toUpperCase()}</span></div>
     ${address ? `<div class="row"><span class="label">Shipping</span><span class="value">${address}</span></div>` : ''}
     <p style="margin-top:24px;">Stripe Dashboard: <a href="https://dashboard.stripe.com/payments/${data.orderId}">View payment</a></p>
@@ -163,9 +183,13 @@ export function buildAdminEmail(data: OrderEmailData): { subject: string; html: 
 
 Order ID: #${id}
 Amount: ${amount}
+
+Items:
+${itemsText}
+
 Customer: ${data.customerName || '—'}
 Email: ${data.customerEmail}
-Lang: ${data.lang.toUpperCase()}
+${data.customerPhone ? `Phone: ${data.customerPhone}\n` : ''}Lang: ${data.lang.toUpperCase()}
 ${address ? `Shipping: ${address}\n` : ''}
 https://dashboard.stripe.com/payments/${data.orderId}`;
 
