@@ -66,9 +66,27 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Company details */}
+        <div className="border-t border-white/[0.04] pt-6 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-white/30 text-xs leading-relaxed">
+            <div>
+              <p className="text-white/50 font-semibold mb-1">PEPTIVEXLABS LTD</p>
+              <p>{pl ? 'Numer firmy' : 'Company number'}: 17178009</p>
+              <p>{pl ? 'Siedziba rejestrowa' : 'Registered office'}:</p>
+              <p>66 Paul Street, London, EC2A 4NA, United Kingdom</p>
+            </div>
+            <div>
+              <p className="text-white/50 font-semibold mb-1">{pl ? 'Adres korespondencyjny' : 'Operational address'}</p>
+              <p>4th Floor, The Featherstone Building</p>
+              <p>66 City Road, London, EC1Y 2AL</p>
+              <p>United Kingdom</p>
+            </div>
+          </div>
+        </div>
+
         {/* Bottom */}
         <div className="border-t border-white/[0.04] pt-6 flex flex-col sm:flex-row justify-between gap-4">
-          <p className="text-white/20 text-xs">© 2026 PEPTIVEX LABS. {t('footer.rights')}</p>
+          <p className="text-white/20 text-xs">© 2026 PEPTIVEXLABS LTD. {t('footer.rights')}</p>
           <p className="text-white/20 text-xs">{t('footer.research')}</p>
         </div>
       </div>

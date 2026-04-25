@@ -109,7 +109,7 @@ export default function LegalNoticePage() {
         <div className="mt-10 bg-amber-500/[0.06] border border-amber-500/20 rounded-2xl p-6 text-center">
           <AlertTriangle size={20} className="text-amber-500 mx-auto mb-3" />
           <p className="text-amber-400 text-xs font-bold uppercase tracking-wide mb-2">
-            {pl ? 'ODCZYNNIK LABORATORYJNY — DO CELÓW BADAWCZYCH' : 'LABORATORY REAGENT — FOR RESEARCH USE ONLY'}
+            {pl ? 'ODCZYNNIK LABORATORYJNY. DO CELÓW BADAWCZYCH' : 'LABORATORY REAGENT. FOR RESEARCH USE ONLY'}
           </p>
           <p className="text-white/40 text-sm">
             {pl
@@ -117,6 +117,61 @@ export default function LegalNoticePage() {
               : 'By placing an order with PEPTIVEX LABS, you confirm that you have read and accept the above terms.'
             }
           </p>
+        </div>
+
+        {/* Company details */}
+        <div className="mt-10 relative rounded-2xl overflow-hidden">
+          <div className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-b from-white/[0.08] to-transparent">
+            <div className="w-full h-full rounded-2xl bg-[#0e0c09]" />
+          </div>
+          <div className="relative z-10 p-6">
+            <h2 className="text-white text-lg font-bold mb-4">
+              {pl ? 'Dane firmy' : 'Company details'}
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
+              <div>
+                <p className="text-white/40 text-xs uppercase tracking-wide mb-2">
+                  {pl ? 'Spółka' : 'Company'}
+                </p>
+                <p className="text-white font-semibold mb-1">PEPTIVEXLABS LTD</p>
+                <p className="text-white/50 mb-1">
+                  {pl ? 'Numer firmy' : 'Company number'}: 17178009
+                </p>
+                <p className="text-white/50 mb-1">
+                  {pl ? 'Forma prawna' : 'Company type'}: Private Limited Company
+                </p>
+                <p className="text-white/50">
+                  {pl ? 'Jurysdykcja' : 'Jurisdiction'}: England &amp; Wales
+                </p>
+              </div>
+              <div>
+                <p className="text-white/40 text-xs uppercase tracking-wide mb-2">
+                  {pl ? 'Siedziba rejestrowa' : 'Registered office'}
+                </p>
+                <p className="text-white/60 leading-relaxed mb-4">
+                  66 Paul Street<br />
+                  London, EC2A 4NA<br />
+                  United Kingdom
+                </p>
+                <p className="text-white/40 text-xs uppercase tracking-wide mb-2">
+                  {pl ? 'Adres korespondencyjny' : 'Operational address'}
+                </p>
+                <p className="text-white/60 leading-relaxed">
+                  4th Floor, The Featherstone Building<br />
+                  66 City Road, London, EC1Y 2AL<br />
+                  United Kingdom
+                </p>
+              </div>
+            </div>
+            <div className="mt-6 pt-4 border-t border-white/[0.06] text-xs text-white/40">
+              <p>
+                {pl
+                  ? 'Spółka zarejestrowana w Companies House (Wielka Brytania). Pełne dane dostępne na find-and-update.company-information.service.gov.uk.'
+                  : 'Company registered with Companies House (United Kingdom). Full records available at find-and-update.company-information.service.gov.uk.'
+                }
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
