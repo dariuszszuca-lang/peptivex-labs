@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Plus, Save, X, Search, Image, ChevronDown, ChevronUp, Upload } from 'lucide-react';
+import { Save, X, Search, Image, ChevronDown, ChevronUp, Upload } from 'lucide-react';
 import { PRODUCTS } from '../../data/products';
 import type { Product, ProductCategory, ProductFormat } from '../../types';
 
