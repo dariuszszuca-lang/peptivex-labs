@@ -166,6 +166,33 @@ export default function ProductDetailPage() {
               </a>
             )}
 
+            {/* Complete Guide PDF — Retatrutide only */}
+            {product.id.startsWith('retatrutide') && (
+              <a
+                href="/guides/retatrutide-complete-guide.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between gap-3 p-3 rounded-xl bg-emerald-500/[0.05] border border-emerald-500/20 hover:bg-emerald-500/10 hover:border-emerald-500/40 transition-all group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+                    <FileText size={16} className="text-emerald-400" />
+                  </div>
+                  <div>
+                    <p className="text-white text-sm font-semibold">
+                      {pl ? 'Pełny przewodnik Retatrutide' : 'Retatrutide Complete Guide'}
+                    </p>
+                    <p className="text-white/40 text-xs">
+                      {pl ? 'Mechanizm, protokoły badawcze, przechowywanie — pobierz PDF' : 'Mechanism, research protocols, storage — download PDF'}
+                    </p>
+                  </div>
+                </div>
+                <span className="text-emerald-400 text-xs font-bold uppercase tracking-wide group-hover:translate-x-1 transition-transform">
+                  PDF →
+                </span>
+              </a>
+            )}
+
             {/* Stock */}
             <div className="flex items-center gap-2">
               <span className={`w-2 h-2 rounded-full ${inStock ? 'bg-emerald-400' : 'bg-red-400'}`} />
