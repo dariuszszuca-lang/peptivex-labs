@@ -52,7 +52,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     if (event.type === 'checkout.session.completed') {
       const session = event.data.object as Stripe.Checkout.Session;
-      const shippingDetails = (session as unknown as { shipping_details?: { address: { line1?: string | null; line2?: string | null; postal_code?: string | null; city?: string | null; country?: string | null }; name: string } }).shipping_details;
+      const shippingDetails = session.collected_information?.shipping_details
+        || (session as unknown as { shipping_details?: { address: { line1?: string | null; line2?: string | null; postal_code?: string | null; city?: string | null; country?: string | null }; name: string } }).shipping_details;
 
       // Retrieve full session with line items expanded
       const fullSession = await stripe.checkout.sessions.retrieve(session.id, {
