@@ -1,11 +1,18 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import Stripe from 'stripe';
+import { Resend } from 'resend';
+import { buildCustomerEmail, buildAdminEmail } from './_emails.js';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2026-04-22.dahlia',
 });
 
+const resend = new Resend(process.env.RESEND_API_KEY!);
+
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!;
+const FROM_EMAIL = 'PEPTIVEX LABS <orders@peptivexlabs.com>';
+const REPLY_TO = 'info@peptivexlabs.com';
+const ADMIN_EMAIL = 'info@peptivexlabs.com';
 
 export const config = {
   api: { bodyParser: false },
@@ -45,24 +52,55 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     if (event.type === 'checkout.session.completed') {
       const session = event.data.object as Stripe.Checkout.Session;
+      const shippingDetails = (session as unknown as { shipping_details?: { address: { line1?: string | null; line2?: string | null; postal_code?: string | null; city?: string | null; country?: string | null }; name: string } }).shipping_details;
 
-      const shippingDetails = (session as unknown as { shipping_details?: { address: unknown; name: string } }).shipping_details;
+      const lang = (session.metadata?.lang as 'pl' | 'en' | 'es') || 'en';
+      const customerEmail = session.customer_details?.email;
+      const customerName = session.customer_details?.name || '';
+
+      const orderData = {
+        orderId: session.id,
+        amountTotal: session.amount_total || 0,
+        currency: session.currency || 'gbp',
+        customerName,
+        customerEmail: customerEmail || '',
+        shippingAddress: shippingDetails?.address || null,
+        lang,
+      };
 
       console.log('[webhook] checkout.session.completed', {
         id: session.id,
         amount: session.amount_total,
         currency: session.currency,
-        email: session.customer_details?.email,
-        name: session.customer_details?.name,
-        phone: session.customer_details?.phone,
-        shippingAddress: shippingDetails?.address,
-        shippingName: shippingDetails?.name,
-        metadata: session.metadata,
+        email: customerEmail,
+        lang,
       });
 
-      // TODO: persist Order to Firestore
-      // TODO: trigger InPost label creation
-      // TODO: send confirmation email via Resend
+      // Send customer confirmation
+      if (customerEmail) {
+        const customerMail = buildCustomerEmail(orderData);
+        const { error: customerErr } = await resend.emails.send({
+          from: FROM_EMAIL,
+          to: customerEmail,
+          replyTo: REPLY_TO,
+          subject: customerMail.subject,
+          html: customerMail.html,
+          text: customerMail.text,
+        });
+        if (customerErr) console.error('[webhook] customer email error:', customerErr);
+      }
+
+      // Send admin notification
+      const adminMail = buildAdminEmail(orderData);
+      const { error: adminErr } = await resend.emails.send({
+        from: FROM_EMAIL,
+        to: ADMIN_EMAIL,
+        replyTo: customerEmail || REPLY_TO,
+        subject: adminMail.subject,
+        html: adminMail.html,
+        text: adminMail.text,
+      });
+      if (adminErr) console.error('[webhook] admin email error:', adminErr);
     }
 
     res.status(200).json({ received: true });
