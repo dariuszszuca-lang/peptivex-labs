@@ -1,4 +1,4 @@
-import { Search, Eye, Truck, CheckCircle, XCircle, Clock, ExternalLink, RefreshCw } from 'lucide-react';
+import { Search, Eye, Truck, CheckCircle, XCircle, Clock, ExternalLink, RefreshCw, Trash2 } from 'lucide-react';
 import { useCallback, useEffect, useState } from 'react';
 
 type OrderStatus = 'paid' | 'shipped' | 'delivered' | 'cancelled' | 'new';
@@ -56,6 +56,7 @@ export default function AdminOrders() {
   const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState('');
   const [statusFilter, setStatusFilter] = useState<OrderStatus | 'all'>('all');
+  const [modeFilter, setModeFilter] = useState<'all' | 'live' | 'test'>('all');
   const [openOrder, setOpenOrder] = useState<ApiOrder | null>(null);
 
   const load = useCallback(async () => {
@@ -82,6 +83,8 @@ export default function AdminOrders() {
 
   const filtered = orders.filter(o => {
     if (statusFilter !== 'all' && o.status !== statusFilter) return false;
+    if (modeFilter === 'live' && !o.stripeSessionId.startsWith('cs_live_')) return false;
+    if (modeFilter === 'test' && !o.stripeSessionId.startsWith('cs_test_')) return false;
     if (search) {
       const s = search.toLowerCase();
       const haystack = `${o.customer.name} ${o.customer.email} ${o.stripeSessionId}`.toLowerCase();
@@ -89,6 +92,46 @@ export default function AdminOrders() {
     }
     return true;
   });
+
+  const deleteOrder = async (orderId: string) => {
+    if (!confirm(`Usunąć zamówienie #${orderId.slice(-12)}? Tej operacji nie można cofnąć.`)) return;
+    try {
+      const password = localStorage.getItem('px-admin-password') || '';
+      const res = await fetch(`/api/admin-orders?orderId=${encodeURIComponent(orderId)}`, {
+        method: 'DELETE',
+        headers: { 'X-Admin-Password': password },
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || `HTTP ${res.status}`);
+      }
+      setOpenOrder(null);
+      await load();
+    } catch (e) {
+      alert(`Błąd usuwania: ${e instanceof Error ? e.message : String(e)}`);
+    }
+  };
+
+  const deleteAllTest = async () => {
+    const testOrders = orders.filter(o => o.stripeSessionId.startsWith('cs_test_'));
+    if (testOrders.length === 0) {
+      alert('Brak testowych zamówień do usunięcia.');
+      return;
+    }
+    if (!confirm(`Usunąć ${testOrders.length} testowych zamówień (cs_test_*)? Tej operacji nie można cofnąć.`)) return;
+    try {
+      const password = localStorage.getItem('px-admin-password') || '';
+      for (const o of testOrders) {
+        await fetch(`/api/admin-orders?orderId=${encodeURIComponent(o.stripeSessionId)}`, {
+          method: 'DELETE',
+          headers: { 'X-Admin-Password': password },
+        });
+      }
+      await load();
+    } catch (e) {
+      alert(`Błąd: ${e instanceof Error ? e.message : String(e)}`);
+    }
+  };
 
   const updateOrder = async (orderId: string, updates: { status?: OrderStatus; trackingNumber?: string | null; carrier?: string | null }) => {
     try {
@@ -113,17 +156,25 @@ export default function AdminOrders() {
 
   return (
     <div className="p-6 max-w-6xl">
-      <div className="mb-6 flex items-end justify-between">
+      <div className="mb-6 flex items-end justify-between gap-3 flex-wrap">
         <div>
           <h1 className="text-white text-2xl font-bold mb-1">Zamówienia</h1>
           <p className="text-white/40 text-sm">{orders.length} zamówień łącznie</p>
         </div>
-        <button
-          onClick={load}
-          className="bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] text-white/70 px-3 py-1.5 rounded-lg text-xs flex items-center gap-1.5 transition-colors"
-        >
-          <RefreshCw size={12} className={loading ? 'animate-spin' : ''} /> Odśwież
-        </button>
+        <div className="flex gap-2">
+          <button
+            onClick={deleteAllTest}
+            className="bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-400 px-3 py-1.5 rounded-lg text-xs flex items-center gap-1.5 transition-colors"
+          >
+            <Trash2 size={12} /> Usuń wszystkie test
+          </button>
+          <button
+            onClick={load}
+            className="bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] text-white/70 px-3 py-1.5 rounded-lg text-xs flex items-center gap-1.5 transition-colors"
+          >
+            <RefreshCw size={12} className={loading ? 'animate-spin' : ''} /> Odśwież
+          </button>
+        </div>
       </div>
 
       {error && (
@@ -159,6 +210,26 @@ export default function AdminOrders() {
             </button>
           ))}
         </div>
+      </div>
+
+      <div className="flex gap-2 mb-6 -mt-3">
+        {(['all', 'live', 'test'] as const).map(m => (
+          <button
+            key={m}
+            onClick={() => setModeFilter(m)}
+            className={`text-[11px] px-2.5 py-1 rounded border transition-all ${
+              modeFilter === m
+                ? m === 'live'
+                  ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400'
+                  : m === 'test'
+                  ? 'bg-sky-500/10 border-sky-500/30 text-sky-400'
+                  : 'bg-amber-500/10 border-amber-500/30 text-amber-400'
+                : 'bg-white/[0.02] border-white/[0.06] text-white/30 hover:text-white/50'
+            }`}
+          >
+            {m === 'all' ? 'Wszystkie tryby' : m === 'live' ? '● Live' : '○ Test'}
+          </button>
+        ))}
       </div>
 
       {!loading && filtered.length === 0 && !error ? (
@@ -317,12 +388,20 @@ export default function AdminOrders() {
               </div>
             </div>
 
-            <button
-              onClick={() => setOpenOrder(null)}
-              className="w-full mt-6 bg-white/[0.04] hover:bg-white/[0.08] text-white/70 py-2.5 rounded-lg text-sm transition-colors"
-            >
-              Zamknij
-            </button>
+            <div className="flex gap-2 mt-6">
+              <button
+                onClick={() => deleteOrder(openOrder.stripeSessionId)}
+                className="flex-1 bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-400 py-2.5 rounded-lg text-sm transition-colors flex items-center justify-center gap-1.5"
+              >
+                <Trash2 size={14} /> Usuń
+              </button>
+              <button
+                onClick={() => setOpenOrder(null)}
+                className="flex-[2] bg-white/[0.04] hover:bg-white/[0.08] text-white/70 py-2.5 rounded-lg text-sm transition-colors"
+              >
+                Zamknij
+              </button>
+            </div>
           </div>
         </div>
       )}

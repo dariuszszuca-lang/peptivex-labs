@@ -30,6 +30,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return;
     }
 
+    if (req.method === 'DELETE') {
+      const orderId = (req.query.orderId as string) || (req.body as { orderId?: string })?.orderId;
+      if (!orderId) {
+        res.status(400).json({ error: 'orderId required' });
+        return;
+      }
+      await db.collection('peptivex_orders').doc(orderId).delete();
+      res.status(200).json({ ok: true });
+      return;
+    }
+
     if (req.method === 'PATCH') {
       const { orderId, status, trackingNumber, carrier } = req.body as {
         orderId?: string;
