@@ -4,7 +4,7 @@ export default function HeroShowcase() {
       {/* Main product — large, clean */}
       <div className="showcase-hero-card">
         <img
-          src="/images/products/retatrutide-pens.jpg"
+          src="/images/brand/peptivex-hero-gold.jpg"
           alt="PEPTIVEX LABS Research Peptides"
           className="showcase-hero-img"
         />
