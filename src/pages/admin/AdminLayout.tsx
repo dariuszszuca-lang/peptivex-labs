@@ -6,7 +6,7 @@ export default function AdminLayout() {
   const navigate = useNavigate();
   const [collapsed] = useState(false);
 
-  const isAdmin = localStorage.getItem('px-admin') === 'true';
+  const isAdmin = localStorage.getItem('px-admin') === 'true' && !!localStorage.getItem('px-admin-password');
 
   if (!isAdmin) {
     return (
