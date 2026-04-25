@@ -401,6 +401,7 @@ export const PRODUCTS: Product[] = [
     short_en: 'Anxiolytic neuropeptide. Higher dose.',
     description_pl: 'Selank 10mg — większa fiolka neuropeptydu anksjolitycznego opracowanego przez Rosyjską Akademię Nauk. Moduluje neurotransmisję GABAergiczną z efektem porównywalnym z benzodiazepinami — bez tolerancji, uzależnienia i sedacji. Wpływa na poziomy noradrenaliny, serotoniny i dopaminy. Zarejestrowany jako lek w Rosji na leczenie zaburzeń lękowych uogólnionych. Format 10mg do rozszerzonych protokołów badawczych, podawanie donosowe lub podskórne.',
     description_en: 'Selank 10mg — larger vial of the anxiolytic neuropeptide developed at the Russian Academy of Sciences. Modulates GABAergic neurotransmission with effects comparable to benzodiazepines — without tolerance, dependence, or sedation. Influences noradrenaline, serotonin, and dopamine levels. Registered as a drug in Russia for generalized anxiety disorder. 10mg format for extended research protocols, intranasal or subcutaneous administration.',
+    image: '/images/products/selank-5mg.jpg',
     price_pln: 17900,
     price_gbp: 3699,
     stock_pl: 20,

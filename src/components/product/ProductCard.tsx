@@ -21,16 +21,16 @@ export default function ProductCard({ product }: { product: Product }) {
   return (
     <div className="group product-card bg-white/[0.03] border border-white/[0.08] rounded-xl overflow-hidden hover:border-amber-500/30 transition-all duration-300">
       {/* Image */}
-      <Link to={`/${lang}/product/${product.slug}`} className="block relative aspect-square overflow-hidden">
+      <Link to={`/${lang}/product/${product.slug}`} className="block relative aspect-square overflow-hidden bg-[#0a0908]">
         {/* Gradient frame */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40 z-10 pointer-events-none" />
         {/* Subtle corner glow */}
-        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-amber-500/[0.08] to-transparent z-10" />
+        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-amber-500/[0.08] to-transparent z-10 pointer-events-none" />
 
         <img
           src={imgSrc}
           alt={name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
         />
 
         {/* Badges */}
