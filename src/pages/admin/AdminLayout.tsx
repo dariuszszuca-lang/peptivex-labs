@@ -6,7 +6,6 @@ export default function AdminLayout() {
   const navigate = useNavigate();
   const [collapsed] = useState(false);
 
-  // TODO: Replace with Firebase Auth check
   const isAdmin = localStorage.getItem('px-admin') === 'true';
 
   if (!isAdmin) {
@@ -19,12 +18,23 @@ export default function AdminLayout() {
             type="password"
             placeholder="Admin password"
             className="w-full bg-white/[0.04] border border-white/[0.08] rounded-lg px-4 py-3 text-white text-sm mb-3 focus:border-amber-500/40 focus:outline-none"
-            onKeyDown={(e) => {
+            onKeyDown={async (e) => {
               if (e.key === 'Enter') {
                 const val = (e.target as HTMLInputElement).value;
-                if (val === 'peptivex2026') {
-                  localStorage.setItem('px-admin', 'true');
-                  window.location.reload();
+                // Verify against API (server-side check)
+                try {
+                  const res = await fetch('/api/admin-orders', {
+                    headers: { 'X-Admin-Password': val },
+                  });
+                  if (res.ok) {
+                    localStorage.setItem('px-admin', 'true');
+                    localStorage.setItem('px-admin-password', val);
+                    window.location.reload();
+                  } else {
+                    alert('Nieprawidłowe hasło');
+                  }
+                } catch {
+                  alert('Błąd połączenia z serwerem');
                 }
               }
             }}
@@ -90,7 +100,7 @@ export default function AdminLayout() {
             {!collapsed && <span>Sklep</span>}
           </button>
           <button
-            onClick={() => { localStorage.removeItem('px-admin'); window.location.reload(); }}
+            onClick={() => { localStorage.removeItem('px-admin'); localStorage.removeItem('px-admin-password'); window.location.reload(); }}
             className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-white/30 hover:text-red-400 transition-colors"
           >
             <LogOut size={18} />
