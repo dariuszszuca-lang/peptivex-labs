@@ -2,6 +2,8 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import Stripe from 'stripe';
 import { Resend } from 'resend';
 import { buildCustomerEmail, buildAdminEmail } from './_emails.js';
+import { db } from './_firebase.js';
+import { FieldValue } from 'firebase-admin/firestore';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2026-04-22.dahlia',
@@ -90,6 +92,31 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         email: customerEmail,
         lang,
       });
+
+      // Persist order to Firestore
+      try {
+        await db.collection('peptivex_orders').doc(session.id).set({
+          stripeSessionId: session.id,
+          status: 'paid',
+          amountTotal: session.amount_total || 0,
+          currency: session.currency || 'gbp',
+          lang,
+          items,
+          customer: {
+            name: customerName,
+            email: customerEmail || '',
+            phone: customerPhone,
+          },
+          shippingAddress: shippingDetails?.address || null,
+          shippingName: shippingDetails?.name || null,
+          trackingNumber: null,
+          carrier: null,
+          createdAt: FieldValue.serverTimestamp(),
+          updatedAt: FieldValue.serverTimestamp(),
+        }, { merge: true });
+      } catch (dbErr) {
+        console.error('[webhook] firestore write error:', dbErr);
+      }
 
       // Send customer confirmation
       if (customerEmail) {
