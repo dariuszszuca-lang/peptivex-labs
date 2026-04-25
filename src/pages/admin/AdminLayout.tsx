@@ -1,46 +1,69 @@
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
-import { LayoutDashboard, Package, ShoppingCart, Users, BarChart3, Settings, Truck, CreditCard, LogOut, ArrowLeft } from 'lucide-react';
+import { LayoutDashboard, Package, ShoppingCart, Users, BarChart3, Settings, Truck, CreditCard, LogOut, ArrowLeft, Loader2 } from 'lucide-react';
 import { useState } from 'react';
 
 export default function AdminLayout() {
   const navigate = useNavigate();
   const [collapsed] = useState(false);
+  const [password, setPassword] = useState('');
+  const [loginLoading, setLoginLoading] = useState(false);
+  const [loginError, setLoginError] = useState<string | null>(null);
 
   const isAdmin = localStorage.getItem('px-admin') === 'true' && !!localStorage.getItem('px-admin-password');
+
+  const tryLogin = async (val: string) => {
+    if (!val) {
+      setLoginError('Wpisz hasło');
+      return;
+    }
+    setLoginLoading(true);
+    setLoginError(null);
+    try {
+      const res = await fetch('/api/admin-orders', {
+        headers: { 'X-Admin-Password': val },
+      });
+      if (res.ok) {
+        localStorage.setItem('px-admin', 'true');
+        localStorage.setItem('px-admin-password', val);
+        window.location.reload();
+      } else {
+        setLoginError(`Nieprawidłowe hasło (HTTP ${res.status})`);
+      }
+    } catch (e) {
+      setLoginError(`Błąd połączenia: ${e instanceof Error ? e.message : String(e)}`);
+    } finally {
+      setLoginLoading(false);
+    }
+  };
 
   if (!isAdmin) {
     return (
       <div className="min-h-screen bg-[#0c0a08] flex items-center justify-center px-4">
-        <div className="max-w-sm w-full text-center">
+        <form
+          onSubmit={(e) => { e.preventDefault(); tryLogin(password); }}
+          className="max-w-sm w-full text-center"
+        >
           <div className="text-4xl mb-4">🔒</div>
           <h1 className="text-white text-xl font-bold mb-4">Admin Panel</h1>
           <input
             type="password"
             placeholder="Admin password"
+            value={password}
+            onChange={(e) => { setPassword(e.target.value); setLoginError(null); }}
+            autoFocus
             className="w-full bg-white/[0.04] border border-white/[0.08] rounded-lg px-4 py-3 text-white text-sm mb-3 focus:border-amber-500/40 focus:outline-none"
-            onKeyDown={async (e) => {
-              if (e.key === 'Enter') {
-                const val = (e.target as HTMLInputElement).value;
-                // Verify against API (server-side check)
-                try {
-                  const res = await fetch('/api/admin-orders', {
-                    headers: { 'X-Admin-Password': val },
-                  });
-                  if (res.ok) {
-                    localStorage.setItem('px-admin', 'true');
-                    localStorage.setItem('px-admin-password', val);
-                    window.location.reload();
-                  } else {
-                    alert('Nieprawidłowe hasło');
-                  }
-                } catch {
-                  alert('Błąd połączenia z serwerem');
-                }
-              }
-            }}
           />
-          <p className="text-white/20 text-xs">Press Enter to login</p>
-        </div>
+          <button
+            type="submit"
+            disabled={loginLoading}
+            className="w-full bg-amber-500 text-black font-bold py-3 rounded-lg hover:bg-amber-400 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 transition-colors"
+          >
+            {loginLoading ? <Loader2 size={16} className="animate-spin" /> : null}
+            Zaloguj
+          </button>
+          {loginError && <p className="text-red-400 text-xs mt-3">{loginError}</p>}
+          <p className="text-white/20 text-xs mt-3">Hasło: {password.length} znaków</p>
+        </form>
       </div>
     );
   }
