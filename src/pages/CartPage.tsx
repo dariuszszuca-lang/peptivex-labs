@@ -1,37 +1,56 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Trash2, Plus, Minus, ArrowLeft, CreditCard, Loader2 } from 'lucide-react';
+import { Trash2, Plus, Minus, ArrowLeft, Mail, AlertCircle } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useCart } from '../contexts/CartContext';
+import type { CartItem } from '../types';
 import SeoHead from '../components/SeoHead';
+
+const ORDERS_EMAIL = 'orders@peptivexlabs.com';
+
+type MailtoArgs = {
+  items: CartItem[];
+  lang: 'pl' | 'en';
+  formatPrice: (cents: number) => string;
+  priceKey: 'price_pln' | 'price_gbp';
+  total: number;
+  shippingCost: number;
+  grandTotal: number;
+};
+
+function buildMailto({ items, lang, formatPrice, priceKey, total, shippingCost, grandTotal }: MailtoArgs): string {
+  const pl = lang === 'pl';
+  const subject = pl ? 'Zamówienie Peptivex Labs' : 'Peptivex Labs order request';
+
+  const lines = items.map(it => {
+    const name = pl ? it.product.name_pl : it.product.name_en;
+    const dosage = it.product.dosage;
+    const lineTotal = it.product[priceKey] * it.quantity;
+    return `- ${name} ${dosage} × ${it.quantity}    ${formatPrice(lineTotal)}`;
+  });
+
+  const greeting = pl ? 'Witam,\n\nChciałbym zamówić poniższe produkty:' : 'Hi,\n\nI\'d like to order:';
+  const subtotalLabel = pl ? 'Suma produktów' : 'Subtotal';
+  const shippingLabel = pl ? 'Dostawa' : 'Shipping';
+  const totalLabel = pl ? 'Razem' : 'Total';
+  const closing = pl
+    ? 'Proszę o link do płatności. Preferowana forma: (przelew/karta/BLIK)\n\nDziękuję!'
+    : 'Please send me a payment link. Preferred method: (bank transfer / card)\n\nThanks!';
+
+  const body =
+    `${greeting}\n\n` +
+    lines.join('\n') +
+    `\n\n${subtotalLabel}: ${formatPrice(total)}\n` +
+    `${shippingLabel}: ${shippingCost === 0 ? (pl ? 'GRATIS' : 'FREE') : formatPrice(shippingCost)}\n` +
+    `${totalLabel}: ${formatPrice(grandTotal)}\n\n` +
+    closing +
+    '\n';
+
+  return `mailto:${ORDERS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
 
 export default function CartPage() {
   const { lang, t, formatPrice } = useLanguage();
   const { items, removeItem, updateQuantity, totalPrice } = useCart();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  const handleCheckout = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const res = await fetch('/api/checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          items: items.map(i => ({ productId: i.product.id, quantity: i.quantity })),
-          lang,
-        }),
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Checkout failed');
-      if (data.url) window.location.href = data.url;
-      else throw new Error('No checkout URL returned');
-    } catch (e) {
-      setError(e instanceof Error ? e.message : 'Checkout failed');
-      setLoading(false);
-    }
-  };
 
   const priceKey = lang === 'pl' ? 'price_pln' as const : 'price_gbp' as const;
   const total = totalPrice(priceKey);
@@ -127,20 +146,33 @@ export default function CartPage() {
           <span className="text-amber-400 text-2xl font-extrabold">{formatPrice(grandTotal)}</span>
         </div>
 
-        {/* Checkout button */}
-        <button
-          disabled={loading}
-          className="w-full mt-6 bg-amber-500 text-black font-semibold py-3 rounded-lg hover:bg-amber-400 transition-colors flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
-          onClick={handleCheckout}
+        {/* Payment unavailable notice */}
+        <div className="mt-6 bg-amber-500/[0.08] border border-amber-500/25 rounded-lg p-4">
+          <div className="flex gap-3">
+            <AlertCircle size={18} className="text-amber-400 shrink-0 mt-0.5" />
+            <div>
+              <p className="text-amber-100 text-sm font-semibold mb-1">
+                {lang === 'pl' ? 'Płatności online czasowo niedostępne' : 'Online payments temporarily unavailable'}
+              </p>
+              <p className="text-amber-100/70 text-xs leading-relaxed">
+                {lang === 'pl'
+                  ? 'Wyślij zamówienie mailem (z poniższego przycisku). W ciągu 24h dostaniesz spersonalizowany link do płatności (przelew, karta, BLIK).'
+                  : "Send your order by email (button below). Within 24h you'll receive a personalized payment link (bank transfer, card, BLIK)."}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Email order button */}
+        <a
+          href={buildMailto({ items, lang, formatPrice, priceKey, total, shippingCost, grandTotal })}
+          className="w-full mt-3 bg-amber-500 text-black font-semibold py-3 rounded-lg hover:bg-amber-400 transition-colors flex items-center justify-center gap-2"
         >
-          {loading ? <Loader2 size={16} className="animate-spin" /> : <CreditCard size={16} />}
-          {loading ? (lang === 'pl' ? 'Przekierowuję...' : 'Redirecting...') : t('checkout.pay')}
-        </button>
-        {error && (
-          <p className="text-red-400 text-xs text-center mt-3">{error}</p>
-        )}
-        <p className="text-white/20 text-[10px] text-center mt-3">
-          {lang === 'pl' ? 'Stripe · BLIK · Przelewy24 · Karty' : 'Stripe · Card payments'}
+          <Mail size={16} />
+          {lang === 'pl' ? 'Wyślij zamówienie mailem' : 'Send order by email'}
+        </a>
+        <p className="text-white/30 text-[10px] text-center mt-3">
+          orders@peptivexlabs.com
         </p>
       </div>
 
