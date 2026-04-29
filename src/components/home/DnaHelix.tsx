@@ -44,7 +44,7 @@ export default function HeroShowcase() {
         </div>
         <div className="showcase-trust-item">
           <span className="showcase-trust-dot trust-blue" />
-          <span>Stripe secure</span>
+          <span>Bank-grade secure</span>
         </div>
       </div>
     </div>

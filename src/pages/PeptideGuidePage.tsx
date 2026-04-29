@@ -16,8 +16,8 @@ export default function PeptideGuidePage() {
       icon: Flame,
       color: 'text-orange-400 border-orange-500/20 from-orange-500/15',
       key: 'weight-loss',
-      title: pl ? 'Odchudzanie / Metabolizm' : 'Weight Loss / Metabolic',
-      desc: pl ? 'Peptydy wpływające na metabolizm, wrażliwość insulinową i skład ciała.' : 'Peptides affecting metabolism, insulin sensitivity, and body composition.',
+      title: pl ? 'Badania metaboliczne' : 'Metabolic Research',
+      desc: pl ? 'Peptydy badane w kontekście szlaków metabolicznych, wrażliwości insulinowej i homeostazy energetycznej.' : 'Peptides studied for metabolic pathways, insulin sensitivity, and energy homeostasis.',
       peptides: ['retatrutide-40mg', 'retatrutide-20mg', 'mots-c-10mg', '5-amino-1mq-10mg'],
     },
     {
@@ -332,7 +332,7 @@ export default function PeptideGuidePage() {
             )}
           </h2>
           <p className="text-white/50 mb-8 max-w-md mx-auto">
-            {pl ? 'Czystość >98% HPLC, szybka dostawa InPost, bezpieczne płatności Stripe.' : '>98% HPLC purity, fast InPost delivery, secure Stripe payments.'}
+            {pl ? 'Czystość >98% HPLC, szybka dostawa InPost, Pay by Bank, BLIK i karty.' : '>98% HPLC purity, fast InPost delivery, Pay by Bank, BLIK and cards.'}
           </p>
           <Link to={`/${lang}/products`} className="cta-primary inline-flex items-center gap-2 bg-amber-500 text-black font-bold px-8 py-4 rounded-xl hover:bg-amber-400 transition-all text-sm">
             {pl ? 'Przeglądaj produkty' : 'Browse Products'} <ArrowRight size={16} />

@@ -1,12 +1,12 @@
 # Peptivex Labs
-> Premium research peptides supplier serving Poland and the United Kingdom. HPLC-tested peptides with >98% purity. Fast InPost delivery. Secure Stripe payments.
+> Premium research peptides supplier serving Poland and the United Kingdom. HPLC-tested peptides with >98% purity. Fast InPost delivery. Pay by Bank, BLIK and cards.
 
 ## Products (19 research peptides)
 - [All Products](https://peptivexlabs.com/en/products)
 - Retatrutide 20mg & 40mg (triple GLP-1/GIP/Glucagon agonist, pen format)
 - BPC-157 5mg & 10mg (regenerative pentadecapeptide)
 - TB-500 5mg (Thymosin Beta-4 analog)
-- NAD+ 100mg & 500mg (anti-aging coenzyme)
+- NAD+ 100mg & 500mg (longevity research coenzyme, sirtuin co-substrate)
 - GHK-Cu 50mg & 100mg (copper peptide, 4000+ gene modulation)
 - MOTS-c 10mg (mitochondrial metabolic peptide)
 - SS-31 10mg (Elamipretide, mitochondrial protection)
@@ -27,6 +27,6 @@
 ## Key Facts
 - Purity: >98% HPLC confirmed for all products
 - Delivery: Poland 1-2 days (InPost Paczkomaty), UK 2-3 days (InPost Lockers)
-- Payments: Stripe (cards, BLIK, Przelewy24)
+- Payments: Pay by Bank (instant bank transfer), BLIK, Visa/Mastercard, Apple Pay, Google Pay (PCI DSS encrypted)
 - Languages: Polish, English
 - All products for research and laboratory use only

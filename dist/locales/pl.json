@@ -48,29 +48,30 @@
     "email": "Email",
     "phone": "Telefon",
     "selectLocker": "Wybierz Paczkomat",
-    "disclaimer": "Potwierdzam, że ten zakup jest wyłącznie do celów badawczych. Jestem wykwalifikowanym specjalistą.",
+    "disclaimer": "Mam ukończone 18 lat i jestem wykwalifikowanym badaczem lub profesjonalistą laboratoryjnym. Produkty zostaną wykorzystane wyłącznie do badań in vitro i nie będą podawane ludziom ani zwierzętom. Znajduję się w jurysdykcji, w której ten zakup jest legalny. Zapoznałem/am się z Regulaminem oraz oświadczeniem Research Use Only i je akceptuję.",
+    "confirmAccept": "Akceptuję powyższe warunki Research Use Only",
     "pay": "Zapłać",
     "shipping": "Dostawa",
     "shippingCost": "12,99 zł",
     "freeFrom": "Darmowa od 500 zł"
   },
   "footer": {
-    "research": "Wszystkie produkty wyłącznie do celów badawczych.",
-    "disclaimer": "PEPTIVEX LABS nie jest placówką medyczną. Produkty wyłącznie do zastosowań badawczych i laboratoryjnych.",
+    "research": "Wszystkie produkty wyłącznie do badań in vitro. Nie do spożycia przez ludzi ani zwierzęta. Tylko dla wykwalifikowanych badaczy 18+.",
+    "disclaimer": "PEPTIVEX LABS jest dostawcą peptydów badawczych do badań laboratoryjnych in vitro. Produkty NIE są przeznaczone do spożycia przez ludzi ani zwierzęta, ani do zastosowań klinicznych, diagnostycznych lub terapeutycznych. Nie są zatwierdzone przez FDA, MHRA ani EMA. Sprzedawane wyłącznie wykwalifikowanym badaczom 18+ w jurysdykcjach, w których taka sprzedaż jest dozwolona.",
     "rights": "Wszelkie prawa zastrzeżone."
   },
   "categories": {
-    "healing": "Regeneracja",
-    "anti-aging": "Anti-aging",
-    "metabolic": "Metabolizm",
-    "growth-hormone": "Hormon wzrostu",
-    "cognitive": "Kognitywne",
-    "melanogenesis": "Melanogeneza",
-    "mitochondrial": "Mitochondria",
-    "cosmeceutical": "Kosmeceutyki",
-    "weight-loss": "Odchudzanie",
-    "blend": "Blendy",
-    "combo": "Zestawy i Combo",
-    "accessory": "Akcesoria"
+    "healing": "Badania nad regeneracją tkanek",
+    "anti-aging": "Długowieczność komórkowa",
+    "metabolic": "Szlaki metaboliczne",
+    "growth-hormone": "Badania osi GH",
+    "cognitive": "Neuropeptydy badawcze",
+    "melanogenesis": "Receptory melanokortynowe",
+    "mitochondrial": "Badania mitochondrialne",
+    "cosmeceutical": "Peptydy kosmeceutyczne",
+    "weight-loss": "Badania metaboliczne",
+    "blend": "Blendy badawcze",
+    "combo": "Zestawy badawcze",
+    "accessory": "Akcesoria laboratoryjne"
   }
 }

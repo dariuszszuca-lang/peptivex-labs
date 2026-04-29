@@ -27,7 +27,7 @@ export default function HomePage() {
     },
     {
       q: pl ? 'Jakie metody płatności akceptujecie?' : 'What payment methods do you accept?',
-      a: pl ? 'Karty płatnicze (Visa, Mastercard), BLIK i Przelewy24 (PL). Płatności obsługuje Stripe z pełnym szyfrowaniem.' : 'Credit/debit cards (Visa, Mastercard), BLIK and Przelewy24 (PL). Payments processed by Stripe with full encryption.',
+      a: pl ? 'Pay by Bank (przelew bankowy), BLIK, karty Visa/Mastercard, Apple Pay i Google Pay. Wszystkie płatności objęte szyfrowaniem PCI DSS.' : 'Pay by Bank (instant bank transfer), BLIK, Visa/Mastercard, Apple Pay and Google Pay. All payments PCI DSS encrypted.',
     },
     {
       q: pl ? 'Jak przechowywać peptydy?' : 'How to store peptides?',
@@ -45,10 +45,10 @@ export default function HomePage() {
   const features = [
     { icon: FlaskConical, title: pl ? 'Najwyższa czystość' : 'Highest Purity', desc: pl ? 'Każda partia testowana HPLC. Certyfikat analizy na życzenie.' : 'Every batch HPLC tested. Certificate of Analysis on request.' },
     { icon: Truck, title: pl ? 'Szybka dostawa' : 'Fast Delivery', desc: pl ? 'InPost Paczkomaty (PL) i Lockers (UK). Dyskretna paczka.' : 'InPost Paczkomaty (PL) & Lockers (UK). Discreet packaging.' },
-    { icon: Shield, title: pl ? 'Bezpieczne płatności' : 'Secure Payments', desc: pl ? 'Stripe — karty, BLIK, P24. Pełne szyfrowanie PCI DSS.' : 'Stripe — cards, BLIK, P24. Full PCI DSS encryption.' },
+    { icon: Shield, title: pl ? 'Bezpieczne płatności' : 'Secure Payments', desc: pl ? 'Pay by Bank, BLIK, karty. Pełne szyfrowanie PCI DSS.' : 'Pay by Bank, BLIK, cards. Full PCI DSS encryption.' },
     { icon: Zap, title: pl ? 'Kontrola temperatury' : 'Temperature Control', desc: pl ? 'Przechowywanie i wysyłka w kontrolowanych warunkach.' : 'Storage and shipping under controlled conditions.' },
     { icon: Award, title: pl ? 'Dokumentacja naukowa' : 'Scientific Documentation', desc: pl ? 'Szczegółowe opisy z odniesieniami do literatury naukowej.' : 'Detailed descriptions with scientific literature references.' },
-    { icon: Beaker, title: pl ? 'Szeroki wybór' : 'Wide Selection', desc: pl ? 'Peptydy regeneracyjne, metaboliczne, anti-aging i więcej.' : 'Regenerative, metabolic, anti-aging peptides and more.' },
+    { icon: Beaker, title: pl ? 'Szeroki wybór' : 'Wide Selection', desc: pl ? 'Peptydy regeneracyjne, metaboliczne, długowieczność komórkowa i więcej.' : 'Regenerative, metabolic, cellular longevity peptides and more.' },
   ];
 
   const categories: { key: string; icon: LucideIcon; color: string; count: number }[] = [
@@ -64,7 +64,7 @@ export default function HomePage() {
     <div>
       <SeoHead
         title={pl ? 'Peptydy badawcze premium' : 'Premium Research Peptides'}
-        description={pl ? 'PEPTIVEX LABS — peptydy badawcze o czystości >98% HPLC. BPC-157, Retatrutide, NAD+, GHK-Cu. Szybka dostawa InPost. Bezpieczne płatności Stripe.' : 'PEPTIVEX LABS — research peptides with >98% HPLC purity. BPC-157, Retatrutide, NAD+, GHK-Cu. Fast InPost delivery. Secure Stripe payments.'}
+        description={pl ? 'PEPTIVEX LABS — peptydy badawcze o czystości >98% HPLC. BPC-157, Retatrutide, NAD+, GHK-Cu. Szybka dostawa InPost. Pay by Bank, BLIK, karty.' : 'PEPTIVEX LABS — research peptides with >98% HPLC purity. BPC-157, Retatrutide, NAD+, GHK-Cu. Fast InPost delivery. Pay by Bank, BLIK and cards.'}
         path={`/${lang}`}
       />
       {/* =================== HERO =================== */}
@@ -98,8 +98,8 @@ export default function HomePage() {
 
             <p className="text-white/50 text-lg sm:text-xl leading-relaxed mb-8 max-w-lg">
               {pl
-                ? 'Peptydy badawcze o czystości >98% z certyfikatem HPLC. Szybka dostawa InPost. Bezpieczne płatności Stripe.'
-                : 'Research peptides with >98% purity, HPLC certified. Fast InPost delivery. Secure Stripe payments.'
+                ? 'Peptydy badawcze o czystości >98% z certyfikatem HPLC. Szybka dostawa InPost. Pay by Bank, BLIK, karty.'
+                : 'Research peptides with >98% purity, HPLC certified. Fast InPost delivery. Pay by Bank, BLIK and cards.'
               }
             </p>
 
@@ -200,14 +200,14 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {([
-              { problem: pl ? 'Wolna regeneracja tkanek' : 'Slow tissue recovery', solution: 'BPC-157 + TB-500', icon: '🧬', color: 'from-rose-500/15 to-rose-500/5', border: 'hover:border-rose-500/30', slug: 'bpc-157-5mg' },
-              { problem: pl ? 'Spadek energii z wiekiem' : 'Age-related energy decline', solution: 'NAD+', icon: '⚡', color: 'from-amber-500/15 to-amber-500/5', border: 'hover:border-amber-500/30', slug: 'nad-500mg' },
-              { problem: pl ? 'Niski hormon wzrostu' : 'Low growth hormone', solution: 'CJC-1295 + Ipamorelin', icon: '💪', color: 'from-emerald-500/15 to-emerald-500/5', border: 'hover:border-emerald-500/30', slug: 'cjc-1295-no-dac-5mg' },
-              { problem: pl ? 'Wolny metabolizm' : 'Slow metabolism', solution: 'Retatrutide', icon: '🔥', color: 'from-orange-500/15 to-orange-500/5', border: 'hover:border-orange-500/30', slug: 'retatrutide-40mg' },
-              { problem: pl ? 'Lęk i stres' : 'Anxiety & stress', solution: 'Selank', icon: '🧠', color: 'from-sky-500/15 to-sky-500/5', border: 'hover:border-sky-500/30', slug: 'selank-5mg' },
-              { problem: pl ? 'Starzenie skóry' : 'Skin aging', solution: 'GHK-Cu + SNAP-8', icon: '✨', color: 'from-violet-500/15 to-violet-500/5', border: 'hover:border-violet-500/30', slug: 'ghk-cu-50mg' },
-              { problem: pl ? 'Dysfunkcja mitochondriów' : 'Mitochondrial dysfunction', solution: 'SS-31 + MOTS-c', icon: '🔋', color: 'from-teal-500/15 to-teal-500/5', border: 'hover:border-teal-500/30', slug: 'ss-31-10mg' },
-              { problem: pl ? 'Redukcja tkanki tłuszczowej' : 'Fat tissue reduction', solution: '5-Amino-1MQ', icon: '📉', color: 'from-pink-500/15 to-pink-500/5', border: 'hover:border-pink-500/30', slug: '5-amino-1mq-10mg' },
+              { problem: pl ? 'Szlaki regeneracji tkanek' : 'Tissue repair pathways', solution: 'BPC-157 + TB-500', icon: '🧬', color: 'from-rose-500/15 to-rose-500/5', border: 'hover:border-rose-500/30', slug: 'bpc-157-5mg' },
+              { problem: pl ? 'Energia komórkowa i NAD+' : 'Cellular energy & NAD+', solution: 'NAD+', icon: '⚡', color: 'from-amber-500/15 to-amber-500/5', border: 'hover:border-amber-500/30', slug: 'nad-500mg' },
+              { problem: pl ? 'Szlaki GHRH/GHRP' : 'GHRH / GHRP signaling', solution: 'CJC-1295 + Ipamorelin', icon: '💪', color: 'from-emerald-500/15 to-emerald-500/5', border: 'hover:border-emerald-500/30', slug: 'cjc-1295-no-dac-5mg' },
+              { problem: pl ? 'Receptory GLP-1 / GIP / Glukagon' : 'GLP-1 / GIP / Glucagon receptors', solution: 'Retatrutide', icon: '🔥', color: 'from-orange-500/15 to-orange-500/5', border: 'hover:border-orange-500/30', slug: 'retatrutide-40mg' },
+              { problem: pl ? 'Neurotransmisja GABA' : 'GABAergic neurotransmission', solution: 'Selank', icon: '🧠', color: 'from-sky-500/15 to-sky-500/5', border: 'hover:border-sky-500/30', slug: 'selank-5mg' },
+              { problem: pl ? 'Biologia skóry i modulacja genów' : 'Skin biology & gene modulation', solution: 'GHK-Cu + SNAP-8', icon: '✨', color: 'from-violet-500/15 to-violet-500/5', border: 'hover:border-violet-500/30', slug: 'ghk-cu-50mg' },
+              { problem: pl ? 'Bioenergetyka mitochondrialna' : 'Mitochondrial bioenergetics', solution: 'SS-31 + MOTS-c', icon: '🔋', color: 'from-teal-500/15 to-teal-500/5', border: 'hover:border-teal-500/30', slug: 'ss-31-10mg' },
+              { problem: pl ? 'Inhibicja enzymu NNMT' : 'NNMT enzyme inhibition', solution: '5-Amino-1MQ', icon: '📉', color: 'from-pink-500/15 to-pink-500/5', border: 'hover:border-pink-500/30', slug: '5-amino-1mq-10mg' },
             ]).map((item, i) => (
               <Link
                 key={i}
@@ -222,7 +222,7 @@ export default function HomePage() {
                   <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.color} border border-white/[0.06] flex items-center justify-center mb-4 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(249,115,22,0.1)] transition-all duration-300`}>
                     <span className="text-xl">{item.icon}</span>
                   </div>
-                  <p className="text-white/50 text-xs uppercase tracking-wide mb-1.5">{pl ? 'Problem' : 'Problem'}</p>
+                  <p className="text-white/50 text-xs uppercase tracking-wide mb-1.5">{pl ? 'Szlak' : 'Pathway'}</p>
                   <h3 className="text-white font-bold text-sm mb-3 leading-snug">{item.problem}</h3>
                   <div className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-amber-500" />
@@ -333,7 +333,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-0">
             {[
               { step: '01', title: pl ? 'Wybierz peptydy' : 'Choose Peptides', desc: pl ? 'Przejrzyj katalog, porównaj produkty i dodaj do koszyka.' : 'Browse the catalog, compare products and add to cart.', icon: FlaskConical },
-              { step: '02', title: pl ? 'Zapłać bezpiecznie' : 'Pay Securely', desc: pl ? 'Stripe obsługuje karty, BLIK i Przelewy24. Pełne szyfrowanie.' : 'Stripe handles cards, BLIK and Przelewy24. Full encryption.', icon: Shield },
+              { step: '02', title: pl ? 'Zapłać bezpiecznie' : 'Pay Securely', desc: pl ? 'Pay by Bank, BLIK i karty. Pełne szyfrowanie PCI DSS.' : 'Pay by Bank, BLIK and cards. Full PCI DSS encryption.', icon: Shield },
               { step: '03', title: pl ? 'Odbierz z InPost' : 'Collect from InPost', desc: pl ? 'Paczkomat w Polsce lub Locker w UK. Dyskretna paczka, 1-3 dni.' : 'Paczkomat in Poland or Locker in UK. Discreet package, 1-3 days.', icon: Truck },
             ].map((s, i) => (
               <div key={i} className="relative text-center px-8 py-10 group">
@@ -445,8 +445,8 @@ export default function HomePage() {
           </h2>
           <p className="text-white/50 text-lg mb-10 max-w-lg mx-auto">
             {pl
-              ? 'Peptydy o czystości >98% z certyfikatem HPLC. Szybka dostawa InPost. Bezpieczne płatności Stripe.'
-              : 'Peptides with >98% purity, HPLC certified. Fast InPost delivery. Secure Stripe payments.'
+              ? 'Peptydy o czystości >98% z certyfikatem HPLC. Szybka dostawa InPost. Pay by Bank, BLIK, karty.'
+              : 'Peptides with >98% purity, HPLC certified. Fast InPost delivery. Pay by Bank, BLIK and cards.'
             }
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">

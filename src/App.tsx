@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { CartProvider } from './contexts/CartContext';
+import AgeGate from './components/AgeGate';
 import Layout from './components/layout/Layout';
 import SplashPage from './pages/SplashPage';
 import HomePage from './pages/HomePage';
@@ -32,6 +33,7 @@ import AdminSettings from './pages/admin/AdminSettings';
 export default function App() {
   return (
     <BrowserRouter>
+      <AgeGate>
       <LanguageProvider>
         <CartProvider>
           <Routes>
@@ -100,6 +102,7 @@ export default function App() {
           </Routes>
         </CartProvider>
       </LanguageProvider>
+      </AgeGate>
     </BrowserRouter>
   );
 }

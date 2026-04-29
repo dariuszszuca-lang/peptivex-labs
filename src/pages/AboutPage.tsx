@@ -13,9 +13,9 @@ export default function AboutPage() {
     { icon: FlaskConical, title: pl ? 'Czystość >98%' : 'Purity >98%', desc: pl ? 'Każda partia testowana HPLC. Certyfikat analizy na życzenie.' : 'Every batch HPLC tested. Certificate of Analysis on request.', color: 'from-amber-500/20 to-amber-500/5' },
     { icon: Thermometer, title: pl ? 'Kontrola temperatury' : 'Temperature Control', desc: pl ? 'Produkty przechowywane i wysyłane w kontrolowanych warunkach temperaturowych.' : 'Products stored and shipped under controlled temperature conditions.', color: 'from-teal-500/20 to-teal-500/5' },
     { icon: Truck, title: pl ? 'Szybka dostawa' : 'Fast Delivery', desc: pl ? 'InPost Paczkomaty (PL) i Lockers (UK). Dyskretna paczka, wysyłka w 24h.' : 'InPost Lockers (UK) and Paczkomaty (PL). Discreet packaging, 24h dispatch.', color: 'from-violet-500/20 to-violet-500/5' },
-    { icon: Shield, title: pl ? 'Bezpieczne płatności' : 'Secure Payments', desc: pl ? 'Stripe — karty, BLIK, Przelewy24. Pełne szyfrowanie PCI DSS Level 1.' : 'Stripe — cards, BLIK, P24. Full PCI DSS Level 1 encryption.', color: 'from-sky-500/20 to-sky-500/5' },
+    { icon: Shield, title: pl ? 'Bezpieczne płatności' : 'Secure Payments', desc: pl ? 'Pay by Bank, BLIK i karty. Pełne szyfrowanie PCI DSS.' : 'Pay by Bank, BLIK and cards. Full PCI DSS encryption.', color: 'from-sky-500/20 to-sky-500/5' },
     { icon: Award, title: pl ? 'Dokumentacja naukowa' : 'Scientific Documentation', desc: pl ? 'Każdy produkt z opisem, specyfikacją i odniesieniami do publikacji naukowych.' : 'Every product with description, specification, and scientific publication references.', color: 'from-emerald-500/20 to-emerald-500/5' },
-    { icon: Beaker, title: pl ? 'Szeroki wybór' : 'Wide Selection', desc: pl ? '19 peptydów w 9 kategoriach: regeneracyjne, metaboliczne, anti-aging, kognitywne i więcej.' : '19 peptides in 9 categories: regenerative, metabolic, anti-aging, cognitive and more.', color: 'from-rose-500/20 to-rose-500/5' },
+    { icon: Beaker, title: pl ? 'Szeroki wybór' : 'Wide Selection', desc: pl ? 'Peptydy do badań nad regeneracją, metabolizmem, długowiecznością komórkową, neuropeptydy i więcej.' : 'Peptides for research on tissue repair, metabolism, cellular longevity, neuropeptides and more.', color: 'from-rose-500/20 to-rose-500/5' },
   ];
 
   const timeline = [
@@ -29,7 +29,7 @@ export default function AboutPage() {
     <div>
       <SeoHead
         title={pl ? 'O nas — PEPTIVEX LABS' : 'About Us — PEPTIVEX LABS'}
-        description={pl ? 'Peptydy badawcze o czystości >98% HPLC. Czym się wyróżniamy: synteza SPPS, certyfikaty analizy, szybka dostawa InPost, bezpieczne płatności Stripe.' : 'Research peptides with >98% HPLC purity. What sets us apart: SPPS synthesis, certificates of analysis, fast InPost delivery, secure Stripe payments.'}
+        description={pl ? 'Peptydy badawcze o czystości >98% HPLC. Czym się wyróżniamy: synteza SPPS, certyfikaty analizy, szybka dostawa InPost, bezpieczne płatności online.' : 'Research peptides with >98% HPLC purity. What sets us apart: SPPS synthesis, certificates of analysis, fast InPost delivery, secure online payments.'}
         path={`/${lang}/about`}
       />
       {/* Hero — full width with product image */}
@@ -107,8 +107,8 @@ export default function AboutPage() {
               </p>
               <div className="flex flex-col gap-3">
                 {(pl
-                  ? ['Certyfikat analizy dla każdej partii', 'Dyskretne opakowanie z kontrolą temperatury', 'Bezpieczne płatności Stripe (PCI DSS Level 1)', 'Wysyłka InPost w Polsce i UK']
-                  : ['Certificate of analysis for every batch', 'Discreet packaging with temperature control', 'Secure Stripe payments (PCI DSS Level 1)', 'InPost delivery in Poland and UK']
+                  ? ['Certyfikat analizy dla każdej partii', 'Dyskretne opakowanie z kontrolą temperatury', 'Pay by Bank, BLIK i karty (PCI DSS)', 'Wysyłka InPost w Polsce i UK']
+                  : ['Certificate of analysis for every batch', 'Discreet packaging with temperature control', 'Pay by Bank, BLIK and cards (PCI DSS)', 'InPost delivery in Poland and UK']
                 ).map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <div className="w-5 h-5 rounded-full bg-amber-500/15 flex items-center justify-center shrink-0">

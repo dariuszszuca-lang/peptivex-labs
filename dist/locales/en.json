@@ -48,29 +48,30 @@
     "email": "Email",
     "phone": "Phone",
     "selectLocker": "Select InPost Locker",
-    "disclaimer": "I confirm this purchase is for research purposes only. I am a qualified professional.",
+    "disclaimer": "I am 18+ and a qualified researcher or laboratory professional. Products will be used solely for in vitro research and will not be administered to humans or animals. I am located in a jurisdiction where this purchase is legal. I have read and accept the Terms and the Research Use Only disclaimer.",
+    "confirmAccept": "I accept the Research Use Only terms above",
     "pay": "Pay Now",
     "shipping": "Shipping",
     "shippingCost": "£7.66",
     "freeFrom": "Free over £100"
   },
   "footer": {
-    "research": "All products are for research purposes only.",
-    "disclaimer": "PEPTIVEX LABS is not a medical facility. Products are for research and laboratory use only.",
+    "research": "All products for in vitro research only. Not for human or animal consumption. 18+ qualified researchers only.",
+    "disclaimer": "PEPTIVEX LABS is a supplier of research-grade peptides for in vitro laboratory research only. Products are NOT intended for human or animal consumption, clinical, diagnostic or therapeutic use. Not approved by the FDA, MHRA or EMA. Sold only to qualified researchers aged 18+ in jurisdictions where such sale is permitted.",
     "rights": "All rights reserved."
   },
   "categories": {
-    "healing": "Healing",
-    "anti-aging": "Anti-Aging",
-    "metabolic": "Metabolic",
-    "growth-hormone": "Growth Hormone",
-    "cognitive": "Cognitive",
-    "melanogenesis": "Melanogenesis",
-    "mitochondrial": "Mitochondrial",
-    "cosmeceutical": "Cosmeceutical",
-    "weight-loss": "Weight Loss",
-    "blend": "Blends",
-    "combo": "Stacks & Combos",
-    "accessory": "Accessories"
+    "healing": "Tissue Repair Research",
+    "anti-aging": "Cellular Longevity",
+    "metabolic": "Metabolic Pathways",
+    "growth-hormone": "GH Axis Research",
+    "cognitive": "Neuropeptide Research",
+    "melanogenesis": "Melanocortin Research",
+    "mitochondrial": "Mitochondrial Research",
+    "cosmeceutical": "Cosmeceutical Peptides",
+    "weight-loss": "Metabolic Research",
+    "blend": "Research Blends",
+    "combo": "Research Stacks",
+    "accessory": "Lab Accessories"
   }
 }

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Trash2, Plus, Minus, ArrowLeft, Mail, AlertCircle } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -32,6 +33,9 @@ function buildMailto({ items, lang, formatPrice, priceKey, total, shippingCost, 
   const subtotalLabel = pl ? 'Suma produktów' : 'Subtotal';
   const shippingLabel = pl ? 'Dostawa' : 'Shipping';
   const totalLabel = pl ? 'Razem' : 'Total';
+  const ruoLine = pl
+    ? '\n\nPotwierdzam: 18+, badania in vitro, nie do spożycia, jurysdykcja legalna.'
+    : '\n\nI confirm: 18+, in vitro research, not for consumption, legal jurisdiction.';
   const closing = pl
     ? 'Proszę o link do płatności. Preferowana forma: (przelew/karta/BLIK)\n\nDziękuję!'
     : 'Please send me a payment link. Preferred method: (bank transfer / card)\n\nThanks!';
@@ -41,9 +45,9 @@ function buildMailto({ items, lang, formatPrice, priceKey, total, shippingCost, 
     lines.join('\n') +
     `\n\n${subtotalLabel}: ${formatPrice(total)}\n` +
     `${shippingLabel}: ${shippingCost === 0 ? (pl ? 'GRATIS' : 'FREE') : formatPrice(shippingCost)}\n` +
-    `${totalLabel}: ${formatPrice(grandTotal)}\n\n` +
-    closing +
-    '\n';
+    `${totalLabel}: ${formatPrice(grandTotal)}` +
+    ruoLine +
+    `\n\n${closing}\n`;
 
   return `mailto:${ORDERS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
@@ -51,6 +55,7 @@ function buildMailto({ items, lang, formatPrice, priceKey, total, shippingCost, 
 export default function CartPage() {
   const { lang, t, formatPrice } = useLanguage();
   const { items, removeItem, updateQuantity, totalPrice } = useCart();
+  const [accepted, setAccepted] = useState(false);
 
   const priceKey = lang === 'pl' ? 'price_pln' as const : 'price_gbp' as const;
   const total = totalPrice(priceKey);
@@ -163,16 +168,48 @@ export default function CartPage() {
           </div>
         </div>
 
-        {/* Email order button */}
-        <a
-          href={buildMailto({ items, lang, formatPrice, priceKey, total, shippingCost, grandTotal })}
-          className="w-full mt-3 bg-amber-500 text-black font-semibold py-3 rounded-lg hover:bg-amber-400 transition-colors flex items-center justify-center gap-2"
-        >
-          <Mail size={16} />
-          {lang === 'pl' ? 'Wyślij zamówienie mailem' : 'Send order by email'}
-        </a>
+        {/* RUO disclaimer + required acceptance */}
+        <div className="mt-3 bg-amber-500/[0.05] border border-amber-500/20 rounded-lg p-3">
+          <p className="text-amber-500/90 text-[10px] font-semibold uppercase tracking-wide mb-1.5">
+            ⚠ {t('product.researchOnly')}
+          </p>
+          <p className="text-white/45 text-[11px] leading-relaxed mb-3">
+            {t('checkout.disclaimer')}
+          </p>
+          <label className="flex items-start gap-2 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={accepted}
+              onChange={(e) => setAccepted(e.target.checked)}
+              className="mt-0.5 w-4 h-4 accent-amber-500 cursor-pointer shrink-0"
+            />
+            <span className="text-white/70 text-xs leading-snug">{t('checkout.confirmAccept')}</span>
+          </label>
+        </div>
+
+        {/* Email order button — gated by RUO acceptance */}
+        {accepted ? (
+          <a
+            href={buildMailto({ items, lang, formatPrice, priceKey, total, shippingCost, grandTotal })}
+            className="w-full mt-3 bg-amber-500 text-black font-semibold py-3 rounded-lg hover:bg-amber-400 transition-colors flex items-center justify-center gap-2"
+          >
+            <Mail size={16} />
+            {lang === 'pl' ? 'Wyślij zamówienie mailem' : 'Send order by email'}
+          </a>
+        ) : (
+          <button
+            disabled
+            className="w-full mt-3 bg-amber-500 text-black font-semibold py-3 rounded-lg flex items-center justify-center gap-2 opacity-50 cursor-not-allowed"
+          >
+            <Mail size={16} />
+            {lang === 'pl' ? 'Wyślij zamówienie mailem' : 'Send order by email'}
+          </button>
+        )}
         <p className="text-white/30 text-[10px] text-center mt-3">
           orders@peptivexlabs.com
+        </p>
+        <p className="text-white/20 text-[10px] text-center mt-1">
+          {lang === 'pl' ? 'Pay by Bank · BLIK · Karty (po dostarczeniu linku)' : 'Pay by Bank · BLIK · Cards (after link is sent)'}
         </p>
       </div>
 

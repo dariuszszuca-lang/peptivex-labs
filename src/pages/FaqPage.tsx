@@ -66,8 +66,8 @@ const FAQ_DATA: FaqCategory[] = [
     icon: CreditCard,
     color: 'text-sky-400',
     items: [
-      { q_pl: 'Jakie metody płatności akceptujecie?', q_en: 'What payment methods do you accept?', a_pl: 'Karty płatnicze (Visa, Mastercard), BLIK i Przelewy24 (dla zamówień w PLN). Wszystkie płatności obsługuje Stripe z pełnym szyfrowaniem danych (certyfikat PCI DSS Level 1).', a_en: 'Credit/debit cards (Visa, Mastercard), BLIK and Przelewy24 (for PLN orders). All payments processed by Stripe with full data encryption (PCI DSS Level 1 certified).' },
-      { q_pl: 'Czy mogę zapłacić przelewem bankowym?', q_en: 'Can I pay by bank transfer?', a_pl: 'Tak, Przelewy24 obsługuje przelewy z większości polskich banków. Wybierz tę opcję przy checkout. Płatność jest potwierdzana automatycznie.', a_en: 'Yes, Przelewy24 supports transfers from most Polish banks. Select this option at checkout. Payment is confirmed automatically.' },
+      { q_pl: 'Jakie metody płatności akceptujecie?', q_en: 'What payment methods do you accept?', a_pl: 'Pay by Bank (przelew bankowy online), BLIK, karty Visa/Mastercard, Apple Pay i Google Pay. Wszystkie płatności są szyfrowane w standardzie PCI DSS.', a_en: 'Pay by Bank (instant bank transfer), BLIK, Visa/Mastercard cards, Apple Pay and Google Pay. All payments are PCI DSS encrypted.' },
+      { q_pl: 'Czy mogę zapłacić przelewem bankowym?', q_en: 'Can I pay by bank transfer?', a_pl: 'Tak — Pay by Bank to natychmiastowy przelew online z Twojego banku. Obsługujemy większość polskich i brytyjskich banków. Wybierz tę opcję przy checkout — potwierdzenie płatności jest automatyczne.', a_en: 'Yes — Pay by Bank is an instant online transfer from your bank. We support most Polish and UK banks. Select this option at checkout — payment confirmation is automatic.' },
     ],
   },
   {
@@ -109,7 +109,7 @@ export default function FaqPage() {
     <div>
       <SeoHead
         title={pl ? 'FAQ — Najczęściej zadawane pytania' : 'FAQ — Frequently Asked Questions'}
-        description={pl ? 'Odpowiedzi na pytania o peptydy badawcze, wysyłkę InPost, płatności Stripe, przechowywanie i zwroty. PEPTIVEX LABS.' : 'Answers about research peptides, InPost shipping, Stripe payments, storage and returns. PEPTIVEX LABS.'}
+        description={pl ? 'Odpowiedzi na pytania o peptydy badawcze, wysyłkę InPost, płatności (Pay by Bank, BLIK, karty), przechowywanie i zwroty. PEPTIVEX LABS.' : 'Answers about research peptides, InPost shipping, payments (Pay by Bank, BLIK, cards), storage and returns. PEPTIVEX LABS.'}
         path={`/${lang}/faq`}
         schema={{
           '@context': 'https://schema.org',

@@ -141,7 +141,7 @@ export default function ProductDetailPage() {
               {[
                 { icon: FlaskConical, text: pl ? 'Czystość >98%' : 'Purity >98%' },
                 { icon: Truck, text: pl ? 'Wysyłka 24h' : '24h Dispatch' },
-                { icon: Shield, text: 'Stripe Secure' },
+                { icon: Shield, text: pl ? 'Płatność bezpieczna' : 'Secure Checkout' },
                 ...(product.coa ? [{ icon: Award, text: pl ? 'COA dostępne' : 'COA Available' }] : []),
               ].map((ts, i) => (
                 <div key={i} className="flex items-center gap-2 p-2.5 rounded-lg bg-white/[0.03] border border-white/[0.06]">

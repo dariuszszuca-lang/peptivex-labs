@@ -10,20 +10,20 @@ export default function PrivacyPage() {
     { title: '1. Administrator danych', text: 'Administratorem danych osobowych jest PEPTIVEX LABS. Kontakt: info@peptivexlabs.com.' },
     { title: '2. Jakie dane zbieramy', text: 'Zbieramy tylko dane niezbędne do realizacji zamówienia: imię i nazwisko, adres email, numer telefonu (opcjonalnie), wybrany Paczkomat/Locker. Nie zbieramy danych wrażliwych ani danych dotyczących zdrowia.' },
     { title: '3. Cel przetwarzania', text: 'Dane osobowe przetwarzamy w celu: realizacji zamówienia, wysyłki produktów, komunikacji dotyczącej zamówienia, obsługi zwrotów i reklamacji, wystawienia dokumentów sprzedaży.' },
-    { title: '4. Udostępnianie danych', text: 'Dane osobowe udostępniamy wyłącznie podmiotom niezbędnym do realizacji zamówienia: Stripe (przetwarzanie płatności), InPost (dostawa przesyłek). Nie sprzedajemy danych osobowych podmiotom trzecim.' },
+    { title: '4. Udostępnianie danych', text: 'Dane osobowe udostępniamy wyłącznie podmiotom niezbędnym do realizacji zamówienia: operator płatności online (przetwarzanie transakcji), InPost (dostawa przesyłek). Nie sprzedajemy danych osobowych podmiotom trzecim.' },
     { title: '5. Okres przechowywania', text: 'Dane osobowe przechowujemy przez okres niezbędny do realizacji zamówienia i obsługi ewentualnych reklamacji, nie dłużej niż 5 lat od daty ostatniego zamówienia.' },
     { title: '6. Twoje prawa', text: 'Zgodnie z RODO masz prawo do: dostępu do swoich danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, przenoszenia danych, wniesienia sprzeciwu. Kontakt: info@peptivexlabs.com.' },
     { title: '7. Pliki cookies', text: 'Strona wykorzystuje pliki cookies niezbędne do działania sklepu (koszyk, wybór języka). Nie używamy cookies marketingowych ani śledzących bez Twojej zgody.' },
-    { title: '8. Bezpieczeństwo', text: 'Stosujemy szyfrowanie SSL/TLS oraz bezpieczne przetwarzanie płatności przez Stripe (certyfikat PCI DSS Level 1).' },
+    { title: '8. Bezpieczeństwo', text: 'Stosujemy szyfrowanie SSL/TLS oraz bezpieczne przetwarzanie płatności zgodne ze standardem PCI DSS.' },
   ] : [
     { title: '1. Data Controller', text: 'The data controller is PEPTIVEX LABS. Contact: info@peptivexlabs.com.' },
     { title: '2. What Data We Collect', text: 'We only collect data necessary for order fulfillment: full name, email address, phone number (optional), selected Locker location. We do not collect sensitive data or health-related information.' },
     { title: '3. Purpose of Processing', text: 'We process personal data for: order fulfillment, product shipping, order-related communication, returns and complaints handling, issuing sales documents.' },
-    { title: '4. Data Sharing', text: 'We share personal data only with entities necessary for order fulfillment: Stripe (payment processing), InPost (parcel delivery). We do not sell personal data to third parties.' },
+    { title: '4. Data Sharing', text: 'We share personal data only with entities necessary for order fulfillment: online payment processor (transaction processing), InPost (parcel delivery). We do not sell personal data to third parties.' },
     { title: '5. Data Retention', text: 'We retain personal data for the period necessary for order fulfillment and complaint handling, no longer than 5 years from the last order date.' },
     { title: '6. Your Rights', text: 'Under GDPR you have the right to: access your data, rectification, erasure, restriction of processing, data portability, and objection. Contact: info@peptivexlabs.com.' },
     { title: '7. Cookies', text: 'The website uses cookies essential for store operation (cart, language selection). We do not use marketing or tracking cookies without your consent.' },
-    { title: '8. Security', text: 'We implement SSL/TLS encryption and secure payment processing via Stripe (PCI DSS Level 1 certified).' },
+    { title: '8. Security', text: 'We implement SSL/TLS encryption and PCI DSS-compliant secure payment processing.' },
   ];
 
   return (
