@@ -1,15 +1,21 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ShoppingCart, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useCart } from '../../contexts/CartContext';
 
 export default function Header() {
-  const { lang, setLang, t } = useLanguage();
+  const { lang, t } = useLanguage();
   const pl = lang === 'pl';
   const { totalItems } = useCart();
   const location = useLocation();
+  const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const switchLang = (newLang: 'en' | 'pl') => {
+    const newPath = location.pathname.replace(/^\/(pl|en)/, `/${newLang}`);
+    navigate(newPath + location.search);
+  };
 
   const navItems = [
     { to: `/${lang}`, label: t('nav.home') },
@@ -60,7 +66,7 @@ export default function Header() {
           {/* Lang Toggle — UK first (primary market) */}
           <div className="flex items-center gap-0.5 bg-white/[0.06] border border-white/10 rounded-full p-0.5">
             <button
-              onClick={() => setLang('en')}
+              onClick={() => switchLang('en')}
               className={`text-xs px-2 py-1 rounded-full transition-all ${
                 lang === 'en'
                   ? 'bg-amber-500 text-black font-semibold'
@@ -71,7 +77,7 @@ export default function Header() {
               🇬🇧 EN
             </button>
             <button
-              onClick={() => setLang('pl')}
+              onClick={() => switchLang('pl')}
               className={`text-xs px-2 py-1 rounded-full transition-all ${
                 lang === 'pl'
                   ? 'bg-amber-500 text-black font-semibold'
