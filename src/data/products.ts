@@ -43,7 +43,7 @@ export const PRODUCTS: Product[] = [
     description_pl: 'Retatrutide to potrójny agonista receptorów GLP-1, GIP i glukagonu. Format pen 20mg — niższa dawka do protokołów badawczych.',
     description_en: 'Retatrutide is a triple agonist targeting GLP-1, GIP, and glucagon receptors. 20mg pen format — lower dose for research protocols.',
     image: '/images/products/retatrutide-20mg.jpg',
-    coa: '/coa/retatrutide-coa.pdf',
+    coa: '/coa/retatrutide-20mg-coa.pdf',
     price_pln: 70000,
     price_gbp: 12000,
     stock_pl: 15,
