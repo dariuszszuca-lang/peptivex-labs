@@ -5,6 +5,7 @@ import SeoHead from '../components/SeoHead';
 export default function TermsPage() {
   const { lang } = useLanguage();
   const pl = lang === 'pl';
+  const es = lang === 'es';
 
   const sections = pl ? [
     { title: '1. Postanowienia ogólne', text: 'Niniejszy regulamin określa zasady korzystania ze sklepu internetowego PEPTIVEX LABS oraz warunki sprzedaży produktów oferowanych za pośrednictwem strony.' },
@@ -27,10 +28,8 @@ export default function TermsPage() {
   return (
     <div>
       <SeoHead
-        title={pl ? 'Regulamin' : 'Terms & Conditions'}
-        description={pl
-          ? 'Regulamin sklepu PEPTIVEX LABS — warunki sprzedaży, charakter produktów (odczynniki badawcze), płatności, dostawa, zwroty.'
-          : 'PEPTIVEX LABS terms — sale conditions, research-only product nature, payments, shipping, returns.'
+        title={pl ? 'Regulamin' : es ? 'Términos y Condiciones' : 'Terms & Conditions'}
+        description={pl ? 'Regulamin sklepu PEPTIVEX LABS — warunki sprzedaży, charakter produktów (odczynniki badawcze), płatności, dostawa, zwroty.' : es ? 'Términos de PEPTIVEX LABS — condiciones de venta, naturaleza del producto exclusivamente para investigación, pagos, envío, devoluciones.' : 'PEPTIVEX LABS terms — sale conditions, research-only product nature, payments, shipping, returns.'
         }
         path={`/${lang}/terms`}
       />
@@ -38,8 +37,8 @@ export default function TermsPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-amber-900/[0.08] to-transparent" />
         <HexPattern className="text-amber-500/[0.02]" />
         <div className="max-w-3xl mx-auto px-4 relative z-10">
-          <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Prawne' : 'Legal'}</p>
-          <h1 className="text-white text-3xl font-extrabold">{pl ? 'Regulamin' : 'Terms & Conditions'}</h1>
+          <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Prawne' : es ? 'Legal' : 'Legal'}</p>
+          <h1 className="text-white text-3xl font-extrabold">{pl ? 'Regulamin' : es ? 'Términos y Condiciones' : 'Terms & Conditions'}</h1>
         </div>
       </div>
       <div className="max-w-3xl mx-auto px-4 py-12 flex flex-col gap-6">

@@ -4,6 +4,7 @@
 export interface ProtocolField {
   pl: string;
   en: string;
+  es?: string;
 }
 
 export interface ProtocolData {

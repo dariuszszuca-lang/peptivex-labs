@@ -7,11 +7,12 @@ import SeoHead from '../components/SeoHead';
 export default function CancelPage() {
   const { lang } = useLanguage();
   const pl = lang === 'pl';
+  const es = lang === 'es';
 
   return (
     <div className="relative overflow-hidden min-h-[70vh]">
       <SeoHead
-        title={pl ? 'Płatność anulowana' : 'Payment cancelled'}
+        title={pl ? 'Płatność anulowana' : es ? 'Pago cancelado' : 'Payment cancelled'}
         description=""
         path={`/${lang}/cancel`}
         noIndex
@@ -25,13 +26,11 @@ export default function CancelPage() {
         </div>
 
         <h1 className="text-white text-3xl sm:text-4xl font-extrabold mb-4">
-          {pl ? 'Płatność anulowana' : 'Payment cancelled'}
+          {pl ? 'Płatność anulowana' : es ? 'Pago cancelado' : 'Payment cancelled'}
         </h1>
 
         <p className="text-white/50 text-base mb-8 max-w-md mx-auto leading-relaxed">
-          {pl
-            ? 'Twoje zamówienie nie zostało zrealizowane. Produkty pozostały w koszyku, możesz dokończyć zakup w dowolnym momencie.'
-            : 'Your order was not completed. Items remain in your cart and you can complete the purchase anytime.'
+          {pl ? 'Twoje zamówienie nie zostało zrealizowane. Produkty pozostały w koszyku, możesz dokończyć zakup w dowolnym momencie.' : es ? 'Su pedido no fue completado. Los artículos permanecen en su carrito y puede completar la compra en cualquier momento.' : 'Your order was not completed. Items remain in your cart and you can complete the purchase anytime.'
           }
         </p>
 
@@ -41,13 +40,13 @@ export default function CancelPage() {
             className="bg-amber-500 text-black font-bold px-6 py-3 rounded-xl hover:bg-amber-400 transition-colors inline-flex items-center justify-center gap-2 text-sm"
           >
             <ArrowLeft size={14} />
-            {pl ? 'Wróć do koszyka' : 'Back to cart'}
+            {pl ? 'Wróć do koszyka' : es ? 'Volver al carrito' : 'Back to cart'}
           </Link>
           <Link
             to={`/${lang}/products`}
             className="bg-white/[0.04] border border-white/[0.08] text-white/70 font-medium px-6 py-3 rounded-xl hover:bg-white/[0.07] transition-colors inline-flex items-center justify-center gap-2 text-sm"
           >
-            {pl ? 'Kontynuuj zakupy' : 'Continue shopping'}
+            {pl ? 'Kontynuuj zakupy' : es ? 'Continuar comprando' : 'Continue shopping'}
           </Link>
         </div>
       </div>

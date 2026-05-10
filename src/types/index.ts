@@ -1,23 +1,28 @@
-export type Lang = 'pl' | 'en';
-export type Currency = 'PLN' | 'GBP';
+export type Lang = 'pl' | 'en' | 'es';
+export type Currency = 'PLN' | 'GBP' | 'EUR';
 export type ProductFormat = 'vial' | 'pen' | 'capsule' | 'spray';
 export type ProductCategory = 'healing' | 'anti-aging' | 'metabolic' | 'growth-hormone' | 'cognitive' | 'melanogenesis' | 'mitochondrial' | 'cosmeceutical' | 'weight-loss' | 'blend' | 'combo' | 'accessory';
 export type OrderStatus = 'new' | 'paid' | 'shipped' | 'delivered' | 'cancelled';
-export type ShippingRegion = 'pl' | 'uk';
+export type ShippingRegion = 'pl' | 'uk' | 'es';
 
 export interface Product {
   id: string;
   slug: string;
   name_pl: string;
   name_en: string;
+  name_es?: string;
   description_pl: string;
   description_en: string;
+  description_es?: string;
   short_pl: string;
   short_en: string;
+  short_es?: string;
   price_pln: number; // in grosze (11900 = 119.00 PLN)
   price_gbp: number; // in pence (2499 = 24.99 GBP)
+  price_eur?: number; // in cents (2899 = 28.99 EUR)
   stock_pl: number;
   stock_uk: number;
+  stock_es?: number;
   category: ProductCategory;
   format: ProductFormat;
   dosage: string;

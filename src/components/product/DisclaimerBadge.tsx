@@ -3,10 +3,11 @@ import { AlertTriangle } from 'lucide-react';
 
 export function DisclaimerBadge() {
   const { lang } = useLanguage();
+  const es = lang === 'es';
   return (
     <span className="inline-flex items-center gap-1 bg-amber-500/10 text-amber-500 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">
       <AlertTriangle size={10} />
-      {lang === 'pl' ? 'ODCZYNNIK LABORATORYJNY' : 'RESEARCH USE ONLY'}
+      {lang === 'pl' ? 'ODCZYNNIK LABORATORYJNY' : es ? 'SOLO PARA USO EN INVESTIGACIÓN' : 'RESEARCH USE ONLY'}
     </span>
   );
 }

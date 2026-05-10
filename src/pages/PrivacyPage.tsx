@@ -5,6 +5,7 @@ import SeoHead from '../components/SeoHead';
 export default function PrivacyPage() {
   const { lang } = useLanguage();
   const pl = lang === 'pl';
+  const es = lang === 'es';
 
   const sections = pl ? [
     { title: '1. Administrator danych', text: 'Administratorem danych osobowych jest PEPTIVEX LABS. Kontakt: info@peptivexlabs.com.' },
@@ -29,10 +30,8 @@ export default function PrivacyPage() {
   return (
     <div>
       <SeoHead
-        title={pl ? 'Polityka prywatności' : 'Privacy Policy'}
-        description={pl
-          ? 'Polityka prywatności PEPTIVEX LABS — RODO/GDPR, jakie dane zbieramy, cookies, prawa użytkownika, kontakt z Administratorem.'
-          : 'PEPTIVEX LABS privacy policy — GDPR, data we collect, cookies, user rights, Data Controller contact.'
+        title={pl ? 'Polityka prywatności' : es ? 'Política de Privacidad' : 'Privacy Policy'}
+        description={pl ? 'Polityka prywatności PEPTIVEX LABS — RODO/GDPR, jakie dane zbieramy, cookies, prawa użytkownika, kontakt z Administratorem.' : es ? 'Política de privacidad de PEPTIVEX LABS — RGPD, datos que recopilamos, cookies, derechos del usuario, contacto del Responsable del Tratamiento de Datos.' : 'PEPTIVEX LABS privacy policy — GDPR, data we collect, cookies, user rights, Data Controller contact.'
         }
         path={`/${lang}/privacy`}
       />
@@ -40,8 +39,8 @@ export default function PrivacyPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-amber-900/[0.08] to-transparent" />
         <HexPattern className="text-amber-500/[0.02]" />
         <div className="max-w-3xl mx-auto px-4 relative z-10">
-          <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Prawne' : 'Legal'}</p>
-          <h1 className="text-white text-3xl font-extrabold">{pl ? 'Polityka prywatności' : 'Privacy Policy'}</h1>
+          <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Prawne' : es ? 'Aviso Legal' : 'Legal'}</p>
+          <h1 className="text-white text-3xl font-extrabold">{pl ? 'Polityka prywatności' : es ? 'Política de Privacidad' : 'Privacy Policy'}</h1>
         </div>
       </div>
       <div className="max-w-3xl mx-auto px-4 py-12 flex flex-col gap-6">

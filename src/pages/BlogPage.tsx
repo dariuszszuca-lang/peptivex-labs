@@ -8,13 +8,16 @@ import SeoHead from '../components/SeoHead';
 export default function BlogPage() {
   const { lang } = useLanguage();
   const pl = lang === 'pl';
+  const es = lang === 'es';
 
   return (
     <div>
       <SeoHead
-        title={pl ? 'Blog — Wiedza o peptydach' : 'Blog — Peptide Knowledge'}
+        title={pl ? 'Blog. Wiedza o peptydach' : es ? 'Blog. Conocimiento sobre péptidos' : 'Blog. Peptide Knowledge'}
         description={pl
           ? 'Artykuły, protokoły badawcze i przewodniki o peptydach badawczych: BPC-157, Retatrutide, NAD+, GHK-Cu i innych.'
+          : es
+          ? 'Artículos, protocolos de investigación y guías sobre péptidos de investigación: BPC-157, Retatrutide, NAD+, GHK-Cu y más.'
           : 'Articles, research protocols and guides about research peptides: BPC-157, Retatrutide, NAD+, GHK-Cu and more.'
         }
         path={`/${lang}/blog`}
@@ -25,11 +28,13 @@ export default function BlogPage() {
         <div className="max-w-4xl mx-auto px-4 relative z-10">
           <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">Blog</p>
           <h1 className="text-white text-3xl font-extrabold mb-4">
-            {pl ? 'Wiedza o peptydach' : 'Peptide Knowledge'}
+            {pl ? 'Wiedza o peptydach' : es ? 'Conocimiento sobre péptidos' : 'Peptide Knowledge'}
           </h1>
           <p className="text-white/50 max-w-lg">
             {pl
               ? 'Artykuły naukowe, przewodniki i aktualności ze świata peptydów badawczych.'
+              : es
+              ? 'Artículos científicos, guías y novedades del mundo de los péptidos de investigación.'
               : 'Scientific articles, guides, and news from the world of research peptides.'
             }
           </p>
@@ -49,7 +54,7 @@ export default function BlogPage() {
               <div className="sm:w-60 h-48 sm:h-auto shrink-0 overflow-hidden">
                 <img
                   src={post.heroImage}
-                  alt={pl ? post.title_pl : post.title_en}
+                  alt={pl ? post.title_pl : es ? ((post as any).title_es || post.title_en) : post.title_en}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -69,10 +74,10 @@ export default function BlogPage() {
                     </span>
                   </div>
                   <h2 className="text-white text-lg font-bold mb-2 group-hover:text-amber-400 transition-colors">
-                    {pl ? post.title_pl : post.title_en}
+                    {pl ? post.title_pl : es ? ((post as any).title_es || post.title_en) : post.title_en}
                   </h2>
                   <p className="text-white/40 text-sm leading-relaxed line-clamp-2">
-                    {pl ? post.excerpt_pl : post.excerpt_en}
+                    {pl ? post.excerpt_pl : es ? ((post as any).excerpt_es || post.excerpt_en) : post.excerpt_en}
                   </p>
                 </div>
                 <span className="text-amber-500 text-sm flex items-center gap-1 mt-4 group-hover:gap-2 transition-all">

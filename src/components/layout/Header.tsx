@@ -12,8 +12,8 @@ export default function Header() {
   const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const switchLang = (newLang: 'en' | 'pl') => {
-    const newPath = location.pathname.replace(/^\/(pl|en)/, `/${newLang}`);
+  const switchLang = (newLang: 'en' | 'pl' | 'es') => {
+    const newPath = location.pathname.replace(/^\/(pl|en|es)/, `/${newLang}`);
     navigate(newPath + location.search);
   };
 
@@ -63,7 +63,7 @@ export default function Header() {
 
         {/* Right side */}
         <div className="flex items-center gap-3">
-          {/* Lang Toggle — UK first (primary market) */}
+          {/* Lang Toggle — UK / ES / PL */}
           <div className="flex items-center gap-0.5 bg-white/[0.06] border border-white/10 rounded-full p-0.5">
             <button
               onClick={() => switchLang('en')}
@@ -75,6 +75,17 @@ export default function Header() {
               aria-label="English"
             >
               🇬🇧 EN
+            </button>
+            <button
+              onClick={() => switchLang('es')}
+              className={`text-xs px-2 py-1 rounded-full transition-all ${
+                lang === 'es'
+                  ? 'bg-amber-500 text-black font-semibold'
+                  : 'text-white/50 hover:text-white'
+              }`}
+              aria-label="Español"
+            >
+              🇪🇸 ES
             </button>
             <button
               onClick={() => switchLang('pl')}

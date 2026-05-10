@@ -7,6 +7,7 @@ import SeoHead from '../components/SeoHead';
 export default function ContactPage() {
   const { lang } = useLanguage();
   const pl = lang === 'pl';
+  const es = lang === 'es';
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
   const [sent, setSent] = useState(false);
 
@@ -18,10 +19,8 @@ export default function ContactPage() {
   return (
     <div>
       <SeoHead
-        title={pl ? 'Kontakt' : 'Contact'}
-        description={pl
-          ? 'Skontaktuj się z PEPTIVEX LABS — pytania o produkty, zamówienia, współpracę. Odpowiadamy w ciągu 24h w dni robocze.'
-          : 'Contact PEPTIVEX LABS — questions about products, orders, partnerships. We respond within 24h on business days.'
+        title={pl ? 'Kontakt' : es ? 'Contacto' : 'Contact'}
+        description={pl ? 'Skontaktuj się z PEPTIVEX LABS — pytania o produkty, zamówienia, współpracę. Odpowiadamy w ciągu 24h w dni robocze.' : es ? 'Contacte con PEPTIVEX LABS — preguntas sobre productos, pedidos, asociaciones. Respondemos en un plazo de 24 horas en días laborables.' : 'Contact PEPTIVEX LABS — questions about products, orders, partnerships. We respond within 24h on business days.'
         }
         path={`/${lang}/contact`}
       />
@@ -31,12 +30,12 @@ export default function ContactPage() {
         <HexPattern className="text-amber-500/[0.03]" />
         <div className="absolute top-0 left-1/3 w-[250px] h-[250px] rounded-full bg-amber-500/[0.06] blur-[80px]" />
         <div className="max-w-4xl mx-auto px-4 relative z-10">
-          <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Kontakt' : 'Contact'}</p>
+          <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Kontakt' : es ? 'Contacto' : 'Contact'}</p>
           <h1 className="text-white text-3xl sm:text-4xl font-extrabold mb-4">
             {pl ? <><span className="text-gradient">Napisz</span> do nas</> : <><span className="text-gradient">Get</span> in Touch</>}
           </h1>
           <p className="text-white/40 max-w-lg">
-            {pl ? 'Masz pytanie o produkt, zamówienie lub współpracę? Odpowiadamy w ciągu 24h.' : 'Have a question about a product, order, or partnership? We respond within 24h.'}
+            {pl ? 'Masz pytanie o produkt, zamówienie lub współpracę? Odpowiadamy w ciągu 24h.' : es ? '¿Tiene alguna pregunta sobre un producto, pedido o asociación? Respondemos en un plazo de 24 horas.' : 'Have a question about a product, order, or partnership? We respond within 24h.'}
           </p>
         </div>
       </div>
@@ -47,9 +46,9 @@ export default function ContactPage() {
           <div className="flex flex-col gap-4">
             {[
               { icon: Mail, title: 'Email', value: 'info@peptivexlabs.com', color: 'text-amber-400' },
-              { icon: Clock, title: pl ? 'Czas odpowiedzi' : 'Response Time', value: pl ? 'Do 24h w dni robocze' : 'Within 24h on business days', color: 'text-emerald-400' },
+              { icon: Clock, title: pl ? 'Czas odpowiedzi' : es ? 'Tiempo de respuesta' : 'Response Time', value: pl ? 'Do 24h w dni robocze' : es ? 'En un plazo de 24 horas en días laborables' : 'Within 24h on business days', color: 'text-emerald-400' },
               { icon: MessageCircle, title: 'Social', value: 'TikTok: @peptivexlabs', color: 'text-sky-400' },
-              { icon: Building2, title: pl ? 'Adres' : 'Address', value: '4th Floor, The Featherstone Building, 66 City Road, London, EC1Y 2AL, UK', color: 'text-violet-400' },
+              { icon: Building2, title: pl ? 'Adres' : es ? 'Dirección' : 'Address', value: '4th Floor, The Featherstone Building, 66 City Road, London, EC1Y 2AL, UK', color: 'text-violet-400' },
             ].map((item, i) => (
               <div key={i} className="group why-card relative rounded-2xl overflow-hidden transition-all duration-300">
                 <div className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-b from-amber-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
@@ -73,8 +72,8 @@ export default function ContactPage() {
                 <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-emerald-500/10 flex items-center justify-center">
                   <span className="text-3xl">✓</span>
                 </div>
-                <h2 className="text-white text-xl font-bold mb-2">{pl ? 'Wiadomość wysłana!' : 'Message sent!'}</h2>
-                <p className="text-white/50 text-sm">{pl ? 'Odpowiemy w ciągu 24 godzin.' : 'We\'ll respond within 24 hours.'}</p>
+                <h2 className="text-white text-xl font-bold mb-2">{pl ? 'Wiadomość wysłana!' : es ? '¡Mensaje enviado!' : 'Message sent!'}</h2>
+                <p className="text-white/50 text-sm">{pl ? 'Odpowiemy w ciągu 24 godzin.' : es ? 'Responderemos en un plazo de 24 horas.' : 'We\'ll respond within 24 hours.'}</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="relative rounded-2xl overflow-hidden">
@@ -84,7 +83,7 @@ export default function ContactPage() {
                 <div className="relative z-10 p-6 flex flex-col gap-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="text-white/30 text-xs uppercase tracking-wide mb-1.5 block">{pl ? 'Imię' : 'Name'}</label>
+                      <label className="text-white/30 text-xs uppercase tracking-wide mb-1.5 block">{pl ? 'Imię' : es ? 'Nombre' : 'Name'}</label>
                       <input type="text" required value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-3 text-white text-sm focus:border-amber-500/40 focus:outline-none transition-colors" />
                     </div>
                     <div>
@@ -93,23 +92,23 @@ export default function ContactPage() {
                     </div>
                   </div>
                   <div>
-                    <label className="text-white/30 text-xs uppercase tracking-wide mb-1.5 block">{pl ? 'Temat' : 'Subject'}</label>
+                    <label className="text-white/30 text-xs uppercase tracking-wide mb-1.5 block">{pl ? 'Temat' : es ? 'Asunto' : 'Subject'}</label>
                     <select value={form.subject} onChange={e => setForm({ ...form, subject: e.target.value })} className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-3 text-white text-sm focus:border-amber-500/40 focus:outline-none transition-colors">
-                      <option value="">{pl ? 'Wybierz temat' : 'Select subject'}</option>
-                      <option value="order">{pl ? 'Pytanie o zamówienie' : 'Order inquiry'}</option>
-                      <option value="product">{pl ? 'Pytanie o produkt' : 'Product question'}</option>
-                      <option value="shipping">{pl ? 'Wysyłka i dostawa' : 'Shipping & delivery'}</option>
-                      <option value="wholesale">{pl ? 'Współpraca / hurt' : 'Wholesale / partnership'}</option>
-                      <option value="other">{pl ? 'Inne' : 'Other'}</option>
+                      <option value="">{pl ? 'Wybierz temat' : es ? 'Seleccione el asunto' : 'Select subject'}</option>
+                      <option value="order">{pl ? 'Pytanie o zamówienie' : es ? 'Consulta de pedido' : 'Order inquiry'}</option>
+                      <option value="product">{pl ? 'Pytanie o produkt' : es ? 'Pregunta sobre un producto' : 'Product question'}</option>
+                      <option value="shipping">{pl ? 'Wysyłka i dostawa' : es ? 'Envío y entrega' : 'Shipping & delivery'}</option>
+                      <option value="wholesale">{pl ? 'Współpraca / hurt' : es ? 'Venta al por mayor / asociación' : 'Wholesale / partnership'}</option>
+                      <option value="other">{pl ? 'Inne' : es ? 'Otro' : 'Other'}</option>
                     </select>
                   </div>
                   <div>
-                    <label className="text-white/30 text-xs uppercase tracking-wide mb-1.5 block">{pl ? 'Wiadomość' : 'Message'}</label>
+                    <label className="text-white/30 text-xs uppercase tracking-wide mb-1.5 block">{pl ? 'Wiadomość' : es ? 'Mensaje' : 'Message'}</label>
                     <textarea required rows={5} value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-3 text-white text-sm focus:border-amber-500/40 focus:outline-none transition-colors resize-none" />
                   </div>
                   <button type="submit" className="cta-primary bg-amber-500 text-black font-bold py-3.5 rounded-xl hover:bg-amber-400 transition-all flex items-center justify-center gap-2 text-sm">
                     <Send size={16} />
-                    {pl ? 'Wyślij wiadomość' : 'Send Message'}
+                    {pl ? 'Wyślij wiadomość' : es ? 'Enviar mensaje' : 'Send Message'}
                   </button>
                 </div>
               </form>

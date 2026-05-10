@@ -78,6 +78,25 @@ export default function App() {
               <Route path="cancel" element={<CancelPage />} />
             </Route>
 
+            {/* ES Routes */}
+            <Route path="/es" element={<Layout />}>
+              <Route index element={<HomePage />} />
+              <Route path="products" element={<ProductsPage />} />
+              <Route path="product/:slug" element={<ProductDetailPage />} />
+              <Route path="cart" element={<CartPage />} />
+              <Route path="about" element={<AboutPage />} />
+              <Route path="contact" element={<ContactPage />} />
+              <Route path="blog" element={<BlogPage />} />
+              <Route path="blog/:slug" element={<BlogPostPage />} />
+              <Route path="faq" element={<FaqPage />} />
+              <Route path="terms" element={<TermsPage />} />
+              <Route path="privacy" element={<PrivacyPage />} />
+              <Route path="legal" element={<LegalNoticePage />} />
+              <Route path="guide" element={<PeptideGuidePage />} />
+              <Route path="success" element={<SuccessPage />} />
+              <Route path="cancel" element={<CancelPage />} />
+            </Route>
+
             {/* Admin Panel */}
             <Route path="/admin" element={<AdminLayout />}>
               <Route index element={<AdminDashboard />} />
@@ -90,11 +109,14 @@ export default function App() {
               <Route path="settings" element={<AdminSettings />} />
             </Route>
 
-            {/* 404 within /pl and /en */}
+            {/* 404 within /pl, /en, /es */}
             <Route path="/pl/*" element={<Layout />}>
               <Route path="*" element={<NotFoundPage />} />
             </Route>
             <Route path="/en/*" element={<Layout />}>
+              <Route path="*" element={<NotFoundPage />} />
+            </Route>
+            <Route path="/es/*" element={<Layout />}>
               <Route path="*" element={<NotFoundPage />} />
             </Route>
             {/* Catch all (no lang prefix) */}

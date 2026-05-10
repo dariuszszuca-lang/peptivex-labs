@@ -22,6 +22,7 @@ function updateConsent(analytics: boolean, functional: boolean) {
 export default function CookieBanner() {
   const { lang } = useLanguage();
   const pl = lang === 'pl';
+  const es = lang === 'es';
   const [visible, setVisible] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
   const [preferences, setPreferences] = useState({
@@ -67,7 +68,7 @@ export default function CookieBanner() {
       <button
         onClick={reopenBanner}
         className="fixed bottom-4 left-4 z-50 w-10 h-10 bg-[#13110f]/90 backdrop-blur-xl border border-amber-500/20 rounded-full flex items-center justify-center hover:border-amber-500/40 hover:scale-110 transition-all shadow-[0_4px_20px_rgba(0,0,0,0.4)] group"
-        title={pl ? 'Ustawienia cookies' : 'Cookie settings'}
+        title={pl ? 'Ustawienia cookies' : es ? 'Configuración de cookies' : 'Cookie settings'}
       >
         <Cookie size={16} className="text-amber-500/60 group-hover:text-amber-400 transition-colors" />
       </button>
@@ -86,7 +87,7 @@ export default function CookieBanner() {
               </div>
               <div>
                 <h3 className="text-white font-bold text-sm">
-                  {pl ? 'Szanujemy Twoją prywatność' : 'We Respect Your Privacy'}
+                  {pl ? 'Szanujemy Twoją prywatność' : es ? 'Respetamos su privacidad' : 'We Respect Your Privacy'}
                 </h3>
                 <p className="text-white/30 text-xs flex items-center gap-1 mt-0.5">
                   <Shield size={10} /> GDPR / RODO
@@ -101,9 +102,7 @@ export default function CookieBanner() {
           {/* Description */}
           <div className="px-5 pb-3">
             <p className="text-white/45 text-[13px] leading-relaxed">
-              {pl
-                ? 'Używamy plików cookies, aby zapewnić prawidłowe działanie sklepu (koszyk, wybór języka). Opcjonalnie wykorzystujemy cookies funkcjonalne i analityczne, aby poprawić Twoje doświadczenie na stronie.'
-                : 'We use cookies to ensure proper store operation (cart, language selection). Optionally, we use functional and analytics cookies to improve your experience on the site.'
+              {pl ? 'Używamy plików cookies, aby zapewnić prawidłowe działanie sklepu (koszyk, wybór języka). Opcjonalnie wykorzystujemy cookies funkcjonalne i analityczne, aby poprawić Twoje doświadczenie na stronie.' : es ? 'Utilizamos cookies para asegurar el correcto funcionamiento de la tienda (carrito, selección de idioma). Opcionalmente, utilizamos cookies funcionales y analíticas para mejorar su experiencia en el sitio.' : 'We use cookies to ensure proper store operation (cart, language selection). Optionally, we use functional and analytics cookies to improve your experience on the site.'
               }
             </p>
           </div>
@@ -114,7 +113,7 @@ export default function CookieBanner() {
               onClick={() => setShowDetails(!showDetails)}
               className="text-amber-500/60 hover:text-amber-400 text-xs flex items-center gap-1 transition-colors mb-3"
             >
-              {pl ? 'Szczegóły cookies' : 'Cookie details'}
+              {pl ? 'Szczegóły cookies' : es ? 'Detalles de las cookies' : 'Cookie details'}
               {showDetails ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
             </button>
           </div>
@@ -125,8 +124,8 @@ export default function CookieBanner() {
               {/* Necessary */}
               <div className="flex items-center justify-between p-3 bg-white/[0.03] rounded-lg border border-white/[0.06]">
                 <div>
-                  <p className="text-white text-xs font-medium">{pl ? 'Niezbędne' : 'Necessary'}</p>
-                  <p className="text-white/30 text-[11px]">{pl ? 'Koszyk, język, sesja. Zawsze aktywne.' : 'Cart, language, session. Always active.'}</p>
+                  <p className="text-white text-xs font-medium">{pl ? 'Niezbędne' : es ? 'Necesarias' : 'Necessary'}</p>
+                  <p className="text-white/30 text-[11px]">{pl ? 'Koszyk, język, sesja. Zawsze aktywne.' : es ? 'Carrito, idioma, sesión. Siempre activas.' : 'Cart, language, session. Always active.'}</p>
                 </div>
                 <div className="w-9 h-5 bg-emerald-500/20 rounded-full flex items-center justify-end px-0.5">
                   <div className="w-4 h-4 bg-emerald-400 rounded-full" />
@@ -136,8 +135,8 @@ export default function CookieBanner() {
               {/* Functional */}
               <label className="flex items-center justify-between p-3 bg-white/[0.03] rounded-lg border border-white/[0.06] cursor-pointer hover:border-white/[0.1] transition-colors">
                 <div>
-                  <p className="text-white text-xs font-medium">{pl ? 'Funkcjonalne' : 'Functional'}</p>
-                  <p className="text-white/30 text-[11px]">{pl ? 'Zapamiętywanie preferencji, ostatnio oglądane.' : 'Remembering preferences, recently viewed.'}</p>
+                  <p className="text-white text-xs font-medium">{pl ? 'Funkcjonalne' : es ? 'Funcionales' : 'Functional'}</p>
+                  <p className="text-white/30 text-[11px]">{pl ? 'Zapamiętywanie preferencji, ostatnio oglądane.' : es ? 'Recordar preferencias, productos vistos recientemente.' : 'Remembering preferences, recently viewed.'}</p>
                 </div>
                 <input
                   type="checkbox"
@@ -150,8 +149,8 @@ export default function CookieBanner() {
               {/* Analytics */}
               <label className="flex items-center justify-between p-3 bg-white/[0.03] rounded-lg border border-white/[0.06] cursor-pointer hover:border-white/[0.1] transition-colors">
                 <div>
-                  <p className="text-white text-xs font-medium">{pl ? 'Analityczne' : 'Analytics'}</p>
-                  <p className="text-white/30 text-[11px]">{pl ? 'Anonimowe statystyki odwiedzin i zachowań.' : 'Anonymous visit and behavior statistics.'}</p>
+                  <p className="text-white text-xs font-medium">{pl ? 'Analityczne' : es ? 'Analíticas' : 'Analytics'}</p>
+                  <p className="text-white/30 text-[11px]">{pl ? 'Anonimowe statystyki odwiedzin i zachowań.' : es ? 'Estadísticas anónimas de visita y comportamiento.' : 'Anonymous visit and behavior statistics.'}</p>
                 </div>
                 <input
                   type="checkbox"
@@ -169,21 +168,21 @@ export default function CookieBanner() {
               onClick={acceptAll}
               className="flex-1 bg-amber-500 text-black font-bold py-2.5 rounded-xl hover:bg-amber-400 transition-all text-sm"
             >
-              {pl ? 'Akceptuję wszystkie' : 'Accept All'}
+              {pl ? 'Akceptuję wszystkie' : es ? 'Aceptar todas' : 'Accept All'}
             </button>
             {showDetails ? (
               <button
                 onClick={acceptSelected}
                 className="flex-1 bg-white/[0.06] border border-white/[0.1] text-white font-medium py-2.5 rounded-xl hover:bg-white/[0.1] transition-all text-sm"
               >
-                {pl ? 'Zapisz wybrane' : 'Save Selected'}
+                {pl ? 'Zapisz wybrane' : es ? 'Guardar seleccionadas' : 'Save Selected'}
               </button>
             ) : (
               <button
                 onClick={rejectOptional}
                 className="flex-1 bg-white/[0.06] border border-white/[0.1] text-white/60 font-medium py-2.5 rounded-xl hover:bg-white/[0.1] transition-all text-sm"
               >
-                {pl ? 'Tylko niezbędne' : 'Necessary Only'}
+                {pl ? 'Tylko niezbędne' : es ? 'Solo necesarias' : 'Necessary Only'}
               </button>
             )}
           </div>
@@ -191,15 +190,15 @@ export default function CookieBanner() {
           {/* Legal links */}
           <div className="px-5 pb-4 flex items-center justify-center gap-4">
             <a href={`/${lang}/privacy`} className="text-white/20 hover:text-white/40 text-[11px] transition-colors">
-              {pl ? 'Polityka prywatności' : 'Privacy Policy'}
+              {pl ? 'Polityka prywatności' : es ? 'Política de privacidad' : 'Privacy Policy'}
             </a>
             <span className="text-white/10">|</span>
             <a href={`/${lang}/terms`} className="text-white/20 hover:text-white/40 text-[11px] transition-colors">
-              {pl ? 'Regulamin' : 'Terms'}
+              {pl ? 'Regulamin' : es ? 'Términos' : 'Terms'}
             </a>
             <span className="text-white/10">|</span>
             <a href={`/${lang}/legal`} className="text-white/20 hover:text-white/40 text-[11px] transition-colors">
-              {pl ? 'Nota prawna' : 'Legal Notice'}
+              {pl ? 'Nota prawna' : es ? 'Aviso legal' : 'Legal Notice'}
             </a>
           </div>
         </div>

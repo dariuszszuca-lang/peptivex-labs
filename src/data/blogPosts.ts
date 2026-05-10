@@ -9,14 +9,17 @@ export interface BlogPost {
   slug: string;
   title_pl: string;
   title_en: string;
+  title_es?: string;
   excerpt_pl: string;
   excerpt_en: string;
+  excerpt_es?: string;
   date: string;
   category: string;
   readTime: number;
   heroImage: string;
   sections_pl: BlogSection[];
   sections_en: BlogSection[];
+  sections_es?: BlogSection[];
 }
 
 export const BLOG_POSTS: BlogPost[] = [
@@ -24,8 +27,10 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: 'what-are-peptides',
     title_pl: 'Czym są peptydy? Kompletny przewodnik dla początkujących',
     title_en: 'What Are Peptides? A Complete Beginner\'s Guide',
+    title_es: '¿Qué son los péptidos? Una guía introductoria exhaustiva.',
     excerpt_pl: 'Peptydy to krótkie łańcuchy aminokwasów pełniące kluczowe funkcje w organizmie. Dowiedz się czym się różnią od białek i jakie mają zastosowania.',
     excerpt_en: 'Peptides are short amino acid chains playing crucial roles in the body. Learn how they differ from proteins and their applications.',
+    excerpt_es: 'Los péptidos son cadenas cortas de aminoácidos que desempeñan funciones cruciales en el organismo. Descubra cómo se diferencian de las proteínas y sus aplicaciones.',
     date: '2026-04-12',
     category: 'Education',
     readTime: 8,
@@ -170,13 +175,85 @@ export const BLOG_POSTS: BlogPost[] = [
         ],
       },
     ],
+    sections_es: [
+      {
+        heading: '¿Qué son exactamente los péptidos?',
+        paragraphs: [
+          'Los péptidos son cadenas cortas de aminoácidos — de 2 a aproximadamente 50 aminoácidos unidos por enlaces peptídicos. Son más pequeños que las proteínas (que tienen más de 50 aminoácidos) pero desempeñan funciones biológicas igualmente importantes.',
+          'El cuerpo humano produce naturalmente cientos de péptidos diferentes. Sirven como hormonas, neurotransmisores, factores de crecimiento y señales celulares. La insulina, la oxitocina y las endorfinas — todos ellos son péptidos.',
+        ],
+        image: '/images/brand/types-of-peptides.png',
+      },
+      {
+        heading: 'Tipos de péptidos de investigación',
+        paragraphs: [
+          'Los péptidos de investigación son equivalentes sintéticos de péptidos naturales, fabricados en laboratorios con fines científicos. Se dividen en varias categorías principales:',
+        ],
+        list: [
+          'Péptidos regenerativos (BPC-157, TB-500) — estudiados para la curación de tejidos, tendones y músculos',
+          'Péptidos metabólicos (MOTS-c, 5-Amino-1MQ) — estudiados para el metabolismo, la sensibilidad a la insulina y la energía celular',
+          'Péptidos antienvejecimiento (NAD+, GHK-Cu) — estudiados para la reparación del ADN, la regeneración de la piel y la ralentización del envejecimiento',
+          'Péptidos liberadores de hormona del crecimiento (CJC-1295, Ipamorelin) — estimulan la secreción natural de GH',
+          'Péptidos cognitivos (Selank) — estudiados para la función cognitiva y la reducción de la ansiedad',
+          'Péptidos cosmecéuticos (SNAP-8) — utilizados en la investigación para la reducción de arrugas',
+        ],
+      },
+      {
+        heading: '¿Cómo se fabrican los péptidos?',
+        image: '/images/brand/peptivex-box.png',
+        paragraphs: [
+          'Los péptidos de investigación se fabrican utilizando la Síntesis de Péptidos en Fase Sólida (SPPS). El proceso implica la adición secuencial de aminoácidos a una cadena creciente anclada en un soporte sólido.',
+          'Después de la síntesis, el péptido se purifica utilizando HPLC (Cromatografía Líquida de Alta Eficacia), alcanzando una pureza superior al 98%. El producto final se liofiliza — congelado y secado al vacío, produciendo un polvo estable adecuado para el almacenamiento a largo plazo.',
+        ],
+      },
+      {
+        heading: 'Almacenamiento de péptidos',
+        paragraphs: [
+          'El almacenamiento adecuado es fundamental para mantener la actividad de los péptidos:',
+        ],
+        list: [
+          'Liofilizado (polvo): -20°C (congelador), proteger de la luz y la humedad',
+          'Después de la reconstitución (solución): 2-8°C (nevera), usar en 30 días',
+          'Usar agua bacteriostática para la reconstitución',
+          'Evitar ciclos repetidos de congelación-descongelación',
+        ],
+      },
+      {
+        heading: 'Péptidos más investigados',
+        image: '/images/products/bpc-157-vial.png',
+        paragraphs: [
+          'BPC-157 es uno de los péptidos regenerativos más ampliamente estudiados. Es un péptido de 15 aminoácidos derivado de una proteína del jugo gástrico humano (secuencia: Gly-Glu-Pro-Pro-Pro-Gly-Lys-Pro-Ala-Asp-Asp-Ala-Gly-Leu-Val). Su mecanismo implica la activación del receptor VEGFR2, complejos FAK-paxilina y la señalización JAK-2. Estudiado para la curación de tejidos, protección intestinal y neuroprotección.',
+          'TB-500 (análogo de Timosina Beta-4) es un péptido de 43 aminoácidos estudiado como una de las moléculas más activas en la curación de heridas en la literatura científica. Moviliza células madre y progenitoras a los sitios de lesión, promueve la angiogénesis y reduce la apoptosis. Frecuentemente estudiado en combinación con BPC-157 para efectos sinérgicos.',
+          'NAD+ (Nicotinamida Adenina Dinucleótido) es una coenzima central en más de 500 reacciones enzimáticas. Sus niveles disminuyen drásticamente con la edad, lo que se relaciona con el envejecimiento celular y las enfermedades neurodegenerativas. Investigaciones de 2026 señalan su potencial en modelos de enfermedades de Alzheimer y Parkinson.',
+          'Retatrutide — un agonista triple que actúa sobre los receptores GLP-1, GIP y glucagón (apodado "GLP-3") — se encuentra actualmente en ensayos clínicos de fase 3 realizados por Eli Lilly. Genera un enorme interés en la ciencia metabólica como uno de los péptidos metabólicos de próxima generación más prometedores.',
+        ],
+      },
+      {
+        heading: 'Péptidos vs. proteínas — ¿cuál es la diferencia?',
+        paragraphs: [
+          'La frontera entre péptidos y proteínas es convencional, basada principalmente en la longitud de la cadena de aminoácidos. Los péptidos son cadenas de hasta aproximadamente 50 aminoácidos, las proteínas — más de 50. Sin embargo, la diferencia clave radica en la función: los péptidos actúan principalmente como señales y reguladores, mientras que las proteínas desempeñan roles estructurales y enzimáticos.',
+          'Los péptidos de investigación se sintetizan químicamente (método SPPS), lo que permite un control preciso sobre la secuencia y la pureza. Las proteínas se producen típicamente biotecnológicamente — de forma recombinante en células bacterianas o de levadura. Esta diferencia de producción afecta el costo, la escala y la pureza del producto final.',
+          'En el contexto de la investigación, los péptidos tienen ventajas sobre las proteínas en términos de estabilidad, costo de producción y facilidad de modificación. Se pueden introducir fácilmente cambios de secuencia, grupos protectores y análogos con propiedades farmacológicas modificadas.',
+        ],
+      },
+      {
+        heading: 'Aplicaciones de los péptidos en la ciencia — áreas de investigación',
+        paragraphs: [
+          'Los péptidos de investigación encuentran aplicaciones en un amplio espectro de campos científicos. La medicina regenerativa utiliza péptidos como BPC-157 y TB-500 para estudiar los mecanismos de curación de tejidos. La endocrinología estudia los péptidos liberadores de hormona del crecimiento (CJC-1295, Ipamorelin) en el contexto de la fisiología del eje somatotrópico.',
+          'La neurobiología utiliza péptidos cognitivos como Selank para estudiar los mecanismos de la ansiedad y la neuroplasticidad. La dermatología de investigación explora GHK-Cu y SNAP-8 como herramientas potenciales en estudios de regeneración de la piel. El metabolismo y la obesidad es un área donde Retatrutide, MOTS-c y 5-Amino-1MQ abren nuevas direcciones de investigación.',
+          'Cabe señalar que la mayoría de los datos disponibles provienen de estudios preclínicos (in vitro y modelos animales). Solo se están realizando ensayos clínicos completos en humanos para unos pocos péptidos, como Retatrutide (fase 3, Eli Lilly). Por esta razón, los péptidos de investigación se venden exclusivamente para fines de laboratorio y científicos.',
+        ],
+      },
+    ],
   },
   {
     slug: 'bpc-157-research-overview',
     title_pl: 'BPC-157 — co mówią badania naukowe?',
     title_en: 'BPC-157 — What Does the Research Say?',
+    title_es: 'BPC-157 — ¿Qué Revela la Investigación?',
     excerpt_pl: 'BPC-157 to jeden z najszerzej badanych peptydów regeneracyjnych. Przegląd aktualnych wyników badań przedklinicznych.',
     excerpt_en: 'BPC-157 is one of the most widely studied regenerative peptides. Review of current preclinical research findings.',
+    excerpt_es: 'BPC-157 es uno de los péptidos regenerativos más ampliamente estudiados. Revisión de los hallazgos actuales de la investigación preclínica.',
     date: '2026-04-10',
     category: 'Research',
     readTime: 12,
@@ -307,13 +384,78 @@ export const BLOG_POSTS: BlogPost[] = [
         ],
       },
     ],
+    sections_es: [
+      {
+        heading: '¿Qué es BPC-157?',
+        paragraphs: [
+          'BPC-157 (Body Protection Compound-157) es un pentadecapeptido sintético — una cadena de 15 aminoácidos. Se deriva de una proteína encontrada en el jugo gástrico humano, lo que lo hace único entre los péptidos de investigación — es un fragmento de una sustancia de origen natural.',
+          'La secuencia de aminoácidos de BPC-157 es Gly-Glu-Pro-Pro-Pro-Gly-Lys-Pro-Ala-Asp-Asp-Ala-Gly-Leu-Val. El péptido es estable en soluciones con un pH cercano al del jugo gástrico, lo que lo distingue de la mayoría de los péptidos que son sensibles a los ambientes ácidos.',
+        ],
+        image: '/images/products/bpc-157-vial.png',
+      },
+      {
+        heading: 'Mecanismo de acción',
+        paragraphs: [
+          'Estudios preclínicos señalan varias vías moleculares a través de las cuales BPC-157 puede ejercer sus efectos:',
+        ],
+        list: [
+          'Activación del receptor VEGFR2 — estimulación de la angiogénesis (formación de nuevos vasos sanguíneos)',
+          'Activación del complejo FAK-paxillin — apoyo a la migración y adhesión celular',
+          'Estimulación de la señalización JAK-2 — supervivencia celular, crecimiento, respuesta inmunitaria',
+          'Modulación de la producción de óxido nítrico (NO) — efectos antiinflamatorios',
+        ],
+      },
+      {
+        heading: 'Áreas de investigación',
+        image: '/images/brand/peptivex-pouch.png',
+        paragraphs: [
+          'BPC-157 es uno de los péptidos más ampliamente estudiados en la ciencia preclínica. Las principales áreas de investigación incluyen:',
+          'Sistema musculoesquelético — estudios en modelos animales indican una curación acelerada de tendones, ligamentos, músculos y fracturas óseas. Esta es el área mejor documentada de acción de BPC-157.',
+          'Sistema gastrointestinal — el péptido exhibe propiedades protectoras para la mucosa del tracto gastrointestinal. Los estudios incluyen modelos de enfermedad inflamatoria intestinal y lesión de la mucosa.',
+          'Neuroprotección — los estudios indican potencial en modelos de lesión cerebral traumática (LCT), compresión de la médula espinal y regeneración nerviosa periférica.',
+        ],
+      },
+      {
+        heading: 'Dosificación en estudios preclínicos',
+        paragraphs: [
+          'En estudios con modelos animales, BPC-157 se administró en dosis de 6 a 50 mcg/kg de peso corporal, una o dos veces al día. Las vías de administración incluyeron inyecciones subcutáneas, intraperitoneales y administración oral — inusual para péptidos que típicamente se degradan en el tracto gastrointestinal.',
+          'La estabilidad de BPC-157 en el ambiente ácido del estómago (debido a su origen de una proteína del jugo gástrico) lo convierte en uno de los pocos péptidos que muestran actividad después de la administración oral en modelos animales. Esta característica es objeto de intensa investigación.',
+          'El equivalente humano de las dosis utilizadas en estudios animales se estima en 200-500 mcg diarios, aunque aún no existen protocolos clínicos establecidos. El estudio piloto de 2025 probó dosis intravenosas de hasta 20 mg en humanos.',
+        ],
+      },
+      {
+        heading: 'Sinergia con otros péptidos',
+        paragraphs: [
+          'En la literatura preclínica, BPC-157 se estudia frecuentemente en combinación con TB-500 (Timoxina Beta-4). La hipótesis de la sinergia se basa en mecanismos complementarios: BPC-157 estimula la angiogénesis y la protección tisular, mientras que TB-500 moviliza células madre y apoya la remodelación del citoesqueleto.',
+          'La combinación de BPC-157 con péptidos liberadores de hormona de crecimiento (CJC-1295, Ipamorelin) también está bajo investigación — la hormona de crecimiento juega un papel crítico en la regeneración tisular, lo que teóricamente podría potenciar los efectos regenerativos de BPC-157.',
+        ],
+      },
+      {
+        heading: 'Seguridad y estado regulatorio',
+        paragraphs: [
+          'Un estudio piloto en humanos de 2025, donde BPC-157 se administró por vía intravenosa en dosis de hasta 20 mg, no mostró efectos adversos significativos en el corazón, hígado o riñones. Este es uno de los primeros estudios controlados de seguridad de BPC-157 en humanos.',
+          'BPC-157 está clasificado por la FDA como una sustancia a granel de Categoría 2 — no puede ser utilizado legalmente en la formulación farmacéutica en los EE. UU. No está aprobado por la EMA en Europa. Aparece en la lista de sustancias prohibidas de la USADA en deportes de competición.',
+          'Un riesgo teórico es la promoción de la angiogénesis, lo que requiere precaución en el contexto de tumores existentes. Sin embargo, no se han observado efectos procarcinogénicos en estudios preclínicos hasta la fecha.',
+          'Cabe destacar que la gran mayoría de los datos provienen de estudios en modelos animales. A pesar de los resultados prometedores, aún son necesarios ensayos clínicos aleatorizados completos en humanos para confirmar la seguridad y eficacia.',
+        ],
+      },
+      {
+        heading: 'Almacenamiento de BPC-157',
+        paragraphs: [
+          'BPC-157 liofilizado (polvo) debe almacenarse a -20°C, protegido de la luz y la humedad. Bajo estas condiciones, el péptido mantiene su estabilidad durante muchos meses.',
+          'Después de la reconstitución con agua bacteriostática, la solución debe refrigerarse (2-8°C) y usarse dentro de los 30 días. No vuelva a congelar la solución — los ciclos repetidos de congelación y descongelación degradan el péptido y reducen su actividad.',
+        ],
+      },
+    ],
   },
   {
     slug: 'peptide-storage-guide',
     title_pl: 'Jak prawidłowo przechowywać peptydy? Praktyczny poradnik',
     title_en: 'How to Properly Store Peptides: A Practical Guide',
+    title_es: 'Guía Práctica para el Almacenamiento Adecuado de Péptidos',
     excerpt_pl: 'Przechowywanie peptydów wpływa na ich stabilność i aktywność. Temperatura, światło, wilgotność — co musisz wiedzieć.',
     excerpt_en: 'Peptide storage affects stability and activity. Temperature, light, humidity — what you need to know.',
+    excerpt_es: 'El almacenamiento de péptidos afecta su estabilidad y actividad. Temperatura, luz, humedad: aspectos clave a considerar.',
     date: '2026-04-08',
     category: 'Guide',
     readTime: 5,
@@ -466,13 +608,89 @@ export const BLOG_POSTS: BlogPost[] = [
         ],
       },
     ],
+    sections_es: [
+      {
+        heading: '¿Por qué es tan importante el almacenamiento?',
+        paragraphs: [
+          'Los péptidos son moléculas delicadas. Un almacenamiento inadecuado conduce a la degradación: ruptura de los enlaces peptídicos, oxidación de aminoácidos y pérdida de actividad biológica. Un péptido que ha perdido su estructura es inútil para la investigación.',
+          'Los principales factores de degradación son: la temperatura, la luz (especialmente UV), la humedad y la exposición al aire. La buena noticia es que el almacenamiento adecuado es sencillo una vez que se conocen las reglas.',
+        ],
+      },
+      {
+        heading: 'Forma liofilizada (polvo)',
+        image: '/images/products/retatrutide-box-front.jpg',
+        paragraphs: [
+          'La liofilización (secado por congelación) es un proceso en el que la solución peptídica se congela y luego se elimina el agua al vacío. El resultado es un polvo seco y estable, la forma más duradera de los péptidos.',
+        ],
+        list: [
+          'Temperatura: -20°C (congelador) — óptima para el almacenamiento a largo plazo',
+          'Aceptable: 2-8°C (nevera) — para hasta varias semanas',
+          'Proteger de la luz — idealmente en su embalaje original o envuelto en papel de aluminio',
+          'Proteger de la humedad — los viales deben estar herméticamente cerrados',
+          'Bajo estas condiciones, los péptidos mantienen su actividad durante meses o incluso años',
+        ],
+      },
+      {
+        heading: 'Reconstitución (preparación de la solución)',
+        paragraphs: [
+          'Antes de su uso en investigación, el péptido en polvo debe disolverse (reconstituirse). Para este propósito se utiliza agua bacteriostática — agua estéril con 0.9% de alcohol bencílico añadido para prevenir el crecimiento bacteriano.',
+        ],
+        list: [
+          'Utilice agua bacteriostática (¡no agua normal!)',
+          'Añada el agua lentamente, a lo largo de la pared del vial — no inyecte directamente en el polvo',
+          'No agite — gire suavemente el vial hasta que el polvo se disuelva',
+          'Guarde la solución en la nevera (2-8°C)',
+          'Utilice dentro de los 30 días posteriores a la reconstitución',
+        ],
+      },
+      {
+        heading: 'Qué evitar',
+        image: '/images/products/retatrutide-pens.jpg',
+        paragraphs: [
+          'Varias cosas que pueden destruir sus péptidos:',
+        ],
+        list: [
+          'Ciclos repetidos de congelación-descongelación — cada ciclo degrada el péptido',
+          'Dejar a temperatura ambiente — especialmente después de la reconstitución',
+          'Luz solar directa — los rayos UV rompen los enlaces peptídicos',
+          'Contaminación — utilice siempre agujas y jeringas estériles',
+          'Mezcla demasiado vigorosa — puede destruir la estructura del péptido',
+        ],
+      },
+      {
+        heading: 'Agua bacteriostática — ¿qué es?',
+        paragraphs: [
+          'El agua bacteriostática (agua BAC) es agua estéril con 0.9% de alcohol bencílico añadido. El alcohol bencílico actúa como conservante, previniendo el crecimiento bacteriano en la solución. Esto mantiene la solución peptídica segura para su uso durante un período prolongado.',
+          'No utilice agua destilada normal, agua para inyección o solución salina sin conservante — las bacterias pueden multiplicarse en estas soluciones, contaminando el péptido y haciéndolo inútil (y potencialmente peligroso).',
+          'El agua bacteriostática está disponible en viales de 10ml o 30ml. Un vial de 10ml es suficiente para reconstituir varios péptidos. Guárdela en el refrigerador después de abrirla.',
+        ],
+      },
+      {
+        heading: '¿Cuánta agua añadir? Cálculo de la concentración',
+        paragraphs: [
+          'La cantidad de agua añadida a un vial de péptido depende de la concentración de solución deseada. Regla general: menos agua significa mayor concentración — pero una solución demasiado concentrada puede ser difícil de dosificar con precisión.',
+          'Ejemplo: para un vial de BPC-157 de 5mg — añadir 2ml de agua bacteriostática da una concentración de 2.5mg/ml (2500mcg/ml). Si la dosis de investigación es de 250mcg, eso corresponde a 0.1ml (10 unidades en una jeringa de insulina U-100). Hay calculadoras en línea disponibles para simplificar estos cálculos.',
+          'Importante: escriba la cantidad de agua añadida en el vial con un marcador o etiqueta. Después de unos días, es fácil olvidar qué concentración preparó.',
+        ],
+      },
+      {
+        heading: 'Transporte de péptidos',
+        paragraphs: [
+          'Al pedir péptidos en línea, es crucial que el proveedor utilice métodos de embalaje adecuados. Los péptidos liofilizados son relativamente resistentes a las fluctuaciones de temperatura a corto plazo durante el transporte — unos pocos días a temperatura ambiente no deberían afectar significativamente su calidad.',
+          'Sin embargo, al recibir el envío, los péptidos deben colocarse inmediatamente en el congelador (-20°C). No los deje en un alféizar, en un coche o en cualquier otro lugar expuesto al calor y la luz.',
+          'En PEPTIVEX LABS, enviamos péptidos en embalaje discreto a través de InPost Paczkomaty (Poland) e InPost Lockers (UK), manteniendo las condiciones de transporte adecuadas.',
+        ],
+      },
+    ],
   },
   {
     slug: 'longevity-peptide-framework',
     title_pl: 'Framework longevity: jak peptydy wpisują się w strategię zdrowia',
     title_en: 'The Longevity Framework: How Peptides Fit Into a Health Strategy',
+    title_es: 'El Marco de la Longevidad: Cómo los Péptidos se Integran en una Estrategia de Salud',
     excerpt_pl: 'Peptydy to nie magiczne rozwiązanie — to precyzyjne narzędzia, które działają najlepiej na solidnym fundamencie zdrowia. Poznaj framework 3 poziomów.',
     excerpt_en: 'Peptides are not a magic solution — they are precision tools that work best on a solid health foundation. Learn the 3-level framework.',
+    excerpt_es: 'Los péptidos no son una solución mágica — son herramientas de precisión que funcionan óptimamente sobre una base de salud sólida. Conozca el marco de tres niveles.',
     date: '2026-04-12',
     category: 'Strategy',
     readTime: 10,
@@ -646,6 +864,92 @@ export const BLOG_POSTS: BlogPost[] = [
           'An important distinction: the level of scientific evidence varies significantly across peptides. Some (like tirzepatide or tesamorelin) have been studied in human clinical trials or developed into approved medications. Others are still in earlier stages — primarily studied in animal models.',
           'For example, MOTS-c and BPC-157 have generated significant interest based on promising findings in animal studies — metabolism, tissue repair, cellular signaling. However, large-scale human clinical trials evaluating their safety and long-term effects are still limited.',
           'Animal studies provide valuable insights into biological mechanisms, but results observed in animals do not always translate directly to humans. For this reason, peptides primarily supported by preclinical research should be approached with an additional level of caution.',
+        ],
+      },
+    ],
+    sections_es: [
+      {
+        heading: 'Los péptidos son herramientas, no atajos',
+        paragraphs: [
+          'En los últimos años, los péptidos se han convertido en una de las herramientas más comentadas en el mundo de la longevidad y la optimización de la salud. Se oye hablar de péptidos para la pérdida de grasa, la recuperación, el rejuvenecimiento de la piel, el rendimiento cognitivo. Pero las conversaciones en línea pueden ser caóticas: los protocolos varían ampliamente, la información suele ser incompleta y es fácil sentirse abrumado.',
+          'Los péptidos son cadenas cortas de aminoácidos que actúan como moléculas de señalización dirigidas. Influyen en vías biológicas específicas implicadas en el metabolismo, la reparación, la inflamación y el envejecimiento. Muchos péptidos existen de forma natural en la fisiología humana: la insulina, el GLP-1, la oxitocina son todos péptidos.',
+          'Pero los péptidos no son una solución mágica. Son herramientas que influyen en la señalización biológica, no atajos que reemplacen los hábitos de salud fundamentales. Funcionan mejor cuando se superponen a una base sólida de hábitos de vida, nutrición y equilibrio hormonal.',
+        ],
+      },
+      {
+        heading: 'El Marco de 3 Niveles',
+        image: '/images/brand/hero-brand.png',
+        paragraphs: [
+          'Antes de discutir los péptidos, es importante comprender dónde encajan dentro de una estrategia de salud más amplia. La optimización se puede dividir en tres niveles:',
+        ],
+        list: [
+          'Nivel 1: Salud Fundamental — calidad del sueño, entrenamiento de fuerza y movimiento, ingesta adecuada de proteínas, azúcar en sangre estable, manejo del estrés. Si estos pilares no están establecidos, los péptidos no producirán resultados significativos a largo plazo.',
+          'Nivel 2: Optimización Hormonal — las hormonas influyen en el metabolismo, la energía, el estado de ánimo y la composición corporal. Optimizar el estrógeno, la progesterona, la testosterona y las hormonas tiroideas puede mejorar drásticamente la salud general.',
+          'Nivel 3: Herramientas de Precisión — una vez que se abordan la base y las hormonas, las intervenciones dirigidas pueden refinar vías biológicas específicas. Aquí es donde entran los péptidos. Apoyan la salud metabólica, la reparación de tejidos, la función cognitiva, la regeneración de la piel y la resiliencia celular.',
+        ],
+      },
+      {
+        heading: 'Categorías de péptidos de investigación',
+        paragraphs: [
+          'En lugar de apilar numerosos péptidos simultáneamente, un enfoque más efectivo es una estrategia por capas que cambia con el tiempo según los objetivos y la fisiología. Los péptidos se dividen en tres grupos estratégicos:',
+        ],
+        list: [
+          'Péptidos fundamentales — utilizados a largo plazo como base (NAD+, GHK-Cu)',
+          'Péptidos estacionales — utilizados cíclicamente en períodos específicos (BPC-157, TB-500 para la curación; CJC-1295 + Ipamorelin para la GH)',
+          'Péptidos situacionales — utilizados según sea necesario en respuesta a requisitos específicos (Selank para el estrés, Melanotan 2 para la fotoprotección)',
+        ],
+      },
+      {
+        heading: 'Pérdida de peso y metabolismo',
+        image: '/images/products/retatrutide-pens-20mg.jpg',
+        paragraphs: [
+          'La categoría de Pérdida de Grasa / Metabólica es el segmento de más rápido crecimiento de los péptidos de investigación. Las moléculas clave incluyen:',
+          'Retatrutide (GLP-3) — agonista triple que se dirige a los receptores GLP-1, GIP y glucagón. Última generación, ensayos clínicos de fase 3 por Eli Lilly. Formato de pluma (inyector), dosificación de 0.5-2mg semanalmente con titulación lenta.',
+          'MOTS-c — péptido único codificado por el ADN mitocondrial. Actúa a través de la vía AMPK, mejorando la sensibilidad a la insulina y el metabolismo de la glucosa. Dosificación: 0.5-1mg, 3-5 veces/semana, evitar comer 30 min después de la dosis.',
+          '5-Amino-1MQ — inhibidor de NNMT que aumenta los niveles de NAD+ 1.2-1.6 veces en las células. Reducción del tejido graso sin supresión del apetito — mecanismo único.',
+        ],
+      },
+      {
+        heading: 'Regeneración y curación',
+        image: '/images/products/bpc-157-vial.png',
+        paragraphs: [
+          'BPC-157 y TB-500 son los dos péptidos regenerativos más estudiados. Su combinación es popular en los protocolos de investigación debido a mecanismos complementarios:',
+          'BPC-157 (250-500mcg diarios, 4-12 semanas) — estimula la angiogénesis vía VEGFR2, protege la mucosa del tracto gastrointestinal, exhibe propiedades neuroprotectoras. Único entre los péptidos — estable en el ambiente ácido del estómago.',
+          'TB-500 (500mcg diarios, 6-12 semanas) — moviliza células madre, promueve la angiogénesis y la remodelación del citoesqueleto. Estudiado para la cicatrización de heridas, la reparación cardíaca y la regeneración de tendones.',
+          'GHK-Cu (1.7-2mg diarios, 4-8 semanas) — péptido de cobre que modula la expresión de más de 4,000 genes. Estimula la síntesis de colágeno, elastina y glicosaminoglicanos. Utilizado en la investigación de regeneración de la piel y estimulación del folículo piloso.',
+        ],
+      },
+      {
+        heading: 'Longevidad y mitocondrias',
+        paragraphs: [
+          'El envejecimiento celular está estrechamente relacionado con la disminución de la función mitocondrial y los niveles de NAD+. Péptidos clave en esta categoría:',
+          'NAD+ (20-100mg por inyección, 2-3 veces/semana, SubQ o IM) — coenzima central para sirtuinas, PARPs y fosforilación oxidativa. La suplementación con NAD+ se estudia intensivamente en el contexto de enfermedades neurodegenerativas y el envejecimiento.',
+          'SS-31 / Elamipretide (0.5-1mg, 5 días sí/2 no, 6-8 semanas) — se dirige selectivamente a la membrana mitocondrial interna. Estabiliza las crestas, reduce el estrés oxidativo. Usar por la mañana o después de sesiones de sauna/luz roja. Alternar con días de NAD+.',
+          'MOTS-c (0.5-1mg, 3-5 veces/semana) — péptido mitocondrial que regula el metabolismo a través de la vía AMPK. Combina bien con NAD+ para el soporte mitocondrial.',
+        ],
+      },
+      {
+        heading: 'Hormona del crecimiento — CJC-1295 + Ipamorelin',
+        paragraphs: [
+          'La combinación CJC-1295 No DAC + Ipamorelin es uno de los stacks de péptidos mejor estudiados. Ambos péptidos estimulan la secreción de la hormona del crecimiento a través de diferentes mecanismos — juntos producen un efecto sinérgico de liberación pulsátil de GH.',
+          'CJC-1295 No DAC (200-250mcg por dosis) — análogo de GHRH, estimula la hipófisis para liberar GH en un ritmo pulsátil natural. Su corta vida media (~30 min) proporciona a los investigadores un control preciso de la dosificación.',
+          'Ipamorelin (200-300mcg por dosis) — el GHRP más selectivo, no afecta el eje ACTH-cortisol ni la prolactina. Administrado por la noche en ayunas (2-3h después de la comida), 5 días sí / 2 no, ciclos de 6-12 semanas.',
+          'Este stack se prefiere sobre la GH sintética debido al patrón de liberación pulsátil fisiológico y al menor riesgo de efectos secundarios.',
+        ],
+      },
+      {
+        heading: 'Función cognitiva y estado de ánimo',
+        paragraphs: [
+          'Selank (250mcg, intranasal o SubQ, 2-3 días/semana, 4-6 semanas) — un heptapéptido desarrollado en la Academia Rusa de Ciencias. Modula la neurotransmisión GABAérgica con efectos ansiolíticos comparables a los de las benzodiazepinas — sin tolerancia, dependencia o sedación. Influye en la noradrenalina, la serotonina y la dopamina.',
+          'Es una de las pocas sustancias que combina efectos ansiolíticos con psicoestimulantes/antiasténicos — reduce la ansiedad sin causar somnolencia.',
+        ],
+      },
+      {
+        heading: 'Investigación en humanos vs animales',
+        paragraphs: [
+          'Una distinción importante: el nivel de evidencia científica varía significativamente entre los péptidos. Algunos (como tirzepatide o tesamorelin) han sido estudiados en ensayos clínicos en humanos o desarrollados como medicamentos aprobados. Otros aún se encuentran en etapas tempranas — estudiados principalmente en modelos animales.',
+          'Por ejemplo, MOTS-c y BPC-157 han generado un interés significativo basado en hallazgos prometedores en estudios con animales — metabolismo, reparación de tejidos, señalización celular. Sin embargo, los ensayos clínicos a gran escala en humanos que evalúan su seguridad y efectos a largo plazo aún son limitados.',
+          'Los estudios en animales proporcionan información valiosa sobre los mecanismos biológicos, pero los resultados observados en animales no siempre se traducen directamente a los humanos. Por esta razón, los péptidos respaldados principalmente por investigación preclínica deben abordarse con un nivel adicional de precaución.',
         ],
       },
     ],

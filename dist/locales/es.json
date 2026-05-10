@@ -1,0 +1,77 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "products": "Productos",
+    "cart": "Carrito",
+    "about": "Nosotros",
+    "contact": "Contacto"
+  },
+  "splash": {
+    "title": "Seleccione su Región",
+    "subtitle": "El envío y los precios dependen de la región seleccionada",
+    "pl": "Polonia",
+    "uk": "Reino Unido",
+    "plDesc": "Envío por InPost Paczkomaty · Precios en PLN",
+    "ukDesc": "InPost Lockers · Precios en GBP"
+  },
+  "home": {
+    "hero": "Investigación Pionera. Péptidos Premium.",
+    "heroSub": "Péptidos de investigación de la más alta calidad. Solo para uso en laboratorio y de investigación.",
+    "shopNow": "Explorar Productos",
+    "featured": "Productos Destacados",
+    "categories": "Categorías"
+  },
+  "product": {
+    "addToCart": "Añadir al carrito",
+    "outOfStock": "Agotado",
+    "dosage": "Dosis",
+    "format": "Formato",
+    "category": "Categoría",
+    "researchOnly": "SOLO PARA USO DE INVESTIGACIÓN",
+    "researchSub": "Solo para uso de investigación y laboratorio. Este producto no es un medicamento registrado ni un suplemento dietético.",
+    "vial": "Vial (liofilizado)",
+    "pen": "Pluma (inyector)",
+    "capsule": "Cápsulas",
+    "spray": "Spray"
+  },
+  "cart": {
+    "title": "Carrito",
+    "empty": "Su carrito está vacío",
+    "total": "Total",
+    "checkout": "Proceder al Pago",
+    "remove": "Eliminar",
+    "continueShopping": "Continuar Comprando"
+  },
+  "checkout": {
+    "title": "Pago",
+    "name": "Nombre Completo",
+    "email": "Correo Electrónico",
+    "phone": "Teléfono",
+    "selectLocker": "Seleccionar Taquilla InPost",
+    "disclaimer": "Tengo 18 años o más y soy un investigador cualificado o un profesional de laboratorio. Los productos se utilizarán exclusivamente para investigación in vitro y no se administrarán a humanos ni a animales. Me encuentro en una jurisdicción donde esta compra es legal. He leído y acepto los Términos y el aviso legal de 'Solo para Uso de Investigación'.",
+    "confirmAccept": "Acepto los términos de 'Solo para Uso de Investigación' anteriores",
+    "pay": "Pagar Ahora",
+    "shipping": "Envío",
+    "shippingCost": "€8,99",
+    "freeFrom": "Gratis a partir de €115"
+  },
+  "footer": {
+    "research": "Todos los productos son solo para investigación in vitro. No aptos para consumo humano o animal. Solo para investigadores cualificados mayores de 18 años.",
+    "disclaimer": "PEPTIVEX LABS es un proveedor de péptidos de grado de investigación exclusivamente para investigación de laboratorio in vitro. Los productos NO están destinados al consumo humano o animal, ni a uso clínico, diagnóstico o terapéutico. No aprobados por la FDA, MHRA o EMA. Se venden únicamente a investigadores cualificados mayores de 18 años en jurisdicciones donde dicha venta está permitida.",
+    "rights": "Todos los derechos reservados."
+  },
+  "categories": {
+    "healing": "Investigación de Reparación de Tejidos",
+    "anti-aging": "Longevidad Celular",
+    "metabolic": "Vías Metabólicas",
+    "growth-hormone": "Investigación del Eje GH",
+    "cognitive": "Investigación de Neuropéptidos",
+    "melanogenesis": "Investigación de Melanocortina",
+    "mitochondrial": "Investigación Mitocondrial",
+    "cosmeceutical": "Péptidos Cosmecéuticos",
+    "weight-loss": "Investigación Metabólica",
+    "blend": "Mezclas para Investigación",
+    "combo": "Combinaciones para Investigación",
+    "accessory": "Accesorios de Laboratorio"
+  }
+}

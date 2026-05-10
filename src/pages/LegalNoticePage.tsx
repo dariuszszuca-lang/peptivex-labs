@@ -6,6 +6,7 @@ import { AlertTriangle } from 'lucide-react';
 export default function LegalNoticePage() {
   const { lang } = useLanguage();
   const pl = lang === 'pl';
+  const es = lang === 'es';
 
   const sections = pl ? [
     {
@@ -54,10 +55,8 @@ export default function LegalNoticePage() {
   return (
     <div>
       <SeoHead
-        title={pl ? 'Informacja prawna' : 'Legal Notice'}
-        description={pl
-          ? 'Zastrzeżenia prawne PEPTIVEX LABS — odczynniki laboratoryjne wyłącznie do badań, nie do użytku na ludziach ani zwierzętach.'
-          : 'PEPTIVEX LABS legal notice — laboratory reagents for research only, not for human or animal use.'
+        title={pl ? 'Informacja prawna' : es ? 'Aviso Legal' : 'Legal Notice'}
+        description={pl ? 'Zastrzeżenia prawne PEPTIVEX LABS — odczynniki laboratoryjne wyłącznie do badań, nie do użytku na ludziach ani zwierzętach.' : es ? 'Aviso legal de PEPTIVEX LABS — reactivos de laboratorio solo para investigación, no para uso humano o animal.' : 'PEPTIVEX LABS legal notice — laboratory reagents for research only, not for human or animal use.'
         }
         path={`/${lang}/legal`}
       />
@@ -68,12 +67,12 @@ export default function LegalNoticePage() {
         <div className="max-w-3xl mx-auto px-4 relative z-10">
           <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 rounded-full px-4 py-1.5 mb-4">
             <AlertTriangle size={12} className="text-red-400" />
-            <span className="text-red-400 text-xs font-medium uppercase tracking-wide">{pl ? 'Ważne' : 'Important'}</span>
+            <span className="text-red-400 text-xs font-medium uppercase tracking-wide">{pl ? 'Ważne' : es ? 'Importante' : 'Important'}</span>
           </div>
           <h1 className="text-white text-3xl sm:text-4xl font-extrabold mb-4">
-            {pl ? 'Informacja prawna' : 'Legal Notice'}
+            {pl ? 'Informacja prawna' : es ? 'Aviso Legal' : 'Legal Notice'}
           </h1>
-          <p className="text-white/40 max-w-lg">{pl ? 'Zastrzeżenie dotyczące użytkowania produktów' : 'Product Use Disclaimer'}</p>
+          <p className="text-white/40 max-w-lg">{pl ? 'Zastrzeżenie dotyczące użytkowania produktów' : es ? 'Descargo de Responsabilidad sobre el Uso del Producto' : 'Product Use Disclaimer'}</p>
         </div>
       </div>
 
@@ -85,15 +84,11 @@ export default function LegalNoticePage() {
           </div>
           <div className="relative z-10 p-6">
             <p className="text-white/60 text-[15px] leading-[1.8]">
-              {pl
-                ? 'Produkty sprzedawane przez PEPTIVEX LABS są przeznaczone wyłącznie do badań laboratoryjnych, analiz chemicznych i celów edukacyjnych. Nie są przeznaczone do użytku na ludziach ani zwierzętach, ani do stosowania w jakichkolwiek procedurach medycznych, diagnostycznych lub terapeutycznych.'
-                : 'The products sold by PEPTIVEX LABS are intended strictly for laboratory research, chemical analysis, and educational purposes. They are not intended for human or animal consumption, nor for use in any medical, diagnostic, or therapeutic procedures.'
+              {pl ? 'Produkty sprzedawane przez PEPTIVEX LABS są przeznaczone wyłącznie do badań laboratoryjnych, analiz chemicznych i celów edukacyjnych. Nie są przeznaczone do użytku na ludziach ani zwierzętach, ani do stosowania w jakichkolwiek procedurach medycznych, diagnostycznych lub terapeutycznych.' : es ? 'Los productos vendidos por PEPTIVEX LABS están destinados estrictamente a la investigación de laboratorio, el análisis químico y fines educativos. No están destinados al consumo humano o animal, ni a su uso en ningún procedimiento médico, diagnóstico o terapéutico.' : 'The products sold by PEPTIVEX LABS are intended strictly for laboratory research, chemical analysis, and educational purposes. They are not intended for human or animal consumption, nor for use in any medical, diagnostic, or therapeutic procedures.'
               }
             </p>
             <p className="text-white/50 text-[15px] leading-[1.8] mt-4">
-              {pl
-                ? 'Dokonując zakupu w PEPTIVEX LABS, przyjmujesz do wiadomości i zgadzasz się z następującymi warunkami:'
-                : 'By purchasing from PEPTIVEX LABS, you acknowledge and agree to the following terms:'
+              {pl ? 'Dokonując zakupu w PEPTIVEX LABS, przyjmujesz do wiadomości i zgadzasz się z następującymi warunkami:' : es ? 'Al comprar en PEPTIVEX LABS, usted reconoce y acepta los siguientes términos:' : 'By purchasing from PEPTIVEX LABS, you acknowledge and agree to the following terms:'
               }
             </p>
           </div>
@@ -118,12 +113,10 @@ export default function LegalNoticePage() {
         <div className="mt-10 bg-amber-500/[0.06] border border-amber-500/20 rounded-2xl p-6 text-center">
           <AlertTriangle size={20} className="text-amber-500 mx-auto mb-3" />
           <p className="text-amber-400 text-xs font-bold uppercase tracking-wide mb-2">
-            {pl ? 'ODCZYNNIK LABORATORYJNY. DO CELÓW BADAWCZYCH' : 'LABORATORY REAGENT. FOR RESEARCH USE ONLY'}
+            {pl ? 'ODCZYNNIK LABORATORYJNY. DO CELÓW BADAWCZYCH' : es ? 'REACTIVO DE LABORATORIO. SOLO PARA USO EN INVESTIGACIÓN' : 'LABORATORY REAGENT. FOR RESEARCH USE ONLY'}
           </p>
           <p className="text-white/40 text-sm">
-            {pl
-              ? 'Składając zamówienie w PEPTIVEX LABS, potwierdzasz, że przeczytałeś i akceptujesz powyższe warunki.'
-              : 'By placing an order with PEPTIVEX LABS, you confirm that you have read and accept the above terms.'
+            {pl ? 'Składając zamówienie w PEPTIVEX LABS, potwierdzasz, że przeczytałeś i akceptujesz powyższe warunki.' : es ? 'Al realizar un pedido con PEPTIVEX LABS, usted confirma que ha leído y acepta los términos anteriores.' : 'By placing an order with PEPTIVEX LABS, you confirm that you have read and accept the above terms.'
             }
           </p>
         </div>
@@ -135,27 +128,27 @@ export default function LegalNoticePage() {
           </div>
           <div className="relative z-10 p-6">
             <h2 className="text-white text-lg font-bold mb-4">
-              {pl ? 'Dane firmy' : 'Company details'}
+              {pl ? 'Dane firmy' : es ? 'Datos de la empresa' : 'Company details'}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
               <div>
                 <p className="text-white/40 text-xs uppercase tracking-wide mb-2">
-                  {pl ? 'Spółka' : 'Company'}
+                  {pl ? 'Spółka' : es ? 'Empresa' : 'Company'}
                 </p>
                 <p className="text-white font-semibold mb-1">PEPTIVEXLABS LTD</p>
                 <p className="text-white/50 mb-1">
-                  {pl ? 'Numer firmy' : 'Company number'}: 17178009
+                  {pl ? 'Numer firmy' : es ? 'Número de empresa' : 'Company number'}: 17178009
                 </p>
                 <p className="text-white/50 mb-1">
-                  {pl ? 'Forma prawna' : 'Company type'}: Private Limited Company
+                  {pl ? 'Forma prawna' : es ? 'Tipo de empresa' : 'Company type'}: Private Limited Company
                 </p>
                 <p className="text-white/50">
-                  {pl ? 'Jurysdykcja' : 'Jurisdiction'}: England &amp; Wales
+                  {pl ? 'Jurysdykcja' : es ? 'Jurisdicción' : 'Jurisdiction'}: England &amp; Wales
                 </p>
               </div>
               <div>
                 <p className="text-white/40 text-xs uppercase tracking-wide mb-2">
-                  {pl ? 'Siedziba rejestrowa' : 'Registered office'}
+                  {pl ? 'Siedziba rejestrowa' : es ? 'Domicilio social' : 'Registered office'}
                 </p>
                 <p className="text-white/60 leading-relaxed mb-4">
                   66 Paul Street<br />
@@ -163,7 +156,7 @@ export default function LegalNoticePage() {
                   United Kingdom
                 </p>
                 <p className="text-white/40 text-xs uppercase tracking-wide mb-2">
-                  {pl ? 'Adres korespondencyjny' : 'Operational address'}
+                  {pl ? 'Adres korespondencyjny' : es ? 'Dirección operativa' : 'Operational address'}
                 </p>
                 <p className="text-white/60 leading-relaxed">
                   4th Floor, The Featherstone Building<br />
@@ -174,9 +167,7 @@ export default function LegalNoticePage() {
             </div>
             <div className="mt-6 pt-4 border-t border-white/[0.06] text-xs text-white/40">
               <p>
-                {pl
-                  ? 'Spółka zarejestrowana w Companies House (Wielka Brytania). Pełne dane dostępne na find-and-update.company-information.service.gov.uk.'
-                  : 'Company registered with Companies House (United Kingdom). Full records available at find-and-update.company-information.service.gov.uk.'
+                {pl ? 'Spółka zarejestrowana w Companies House (Wielka Brytania). Pełne dane dostępne na find-and-update.company-information.service.gov.uk.' : es ? 'Empresa registrada en Companies House (Reino Unido). Registros completos disponibles en find-and-update.company-information.service.gov.uk.' : 'Company registered with Companies House (United Kingdom). Full records available at find-and-update.company-information.service.gov.uk.'
                 }
               </p>
             </div>

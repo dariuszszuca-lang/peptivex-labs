@@ -24,9 +24,9 @@ const staticPages = ['', '/products', '/about', '/faq', '/contact', '/blog', '/t
 
 const routes = [
   '/',
-  ...staticPages.flatMap(p => [`/pl${p}`, `/en${p}`]),
-  ...productSlugs.flatMap(s => [`/pl/product/${s}`, `/en/product/${s}`]),
-  ...blogSlugs.flatMap(s => [`/pl/blog/${s}`, `/en/blog/${s}`]),
+  ...staticPages.flatMap(p => [`/pl${p}`, `/en${p}`, `/es${p}`]),
+  ...productSlugs.flatMap(s => [`/pl/product/${s}`, `/en/product/${s}`, `/es/product/${s}`]),
+  ...blogSlugs.flatMap(s => [`/pl/blog/${s}`, `/en/blog/${s}`, `/es/blog/${s}`]),
 ];
 
 // Simple static file server

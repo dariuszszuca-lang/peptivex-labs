@@ -13,42 +13,43 @@ import SeoHead from '../components/SeoHead';
 export default function HomePage() {
   const { lang, t } = useLanguage();
   const pl = lang === 'pl';
+  const es = lang === 'es';
   const featured = PRODUCTS.filter(p => p.featured).slice(0, 4);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const faqs = [
     {
-      q: pl ? 'Czym są peptydy badawcze?' : 'What are research peptides?',
-      a: pl ? 'Peptydy badawcze to syntetyczne łańcuchy aminokwasów przeznaczone do zastosowań laboratoryjnych i naukowych. Każdy peptyd jest testowany pod kątem czystości metodą HPLC.' : 'Research peptides are synthetic amino acid chains intended for laboratory and scientific use. Each peptide is HPLC-tested for purity.',
+      q: pl ? 'Czym są peptydy badawcze?' : es ? '¿Qué son los péptidos de investigación?' : 'What are research peptides?',
+      a: pl ? 'Peptydy badawcze to syntetyczne łańcuchy aminokwasów przeznaczone do zastosowań laboratoryjnych i naukowych. Każdy peptyd jest testowany pod kątem czystości metodą HPLC.' : es ? 'Los péptidos de investigación son cadenas sintéticas de aminoácidos destinadas a uso de laboratorio y científico. Cada péptido es probado por HPLC para verificar su pureza.' : 'Research peptides are synthetic amino acid chains intended for laboratory and scientific use. Each peptide is HPLC-tested for purity.',
     },
     {
-      q: pl ? 'Jak szybko dostarczacie?' : 'How fast do you deliver?',
-      a: pl ? 'Polska: 1-2 dni robocze (InPost Paczkomaty). UK: 2-3 dni robocze (InPost Lockers). Zamówienia realizujemy w ciągu 24h.' : 'Poland: 1-2 business days (InPost Paczkomaty). UK: 2-3 business days (InPost Lockers). Orders processed within 24h.',
+      q: pl ? 'Jak szybko dostarczacie?' : es ? '¿Con qué rapidez realizan las entregas?' : 'How fast do you deliver?',
+      a: pl ? 'Polska: 1-2 dni robocze (InPost Paczkomaty). UK: 2-3 dni robocze (InPost Lockers). Zamówienia realizujemy w ciągu 24h.' : es ? 'Polonia: 1-2 días hábiles (InPost Paczkomaty). Reino Unido: 2-3 días hábiles (InPost Lockers). Pedidos procesados en 24h.' : 'Poland: 1-2 business days (InPost Paczkomaty). UK: 2-3 business days (InPost Lockers). Orders processed within 24h.',
     },
     {
-      q: pl ? 'Jakie metody płatności akceptujecie?' : 'What payment methods do you accept?',
-      a: pl ? 'Pay by Bank (przelew bankowy), BLIK, karty Visa/Mastercard, Apple Pay i Google Pay. Wszystkie płatności objęte szyfrowaniem PCI DSS.' : 'Pay by Bank (instant bank transfer), BLIK, Visa/Mastercard, Apple Pay and Google Pay. All payments PCI DSS encrypted.',
+      q: pl ? 'Jakie metody płatności akceptujecie?' : es ? '¿Qué métodos de pago aceptan?' : 'What payment methods do you accept?',
+      a: pl ? 'Pay by Bank (przelew bankowy), BLIK, karty Visa/Mastercard, Apple Pay i Google Pay. Wszystkie płatności objęte szyfrowaniem PCI DSS.' : es ? 'Pago por Banco (transferencia bancaria instantánea), BLIK, Visa/Mastercard, Apple Pay y Google Pay. Todos los pagos están cifrados con PCI DSS.' : 'Pay by Bank (instant bank transfer), BLIK, Visa/Mastercard, Apple Pay and Google Pay. All payments PCI DSS encrypted.',
     },
     {
-      q: pl ? 'Jak przechowywać peptydy?' : 'How to store peptides?',
-      a: pl ? 'Liofilizowane peptydy: -20°C (zamrażarka). Po rekonstytucji: 2-8°C (lodówka), zużyć w 30 dni. Chronić przed światłem.' : 'Lyophilized peptides: -20°C (freezer). After reconstitution: 2-8°C (fridge), use within 30 days. Protect from light.',
+      q: pl ? 'Jak przechowywać peptydy?' : es ? '¿Cómo almacenar péptidos?' : 'How to store peptides?',
+      a: pl ? 'Liofilizowane peptydy: -20°C (zamrażarka). Po rekonstytucji: 2-8°C (lodówka), zużyć w 30 dni. Chronić przed światłem.' : es ? 'Péptidos liofilizados: -20°C (congelador). Después de la reconstitución: 2-8°C (nevera), usar en 30 días. Proteger de la luz.' : 'Lyophilized peptides: -20°C (freezer). After reconstitution: 2-8°C (fridge), use within 30 days. Protect from light.',
     },
   ];
 
   const stats = [
-    { value: '>98%', label: pl ? 'Czystość HPLC' : 'HPLC Purity' },
-    { value: '24h', label: pl ? 'Czas realizacji' : 'Processing Time' },
-    { value: '2', label: pl ? 'Regiony wysyłki' : 'Shipping Regions' },
-    { value: '19', label: pl ? 'Produktów' : 'Products' },
+    { value: '>98%', label: pl ? 'Czystość HPLC' : es ? 'Pureza HPLC' : 'HPLC Purity' },
+    { value: '24h', label: pl ? 'Czas realizacji' : es ? 'Tiempo de Procesamiento' : 'Processing Time' },
+    { value: '2', label: pl ? 'Regiony wysyłki' : es ? 'Regiones de Envío' : 'Shipping Regions' },
+    { value: '19', label: pl ? 'Produktów' : es ? 'Productos' : 'Products' },
   ];
 
   const features = [
-    { icon: FlaskConical, title: pl ? 'Najwyższa czystość' : 'Highest Purity', desc: pl ? 'Każda partia testowana HPLC. Certyfikat analizy na życzenie.' : 'Every batch HPLC tested. Certificate of Analysis on request.' },
-    { icon: Truck, title: pl ? 'Szybka dostawa' : 'Fast Delivery', desc: pl ? 'InPost Paczkomaty (PL) i Lockers (UK). Dyskretna paczka.' : 'InPost Paczkomaty (PL) & Lockers (UK). Discreet packaging.' },
-    { icon: Shield, title: pl ? 'Bezpieczne płatności' : 'Secure Payments', desc: pl ? 'Pay by Bank, BLIK, karty. Pełne szyfrowanie PCI DSS.' : 'Pay by Bank, BLIK, cards. Full PCI DSS encryption.' },
-    { icon: Zap, title: pl ? 'Kontrola temperatury' : 'Temperature Control', desc: pl ? 'Przechowywanie i wysyłka w kontrolowanych warunkach.' : 'Storage and shipping under controlled conditions.' },
-    { icon: Award, title: pl ? 'Dokumentacja naukowa' : 'Scientific Documentation', desc: pl ? 'Szczegółowe opisy z odniesieniami do literatury naukowej.' : 'Detailed descriptions with scientific literature references.' },
-    { icon: Beaker, title: pl ? 'Szeroki wybór' : 'Wide Selection', desc: pl ? 'Peptydy regeneracyjne, metaboliczne, długowieczność komórkowa i więcej.' : 'Regenerative, metabolic, cellular longevity peptides and more.' },
+    { icon: FlaskConical, title: pl ? 'Najwyższa czystość' : es ? 'Máxima Pureza' : 'Highest Purity', desc: pl ? 'Każda partia testowana HPLC. Certyfikat analizy na życzenie.' : es ? 'Cada lote probado por HPLC. Certificado de Análisis bajo solicitud.' : 'Every batch HPLC tested. Certificate of Analysis on request.' },
+    { icon: Truck, title: pl ? 'Szybka dostawa' : es ? 'Entrega Rápida' : 'Fast Delivery', desc: pl ? 'InPost Paczkomaty (PL) i Lockers (UK). Dyskretna paczka.' : es ? 'InPost Paczkomaty (PL) y Lockers (UK). Embalaje discreto.' : 'InPost Paczkomaty (PL) & Lockers (UK). Discreet packaging.' },
+    { icon: Shield, title: pl ? 'Bezpieczne płatności' : es ? 'Pagos Seguros' : 'Secure Payments', desc: pl ? 'Pay by Bank, BLIK, karty. Pełne szyfrowanie PCI DSS.' : es ? 'Pago por Banco, BLIK, tarjetas. Cifrado completo PCI DSS.' : 'Pay by Bank, BLIK, cards. Full PCI DSS encryption.' },
+    { icon: Zap, title: pl ? 'Kontrola temperatury' : es ? 'Control de Temperatura' : 'Temperature Control', desc: pl ? 'Przechowywanie i wysyłka w kontrolowanych warunkach.' : es ? 'Almacenamiento y envío bajo condiciones controladas.' : 'Storage and shipping under controlled conditions.' },
+    { icon: Award, title: pl ? 'Dokumentacja naukowa' : es ? 'Documentación Científica' : 'Scientific Documentation', desc: pl ? 'Szczegółowe opisy z odniesieniami do literatury naukowej.' : es ? 'Descripciones detalladas con referencias de literatura científica.' : 'Detailed descriptions with scientific literature references.' },
+    { icon: Beaker, title: pl ? 'Szeroki wybór' : es ? 'Amplia Selección' : 'Wide Selection', desc: pl ? 'Peptydy regeneracyjne, metaboliczne, długowieczność komórkowa i więcej.' : es ? 'Péptidos regenerativos, metabólicos, para la longevidad celular y más.' : 'Regenerative, metabolic, cellular longevity peptides and more.' },
   ];
 
   const categories: { key: string; icon: LucideIcon; color: string; count: number }[] = [
@@ -63,8 +64,8 @@ export default function HomePage() {
   return (
     <div>
       <SeoHead
-        title={pl ? 'Peptydy badawcze premium' : 'Premium Research Peptides'}
-        description={pl ? 'PEPTIVEX LABS — peptydy badawcze o czystości >98% HPLC. BPC-157, Retatrutide, NAD+, GHK-Cu. Szybka dostawa InPost. Pay by Bank, BLIK, karty.' : 'PEPTIVEX LABS — research peptides with >98% HPLC purity. BPC-157, Retatrutide, NAD+, GHK-Cu. Fast InPost delivery. Pay by Bank, BLIK and cards.'}
+        title={pl ? 'Peptydy badawcze premium' : es ? 'Péptidos de Investigación Premium' : 'Premium Research Peptides'}
+        description={pl ? 'PEPTIVEX LABS — peptydy badawcze o czystości >98% HPLC. BPC-157, Retatrutide, NAD+, GHK-Cu. Szybka dostawa InPost. Pay by Bank, BLIK, karty.' : es ? 'PEPTIVEX LABS — péptidos de investigación con >98% de pureza HPLC. BPC-157, Retatrutide, NAD+, GHK-Cu. Entrega rápida con InPost. Pago por Banco, BLIK y tarjetas.' : 'PEPTIVEX LABS — research peptides with >98% HPLC purity. BPC-157, Retatrutide, NAD+, GHK-Cu. Fast InPost delivery. Pay by Bank, BLIK and cards.'}
         path={`/${lang}`}
       />
       {/* =================== HERO =================== */}
@@ -84,7 +85,7 @@ export default function HomePage() {
             <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 rounded-full px-4 py-1.5 mb-6">
               <span className="w-2 h-2 bg-amber-500 rounded-full animate-pulse" />
               <span className="text-amber-400 text-xs font-medium tracking-wide">
-                {pl ? 'Peptydy badawcze premium' : 'Premium Research Peptides'}
+                {pl ? 'Peptydy badawcze premium' : es ? 'Péptidos de Investigación Premium' : 'Premium Research Peptides'}
               </span>
             </div>
 
@@ -97,9 +98,7 @@ export default function HomePage() {
             </h1>
 
             <p className="text-white/50 text-lg sm:text-xl leading-relaxed mb-8 max-w-lg">
-              {pl
-                ? 'Peptydy badawcze o czystości >98% z certyfikatem HPLC. Szybka dostawa InPost. Pay by Bank, BLIK, karty.'
-                : 'Research peptides with >98% purity, HPLC certified. Fast InPost delivery. Pay by Bank, BLIK and cards.'
+              {pl ? 'Peptydy badawcze o czystości >98% z certyfikatem HPLC. Szybka dostawa InPost. Pay by Bank, BLIK, karty.' : es ? 'Péptidos de investigación con >98% de pureza, certificados por HPLC. Entrega rápida con InPost. Pago por Banco, BLIK y tarjetas.' : 'Research peptides with >98% purity, HPLC certified. Fast InPost delivery. Pay by Bank, BLIK and cards.'
               }
             </p>
 
@@ -108,14 +107,14 @@ export default function HomePage() {
                 to={`/${lang}/products`}
                 className="cta-primary inline-flex items-center justify-center gap-2 bg-amber-500 text-black font-bold px-7 py-3.5 rounded-xl hover:bg-amber-400 transition-all text-sm"
               >
-                {pl ? 'Zobacz produkty' : 'Browse Products'}
+                {pl ? 'Zobacz produkty' : es ? 'Explorar Productos' : 'Browse Products'}
                 <ArrowRight size={16} />
               </Link>
               <Link
                 to={`/${lang}/about`}
                 className="inline-flex items-center justify-center gap-2 bg-white/[0.06] border border-white/[0.1] text-white font-medium px-7 py-3.5 rounded-xl hover:bg-white/[0.1] transition-all text-sm"
               >
-                {pl ? 'Dowiedz się więcej' : 'Learn More'}
+                {pl ? 'Dowiedz się więcej' : es ? 'Saber Más' : 'Learn More'}
               </Link>
             </div>
           </div>
@@ -150,15 +149,13 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 py-20 relative z-10">
           <div className="text-center mb-12">
             <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">
-              {pl ? 'Bestsellery' : 'Bestsellers'}
+              {pl ? 'Bestsellery' : es ? 'Los más vendidos' : 'Bestsellers'}
             </p>
             <h2 className="text-white text-3xl font-extrabold mb-4">
-              {pl ? 'Wyróżnione produkty' : 'Featured Products'}
+              {pl ? 'Wyróżnione produkty' : es ? 'Productos Destacados' : 'Featured Products'}
             </h2>
             <p className="text-white/40 text-sm max-w-md mx-auto">
-              {pl
-                ? 'Najczęściej wybierane peptydy badawcze. Czystość >98%, certyfikat HPLC.'
-                : 'Most popular research peptides. Purity >98%, HPLC certified.'
+              {pl ? 'Najczęściej wybierane peptydy badawcze. Czystość >98%, certyfikat HPLC.' : es ? 'Los péptidos de investigación más populares. Pureza >98%, certificados por HPLC.' : 'Most popular research peptides. Purity >98%, HPLC certified.'
               }
             </p>
           </div>
@@ -170,7 +167,7 @@ export default function HomePage() {
               to={`/${lang}/products`}
               className="inline-flex items-center gap-2 text-amber-500 hover:text-amber-400 text-sm font-medium border border-amber-500/20 px-6 py-2.5 rounded-xl hover:bg-amber-500/5 transition-all"
             >
-              {pl ? 'Wszystkie produkty' : 'All Products'} <ArrowRight size={14} />
+              {pl ? 'Wszystkie produkty' : es ? 'Todos los Productos' : 'All Products'} <ArrowRight size={14} />
             </Link>
           </div>
         </div>
@@ -184,7 +181,7 @@ export default function HomePage() {
         <div className="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] rounded-full bg-teal-500/[0.04] blur-[80px]" />
         <div className="max-w-5xl mx-auto px-4 relative z-10">
           <div className="text-center mb-14">
-            <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Rozwiązania' : 'Solutions'}</p>
+            <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Rozwiązania' : es ? 'Soluciones' : 'Solutions'}</p>
             <h2 className="text-white text-3xl sm:text-4xl font-extrabold mb-4">
               {pl ? (
                 <>Jaki masz <span className="text-gradient">problem badawczy</span>?</>
@@ -193,21 +190,21 @@ export default function HomePage() {
               )}
             </h2>
             <p className="text-white/40 text-sm max-w-lg mx-auto">
-              {pl ? 'Każdy peptyd celuje w konkretny szlak biologiczny. Znajdź ten dopasowany do Twojego obszaru badań.' : 'Each peptide targets a specific biological pathway. Find the one matching your research area.'}
+              {pl ? 'Każdy peptyd celuje w konkretny szlak biologiczny. Znajdź ten dopasowany do Twojego obszaru badań.' : es ? 'Cada péptido se dirige a una vía biológica específica. Encuentre el que coincida con su área de investigación.' : 'Each peptide targets a specific biological pathway. Find the one matching your research area.'}
             </p>
             <div className="w-16 h-1 bg-gradient-to-r from-amber-500 to-teal-500 rounded-full mx-auto mt-6" />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {([
-              { problem: pl ? 'Szlaki regeneracji tkanek' : 'Tissue repair pathways', solution: 'BPC-157 + TB-500', icon: '🧬', color: 'from-rose-500/15 to-rose-500/5', border: 'hover:border-rose-500/30', slug: 'bpc-157-5mg' },
-              { problem: pl ? 'Energia komórkowa i NAD+' : 'Cellular energy & NAD+', solution: 'NAD+', icon: '⚡', color: 'from-amber-500/15 to-amber-500/5', border: 'hover:border-amber-500/30', slug: 'nad-500mg' },
-              { problem: pl ? 'Szlaki GHRH/GHRP' : 'GHRH / GHRP signaling', solution: 'CJC-1295 + Ipamorelin', icon: '💪', color: 'from-emerald-500/15 to-emerald-500/5', border: 'hover:border-emerald-500/30', slug: 'cjc-1295-no-dac-5mg' },
-              { problem: pl ? 'Receptory GLP-1 / GIP / Glukagon' : 'GLP-1 / GIP / Glucagon receptors', solution: 'Retatrutide', icon: '🔥', color: 'from-orange-500/15 to-orange-500/5', border: 'hover:border-orange-500/30', slug: 'retatrutide-40mg' },
-              { problem: pl ? 'Neurotransmisja GABA' : 'GABAergic neurotransmission', solution: 'Selank', icon: '🧠', color: 'from-sky-500/15 to-sky-500/5', border: 'hover:border-sky-500/30', slug: 'selank-5mg' },
-              { problem: pl ? 'Biologia skóry i modulacja genów' : 'Skin biology & gene modulation', solution: 'GHK-Cu + SNAP-8', icon: '✨', color: 'from-violet-500/15 to-violet-500/5', border: 'hover:border-violet-500/30', slug: 'ghk-cu-50mg' },
-              { problem: pl ? 'Bioenergetyka mitochondrialna' : 'Mitochondrial bioenergetics', solution: 'SS-31 + MOTS-c', icon: '🔋', color: 'from-teal-500/15 to-teal-500/5', border: 'hover:border-teal-500/30', slug: 'ss-31-10mg' },
-              { problem: pl ? 'Inhibicja enzymu NNMT' : 'NNMT enzyme inhibition', solution: '5-Amino-1MQ', icon: '📉', color: 'from-pink-500/15 to-pink-500/5', border: 'hover:border-pink-500/30', slug: '5-amino-1mq-10mg' },
+              { problem: pl ? 'Szlaki regeneracji tkanek' : es ? 'Vías de reparación tisular' : 'Tissue repair pathways', solution: 'BPC-157 + TB-500', icon: '🧬', color: 'from-rose-500/15 to-rose-500/5', border: 'hover:border-rose-500/30', slug: 'bpc-157-5mg' },
+              { problem: pl ? 'Energia komórkowa i NAD+' : es ? 'Energía celular y NAD+' : 'Cellular energy & NAD+', solution: 'NAD+', icon: '⚡', color: 'from-amber-500/15 to-amber-500/5', border: 'hover:border-amber-500/30', slug: 'nad-500mg' },
+              { problem: pl ? 'Szlaki GHRH/GHRP' : es ? 'Señalización GHRH / GHRP' : 'GHRH / GHRP signaling', solution: 'CJC-1295 + Ipamorelin', icon: '💪', color: 'from-emerald-500/15 to-emerald-500/5', border: 'hover:border-emerald-500/30', slug: 'cjc-1295-no-dac-5mg' },
+              { problem: pl ? 'Receptory GLP-1 / GIP / Glukagon' : es ? 'Receptores GLP-1 / GIP / Glucagón' : 'GLP-1 / GIP / Glucagon receptors', solution: 'Retatrutide', icon: '🔥', color: 'from-orange-500/15 to-orange-500/5', border: 'hover:border-orange-500/30', slug: 'retatrutide-40mg' },
+              { problem: pl ? 'Neurotransmisja GABA' : es ? 'Neurotransmisión GABAérgica' : 'GABAergic neurotransmission', solution: 'Selank', icon: '🧠', color: 'from-sky-500/15 to-sky-500/5', border: 'hover:border-sky-500/30', slug: 'selank-5mg' },
+              { problem: pl ? 'Biologia skóry i modulacja genów' : es ? 'Biología de la piel y modulación génica' : 'Skin biology & gene modulation', solution: 'GHK-Cu + SNAP-8', icon: '✨', color: 'from-violet-500/15 to-violet-500/5', border: 'hover:border-violet-500/30', slug: 'ghk-cu-50mg' },
+              { problem: pl ? 'Bioenergetyka mitochondrialna' : es ? 'Bioenergética mitocondrial' : 'Mitochondrial bioenergetics', solution: 'SS-31 + MOTS-c', icon: '🔋', color: 'from-teal-500/15 to-teal-500/5', border: 'hover:border-teal-500/30', slug: 'ss-31-10mg' },
+              { problem: pl ? 'Inhibicja enzymu NNMT' : es ? 'Inhibición de la enzima NNMT' : 'NNMT enzyme inhibition', solution: '5-Amino-1MQ', icon: '📉', color: 'from-pink-500/15 to-pink-500/5', border: 'hover:border-pink-500/30', slug: '5-amino-1mq-10mg' },
             ]).map((item, i) => (
               <Link
                 key={i}
@@ -222,7 +219,7 @@ export default function HomePage() {
                   <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.color} border border-white/[0.06] flex items-center justify-center mb-4 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(249,115,22,0.1)] transition-all duration-300`}>
                     <span className="text-xl">{item.icon}</span>
                   </div>
-                  <p className="text-white/50 text-xs uppercase tracking-wide mb-1.5">{pl ? 'Szlak' : 'Pathway'}</p>
+                  <p className="text-white/50 text-xs uppercase tracking-wide mb-1.5">{pl ? 'Szlak' : es ? 'Vía' : 'Pathway'}</p>
                   <h3 className="text-white font-bold text-sm mb-3 leading-snug">{item.problem}</h3>
                   <div className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-amber-500" />
@@ -238,7 +235,7 @@ export default function HomePage() {
               to={`/${lang}/guide`}
               className="inline-flex items-center gap-2 text-amber-500 hover:text-amber-400 text-sm font-medium border border-amber-500/20 px-6 py-2.5 rounded-xl hover:bg-amber-500/5 transition-all"
             >
-              {pl ? 'Pełny przewodnik po peptydach' : 'Full peptide guide'} <ArrowRight size={14} />
+              {pl ? 'Pełny przewodnik po peptydach' : es ? 'Guía completa de péptidos' : 'Full peptide guide'} <ArrowRight size={14} />
             </Link>
           </div>
         </div>
@@ -250,12 +247,12 @@ export default function HomePage() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-amber-500/[0.04] blur-[120px]" />
         <div className="max-w-6xl mx-auto px-4 relative z-10">
           <div className="text-center mb-14">
-            <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Eksploruj' : 'Explore'}</p>
+            <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Eksploruj' : es ? 'Explorar' : 'Explore'}</p>
             <h2 className="text-white text-3xl font-extrabold mb-4">
-              {pl ? 'Kategorie peptydów' : 'Peptide Categories'}
+              {pl ? 'Kategorie peptydów' : es ? 'Categorías de Péptidos' : 'Peptide Categories'}
             </h2>
             <p className="text-white/40 text-sm max-w-md mx-auto">
-              {pl ? 'Znajdź peptyd dopasowany do Twojego obszaru badań.' : 'Find the peptide matching your research area.'}
+              {pl ? 'Znajdź peptyd dopasowany do Twojego obszaru badań.' : es ? 'Encuentre el péptido que coincida con su área de investigación.' : 'Find the peptide matching your research area.'}
             </p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -277,7 +274,7 @@ export default function HomePage() {
                   <span className="text-white/80 text-sm font-semibold group-hover:text-white transition-colors block mb-1">
                     {t(`categories.${cat.key}`)}
                   </span>
-                  <span className="text-white/25 text-xs">{cat.count} {pl ? 'prod.' : 'items'}</span>
+                  <span className="text-white/25 text-xs">{cat.count} {pl ? 'prod.' : es ? 'artículos' : 'items'}</span>
                 </div>
               </Link>
             ))}
@@ -293,10 +290,10 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">
-              {pl ? 'Dlaczego my' : 'Why Us'}
+              {pl ? 'Dlaczego my' : es ? '¿Por qué nosotros?' : 'Why Us'}
             </p>
             <h2 className="text-white text-3xl sm:text-4xl font-extrabold mb-4">
-              {pl ? 'Dlaczego PEPTIVEX LABS?' : 'Why PEPTIVEX LABS?'}
+              {pl ? 'Dlaczego PEPTIVEX LABS?' : es ? '¿Por qué PEPTIVEX LABS?' : 'Why PEPTIVEX LABS?'}
             </h2>
             <div className="w-16 h-1 bg-gradient-to-r from-amber-500 to-teal-500 rounded-full mx-auto mt-6" />
           </div>
@@ -325,16 +322,16 @@ export default function HomePage() {
         <HexPattern className="text-amber-500/[0.02]" />
         <div className="max-w-5xl mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Proces' : 'Process'}</p>
+            <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Proces' : es ? 'Proceso' : 'Process'}</p>
             <h2 className="text-white text-3xl font-extrabold mb-4">
-              {pl ? 'Jak to działa?' : 'How It Works'}
+              {pl ? 'Jak to działa?' : es ? 'Cómo Funciona' : 'How It Works'}
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-0">
             {[
-              { step: '01', title: pl ? 'Wybierz peptydy' : 'Choose Peptides', desc: pl ? 'Przejrzyj katalog, porównaj produkty i dodaj do koszyka.' : 'Browse the catalog, compare products and add to cart.', icon: FlaskConical },
-              { step: '02', title: pl ? 'Zapłać bezpiecznie' : 'Pay Securely', desc: pl ? 'Pay by Bank, BLIK i karty. Pełne szyfrowanie PCI DSS.' : 'Pay by Bank, BLIK and cards. Full PCI DSS encryption.', icon: Shield },
-              { step: '03', title: pl ? 'Odbierz z InPost' : 'Collect from InPost', desc: pl ? 'Paczkomat w Polsce lub Locker w UK. Dyskretna paczka, 1-3 dni.' : 'Paczkomat in Poland or Locker in UK. Discreet package, 1-3 days.', icon: Truck },
+              { step: '01', title: pl ? 'Wybierz peptydy' : es ? 'Seleccione Péptidos' : 'Choose Peptides', desc: pl ? 'Przejrzyj katalog, porównaj produkty i dodaj do koszyka.' : es ? 'Explore el catálogo, compare productos y añada al carrito.' : 'Browse the catalog, compare products and add to cart.', icon: FlaskConical },
+              { step: '02', title: pl ? 'Zapłać bezpiecznie' : es ? 'Pago Seguro' : 'Pay Securely', desc: pl ? 'Pay by Bank, BLIK i karty. Pełne szyfrowanie PCI DSS.' : es ? 'Pague mediante transferencia bancaria, BLIK y tarjetas. Cifrado completo PCI DSS.' : 'Pay by Bank, BLIK and cards. Full PCI DSS encryption.', icon: Shield },
+              { step: '03', title: pl ? 'Odbierz z InPost' : es ? 'Recogida en InPost' : 'Collect from InPost', desc: pl ? 'Paczkomat w Polsce lub Locker w UK. Dyskretna paczka, 1-3 dni.' : es ? 'Paczkomat en Polonia o Locker en el Reino Unido. Paquete discreto, 1-3 días.' : 'Paczkomat in Poland or Locker in UK. Discreet package, 1-3 days.', icon: Truck },
             ].map((s, i) => (
               <div key={i} className="relative text-center px-8 py-10 group">
                 {/* Connector line */}
@@ -366,19 +363,17 @@ export default function HomePage() {
             <div className="lg:col-span-2">
               <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">FAQ</p>
               <h2 className="text-white text-3xl font-extrabold mb-4">
-                {pl ? 'Masz pytania?' : 'Got Questions?'}
+                {pl ? 'Masz pytania?' : es ? '¿Tiene Preguntas?' : 'Got Questions?'}
               </h2>
               <p className="text-white/40 text-sm leading-relaxed mb-6">
-                {pl
-                  ? 'Zebraliśmy odpowiedzi na najczęściej zadawane pytania. Nie znalazłeś odpowiedzi? Napisz do nas.'
-                  : 'We\'ve gathered answers to the most common questions. Can\'t find your answer? Contact us.'
+                {pl ? 'Zebraliśmy odpowiedzi na najczęściej zadawane pytania. Nie znalazłeś odpowiedzi? Napisz do nas.' : es ? 'Hemos recopilado respuestas a las preguntas más frecuentes. ¿No encuentra su respuesta? Contáctenos.' : 'We\'ve gathered answers to the most common questions. Can\'t find your answer? Contact us.'
                 }
               </p>
               <div className="rounded-2xl overflow-hidden border border-white/[0.06] hidden lg:block">
                 <img src="/images/products/retatrutide-pens-20mg.jpg" alt="PEPTIVEX LABS Retatrutide research peptide pens" className="w-full h-48 object-cover opacity-70" />
               </div>
               <Link to={`/${lang}/faq`} className="mt-6 inline-flex items-center gap-2 text-amber-500 hover:text-amber-400 text-sm font-medium border border-amber-500/20 px-5 py-2 rounded-xl hover:bg-amber-500/5 transition-all">
-                {pl ? 'Wszystkie pytania' : 'All questions'} <ArrowRight size={14} />
+                {pl ? 'Wszystkie pytania' : es ? 'Todas las preguntas' : 'All questions'} <ArrowRight size={14} />
               </Link>
             </div>
 
@@ -434,7 +429,7 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto px-4 py-28 text-center relative z-10">
           <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 rounded-full px-4 py-1.5 mb-6">
             <span className="w-2 h-2 bg-amber-500 rounded-full animate-pulse" />
-            <span className="text-amber-400 text-xs font-medium">{pl ? 'Wysyłka w 24h' : '24h dispatch'}</span>
+            <span className="text-amber-400 text-xs font-medium">{pl ? 'Wysyłka w 24h' : es ? 'Envío en 24h' : '24h dispatch'}</span>
           </div>
           <h2 className="text-white text-4xl sm:text-5xl font-extrabold mb-5 leading-tight">
             {pl ? (
@@ -444,9 +439,7 @@ export default function HomePage() {
             )}
           </h2>
           <p className="text-white/50 text-lg mb-10 max-w-lg mx-auto">
-            {pl
-              ? 'Peptydy o czystości >98% z certyfikatem HPLC. Szybka dostawa InPost. Pay by Bank, BLIK, karty.'
-              : 'Peptides with >98% purity, HPLC certified. Fast InPost delivery. Pay by Bank, BLIK and cards.'
+            {pl ? 'Peptydy o czystości >98% z certyfikatem HPLC. Szybka dostawa InPost. Pay by Bank, BLIK, karty.' : es ? 'Péptidos con >98% de pureza, certificados por HPLC. Entrega rápida con InPost. Pague mediante transferencia bancaria, BLIK y tarjetas.' : 'Peptides with >98% purity, HPLC certified. Fast InPost delivery. Pay by Bank, BLIK and cards.'
             }
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -454,14 +447,14 @@ export default function HomePage() {
               to={`/${lang}/products`}
               className="cta-primary inline-flex items-center justify-center gap-2 bg-amber-500 text-black font-bold px-8 py-4 rounded-xl hover:bg-amber-400 transition-all text-sm"
             >
-              {pl ? 'Przeglądaj produkty' : 'Browse Products'}
+              {pl ? 'Przeglądaj produkty' : es ? 'Explorar Productos' : 'Browse Products'}
               <ArrowRight size={16} />
             </Link>
             <Link
               to={`/${lang}/contact`}
               className="inline-flex items-center justify-center gap-2 bg-white/[0.06] border border-white/[0.1] text-white font-medium px-8 py-4 rounded-xl hover:bg-white/[0.1] transition-all text-sm"
             >
-              {pl ? 'Skontaktuj się' : 'Contact Us'}
+              {pl ? 'Skontaktuj się' : es ? 'Contáctenos' : 'Contact Us'}
             </Link>
           </div>
         </div>

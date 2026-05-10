@@ -86,6 +86,7 @@ const FAQ_DATA: FaqCategory[] = [
 export default function FaqPage() {
   const { lang } = useLanguage();
   const pl = lang === 'pl';
+  const es = lang === 'es';
   const [open, setOpen] = useState<string | null>(null);
   const [activeCategory, setActiveCategory] = useState<string>('general');
   const [searchQuery, setSearchQuery] = useState('');
@@ -108,8 +109,8 @@ export default function FaqPage() {
   return (
     <div>
       <SeoHead
-        title={pl ? 'FAQ — Najczęściej zadawane pytania' : 'FAQ — Frequently Asked Questions'}
-        description={pl ? 'Odpowiedzi na pytania o peptydy badawcze, wysyłkę InPost, płatności (Pay by Bank, BLIK, karty), przechowywanie i zwroty. PEPTIVEX LABS.' : 'Answers about research peptides, InPost shipping, payments (Pay by Bank, BLIK, cards), storage and returns. PEPTIVEX LABS.'}
+        title={pl ? 'FAQ — Najczęściej zadawane pytania' : es ? 'FAQ — Preguntas Frecuentes' : 'FAQ — Frequently Asked Questions'}
+        description={pl ? 'Odpowiedzi na pytania o peptydy badawcze, wysyłkę InPost, płatności (Pay by Bank, BLIK, karty), przechowywanie i zwroty. PEPTIVEX LABS.' : es ? 'Respuestas sobre péptidos de investigación, envío InPost, pagos (Pay by Bank, BLIK, tarjetas), almacenamiento y devoluciones. PEPTIVEX LABS.' : 'Answers about research peptides, InPost shipping, payments (Pay by Bank, BLIK, cards), storage and returns. PEPTIVEX LABS.'}
         path={`/${lang}/faq`}
         schema={{
           '@context': 'https://schema.org',
@@ -146,7 +147,7 @@ export default function FaqPage() {
               type="text"
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
-              placeholder={pl ? 'Szukaj w FAQ...' : 'Search FAQ...'}
+              placeholder={pl ? 'Szukaj w FAQ...' : es ? 'Buscar FAQ...' : 'Search FAQ...'}
               className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl pl-11 pr-4 py-3 text-white text-sm placeholder:text-white/25 focus:border-amber-500/40 focus:outline-none transition-colors"
             />
           </div>
@@ -157,7 +158,7 @@ export default function FaqPage() {
         {searchResults ? (
           /* Search results */
           <div>
-            <p className="text-white/40 text-sm mb-6">{searchResults.length} {pl ? 'wyników' : 'results'}</p>
+            <p className="text-white/40 text-sm mb-6">{searchResults.length} {pl ? 'wyników' : es ? 'resultados' : 'results'}</p>
             <div className="flex flex-col gap-3">
               {searchResults.map(item => (
                 <div key={item.id} className={`rounded-2xl overflow-hidden transition-all duration-300 ${open === item.id ? 'bg-gradient-to-r from-amber-500/[0.06] to-transparent border border-amber-500/20' : 'bg-white/[0.03] border border-white/[0.06] hover:border-white/[0.1]'}`}>
@@ -238,10 +239,10 @@ export default function FaqPage() {
           <div className="relative z-10 p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
               <h3 className="text-white text-xl font-bold mb-2">{pl ? 'Nie znalazłeś odpowiedzi?' : "Didn't find your answer?"}</h3>
-              <p className="text-white/40 text-sm">{pl ? 'Napisz do nas — odpowiadamy w ciągu 24 godzin.' : 'Contact us — we respond within 24 hours.'}</p>
+              <p className="text-white/40 text-sm">{pl ? 'Napisz do nas — odpowiadamy w ciągu 24 godzin.' : es ? 'Contáctenos — respondemos en un plazo de 24 horas.' : 'Contact us — we respond within 24 hours.'}</p>
             </div>
             <Link to={`/${lang}/contact`} className="cta-primary bg-amber-500 text-black font-bold px-6 py-3 rounded-xl hover:bg-amber-400 transition-all text-sm flex items-center gap-2 shrink-0">
-              {pl ? 'Kontakt' : 'Contact Us'} <ArrowRight size={14} />
+              {pl ? 'Kontakt' : es ? 'Contáctenos' : 'Contact Us'} <ArrowRight size={14} />
             </Link>
           </div>
         </div>

@@ -22,10 +22,9 @@ export default function PaymentNotice() {
   if (!visible) return null;
 
   const pl = lang === 'pl';
+  const es = lang === 'es';
 
-  const subject = pl
-    ? 'Zamówienie Peptivex Labs'
-    : 'Peptivex Labs order request';
+  const subject = pl ? 'Zamówienie Peptivex Labs' : es ? 'Solicitud de pedido de Peptivex Labs' : 'Peptivex Labs order request';
   const body = pl
     ? `Witam,\n\nChciałbym zamówić poniższe produkty:\n\n- (uzupełnij produkty z koszyka, ilości, dawki)\n\nProszę o link do płatności.\n\nDzięki!\n`
     : `Hi,\n\nI'd like to place an order for:\n\n- (please list the products you'd like, with quantities and dosages)\n\nKindly send me a payment link.\n\nThanks!\n`;
@@ -38,7 +37,7 @@ export default function PaymentNotice() {
           <AlertCircle size={16} className="text-amber-400 shrink-0" />
           <p className="text-amber-100/90 text-[13px] leading-snug truncate sm:whitespace-normal">
             <span className="font-semibold mr-1">
-              {pl ? 'Płatności online czasowo niedostępne.' : 'Online payments temporarily unavailable.'}
+              {pl ? 'Płatności online czasowo niedostępne.' : es ? 'Pagos en línea temporalmente no disponibles.' : 'Online payments temporarily unavailable.'}
             </span>
             <span className="text-amber-100/70 hidden sm:inline">
               {pl
@@ -53,12 +52,12 @@ export default function PaymentNotice() {
             className="inline-flex items-center gap-1.5 bg-amber-500 text-black text-[12px] font-semibold px-3 py-1.5 rounded-md hover:bg-amber-400 transition-colors whitespace-nowrap"
           >
             <Mail size={13} />
-            {pl ? 'Zamów mailem' : 'Order by email'}
+            {pl ? 'Zamów mailem' : es ? 'Pedido por correo electrónico' : 'Order by email'}
           </a>
           <button
             onClick={dismiss}
             className="text-amber-100/40 hover:text-amber-100/80 p-1 transition-colors"
-            aria-label={pl ? 'Zamknij' : 'Close'}
+            aria-label={pl ? 'Zamknij' : es ? 'Cerrar' : 'Close'}
           >
             <X size={14} />
           </button>

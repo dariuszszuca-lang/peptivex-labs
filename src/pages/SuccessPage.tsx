@@ -12,6 +12,7 @@ export default function SuccessPage() {
   const [params] = useSearchParams();
   const sessionId = params.get('session_id');
   const pl = lang === 'pl';
+  const es = lang === 'es';
 
   useEffect(() => {
     clearCart();
@@ -20,7 +21,7 @@ export default function SuccessPage() {
   return (
     <div className="relative overflow-hidden min-h-[70vh]">
       <SeoHead
-        title={pl ? 'Dziękujemy za zamówienie' : 'Thank you for your order'}
+        title={pl ? 'Dziękujemy za zamówienie' : es ? 'Gracias por su pedido.' : 'Thank you for your order'}
         description=""
         path={`/${lang}/success`}
         noIndex
@@ -34,20 +35,18 @@ export default function SuccessPage() {
         </div>
 
         <h1 className="text-white text-3xl sm:text-4xl font-extrabold mb-4">
-          {pl ? 'Dziękujemy za zamówienie' : 'Thank you for your order'}
+          {pl ? 'Dziękujemy za zamówienie' : es ? 'Gracias por su pedido.' : 'Thank you for your order'}
         </h1>
 
         <p className="text-white/50 text-base mb-8 max-w-md mx-auto leading-relaxed">
-          {pl
-            ? 'Płatność została zarejestrowana. Wysłaliśmy potwierdzenie na Twój adres e-mail. Status przesyłki otrzymasz w ciągu 24 godzin.'
-            : 'Your payment has been registered. We sent a confirmation to your email. Shipping status follows within 24 hours.'
+          {pl ? 'Płatność została zarejestrowana. Wysłaliśmy potwierdzenie na Twój adres e-mail. Status przesyłki otrzymasz w ciągu 24 godzin.' : es ? 'Su pago ha sido registrado. Hemos enviado una confirmación a su correo electrónico. El estado del envío se comunicará en las próximas 24 horas.' : 'Your payment has been registered. We sent a confirmation to your email. Shipping status follows within 24 hours.'
           }
         </p>
 
         {sessionId && (
           <div className="inline-flex items-center gap-2 bg-white/[0.04] border border-white/[0.08] rounded-full px-4 py-1.5 mb-8">
             <span className="text-white/40 text-xs uppercase tracking-wide">
-              {pl ? 'ID zamówienia' : 'Order ID'}:
+              {pl ? 'ID zamówienia' : es ? 'ID de pedido' : 'Order ID'}:
             </span>
             <span className="text-amber-400 text-xs font-mono">{sessionId.slice(-12)}</span>
           </div>
@@ -58,7 +57,7 @@ export default function SuccessPage() {
             to={`/${lang}/products`}
             className="bg-amber-500 text-black font-bold px-6 py-3 rounded-xl hover:bg-amber-400 transition-colors inline-flex items-center justify-center gap-2 text-sm"
           >
-            {pl ? 'Wróć do sklepu' : 'Continue shopping'}
+            {pl ? 'Wróć do sklepu' : es ? 'Continuar comprando' : 'Continue shopping'}
             <ArrowRight size={14} />
           </Link>
           <a
@@ -66,7 +65,7 @@ export default function SuccessPage() {
             className="bg-white/[0.04] border border-white/[0.08] text-white/70 font-medium px-6 py-3 rounded-xl hover:bg-white/[0.07] transition-colors inline-flex items-center justify-center gap-2 text-sm"
           >
             <Mail size={14} />
-            {pl ? 'Skontaktuj się' : 'Contact us'}
+            {pl ? 'Skontaktuj się' : es ? 'Contáctenos' : 'Contact us'}
           </a>
         </div>
       </div>

@@ -17,10 +17,16 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | null>(null);
 
+const SUPPORTED_LANGS: Lang[] = ['pl', 'en', 'es'];
+
+function isLang(v: string): v is Lang {
+  return (SUPPORTED_LANGS as string[]).includes(v);
+}
+
 function readUrlLang(): Lang | null {
   if (typeof window === 'undefined') return null;
   const seg = window.location.pathname.split('/')[1];
-  return seg === 'pl' || seg === 'en' ? seg : null;
+  return isLang(seg) ? seg : null;
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
@@ -29,21 +35,21 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     const fromUrl = readUrlLang();
     if (fromUrl) return fromUrl;
     const saved = localStorage.getItem('px-lang');
-    return (saved === 'pl' || saved === 'en') ? saved : 'en';
+    return saved && isLang(saved) ? saved : 'en';
   });
   const [translations, setTranslations] = useState<Translations>({});
 
   // URL is the source of truth — sync lang state with URL prefix on every route change
   useEffect(() => {
     const seg = location.pathname.split('/')[1];
-    if ((seg === 'pl' || seg === 'en') && seg !== lang) {
+    if (isLang(seg) && seg !== lang) {
       setLangState(seg);
       localStorage.setItem('px-lang', seg);
     }
   }, [location.pathname, lang]);
 
-  const currency: Currency = lang === 'pl' ? 'PLN' : 'GBP';
-  const region: ShippingRegion = lang === 'pl' ? 'pl' : 'uk';
+  const currency: Currency = lang === 'pl' ? 'PLN' : lang === 'es' ? 'EUR' : 'GBP';
+  const region: ShippingRegion = lang === 'pl' ? 'pl' : lang === 'es' ? 'es' : 'uk';
 
   const setLang = (newLang: Lang) => {
     setLangState(newLang);
@@ -73,6 +79,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const formatPrice = (priceInSmallest: number): string => {
     if (currency === 'PLN') {
       return `${(priceInSmallest / 100).toFixed(2)} zł`;
+    }
+    if (currency === 'EUR') {
+      return `€${(priceInSmallest / 100).toFixed(2)}`;
     }
     return `£${(priceInSmallest / 100).toFixed(2)}`;
   };

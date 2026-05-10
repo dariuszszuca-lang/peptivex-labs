@@ -23,7 +23,7 @@ export default function ProductsPage() {
     if (activeCategory) result = result.filter(p => p.category === activeCategory);
     if (search.trim()) {
       const q = search.toLowerCase();
-      result = result.filter(p => p.name_pl.toLowerCase().includes(q) || p.name_en.toLowerCase().includes(q) || p.dosage.toLowerCase().includes(q));
+      result = result.filter(p => p.name_pl.toLowerCase().includes(q) || p.name_en.toLowerCase().includes(q) || (p.name_es?.toLowerCase().includes(q) ?? false) || p.dosage.toLowerCase().includes(q));
     }
     return result;
   }, [activeCategory, search]);

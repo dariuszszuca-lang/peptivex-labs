@@ -8,7 +8,7 @@ interface CartContextType {
   updateQuantity: (productId: string, qty: number) => void;
   clearCart: () => void;
   totalItems: number;
-  totalPrice: (priceKey: 'price_pln' | 'price_gbp') => number;
+  totalPrice: (priceKey: 'price_pln' | 'price_gbp' | 'price_eur') => number;
 }
 
 const CartContext = createContext<CartContextType | null>(null);
@@ -43,8 +43,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const totalItems = items.reduce((sum, i) => sum + i.quantity, 0);
 
-  const totalPrice = (priceKey: 'price_pln' | 'price_gbp') =>
-    items.reduce((sum, i) => sum + i.product[priceKey] * i.quantity, 0);
+  const totalPrice = (priceKey: 'price_pln' | 'price_gbp' | 'price_eur') =>
+    items.reduce((sum, i) => sum + ((i.product[priceKey] ?? i.product.price_gbp) * i.quantity), 0);
 
   return (
     <CartContext.Provider value={{ items, addItem, removeItem, updateQuantity, clearCart, totalItems, totalPrice }}>

@@ -11,10 +11,10 @@ export default function ProductCard({ product }: { product: Product }) {
   const { lang, formatPrice } = useLanguage();
   const { addItem } = useCart();
 
-  const name = lang === 'pl' ? product.name_pl : product.name_en;
-  const short = lang === 'pl' ? product.short_pl : product.short_en;
-  const price = lang === 'pl' ? product.price_pln : product.price_gbp;
-  const stock = lang === 'pl' ? product.stock_pl : product.stock_uk;
+  const name = lang === 'pl' ? product.name_pl : lang === 'es' ? (product.name_es || product.name_en) : product.name_en;
+  const short = lang === 'pl' ? product.short_pl : lang === 'es' ? (product.short_es || product.short_en) : product.short_en;
+  const price = lang === 'pl' ? product.price_pln : lang === 'es' ? (product.price_eur ?? product.price_gbp) : product.price_gbp;
+  const stock = lang === 'pl' ? product.stock_pl : lang === 'es' ? (product.stock_es ?? product.stock_uk) : product.stock_uk;
   const inStock = stock > 0;
   const imgSrc = product.image || (product.format === 'pen' ? DEFAULT_PEN : DEFAULT_VIAL);
 
@@ -37,7 +37,7 @@ export default function ProductCard({ product }: { product: Product }) {
         <div className="absolute top-3 left-3 z-20 flex flex-col gap-1.5">
           {product.featured && (
             <span className="bg-amber-500 text-black text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-lg">
-              {lang === 'pl' ? 'Wyróżniony' : 'Featured'}
+              {lang === 'pl' ? 'Wyróżniony' : lang === 'es' ? 'Destacado' : 'Featured'}
             </span>
           )}
           {product.format === 'pen' && (
@@ -72,7 +72,7 @@ export default function ProductCard({ product }: { product: Product }) {
             }`}
           >
             <ShoppingCart size={13} />
-            {inStock ? (lang === 'pl' ? 'Dodaj' : 'Add') : (lang === 'pl' ? 'Brak' : 'Out')}
+            {inStock ? (lang === 'pl' ? 'Dodaj' : lang === 'es' ? 'Añadir' : 'Add') : (lang === 'pl' ? 'Brak' : lang === 'es' ? 'Agotado' : 'Out')}
           </button>
         </div>
       </div>

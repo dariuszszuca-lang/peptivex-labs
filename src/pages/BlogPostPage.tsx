@@ -8,24 +8,26 @@ export default function BlogPostPage() {
   const { slug } = useParams();
   const { lang } = useLanguage();
   const pl = lang === 'pl';
+  const es = lang === 'es';
 
-  const post = BLOG_POSTS.find(p => p.slug === slug);
+  const post = BLOG_POSTS.find(p => p.slug === slug) as any;
   if (!post) {
     return (
       <div className="max-w-3xl mx-auto px-4 py-20 text-center text-white/30">
-        {pl ? 'Artykuł nie znaleziony.' : 'Article not found.'}
+        {pl ? 'Artykuł nie znaleziony.' : es ? 'Artículo no encontrado.' : 'Article not found.'}
       </div>
     );
   }
 
-  const title = pl ? post.title_pl : post.title_en;
-  const sections = pl ? post.sections_pl : post.sections_en;
+  const title = pl ? post.title_pl : es ? (post.title_es || post.title_en) : post.title_en;
+  const sections = pl ? post.sections_pl : es ? (post.sections_es || post.sections_en) : post.sections_en;
+  const excerpt = pl ? post.excerpt_pl : es ? (post.excerpt_es || post.excerpt_en) : post.excerpt_en;
 
   return (
     <div className="relative">
       <SeoHead
         title={title}
-        description={pl ? post.excerpt_pl : post.excerpt_en}
+        description={excerpt}
         path={`/${lang}/blog/${post.slug}`}
         image={`https://peptivexlabs.com${post.heroImage}`}
         schema={{
@@ -34,7 +36,7 @@ export default function BlogPostPage() {
             {
               '@type': 'Article',
               headline: title,
-              description: pl ? post.excerpt_pl : post.excerpt_en,
+              description: excerpt,
               image: `https://peptivexlabs.com${post.heroImage}`,
               datePublished: post.date,
               dateModified: post.date,
@@ -77,7 +79,7 @@ export default function BlogPostPage() {
         </Link>
 
         <div className="flex flex-col gap-10">
-          {sections.map((section, i) => (
+          {sections.map((section: any, i: number) => (
             <section key={i}>
               {section.heading && (
                 <h2 className="text-white text-xl font-bold mb-4">{section.heading}</h2>
@@ -87,12 +89,12 @@ export default function BlogPostPage() {
                   <img src={section.image} alt={section.heading || ''} className="w-full h-48 sm:h-64 object-cover" />
                 </div>
               )}
-              {section.paragraphs.map((p, j) => (
+              {section.paragraphs.map((p: string, j: number) => (
                 <p key={j} className="text-white/50 text-[15px] leading-[1.8] mb-4">{p}</p>
               ))}
               {section.list && (
                 <ul className="flex flex-col gap-2 mb-4 ml-1">
-                  {section.list.map((item, k) => (
+                  {section.list.map((item: string, k: number) => (
                     <li key={k} className="text-white/50 text-[15px] leading-[1.7] flex gap-2">
                       <span className="text-amber-500 mt-1 shrink-0">•</span>
                       <span>{item}</span>

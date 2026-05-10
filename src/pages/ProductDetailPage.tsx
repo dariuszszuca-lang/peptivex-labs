@@ -17,16 +17,17 @@ export default function ProductDetailPage() {
   const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
   const pl = lang === 'pl';
+  const es = lang === 'es';
 
   const product = PRODUCTS.find(p => p.slug === slug);
   if (!product) {
     return <div className="max-w-6xl mx-auto px-4 py-20 text-center text-white/30">Product not found.</div>;
   }
 
-  const name = pl ? product.name_pl : product.name_en;
-  const description = pl ? product.description_pl : product.description_en;
-  const price = pl ? product.price_pln : product.price_gbp;
-  const stock = pl ? product.stock_pl : product.stock_uk;
+  const name = pl ? product.name_pl : es ? (product.name_es || product.name_en) : product.name_en;
+  const description = pl ? product.description_pl : es ? (product.description_es || product.description_en) : product.description_en;
+  const price = pl ? product.price_pln : es ? (product.price_eur ?? product.price_gbp) : product.price_gbp;
+  const stock = pl ? product.stock_pl : es ? (product.stock_es ?? product.stock_uk) : product.stock_uk;
   const inStock = stock > 0;
 
   const handleAdd = () => {
@@ -74,7 +75,7 @@ export default function ProductDetailPage() {
     <div>
       <SeoHead
         title={`${name} — ${product.dosage}`}
-        description={(pl ? product.short_pl : product.short_en) + ` ${formatPrice(price)}. PEPTIVEX LABS.`}
+        description={(pl ? product.short_pl : es ? (product.short_es || product.short_en) : product.short_en) + ` ${formatPrice(price)}. PEPTIVEX LABS.`}
         path={`/${lang}/product/${product.slug}`}
         image={product.image ? `https://peptivexlabs.com${product.image}` : undefined}
         schema={productSchema}
@@ -311,13 +312,13 @@ export default function ProductDetailPage() {
                   <div className="aspect-video overflow-hidden">
                     <img
                       src={p.image || (p.format === 'pen' ? '/images/products/retatrutide-pens.jpg' : '/images/products/bpc-157-vial.png')}
-                      alt={pl ? p.name_pl : p.name_en}
+                      alt={pl ? p.name_pl : es ? (p.name_es || p.name_en) : p.name_en}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <div className="p-4">
-                    <h3 className="text-white text-sm font-semibold group-hover:text-amber-400 transition-colors">{pl ? p.name_pl : p.name_en}</h3>
-                    <p className="text-amber-400 font-bold mt-1">{formatPrice(pl ? p.price_pln : p.price_gbp)}</p>
+                    <h3 className="text-white text-sm font-semibold group-hover:text-amber-400 transition-colors">{pl ? p.name_pl : es ? (p.name_es || p.name_en) : p.name_en}</h3>
+                    <p className="text-amber-400 font-bold mt-1">{formatPrice(pl ? p.price_pln : es ? (p.price_eur ?? p.price_gbp) : p.price_gbp)}</p>
                   </div>
                 </Link>
               ))}

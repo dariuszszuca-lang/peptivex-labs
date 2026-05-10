@@ -10,9 +10,9 @@ const ORDERS_EMAIL = 'orders@peptivexlabs.com';
 
 type MailtoArgs = {
   items: CartItem[];
-  lang: 'pl' | 'en';
+  lang: 'pl' | 'en' | 'es';
   formatPrice: (cents: number) => string;
-  priceKey: 'price_pln' | 'price_gbp';
+  priceKey: 'price_pln' | 'price_gbp' | 'price_eur';
   total: number;
   shippingCost: number;
   grandTotal: number;
@@ -20,31 +20,36 @@ type MailtoArgs = {
 
 function buildMailto({ items, lang, formatPrice, priceKey, total, shippingCost, grandTotal }: MailtoArgs): string {
   const pl = lang === 'pl';
-  const subject = pl ? 'Zamówienie Peptivex Labs' : 'Peptivex Labs order request';
+  const es = lang === 'es';
+  const subject = pl ? 'Zamówienie Peptivex Labs' : es ? 'Pedido Peptivex Labs' : 'Peptivex Labs order request';
 
   const lines = items.map(it => {
-    const name = pl ? it.product.name_pl : it.product.name_en;
+    const name = pl ? it.product.name_pl : es ? (it.product.name_es || it.product.name_en) : it.product.name_en;
     const dosage = it.product.dosage;
-    const lineTotal = it.product[priceKey] * it.quantity;
+    const lineTotal = (it.product[priceKey] ?? it.product.price_gbp) * it.quantity;
     return `- ${name} ${dosage} × ${it.quantity}    ${formatPrice(lineTotal)}`;
   });
 
-  const greeting = pl ? 'Witam,\n\nChciałbym zamówić poniższe produkty:' : 'Hi,\n\nI\'d like to order:';
-  const subtotalLabel = pl ? 'Suma produktów' : 'Subtotal';
-  const shippingLabel = pl ? 'Dostawa' : 'Shipping';
-  const totalLabel = pl ? 'Razem' : 'Total';
+  const greeting = pl ? 'Witam,\n\nChciałbym zamówić poniższe produkty:' : es ? 'Hola,\n\nQuisiera realizar el siguiente pedido:' : 'Hi,\n\nI\'d like to order:';
+  const subtotalLabel = pl ? 'Suma produktów' : es ? 'Subtotal' : 'Subtotal';
+  const shippingLabel = pl ? 'Dostawa' : es ? 'Envío' : 'Shipping';
+  const totalLabel = pl ? 'Razem' : es ? 'Total' : 'Total';
   const ruoLine = pl
     ? '\n\nPotwierdzam: 18+, badania in vitro, nie do spożycia, jurysdykcja legalna.'
+    : es
+    ? '\n\nConfirmo: 18+, investigación in vitro, no apto para consumo, jurisdicción legal.'
     : '\n\nI confirm: 18+, in vitro research, not for consumption, legal jurisdiction.';
   const closing = pl
     ? 'Proszę o link do płatności. Preferowana forma: (przelew/karta/BLIK)\n\nDziękuję!'
+    : es
+    ? 'Solicito el enlace de pago. Forma preferida: (transferencia / tarjeta)\n\n¡Gracias!'
     : 'Please send me a payment link. Preferred method: (bank transfer / card)\n\nThanks!';
 
   const body =
     `${greeting}\n\n` +
     lines.join('\n') +
     `\n\n${subtotalLabel}: ${formatPrice(total)}\n` +
-    `${shippingLabel}: ${shippingCost === 0 ? (pl ? 'GRATIS' : 'FREE') : formatPrice(shippingCost)}\n` +
+    `${shippingLabel}: ${shippingCost === 0 ? (pl ? 'GRATIS' : es ? 'GRATIS' : 'FREE') : formatPrice(shippingCost)}\n` +
     `${totalLabel}: ${formatPrice(grandTotal)}` +
     ruoLine +
     `\n\n${closing}\n`;
@@ -57,15 +62,15 @@ export default function CartPage() {
   const { items, removeItem, updateQuantity, totalPrice } = useCart();
   const [accepted, setAccepted] = useState(false);
 
-  const priceKey = lang === 'pl' ? 'price_pln' as const : 'price_gbp' as const;
+  const priceKey = lang === 'pl' ? 'price_pln' as const : lang === 'es' ? 'price_eur' as const : 'price_gbp' as const;
   const total = totalPrice(priceKey);
-  const shippingThreshold = lang === 'pl' ? 50000 : 10000;
-  const shippingCost = total >= shippingThreshold ? 0 : (lang === 'pl' ? 1299 : 766);
+  const shippingThreshold = lang === 'pl' ? 50000 : lang === 'es' ? 11500 : 10000;
+  const shippingCost = total >= shippingThreshold ? 0 : (lang === 'pl' ? 1299 : lang === 'es' ? 999 : 766);
   const grandTotal = total + shippingCost;
 
   const seoBlock = (
     <SeoHead
-      title={lang === 'pl' ? 'Koszyk' : 'Cart'}
+      title={lang === 'pl' ? 'Koszyk' : lang === 'es' ? 'Carrito' : 'Cart'}
       description=""
       path={`/${lang}/cart`}
       noIndex
@@ -93,8 +98,8 @@ export default function CartPage() {
       {/* Items */}
       <div className="flex flex-col gap-3 mb-8">
         {items.map(item => {
-          const name = lang === 'pl' ? item.product.name_pl : item.product.name_en;
-          const price = item.product[priceKey];
+          const name = lang === 'pl' ? item.product.name_pl : lang === 'es' ? (item.product.name_es || item.product.name_en) : item.product.name_en;
+          const price = item.product[priceKey] ?? item.product.price_gbp;
           return (
             <div key={item.product.id} className="bg-white/[0.03] border border-white/[0.08] rounded-xl p-4 flex items-center gap-4">
               <div className="w-14 h-14 bg-white/[0.03] rounded-lg overflow-hidden shrink-0">

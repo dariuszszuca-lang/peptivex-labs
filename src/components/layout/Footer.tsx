@@ -4,6 +4,7 @@ import { useLanguage } from '../../contexts/LanguageContext';
 export default function Footer() {
   const { lang, t } = useLanguage();
   const pl = lang === 'pl';
+  const es = lang === 'es';
 
   return (
     <footer className="border-t border-white/[0.06] bg-[#060606]">
@@ -21,9 +22,7 @@ export default function Footer() {
             </div>
             <p className="text-amber-500/60 text-[10px] tracking-[0.2em] uppercase mb-4">Research Peptides</p>
             <p className="text-white/30 text-xs leading-relaxed">
-              {pl
-                ? 'Peptydy badawcze najwyższej jakości. Wyłącznie do zastosowań laboratoryjnych.'
-                : 'Highest quality research peptides. For laboratory use only.'
+              {pl ? 'Peptydy badawcze najwyższej jakości. Wyłącznie do zastosowań laboratoryjnych.' : es ? 'Péptidos de investigación de la más alta calidad. Solo para uso en laboratorio.' : 'Highest quality research peptides. For laboratory use only.'
               }
             </p>
           </div>
@@ -31,14 +30,14 @@ export default function Footer() {
           {/* Navigation */}
           <div>
             <h4 className="text-white/60 text-xs font-semibold uppercase tracking-wide mb-4">
-              {pl ? 'Nawigacja' : 'Navigation'}
+              {pl ? 'Nawigacja' : es ? 'Navegación' : 'Navigation'}
             </h4>
             <div className="flex flex-col gap-2">
               <Link to={`/${lang}/products`} className="text-white/30 hover:text-white/60 text-sm transition-colors">{t('nav.products')}</Link>
               <Link to={`/${lang}/blog`} className="text-white/30 hover:text-white/60 text-sm transition-colors">Blog</Link>
               <Link to={`/${lang}/about`} className="text-white/30 hover:text-white/60 text-sm transition-colors">{t('nav.about')}</Link>
               <Link to={`/${lang}/contact`} className="text-white/30 hover:text-white/60 text-sm transition-colors">{t('nav.contact')}</Link>
-              <Link to={`/${lang}/guide`} className="text-white/30 hover:text-white/60 text-sm transition-colors">{pl ? 'Przewodnik' : 'Guide'}</Link>
+              <Link to={`/${lang}/guide`} className="text-white/30 hover:text-white/60 text-sm transition-colors">{pl ? 'Przewodnik' : es ? 'Guía' : 'Guide'}</Link>
               <Link to={`/${lang}/faq`} className="text-white/30 hover:text-white/60 text-sm transition-colors">FAQ</Link>
             </div>
           </div>
@@ -46,17 +45,17 @@ export default function Footer() {
           {/* Legal */}
           <div>
             <h4 className="text-white/60 text-xs font-semibold uppercase tracking-wide mb-4">
-              {pl ? 'Prawne' : 'Legal'}
+              {pl ? 'Prawne' : es ? 'Legal' : 'Legal'}
             </h4>
             <div className="flex flex-col gap-2 mb-5">
               <Link to={`/${lang}/terms`} className="text-white/30 hover:text-white/60 text-sm transition-colors">
-                {pl ? 'Regulamin' : 'Terms & Conditions'}
+                {pl ? 'Regulamin' : es ? 'Términos y Condiciones' : 'Terms & Conditions'}
               </Link>
               <Link to={`/${lang}/privacy`} className="text-white/30 hover:text-white/60 text-sm transition-colors">
-                {pl ? 'Polityka prywatności' : 'Privacy Policy'}
+                {pl ? 'Polityka prywatności' : es ? 'Política de Privacidad' : 'Privacy Policy'}
               </Link>
               <Link to={`/${lang}/legal`} className="text-white/30 hover:text-white/60 text-sm transition-colors">
-                {pl ? 'Informacja prawna' : 'Legal Notice'}
+                {pl ? 'Informacja prawna' : es ? 'Aviso Legal' : 'Legal Notice'}
               </Link>
             </div>
             <div className="bg-amber-500/[0.08] border border-amber-500/20 rounded-lg px-3 py-2">
@@ -71,12 +70,12 @@ export default function Footer() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-white/30 text-xs leading-relaxed">
             <div>
               <p className="text-white/50 font-semibold mb-1">PEPTIVEXLABS LTD</p>
-              <p>{pl ? 'Numer firmy' : 'Company number'}: 17178009</p>
-              <p>{pl ? 'Siedziba rejestrowa' : 'Registered office'}:</p>
+              <p>{pl ? 'Numer firmy' : es ? 'Número de empresa' : 'Company number'}: 17178009</p>
+              <p>{pl ? 'Siedziba rejestrowa' : es ? 'Domicilio social' : 'Registered office'}:</p>
               <p>66 Paul Street, London, EC2A 4NA, United Kingdom</p>
             </div>
             <div>
-              <p className="text-white/50 font-semibold mb-1">{pl ? 'Adres korespondencyjny' : 'Operational address'}</p>
+              <p className="text-white/50 font-semibold mb-1">{pl ? 'Adres korespondencyjny' : es ? 'Dirección operativa' : 'Operational address'}</p>
               <p>4th Floor, The Featherstone Building</p>
               <p>66 City Road, London, EC1Y 2AL</p>
               <p>United Kingdom</p>
