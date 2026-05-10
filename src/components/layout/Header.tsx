@@ -6,7 +6,6 @@ import { useCart } from '../../contexts/CartContext';
 
 export default function Header() {
   const { lang, t } = useLanguage();
-  const pl = lang === 'pl';
   const { totalItems } = useCart();
   const location = useLocation();
   const navigate = useNavigate();
@@ -21,7 +20,7 @@ export default function Header() {
     { to: `/${lang}`, label: t('nav.home') },
     { to: `/${lang}/products`, label: t('nav.products') },
     { to: `/${lang}/blog`, label: 'Blog' },
-    { to: `/${lang}/guide`, label: pl ? 'Przewodnik' : 'Guide' },
+    { to: `/${lang}/guide`, label: t('nav.guide') },
     { to: `/${lang}/about`, label: t('nav.about') },
     { to: `/${lang}/faq`, label: 'FAQ' },
     { to: `/${lang}/contact`, label: t('nav.contact') },
