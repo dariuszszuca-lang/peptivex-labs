@@ -92,6 +92,8 @@ export default function HomePage() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-6">
               {pl ? (
                 <>Nauka spotyka<br /><span className="text-gradient">najwyższą jakość</span></>
+              ) : es ? (
+                <>La ciencia se encuentra con<br /><span className="text-gradient">la calidad premium</span></>
               ) : (
                 <>Science meets<br /><span className="text-gradient">premium quality</span></>
               )}
@@ -185,6 +187,8 @@ export default function HomePage() {
             <h2 className="text-white text-3xl sm:text-4xl font-extrabold mb-4">
               {pl ? (
                 <>Jaki masz <span className="text-gradient">problem badawczy</span>?</>
+              ) : es ? (
+                <>¿Cuál es su <span className="text-gradient">enfoque de investigación</span>?</>
               ) : (
                 <>What's your <span className="text-gradient">research focus</span>?</>
               )}
@@ -434,6 +438,8 @@ export default function HomePage() {
           <h2 className="text-white text-4xl sm:text-5xl font-extrabold mb-5 leading-tight">
             {pl ? (
               <>Gotowy na<br /><span className="text-gradient">badania?</span></>
+            ) : es ? (
+              <>¿Listo para<br /><span className="text-gradient">la investigación?</span></>
             ) : (
               <>Ready for<br /><span className="text-gradient">research?</span></>
             )}

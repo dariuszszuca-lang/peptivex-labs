@@ -132,6 +132,8 @@ export default function FaqPage() {
           <h1 className="text-white text-3xl sm:text-4xl font-extrabold mb-4">
             {pl ? (
               <>Najczęściej zadawane <span className="text-gradient">pytania</span></>
+            ) : es ? (
+              <>Preguntas <span className="text-gradient">frecuentes</span></>
             ) : (
               <>Frequently asked <span className="text-gradient">questions</span></>
             )}

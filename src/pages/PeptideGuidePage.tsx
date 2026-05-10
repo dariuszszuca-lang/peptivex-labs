@@ -91,6 +91,8 @@ export default function PeptideGuidePage() {
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white leading-tight mb-6">
             {pl ? (
               <><span className="text-gradient">Przewodnik</span> po peptydach<br />badawczych</>
+            ) : es ? (
+              <>La Investigación<br /><span className="text-gradient">Guía de Péptidos</span></>
             ) : (
               <>The Research<br /><span className="text-gradient">Peptide Guide</span></>
             )}
@@ -320,6 +322,8 @@ export default function PeptideGuidePage() {
           <h2 className="text-white text-3xl sm:text-4xl font-extrabold mb-5">
             {pl ? (
               <><span className="text-gradient">Zamów</span> peptydy badawcze</>
+            ) : es ? (
+              <><span className="text-gradient">Solicitar</span> péptidos de investigación</>
             ) : (
               <><span className="text-gradient">Order</span> research peptides</>
             )}

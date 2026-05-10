@@ -50,6 +50,8 @@ export default function AboutPage() {
             <h1 className="text-4xl sm:text-5xl font-extrabold text-white leading-tight mb-6">
               {pl ? (
                 <><span className="text-gradient">Nauka</span> w służbie<br />jakości</>
+              ) : es ? (
+                <><span className="text-gradient">Ciencia</span> al servicio<br />de la calidad</>
               ) : (
                 <><span className="text-gradient">Science</span> in service<br />of quality</>
               )}
@@ -200,6 +202,8 @@ export default function AboutPage() {
           <h2 className="text-white text-3xl sm:text-4xl font-extrabold mb-5">
             {pl ? (
               <><span className="text-gradient">Zamów</span> peptydy badawcze</>
+            ) : es ? (
+              <><span className="text-gradient">Solicitar</span> péptidos de investigación</>
             ) : (
               <><span className="text-gradient">Order</span> research peptides</>
             )}

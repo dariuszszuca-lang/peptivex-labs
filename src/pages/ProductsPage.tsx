@@ -12,6 +12,7 @@ import type { ProductCategory } from '../types';
 export default function ProductsPage() {
   const { lang, t } = useLanguage();
   const pl = lang === 'pl';
+  const es = lang === 'es';
   const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState('');
 
@@ -49,6 +50,8 @@ export default function ProductsPage() {
           <h1 className="text-white text-3xl sm:text-4xl font-extrabold mb-3">
             {pl ? (
               <><span className="text-gradient">Katalog</span> peptydów</>
+            ) : es ? (
+              <>Péptido <span className="text-gradient">Catálogo</span></>
             ) : (
               <>Peptide <span className="text-gradient">Catalog</span></>
             )}
