@@ -16,6 +16,7 @@ export default function ProductDetailPage() {
   const { addItem } = useCart();
   const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
+  const [activeImage, setActiveImage] = useState<string | null>(null);
   const pl = lang === 'pl';
   const es = lang === 'es';
 
@@ -23,6 +24,10 @@ export default function ProductDetailPage() {
   if (!product) {
     return <div className="max-w-6xl mx-auto px-4 py-20 text-center text-white/30">Product not found.</div>;
   }
+
+  const defaultImage = product.image || (product.format === 'pen' ? '/images/products/retatrutide-pens.jpg' : '/images/products/bpc-157-vial.png');
+  const allImages = [defaultImage, ...(product.gallery || [])];
+  const currentImage = activeImage || defaultImage;
 
   const name = pl ? product.name_pl : es ? (product.name_es || product.name_en) : product.name_en;
   const description = pl ? product.description_pl : es ? (product.description_es || product.description_en) : product.description_en;
@@ -94,22 +99,46 @@ export default function ProductDetailPage() {
 
       <div className="max-w-6xl mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Image */}
-          <div className="relative rounded-2xl overflow-hidden border border-white/[0.06] aspect-square group">
-            <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/30 z-10" />
-            <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-amber-500/[0.08] to-transparent z-10" />
-            <img
-              src={product.image || (product.format === 'pen' ? '/images/products/retatrutide-pens.jpg' : '/images/products/bpc-157-vial.png')}
-              alt={name}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-            <span className="absolute bottom-4 right-4 z-20 bg-black/60 backdrop-blur-sm text-white/80 text-xs font-bold px-3 py-1.5 rounded-full border border-white/10">
-              {product.dosage}
-            </span>
-            {product.featured && (
-              <span className="absolute top-4 left-4 z-20 bg-amber-500 text-black text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide shadow-lg">
-                {pl ? 'Wyróżniony' : 'Featured'}
+          {/* Image + Gallery */}
+          <div className="flex flex-col gap-3">
+            <div className="relative rounded-2xl overflow-hidden border border-white/[0.06] aspect-square group">
+              <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/30 z-10 pointer-events-none" />
+              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-amber-500/[0.08] to-transparent z-10 pointer-events-none" />
+              <img
+                src={currentImage}
+                alt={name}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <span className="absolute bottom-4 right-4 z-20 bg-black/60 backdrop-blur-sm text-white/80 text-xs font-bold px-3 py-1.5 rounded-full border border-white/10">
+                {product.dosage}
               </span>
+              {product.featured && (
+                <span className="absolute top-4 left-4 z-20 bg-amber-500 text-black text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide shadow-lg">
+                  {pl ? 'Wyróżniony' : es ? 'Destacado' : 'Featured'}
+                </span>
+              )}
+            </div>
+            {allImages.length > 1 && (
+              <div className="flex gap-2 overflow-x-auto pb-1">
+                {allImages.map((img, idx) => {
+                  const isActive = currentImage === img;
+                  return (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => setActiveImage(img)}
+                      className={`relative shrink-0 w-20 h-20 rounded-xl overflow-hidden border transition-all ${
+                        isActive
+                          ? 'border-amber-500 ring-2 ring-amber-500/30'
+                          : 'border-white/[0.08] hover:border-white/30'
+                      }`}
+                      aria-label={`Zdjęcie ${idx + 1}`}
+                    >
+                      <img src={img} alt="" className="w-full h-full object-cover" />
+                    </button>
+                  );
+                })}
+              </div>
             )}
           </div>
 
