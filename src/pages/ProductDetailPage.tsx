@@ -149,9 +149,15 @@ export default function ProductDetailPage() {
               <span className="text-[11px] px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 uppercase tracking-wide font-semibold border border-amber-500/20">
                 {t(`categories.${product.category}`)}
               </span>
-              <span className="text-[11px] px-3 py-1 rounded-full bg-white/[0.06] text-white/40 uppercase tracking-wide border border-white/[0.06]">
-                {t(`product.${product.format}`)}
-              </span>
+              {product.pen_kit && product.format === 'vial' ? (
+                <span className="text-[11px] px-3 py-1 rounded-full bg-teal-500/10 text-teal-300 uppercase tracking-wide font-semibold border border-teal-500/20">
+                  {pl ? 'Fiolka lub Pen Kit' : es ? 'Vial o Pen Kit' : 'Vial or Pen Kit'}
+                </span>
+              ) : (
+                <span className="text-[11px] px-3 py-1 rounded-full bg-white/[0.06] text-white/40 uppercase tracking-wide border border-white/[0.06]">
+                  {t(`product.${product.format}`)}
+                </span>
+              )}
               <span className="text-[11px] px-3 py-1 rounded-full bg-white/[0.06] text-white/40 uppercase tracking-wide border border-white/[0.06]">
                 {product.dosage}
               </span>

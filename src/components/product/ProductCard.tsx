@@ -45,6 +45,11 @@ export default function ProductCard({ product }: { product: Product }) {
               PEN
             </span>
           )}
+          {product.pen_kit && product.format === 'vial' && (
+            <span className="bg-teal-500/80 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-lg whitespace-nowrap">
+              VIAL + PEN
+            </span>
+          )}
         </div>
 
         {/* Dosage badge bottom-right */}
@@ -58,7 +63,14 @@ export default function ProductCard({ product }: { product: Product }) {
         <Link to={`/${lang}/product/${product.slug}`}>
           <h3 className="text-white font-semibold text-sm mb-1 group-hover:text-amber-400 transition-colors">{name}</h3>
         </Link>
-        <p className="text-white/40 text-xs leading-relaxed mb-3 line-clamp-2">{short}</p>
+        <p className="text-white/40 text-xs leading-relaxed mb-2 line-clamp-2">{short}</p>
+
+        {product.pen_kit && product.format === 'vial' && (
+          <p className="text-teal-400/70 text-[11px] font-semibold mb-3 flex items-center gap-1">
+            <span className="w-1 h-1 rounded-full bg-teal-400/70" />
+            {lang === 'pl' ? 'Fiolka lub Reusable Pen Kit' : lang === 'es' ? 'Vial o Reusable Pen Kit' : 'Vial or Reusable Pen Kit'}
+          </p>
+        )}
 
         <div className="flex items-center justify-between">
           <span className="text-amber-400 font-bold text-lg">{formatPrice(price)}</span>
