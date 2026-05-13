@@ -246,6 +246,51 @@ export default function ProductDetailPage() {
               </span>
             </div>
 
+            {/* Reusable Pen Kit */}
+            {product.pen_kit && (
+              <div className="rounded-xl bg-gradient-to-br from-teal-500/[0.06] to-cyan-500/[0.04] border border-teal-500/20 p-4 space-y-3">
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <p className="text-teal-300 text-[11px] font-bold uppercase tracking-wider">
+                      {pl ? 'Dostępne też jako' : es ? 'También disponible como' : 'Also available as'}
+                    </p>
+                    <p className="text-white text-base font-bold mt-0.5">
+                      Reusable Pen Kit
+                    </p>
+                  </div>
+                  <span className="text-[10px] px-2 py-1 rounded-full bg-teal-500/15 text-teal-300 font-semibold uppercase tracking-wider whitespace-nowrap">
+                    PEN
+                  </span>
+                </div>
+                <p className="text-white/45 text-[13px] leading-[1.6]">
+                  {pl
+                    ? 'Zestaw startowy: wielokrotnego użytku metalowy pen + etui z systemem chłodzenia + wkład(y).'
+                    : es
+                    ? 'Kit de inicio: pluma metálica reutilizable + estuche con sistema de refrigeración + cartucho(s).'
+                    : 'Starter kit: reusable metal pen + case with cooling system + cartridge(s).'}
+                </p>
+                <div className="grid grid-cols-3 gap-2">
+                  {[
+                    { label: '1× ' + (pl ? 'wkład' : es ? 'cartucho' : 'cartridge'), price: product.pen_kit.cartridge_1x_gbp },
+                    { label: '2× ' + (pl ? 'wkłady' : es ? 'cartuchos' : 'cartridges'), price: product.pen_kit.cartridge_2x_gbp },
+                    { label: '3× ' + (pl ? 'wkłady' : es ? 'cartuchos' : 'cartridges'), price: product.pen_kit.cartridge_3x_gbp },
+                  ].map((opt, i) => (
+                    <div key={i} className="rounded-lg bg-white/[0.04] border border-white/[0.06] p-2.5 text-center">
+                      <p className="text-white/40 text-[11px] leading-tight">{opt.label}</p>
+                      <p className="text-white text-base font-bold mt-1">£{(opt.price / 100).toFixed(0)}</p>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-white/30 text-[11px] italic">
+                  {pl
+                    ? 'Zamówienia Pen Kit — kontakt mailowy.'
+                    : es
+                    ? 'Pedidos de Pen Kit — contacto por email.'
+                    : 'Pen Kit orders — contact via email.'}
+                </p>
+              </div>
+            )}
+
             {/* Add to Cart */}
             <div className="flex items-center gap-3">
               <div className="flex items-center bg-white/[0.04] border border-white/[0.08] rounded-xl">

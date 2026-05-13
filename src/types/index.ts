@@ -40,6 +40,11 @@ export interface Product {
     stackNotes?: string;
     storage: string;
   };
+  pen_kit?: {
+    cartridge_1x_gbp: number; // in pence (5500 = £55.00)
+    cartridge_2x_gbp: number;
+    cartridge_3x_gbp: number;
+  };
   featured: boolean;
   order: number;
 }
