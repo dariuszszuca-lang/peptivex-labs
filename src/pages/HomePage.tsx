@@ -80,7 +80,7 @@ export default function HomePage() {
           <div className="absolute inset-0 noise-overlay" />
         </div>
 
-        <div className="max-w-6xl mx-auto px-4 pt-10 pb-16 sm:pt-12 sm:pb-20 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        <div className="max-w-6xl mx-auto px-4 pt-16 pb-24 sm:pt-20 sm:pb-28 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           <div className="lg:col-span-7">
             <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur-sm border border-[#fed7aa] rounded-full pl-2 pr-3.5 py-1 mb-5">
               <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-gradient-to-br from-[#ea580c] to-[#f59e0b]">

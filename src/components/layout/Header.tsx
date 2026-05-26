@@ -69,22 +69,27 @@ export default function Header() {
 
         {/* Right side */}
         <div className="flex items-center gap-2.5 shrink-0">
-          {/* Lang switcher — minimal */}
-          <div className="hidden sm:flex items-center text-[11px] font-semibold tracking-widest text-[#a3a3a3]">
-            {(['en', 'es', 'pl'] as const).map((code, idx) => (
-              <span key={code} className="flex items-center">
-                {idx > 0 && <span className="mx-1.5 text-[#d4d4d4]">·</span>}
+          {/* Lang switcher — flag circles */}
+          <div className="hidden sm:flex items-center gap-1.5">
+            {(['en', 'es', 'pl'] as const).map(code => {
+              const flag = code === 'en' ? '🇬🇧' : code === 'es' ? '🇪🇸' : '🇵🇱';
+              const active = lang === code;
+              return (
                 <button
+                  key={code}
                   onClick={() => switchLang(code)}
-                  className={`uppercase transition-colors hover:text-[#0a0a0a] ${
-                    lang === code ? 'text-[#ea580c]' : ''
+                  className={`relative w-9 h-9 rounded-full flex items-center justify-center text-[16px] leading-none transition-all duration-200 ${
+                    active
+                      ? 'bg-white shadow-[0_2px_8px_rgba(234,88,12,0.30)] ring-2 ring-[#ea580c]'
+                      : 'bg-white/60 border border-[#ececec] hover:bg-white hover:border-[#fed7aa] hover:ring-2 hover:ring-[#fed7aa] hover:scale-110'
                   }`}
                   aria-label={code.toUpperCase()}
+                  title={code === 'en' ? 'English' : code === 'es' ? 'Español' : 'Polski'}
                 >
-                  {code}
+                  <span className="block">{flag}</span>
                 </button>
-              </span>
-            ))}
+              );
+            })}
           </div>
 
           {/* Cart — outline premium */}
