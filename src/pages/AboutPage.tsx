@@ -211,7 +211,7 @@ export default function AboutPage() {
           <p className="text-[#525252] mb-8 max-w-md mx-auto">
             {pl ? 'Czystość >98%, certyfikat HPLC, szybka dostawa InPost.' : es ? 'Pureza >98%, certificado HPLC, entrega rápida con InPost.' : '>98% purity, HPLC certificate, fast InPost delivery.'}
           </p>
-          <Link to={`/${lang}/products`} className="cta-primary inline-flex items-center gap-2 bg-[#ea580c] text-[#0a0a0a] font-bold px-8 py-4 rounded-xl hover:bg-[#c2410c] transition-all text-sm">
+          <Link to={`/${lang}/products`} className="cta-primary inline-flex items-center gap-2 bg-[#ea580c] text-white font-bold px-8 py-4 rounded-xl hover:bg-[#c2410c] transition-all text-sm">
             {pl ? 'Zobacz produkty' : es ? 'Explorar Productos' : 'Browse Products'} <ArrowRight size={16} />
           </Link>
         </div>

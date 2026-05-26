@@ -37,7 +37,7 @@ export default function CancelPage() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link
             to={`/${lang}/cart`}
-            className="bg-[#ea580c] text-[#0a0a0a] font-bold px-6 py-3 rounded-xl hover:bg-[#c2410c] transition-colors inline-flex items-center justify-center gap-2 text-sm"
+            className="bg-[#ea580c] text-white font-bold px-6 py-3 rounded-xl hover:bg-[#c2410c] transition-colors inline-flex items-center justify-center gap-2 text-sm"
           >
             <ArrowLeft size={14} />
             {pl ? 'Wróć do koszyka' : es ? 'Volver al carrito' : 'Back to cart'}

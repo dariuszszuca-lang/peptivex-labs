@@ -107,7 +107,7 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
                 to={`/${lang}/products`}
-                className="cta-primary inline-flex items-center justify-center gap-2 bg-[#ea580c] text-[#0a0a0a] font-bold px-7 py-3.5 rounded-xl hover:bg-[#c2410c] transition-all text-sm"
+                className="cta-primary inline-flex items-center justify-center gap-2 bg-[#ea580c] text-white font-bold px-7 py-3.5 rounded-xl hover:bg-[#c2410c] transition-all text-sm"
               >
                 {pl ? 'Zobacz produkty' : es ? 'Explorar Productos' : 'Browse Products'}
                 <ArrowRight size={16} />
@@ -416,7 +416,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link
               to={`/${lang}/products`}
-              className="cta-primary inline-flex items-center justify-center gap-2 bg-[#ea580c] text-[#0a0a0a] font-bold px-8 py-4 rounded-xl hover:bg-[#c2410c] transition-all text-sm"
+              className="cta-primary inline-flex items-center justify-center gap-2 bg-[#ea580c] text-white font-bold px-8 py-4 rounded-xl hover:bg-[#c2410c] transition-all text-sm"
             >
               {pl ? 'Przeglądaj produkty' : es ? 'Explorar Productos' : 'Browse Products'}
               <ArrowRight size={16} />

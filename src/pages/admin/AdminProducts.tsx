@@ -343,7 +343,7 @@ export default function AdminProducts() {
                       </button>
                       <button
                         onClick={saveEdit}
-                        className="flex items-center gap-1.5 bg-[#ea580c] text-[#0a0a0a] font-semibold px-5 py-2 rounded-lg hover:bg-[#c2410c] transition-colors text-sm"
+                        className="flex items-center gap-1.5 bg-[#ea580c] text-white font-semibold px-5 py-2 rounded-lg hover:bg-[#c2410c] transition-colors text-sm"
                       >
                         <Save size={14} /> Zapisz zmiany
                       </button>

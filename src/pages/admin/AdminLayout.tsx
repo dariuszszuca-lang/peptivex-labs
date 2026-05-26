@@ -57,7 +57,7 @@ export default function AdminLayout() {
           <button
             type="submit"
             disabled={loginLoading}
-            className="w-full bg-[#ea580c] text-[#0a0a0a] font-bold py-3 rounded-lg hover:bg-[#c2410c] disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 transition-colors"
+            className="w-full bg-[#ea580c] text-white font-bold py-3 rounded-lg hover:bg-[#c2410c] disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 transition-colors"
           >
             {loginLoading ? <Loader2 size={16} className="animate-spin" /> : null}
             Zaloguj

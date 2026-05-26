@@ -101,7 +101,7 @@ export default function PeptideGuidePage() {
             {pl ? 'Kompletny przewodnik: kategorie, protokoły, dawkowanie, rekonstytucja, stacki i przechowywanie. 19 peptydów z danymi referencyjnymi.' : es ? 'Guía completa: categorías, protocolos, dosificación, reconstitución, combinaciones (stacks) y almacenamiento. 19 péptidos con datos de referencia.' : 'Complete guide: categories, protocols, dosing, reconstitution, stacks, and storage. 19 peptides with reference data.'
             }
           </p>
-          <a href="#categories" className="cta-primary inline-flex items-center gap-2 bg-[#ea580c] text-[#0a0a0a] font-bold px-7 py-3.5 rounded-xl hover:bg-[#c2410c] transition-all text-sm">
+          <a href="#categories" className="cta-primary inline-flex items-center gap-2 bg-[#ea580c] text-white font-bold px-7 py-3.5 rounded-xl hover:bg-[#c2410c] transition-all text-sm">
             {pl ? 'Przejdź do przewodnika' : es ? 'Ir a la guía' : 'Jump to guide'} <ArrowRight size={16} />
           </a>
         </div>
@@ -331,7 +331,7 @@ export default function PeptideGuidePage() {
           <p className="text-[#525252] mb-8 max-w-md mx-auto">
             {pl ? 'Czystość >98% HPLC, szybka dostawa InPost, Pay by Bank, BLIK i karty.' : es ? 'Pureza HPLC >98%, entrega rápida InPost, Pago por Banco, BLIK y tarjetas.' : '>98% HPLC purity, fast InPost delivery, Pay by Bank, BLIK and cards.'}
           </p>
-          <Link to={`/${lang}/products`} className="cta-primary inline-flex items-center gap-2 bg-[#ea580c] text-[#0a0a0a] font-bold px-8 py-4 rounded-xl hover:bg-[#c2410c] transition-all text-sm">
+          <Link to={`/${lang}/products`} className="cta-primary inline-flex items-center gap-2 bg-[#ea580c] text-white font-bold px-8 py-4 rounded-xl hover:bg-[#c2410c] transition-all text-sm">
             {pl ? 'Przeglądaj produkty' : es ? 'Explorar Productos' : 'Browse Products'} <ArrowRight size={16} />
           </Link>
         </div>

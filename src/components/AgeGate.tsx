@@ -73,7 +73,7 @@ export default function AgeGate({ children }: Props) {
             <div className="flex flex-col sm:flex-row gap-2.5">
               <button
                 onClick={accept}
-                className="flex-1 bg-[#ea580c] text-[#0a0a0a] font-bold py-3 rounded-xl hover:bg-[#c2410c] transition-all text-sm"
+                className="flex-1 bg-[#ea580c] text-white font-bold py-3 rounded-xl hover:bg-[#c2410c] transition-all text-sm"
               >
                 {pl ? 'Mam 18+ — wejdź na stronę' : es ? 'Tengo 18 años o más — entrar al sitio' : 'I am 18+ — enter site'}
               </button>

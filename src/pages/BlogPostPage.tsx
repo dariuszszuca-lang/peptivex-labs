@@ -114,7 +114,7 @@ export default function BlogPostPage() {
           <p className="text-[#737373] text-sm mb-4">
             {pl ? 'Sprawdź nasz katalog — czystość >98%, szybka dostawa InPost.' : 'Check our catalog — >98% purity, fast InPost delivery.'}
           </p>
-          <Link to={`/${lang}/products`} className="inline-flex items-center gap-2 bg-[#ea580c] text-[#0a0a0a] font-bold px-6 py-2.5 rounded-xl hover:bg-[#c2410c] transition-all text-sm">
+          <Link to={`/${lang}/products`} className="inline-flex items-center gap-2 bg-[#ea580c] text-white font-bold px-6 py-2.5 rounded-xl hover:bg-[#c2410c] transition-all text-sm">
             {pl ? 'Zobacz produkty' : 'Browse Products'}
           </Link>
         </div>

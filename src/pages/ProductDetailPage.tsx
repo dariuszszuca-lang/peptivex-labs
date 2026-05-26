@@ -101,19 +101,17 @@ export default function ProductDetailPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Image + Gallery */}
           <div className="flex flex-col gap-3">
-            <div className="relative rounded-2xl overflow-hidden border border-[#ececec] aspect-square group">
-              <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/30 z-10 pointer-events-none" />
-              <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-amber-500/[0.08] to-transparent z-10 pointer-events-none" />
+            <div className="relative rounded-2xl overflow-hidden border border-[#ececec] aspect-square group bg-white p-6">
               <img
                 src={currentImage}
                 alt={name}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
               />
-              <span className="absolute bottom-4 right-4 z-20 bg-black/60 backdrop-blur-sm text-[#1a1a1a] text-xs font-bold px-3 py-1.5 rounded-full border border-[#ececec]">
+              <span className="absolute bottom-4 right-4 z-20 bg-white/95 backdrop-blur-sm text-[#1a1a1a] text-xs font-bold px-3 py-1.5 rounded-full border border-[#ececec] shadow-sm">
                 {product.dosage}
               </span>
               {product.featured && (
-                <span className="absolute top-4 left-4 z-20 bg-[#ea580c] text-[#0a0a0a] text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide shadow-lg">
+                <span className="absolute top-4 left-4 z-20 bg-[#ea580c] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide shadow-lg">
                   {pl ? 'Wyróżniony' : es ? 'Destacado' : 'Featured'}
                 </span>
               )}
@@ -127,14 +125,14 @@ export default function ProductDetailPage() {
                       key={idx}
                       type="button"
                       onClick={() => setActiveImage(img)}
-                      className={`relative shrink-0 w-20 h-20 rounded-xl overflow-hidden border transition-all ${
+                      className={`relative shrink-0 w-20 h-20 rounded-xl overflow-hidden border transition-all bg-white p-1 ${
                         isActive
-                          ? 'border-amber-500 ring-2 ring-amber-500/30'
-                          : 'border-[#ececec] hover:border-white/30'
+                          ? 'border-[#ea580c] ring-2 ring-[#fed7aa]'
+                          : 'border-[#ececec] hover:border-[#fed7aa]'
                       }`}
                       aria-label={`Zdjęcie ${idx + 1}`}
                     >
-                      <img src={img} alt="" className="w-full h-full object-cover" />
+                      <img src={img} alt="" className="w-full h-full object-contain" />
                     </button>
                   );
                 })}
@@ -315,7 +313,7 @@ export default function ProductDetailPage() {
                   added
                     ? 'bg-emerald-500 text-white'
                     : inStock
-                      ? 'cta-primary bg-[#ea580c] text-[#0a0a0a] hover:bg-[#c2410c] cursor-pointer'
+                      ? 'cta-primary bg-[#ea580c] text-white hover:bg-[#c2410c] cursor-pointer'
                       : 'bg-[#fafaf7] text-[#a3a3a3] cursor-not-allowed'
                 }`}
               >
@@ -388,12 +386,12 @@ export default function ProductDetailPage() {
             <h2 className="text-[#0a0a0a] text-xl font-bold mb-6">{pl ? 'Podobne produkty' : 'Related Products'}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
               {related.map(p => (
-                <Link key={p.id} to={`/${lang}/product/${p.slug}`} className="group bg-[#fafaf7] border border-[#ececec] rounded-xl overflow-hidden hover:border-[#fed7aa] transition-all">
-                  <div className="aspect-video overflow-hidden">
+                <Link key={p.id} to={`/${lang}/product/${p.slug}`} className="group bg-white border border-[#ececec] rounded-xl overflow-hidden hover:border-[#fed7aa] transition-all">
+                  <div className="aspect-video overflow-hidden bg-white p-3">
                     <img
                       src={p.image || (p.format === 'pen' ? '/images/products/retatrutide-pens.jpg' : '/images/products/bpc-157-vial.png')}
                       alt={pl ? p.name_pl : es ? (p.name_es || p.name_en) : p.name_en}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <div className="p-4">

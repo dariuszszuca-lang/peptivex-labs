@@ -60,7 +60,7 @@ export default function AdminSettings() {
           </div>
         </div>
 
-        <button className="bg-[#ea580c] text-[#0a0a0a] font-semibold px-6 py-3 rounded-lg hover:bg-[#c2410c] transition-colors text-sm flex items-center gap-2 self-start">
+        <button className="bg-[#ea580c] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#c2410c] transition-colors text-sm flex items-center gap-2 self-start">
           <Save size={16} />
           Zapisz ustawienia
         </button>

@@ -34,7 +34,7 @@ export default function NotFoundPage() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10">
           <Link
             to={`/${lang}`}
-            className="bg-[#ea580c] text-[#0a0a0a] font-bold px-6 py-3 rounded-xl hover:bg-[#c2410c] transition-colors inline-flex items-center justify-center gap-2 text-sm"
+            className="bg-[#ea580c] text-white font-bold px-6 py-3 rounded-xl hover:bg-[#c2410c] transition-colors inline-flex items-center justify-center gap-2 text-sm"
           >
             <Home size={14} />
             {pl ? 'Strona główna' : 'Homepage'}

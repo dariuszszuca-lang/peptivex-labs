@@ -196,7 +196,7 @@ export default function CartPage() {
         {accepted ? (
           <a
             href={buildMailto({ items, lang, formatPrice, priceKey, total, shippingCost, grandTotal })}
-            className="w-full mt-3 bg-[#ea580c] text-[#0a0a0a] font-semibold py-3 rounded-lg hover:bg-[#c2410c] transition-colors flex items-center justify-center gap-2"
+            className="w-full mt-3 bg-[#ea580c] text-white font-semibold py-3 rounded-lg hover:bg-[#c2410c] transition-colors flex items-center justify-center gap-2"
           >
             <Mail size={16} />
             {lang === 'pl' ? 'Wyślij zamówienie mailem' : 'Send order by email'}
@@ -204,7 +204,7 @@ export default function CartPage() {
         ) : (
           <button
             disabled
-            className="w-full mt-3 bg-[#ea580c] text-[#0a0a0a] font-semibold py-3 rounded-lg flex items-center justify-center gap-2 opacity-50 cursor-not-allowed"
+            className="w-full mt-3 bg-[#ea580c] text-white font-semibold py-3 rounded-lg flex items-center justify-center gap-2 opacity-50 cursor-not-allowed"
           >
             <Mail size={16} />
             {lang === 'pl' ? 'Wyślij zamówienie mailem' : 'Send order by email'}

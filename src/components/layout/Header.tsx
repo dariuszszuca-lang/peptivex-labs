@@ -50,7 +50,7 @@ export default function Header() {
               to={item.to}
               className={`px-4 py-1.5 rounded-full text-sm transition-all ${
                 isActive(item.to)
-                  ? 'bg-[#1a1a1a] text-[#0a0a0a] font-semibold'
+                  ? 'bg-[#1a1a1a] text-white font-semibold'
                   : 'text-[#525252] hover:text-[#1a1a1a] hover:bg-[#f5f5f0]'
               }`}
             >
@@ -67,7 +67,7 @@ export default function Header() {
               onClick={() => switchLang('en')}
               className={`text-xs px-2 py-1 rounded-full transition-all ${
                 lang === 'en'
-                  ? 'bg-[#1a1a1a] text-[#0a0a0a] font-semibold'
+                  ? 'bg-[#1a1a1a] text-white font-semibold'
                   : 'text-[#737373] hover:text-[#1a1a1a]'
               }`}
               aria-label="English"
@@ -78,7 +78,7 @@ export default function Header() {
               onClick={() => switchLang('es')}
               className={`text-xs px-2 py-1 rounded-full transition-all ${
                 lang === 'es'
-                  ? 'bg-[#1a1a1a] text-[#0a0a0a] font-semibold'
+                  ? 'bg-[#1a1a1a] text-white font-semibold'
                   : 'text-[#737373] hover:text-[#1a1a1a]'
               }`}
               aria-label="Español"
@@ -89,7 +89,7 @@ export default function Header() {
               onClick={() => switchLang('pl')}
               className={`text-xs px-2 py-1 rounded-full transition-all ${
                 lang === 'pl'
-                  ? 'bg-[#1a1a1a] text-[#0a0a0a] font-semibold'
+                  ? 'bg-[#1a1a1a] text-white font-semibold'
                   : 'text-[#737373] hover:text-[#1a1a1a]'
               }`}
               aria-label="Polski"
@@ -101,7 +101,7 @@ export default function Header() {
           {/* Cart */}
           <Link
             to={`/${lang}/cart`}
-            className="relative flex items-center gap-1.5 bg-[#ea580c] text-[#0a0a0a] px-3 py-1.5 rounded-full hover:bg-[#c2410c] transition-all text-sm font-semibold"
+            className="relative flex items-center gap-1.5 bg-[#ea580c] text-white px-3 py-1.5 rounded-full hover:bg-[#c2410c] transition-all text-sm font-semibold"
           >
             <ShoppingCart size={16} />
             {totalItems > 0 && (
@@ -130,7 +130,7 @@ export default function Header() {
                 onClick={() => setMobileOpen(false)}
                 className={`px-4 py-2.5 rounded-xl text-sm transition-all ${
                   isActive(item.to)
-                    ? 'bg-[#1a1a1a] text-[#0a0a0a] font-semibold'
+                    ? 'bg-[#1a1a1a] text-white font-semibold'
                     : 'text-[#525252] hover:text-[#1a1a1a] hover:bg-[#f5f5f0]'
                 }`}
               >

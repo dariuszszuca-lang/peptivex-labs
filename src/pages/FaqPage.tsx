@@ -243,7 +243,7 @@ export default function FaqPage() {
               <h3 className="text-[#0a0a0a] text-xl font-bold mb-2">{pl ? 'Nie znalazłeś odpowiedzi?' : "Didn't find your answer?"}</h3>
               <p className="text-[#737373] text-sm">{pl ? 'Napisz do nas — odpowiadamy w ciągu 24 godzin.' : es ? 'Contáctenos — respondemos en un plazo de 24 horas.' : 'Contact us — we respond within 24 hours.'}</p>
             </div>
-            <Link to={`/${lang}/contact`} className="cta-primary bg-[#ea580c] text-[#0a0a0a] font-bold px-6 py-3 rounded-xl hover:bg-[#c2410c] transition-all text-sm flex items-center gap-2 shrink-0">
+            <Link to={`/${lang}/contact`} className="cta-primary bg-[#ea580c] text-white font-bold px-6 py-3 rounded-xl hover:bg-[#c2410c] transition-all text-sm flex items-center gap-2 shrink-0">
               {pl ? 'Kontakt' : es ? 'Contáctenos' : 'Contact Us'} <ArrowRight size={14} />
             </Link>
           </div>

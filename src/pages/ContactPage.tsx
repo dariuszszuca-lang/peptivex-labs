@@ -106,7 +106,7 @@ export default function ContactPage() {
                     <label className="text-[#737373] text-xs uppercase tracking-wide mb-1.5 block">{pl ? 'Wiadomość' : es ? 'Mensaje' : 'Message'}</label>
                     <textarea required rows={5} value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} className="w-full bg-[#fafaf7] border border-[#ececec] rounded-xl px-4 py-3 text-[#0a0a0a] text-sm focus:border-amber-500/40 focus:outline-none transition-colors resize-none" />
                   </div>
-                  <button type="submit" className="cta-primary bg-[#ea580c] text-[#0a0a0a] font-bold py-3.5 rounded-xl hover:bg-[#c2410c] transition-all flex items-center justify-center gap-2 text-sm">
+                  <button type="submit" className="cta-primary bg-[#ea580c] text-white font-bold py-3.5 rounded-xl hover:bg-[#c2410c] transition-all flex items-center justify-center gap-2 text-sm">
                     <Send size={16} />
                     {pl ? 'Wyślij wiadomość' : es ? 'Enviar mensaje' : 'Send Message'}
                   </button>
