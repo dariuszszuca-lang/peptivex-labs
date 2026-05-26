@@ -91,14 +91,19 @@ export default function HomePage() {
               </span>
             </div>
 
-            <h1 className="text-[2.5rem] sm:text-5xl lg:text-[3.75rem] font-extrabold text-[#0a0a0a] leading-[1.05] tracking-tight mb-5">
-              {pl ? (
-                <>Premium peptydy <span className="text-[#ea580c]">badawcze</span><br />BPC-157 · Retatrutide · NAD+</>
-              ) : es ? (
-                <>Péptidos premium <span className="text-[#ea580c]">de investigación</span><br />BPC-157 · Retatrutide · NAD+</>
-              ) : (
-                <>Premium research <span className="text-[#ea580c]">peptides</span><br />BPC-157 · Retatrutide · NAD+</>
-              )}
+            <h1 className="font-extrabold text-[#0a0a0a] leading-[1.05] tracking-tight mb-5">
+              <span className="block text-[2.5rem] sm:text-5xl lg:text-[3.75rem]">
+                {pl ? (
+                  <>Premium peptydy <span className="text-[#ea580c]">badawcze</span></>
+                ) : es ? (
+                  <>Péptidos premium <span className="text-[#ea580c]">de investigación</span></>
+                ) : (
+                  <>Premium research <span className="text-[#ea580c]">peptides</span></>
+                )}
+              </span>
+              <span className="block text-lg sm:text-xl lg:text-2xl font-semibold text-[#525252] mt-3 tracking-normal">
+                BPC-157 · Retatrutide · NAD+ · GHK-Cu
+              </span>
             </h1>
 
             <p className="text-[#525252] text-base sm:text-lg leading-relaxed mb-7 max-w-xl">
