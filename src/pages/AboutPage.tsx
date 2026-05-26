@@ -13,8 +13,8 @@ export default function AboutPage() {
   const features = [
     { icon: FlaskConical, title: pl ? 'Czystość >98%' : es ? 'Pureza >98%' : 'Purity >98%', desc: pl ? 'Każda partia testowana HPLC. Certyfikat analizy na życzenie.' : es ? 'Cada lote probado por HPLC. Certificado de Análisis bajo solicitud.' : 'Every batch HPLC tested. Certificate of Analysis on request.', color: 'from-amber-500/20 to-amber-500/5' },
     { icon: Thermometer, title: pl ? 'Kontrola temperatury' : es ? 'Control de Temperatura' : 'Temperature Control', desc: pl ? 'Produkty przechowywane i wysyłane w kontrolowanych warunkach temperaturowych.' : es ? 'Productos almacenados y enviados bajo condiciones de temperatura controlada.' : 'Products stored and shipped under controlled temperature conditions.', color: 'from-teal-500/20 to-teal-500/5' },
-    { icon: Truck, title: pl ? 'Szybka dostawa' : es ? 'Entrega Rápida' : 'Fast Delivery', desc: pl ? 'InPost Paczkomaty (PL) i Lockers (UK). Dyskretna paczka, wysyłka w 24h.' : es ? 'Taquillas InPost (Reino Unido) y Paczkomaty (Polonia). Embalaje discreto, envío en 24h.' : 'InPost Lockers (UK) and Paczkomaty (PL). Discreet packaging, 24h dispatch.', color: 'from-violet-500/20 to-violet-500/5' },
-    { icon: Shield, title: pl ? 'Bezpieczne płatności' : es ? 'Pagos Seguros' : 'Secure Payments', desc: pl ? 'Pay by Bank, BLIK i karty. Pełne szyfrowanie PCI DSS.' : es ? 'Pague con transferencia bancaria, BLIK y tarjetas. Cifrado completo PCI DSS.' : 'Pay by Bank, BLIK and cards. Full PCI DSS encryption.', color: 'from-sky-500/20 to-sky-500/5' },
+    { icon: Truck, title: pl ? 'Szybka dostawa' : es ? 'Entrega Rápida' : 'Fast Delivery', desc: pl ? 'Dyskretna paczka, wysyłka w 24h do PL i UK.' : es ? 'Embalaje discreto, envío en 24h a PL y UK.' : 'Discreet packaging, 24h dispatch to PL and UK.', color: 'from-violet-500/20 to-violet-500/5' },
+    { icon: Shield, title: pl ? 'Bezpieczne płatności' : es ? 'Pagos Seguros' : 'Secure Payments', desc: pl ? 'Bezpieczne metody online z szyfrowanym potwierdzeniem.' : es ? 'Métodos online seguros con confirmación cifrada.' : 'Secure online methods with encrypted confirmation.', color: 'from-sky-500/20 to-sky-500/5' },
     { icon: Award, title: pl ? 'Dokumentacja naukowa' : es ? 'Documentación Científica' : 'Scientific Documentation', desc: pl ? 'Każdy produkt z opisem, specyfikacją i odniesieniami do publikacji naukowych.' : es ? 'Cada producto con descripción, especificación y referencias de publicaciones científicas.' : 'Every product with description, specification, and scientific publication references.', color: 'from-emerald-500/20 to-emerald-500/5' },
     { icon: Beaker, title: pl ? 'Szeroki wybór' : es ? 'Amplia Selección' : 'Wide Selection', desc: pl ? 'Peptydy do badań nad regeneracją, metabolizmem, długowiecznością komórkową, neuropeptydy i więcej.' : es ? 'Péptidos para investigación en reparación de tejidos, metabolismo, longevidad celular, neuropéptidos y más.' : 'Peptides for research on tissue repair, metabolism, cellular longevity, neuropeptides and more.', color: 'from-rose-500/20 to-rose-500/5' },
   ];
@@ -23,14 +23,14 @@ export default function AboutPage() {
     { year: pl ? 'Krok 1' : es ? 'Paso 1' : 'Step 1', title: pl ? 'Synteza SPPS' : es ? 'Síntesis SPPS' : 'SPPS Synthesis', desc: pl ? 'Peptydy syntetyzowane metodą Solid Phase Peptide Synthesis w certyfikowanym laboratorium.' : es ? 'Péptidos sintetizados mediante Síntesis de Péptidos en Fase Sólida en un laboratorio certificado.' : 'Peptides synthesized using Solid Phase Peptide Synthesis in a certified laboratory.' },
     { year: pl ? 'Krok 2' : es ? 'Paso 2' : 'Step 2', title: pl ? 'Oczyszczanie HPLC' : es ? 'Purificación por HPLC' : 'HPLC Purification', desc: pl ? 'Chromatografia cieczowa zapewnia czystość powyżej 98%. Certyfikat analizy dla każdej partii.' : es ? 'La cromatografía líquida asegura una pureza superior al 98%. Certificado de análisis para cada lote.' : 'Liquid chromatography ensures purity above 98%. Certificate of analysis for each batch.' },
     { year: pl ? 'Krok 3' : es ? 'Paso 3' : 'Step 3', title: pl ? 'Liofilizacja' : es ? 'Liofilización' : 'Lyophilization', desc: pl ? 'Suszenie sublimacyjne daje stabilny proszek gotowy do długotrwałego przechowywania.' : es ? 'La liofilización produce un polvo estable listo para almacenamiento a largo plazo.' : 'Freeze-drying produces a stable powder ready for long-term storage.' },
-    { year: pl ? 'Krok 4' : es ? 'Paso 4' : 'Step 4', title: pl ? 'Wysyłka' : es ? 'Envío' : 'Shipping', desc: pl ? 'Dyskretne opakowanie, kontrola temperatury, InPost Paczkomaty / Lockers.' : es ? 'Embalaje discreto, control de temperatura, InPost Paczkomaty / Taquillas.' : 'Discreet packaging, temperature control, InPost Paczkomaty / Lockers.' },
+    { year: pl ? 'Krok 4' : es ? 'Paso 4' : 'Step 4', title: pl ? 'Wysyłka' : es ? 'Envío' : 'Shipping', desc: pl ? 'Dyskretne opakowanie, kontrola temperatury, szybka dostawa.' : es ? 'Embalaje discreto, control de temperatura, entrega rápida.' : 'Discreet packaging, temperature control, fast delivery.' },
   ];
 
   return (
     <div>
       <SeoHead
         title={pl ? 'O nas — PEPTIVEX LABS' : es ? 'Sobre Nosotros — PEPTIVEX LABS' : 'About Us — PEPTIVEX LABS'}
-        description={pl ? 'Peptydy badawcze o czystości >98% HPLC. Czym się wyróżniamy: synteza SPPS, certyfikaty analizy, szybka dostawa InPost, bezpieczne płatności online.' : es ? 'Péptidos de investigación con >98% de pureza HPLC. Lo que nos distingue: síntesis SPPS, certificados de análisis, entrega rápida con InPost, pagos online seguros.' : 'Research peptides with >98% HPLC purity. What sets us apart: SPPS synthesis, certificates of analysis, fast InPost delivery, secure online payments.'}
+        description={pl ? 'Peptydy badawcze o czystości >98% HPLC. Czym się wyróżniamy: synteza SPPS, certyfikaty analizy, szybka i dyskretna dostawa, bezpieczne płatności online.' : es ? 'Péptidos de investigación con >98% de pureza HPLC. Lo que nos distingue: síntesis SPPS, certificados de análisis, entrega rápida y discreta, pagos online seguros.' : 'Research peptides with >98% HPLC purity. What sets us apart: SPPS synthesis, certificates of analysis, fast and discreet delivery, secure online payments.'}
         path={`/${lang}/about`}
       />
       {/* Hero — full width with product image */}
@@ -99,13 +99,13 @@ export default function AboutPage() {
                 }
               </p>
               <p className="text-[#525252] text-[15px] leading-[1.9] mb-8">
-                {pl ? 'PEPTIVEX LABS wypełnia tę lukę — każdy produkt jest testowany HPLC, starannie pakowany i dostarczany w ciągu 1-3 dni przez InPost. Bez kompromisów w jakości.' : es ? 'PEPTIVEX LABS cubre esta necesidad — cada producto es probado por HPLC, cuidadosamente empaquetado y entregado en 1-3 días a través de InPost. Sin compromisos en la calidad.' : 'PEPTIVEX LABS fills this gap — every product is HPLC tested, carefully packaged, and delivered within 1-3 days via InPost. No compromises on quality.'
+                {pl ? 'PEPTIVEX LABS wypełnia tę lukę — każdy produkt jest testowany HPLC, starannie pakowany i dostarczany w ciągu 1-3 dni. Bez kompromisów w jakości.' : es ? 'PEPTIVEX LABS cubre esta necesidad — cada producto es probado por HPLC, cuidadosamente empaquetado y entregado en 1-3 días. Sin compromisos en la calidad.' : 'PEPTIVEX LABS fills this gap — every product is HPLC tested, carefully packaged, and delivered within 1-3 days. No compromises on quality.'
                 }
               </p>
               <div className="flex flex-col gap-3">
                 {(pl
-                  ? ['Certyfikat analizy dla każdej partii', 'Dyskretne opakowanie z kontrolą temperatury', 'Pay by Bank, BLIK i karty (PCI DSS)', 'Wysyłka InPost w Polsce i UK']
-                  : ['Certificate of analysis for every batch', 'Discreet packaging with temperature control', 'Pay by Bank, BLIK and cards (PCI DSS)', 'InPost delivery in Poland and UK']
+                  ? ['Certyfikat analizy dla każdej partii', 'Dyskretne opakowanie z kontrolą temperatury', 'Bezpieczne płatności online', 'Szybka wysyłka w Polsce i UK']
+                  : ['Certificate of analysis for every batch', 'Discreet packaging with temperature control', 'Secure online payments', 'Fast delivery in Poland and UK']
                 ).map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <div className="w-5 h-5 rounded-full bg-[#fff7ed] flex items-center justify-center shrink-0">
@@ -209,7 +209,7 @@ export default function AboutPage() {
             )}
           </h2>
           <p className="text-[#525252] mb-8 max-w-md mx-auto">
-            {pl ? 'Czystość >98%, certyfikat HPLC, szybka dostawa InPost.' : es ? 'Pureza >98%, certificado HPLC, entrega rápida con InPost.' : '>98% purity, HPLC certificate, fast InPost delivery.'}
+            {pl ? 'Czystość >98%, certyfikat HPLC, szybka dyskretna dostawa.' : es ? 'Pureza >98%, certificado HPLC, entrega rápida y discreta.' : '>98% purity, HPLC certificate, fast discreet delivery.'}
           </p>
           <Link to={`/${lang}/products`} className="cta-primary inline-flex items-center gap-2 bg-[#ea580c] text-white font-bold px-8 py-4 rounded-xl hover:bg-[#c2410c] transition-all text-sm">
             {pl ? 'Zobacz produkty' : es ? 'Explorar Productos' : 'Browse Products'} <ArrowRight size={16} />

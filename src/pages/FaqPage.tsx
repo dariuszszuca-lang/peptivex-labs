@@ -54,7 +54,7 @@ const FAQ_DATA: FaqCategory[] = [
     icon: Truck,
     color: 'text-emerald-400',
     items: [
-      { q_pl: 'Jak długo trwa dostawa?', q_en: 'How long does delivery take?', a_pl: 'Polska: 1-2 dni robocze przez InPost Paczkomaty. Wielka Brytania: 2-3 dni robocze przez InPost Lockers. Zamówienia realizujemy w ciągu 24h od momentu zaksięgowania płatności.', a_en: 'Poland: 1-2 business days via InPost Paczkomaty. United Kingdom: 2-3 business days via InPost Lockers. Orders are processed within 24h of payment confirmation.' },
+      { q_pl: 'Jak długo trwa dostawa?', q_en: 'How long does delivery take?', a_pl: 'Polska: 1-2 dni robocze. Wielka Brytania: 2-3 dni robocze. Zamówienia realizujemy w ciągu 24h od potwierdzenia płatności.', a_en: 'Poland: 1-2 business days. United Kingdom: 2-3 business days. Orders are processed within 24h of payment confirmation.' },
       { q_pl: 'Ile kosztuje wysyłka?', q_en: 'How much does shipping cost?', a_pl: 'Polska: 12,99 zł (darmowa od 500 zł). Wielka Brytania: £7.66 (free over £100). Wszystkie przesyłki w dyskretnym opakowaniu z kontrolą temperatury.', a_en: 'Poland: 12.99 PLN (free over 500 PLN). United Kingdom: £7.66 (free over £100). All shipments in discreet packaging with temperature control.' },
       { q_pl: 'Czy wysyłacie do innych krajów?', q_en: 'Do you ship to other countries?', a_pl: 'Obecnie realizujemy wysyłki do Polski i Wielkiej Brytanii. Planujemy rozszerzenie na kolejne kraje UE w najbliższej przyszłości. Zapisz się na newsletter, żeby nie przegapić.', a_en: 'We currently ship to Poland and the United Kingdom. We plan to expand to more EU countries in the near future. Subscribe to our newsletter to stay updated.' },
     ],
@@ -66,8 +66,7 @@ const FAQ_DATA: FaqCategory[] = [
     icon: CreditCard,
     color: 'text-sky-400',
     items: [
-      { q_pl: 'Jakie metody płatności akceptujecie?', q_en: 'What payment methods do you accept?', a_pl: 'Pay by Bank (przelew bankowy online), BLIK, karty Visa/Mastercard, Apple Pay i Google Pay. Wszystkie płatności są szyfrowane w standardzie PCI DSS.', a_en: 'Pay by Bank (instant bank transfer), BLIK, Visa/Mastercard cards, Apple Pay and Google Pay. All payments are PCI DSS encrypted.' },
-      { q_pl: 'Czy mogę zapłacić przelewem bankowym?', q_en: 'Can I pay by bank transfer?', a_pl: 'Tak — Pay by Bank to natychmiastowy przelew online z Twojego banku. Obsługujemy większość polskich i brytyjskich banków. Wybierz tę opcję przy checkout — potwierdzenie płatności jest automatyczne.', a_en: 'Yes — Pay by Bank is an instant online transfer from your bank. We support most Polish and UK banks. Select this option at checkout — payment confirmation is automatic.' },
+      { q_pl: 'Jakie metody płatności akceptujecie?', q_en: 'What payment methods do you accept?', a_pl: 'Akceptujemy bezpieczne metody płatności online z szyfrowanym potwierdzeniem zamówienia. Szczegóły zobaczysz przy finalizacji koszyka.', a_en: 'We accept secure online payment methods with encrypted order confirmation. You will see the details at checkout.' },
     ],
   },
   {
@@ -110,7 +109,7 @@ export default function FaqPage() {
     <div>
       <SeoHead
         title={pl ? 'FAQ — Najczęściej zadawane pytania' : es ? 'FAQ — Preguntas Frecuentes' : 'FAQ — Frequently Asked Questions'}
-        description={pl ? 'Odpowiedzi na pytania o peptydy badawcze, wysyłkę InPost, płatności (Pay by Bank, BLIK, karty), przechowywanie i zwroty. PEPTIVEX LABS.' : es ? 'Respuestas sobre péptidos de investigación, envío InPost, pagos (Pay by Bank, BLIK, tarjetas), almacenamiento y devoluciones. PEPTIVEX LABS.' : 'Answers about research peptides, InPost shipping, payments (Pay by Bank, BLIK, cards), storage and returns. PEPTIVEX LABS.'}
+        description={pl ? 'Odpowiedzi na pytania o peptydy badawcze, wysyłkę, płatności, przechowywanie i zwroty. PEPTIVEX LABS.' : es ? 'Respuestas sobre péptidos de investigación, envío, pagos, almacenamiento y devoluciones. PEPTIVEX LABS.' : 'Answers about research peptides, shipping, payments, storage and returns. PEPTIVEX LABS.'}
         path={`/${lang}/faq`}
         schema={{
           '@context': 'https://schema.org',

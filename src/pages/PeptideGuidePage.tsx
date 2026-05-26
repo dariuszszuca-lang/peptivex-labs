@@ -329,7 +329,7 @@ export default function PeptideGuidePage() {
             )}
           </h2>
           <p className="text-[#525252] mb-8 max-w-md mx-auto">
-            {pl ? 'Czystość >98% HPLC, szybka dostawa InPost, Pay by Bank, BLIK i karty.' : es ? 'Pureza HPLC >98%, entrega rápida InPost, Pago por Banco, BLIK y tarjetas.' : '>98% HPLC purity, fast InPost delivery, Pay by Bank, BLIK and cards.'}
+            {pl ? 'Czystość >98% HPLC, szybka dyskretna dostawa, bezpieczne płatności online.' : es ? 'Pureza HPLC >98%, entrega rápida y discreta, pagos online seguros.' : '>98% HPLC purity, fast discreet delivery, secure online payments.'}
           </p>
           <Link to={`/${lang}/products`} className="cta-primary inline-flex items-center gap-2 bg-[#ea580c] text-white font-bold px-8 py-4 rounded-xl hover:bg-[#c2410c] transition-all text-sm">
             {pl ? 'Przeglądaj produkty' : es ? 'Explorar Productos' : 'Browse Products'} <ArrowRight size={16} />

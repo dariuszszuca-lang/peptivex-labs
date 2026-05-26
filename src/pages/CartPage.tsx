@@ -40,10 +40,10 @@ function buildMailto({ items, lang, formatPrice, priceKey, total, shippingCost, 
     ? '\n\nConfirmo: 18+, investigación in vitro, no apto para consumo, jurisdicción legal.'
     : '\n\nI confirm: 18+, in vitro research, not for consumption, legal jurisdiction.';
   const closing = pl
-    ? 'Proszę o link do płatności. Preferowana forma: (przelew/karta/BLIK)\n\nDziękuję!'
+    ? 'Proszę o link do płatności.\n\nDziękuję!'
     : es
-    ? 'Solicito el enlace de pago. Forma preferida: (transferencia / tarjeta)\n\n¡Gracias!'
-    : 'Please send me a payment link. Preferred method: (bank transfer / card)\n\nThanks!';
+    ? 'Solicito el enlace de pago.\n\n¡Gracias!'
+    : 'Please send me a payment link.\n\nThanks!';
 
   const body =
     `${greeting}\n\n` +
@@ -166,8 +166,8 @@ export default function CartPage() {
               </p>
               <p className="text-amber-100/70 text-xs leading-relaxed">
                 {lang === 'pl'
-                  ? 'Wyślij zamówienie mailem (z poniższego przycisku). W ciągu 24h dostaniesz spersonalizowany link do płatności (przelew, karta, BLIK).'
-                  : "Send your order by email (button below). Within 24h you'll receive a personalized payment link (bank transfer, card, BLIK)."}
+                  ? 'Wyślij zamówienie mailem (z poniższego przycisku). W ciągu 24h dostaniesz spersonalizowany link do płatności.'
+                  : "Send your order by email (button below). Within 24h you'll receive a personalized payment link."}
               </p>
             </div>
           </div>
@@ -214,7 +214,7 @@ export default function CartPage() {
           orders@peptivexlabs.com
         </p>
         <p className="text-[#a3a3a3] text-[10px] text-center mt-1">
-          {lang === 'pl' ? 'Pay by Bank · BLIK · Karty (po dostarczeniu linku)' : 'Pay by Bank · BLIK · Cards (after link is sent)'}
+          {lang === 'pl' ? 'Bezpieczne płatności online (po dostarczeniu linku)' : 'Secure online payments (after link is sent)'}
         </p>
       </div>
 

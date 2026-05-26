@@ -33,7 +33,7 @@ export default function ProductsPage() {
     <div>
       <SeoHead
         title={pl ? 'Katalog peptydów badawczych' : 'Research Peptide Catalog'}
-        description={pl ? '19 peptydów badawczych o czystości >98% HPLC. BPC-157, Retatrutide, NAD+, GHK-Cu, Ipamorelin. Szybka dostawa InPost.' : '19 research peptides with >98% HPLC purity. BPC-157, Retatrutide, NAD+, GHK-Cu, Ipamorelin. Fast InPost delivery.'}
+        description={pl ? '19 peptydów badawczych o czystości >98% HPLC. BPC-157, Retatrutide, NAD+, GHK-Cu, Ipamorelin. Szybka, dyskretna dostawa.' : '19 research peptides with >98% HPLC purity. BPC-157, Retatrutide, NAD+, GHK-Cu, Ipamorelin. Fast, discreet delivery.'}
         path={`/${lang}/products`}
       />
       {/* Hero header */}

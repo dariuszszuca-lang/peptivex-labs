@@ -24,11 +24,11 @@ export default function HomePage() {
     },
     {
       q: pl ? 'Jak szybko dostarczacie?' : es ? '¿Con qué rapidez realizan las entregas?' : 'How fast do you deliver?',
-      a: pl ? 'Polska: 1-2 dni robocze (InPost Paczkomaty). UK: 2-3 dni robocze (InPost Lockers). Zamówienia realizujemy w ciągu 24h.' : es ? 'Polonia: 1-2 días hábiles (InPost Paczkomaty). Reino Unido: 2-3 días hábiles (InPost Lockers). Pedidos procesados en 24h.' : 'Poland: 1-2 business days (InPost Paczkomaty). UK: 2-3 business days (InPost Lockers). Orders processed within 24h.',
+      a: pl ? 'Polska: 1-2 dni robocze. UK: 2-3 dni robocze. Zamówienia realizujemy w ciągu 24h od potwierdzenia.' : es ? 'Polonia: 1-2 días hábiles. Reino Unido: 2-3 días hábiles. Pedidos procesados en 24h desde la confirmación.' : 'Poland: 1-2 business days. UK: 2-3 business days. Orders processed within 24h of confirmation.',
     },
     {
       q: pl ? 'Jakie metody płatności akceptujecie?' : es ? '¿Qué métodos de pago aceptan?' : 'What payment methods do you accept?',
-      a: pl ? 'Pay by Bank (przelew bankowy), BLIK, karty Visa/Mastercard, Apple Pay i Google Pay. Wszystkie płatności objęte szyfrowaniem PCI DSS.' : es ? 'Pago por Banco (transferencia bancaria instantánea), BLIK, Visa/Mastercard, Apple Pay y Google Pay. Todos los pagos están cifrados con PCI DSS.' : 'Pay by Bank (instant bank transfer), BLIK, Visa/Mastercard, Apple Pay and Google Pay. All payments PCI DSS encrypted.',
+      a: pl ? 'Bezpieczne metody płatności online z szyfrowanym potwierdzeniem zamówienia.' : es ? 'Métodos de pago online seguros con confirmación cifrada del pedido.' : 'Secure online payment methods with encrypted order confirmation.',
     },
     {
       q: pl ? 'Jak przechowywać peptydy?' : es ? '¿Cómo almacenar péptidos?' : 'How to store peptides?',
@@ -45,8 +45,8 @@ export default function HomePage() {
 
   const features = [
     { icon: FlaskConical, title: pl ? 'Najwyższa czystość' : es ? 'Máxima Pureza' : 'Highest Purity', desc: pl ? 'Każda partia testowana HPLC. Certyfikat analizy na życzenie.' : es ? 'Cada lote probado por HPLC. Certificado de Análisis bajo solicitud.' : 'Every batch HPLC tested. Certificate of Analysis on request.' },
-    { icon: Truck, title: pl ? 'Szybka dostawa' : es ? 'Entrega Rápida' : 'Fast Delivery', desc: pl ? 'InPost Paczkomaty (PL) i Lockers (UK). Dyskretna paczka.' : es ? 'InPost Paczkomaty (PL) y Lockers (UK). Embalaje discreto.' : 'InPost Paczkomaty (PL) & Lockers (UK). Discreet packaging.' },
-    { icon: Shield, title: pl ? 'Bezpieczne płatności' : es ? 'Pagos Seguros' : 'Secure Payments', desc: pl ? 'Pay by Bank, BLIK, karty. Pełne szyfrowanie PCI DSS.' : es ? 'Pago por Banco, BLIK, tarjetas. Cifrado completo PCI DSS.' : 'Pay by Bank, BLIK, cards. Full PCI DSS encryption.' },
+    { icon: Truck, title: pl ? 'Szybka dostawa' : es ? 'Entrega Rápida' : 'Fast Delivery', desc: pl ? 'Dyskretna paczka. Wysyłka w 24h od potwierdzenia.' : es ? 'Embalaje discreto. Envío en 24h desde la confirmación.' : 'Discreet packaging. Dispatch within 24h of confirmation.' },
+    { icon: Shield, title: pl ? 'Bezpieczne płatności' : es ? 'Pagos Seguros' : 'Secure Payments', desc: pl ? 'Bezpieczne metody online z szyfrowanym potwierdzeniem.' : es ? 'Métodos online seguros con confirmación cifrada.' : 'Secure online methods with encrypted confirmation.' },
     { icon: Zap, title: pl ? 'Kontrola temperatury' : es ? 'Control de Temperatura' : 'Temperature Control', desc: pl ? 'Przechowywanie i wysyłka w kontrolowanych warunkach.' : es ? 'Almacenamiento y envío bajo condiciones controladas.' : 'Storage and shipping under controlled conditions.' },
     { icon: Award, title: pl ? 'Dokumentacja naukowa' : es ? 'Documentación Científica' : 'Scientific Documentation', desc: pl ? 'Szczegółowe opisy z odniesieniami do literatury naukowej.' : es ? 'Descripciones detalladas con referencias de literatura científica.' : 'Detailed descriptions with scientific literature references.' },
     { icon: Beaker, title: pl ? 'Szeroki wybór' : es ? 'Amplia Selección' : 'Wide Selection', desc: pl ? 'Peptydy regeneracyjne, metaboliczne, długowieczność komórkowa i więcej.' : es ? 'Péptidos regenerativos, metabólicos, para la longevidad celular y más.' : 'Regenerative, metabolic, cellular longevity peptides and more.' },
@@ -65,7 +65,7 @@ export default function HomePage() {
     <div>
       <SeoHead
         title={pl ? 'Peptydy badawcze premium' : es ? 'Péptidos de Investigación Premium' : 'Premium Research Peptides'}
-        description={pl ? 'PEPTIVEX LABS — peptydy badawcze o czystości >98% HPLC. BPC-157, Retatrutide, NAD+, GHK-Cu. Szybka dostawa InPost. Pay by Bank, BLIK, karty.' : es ? 'PEPTIVEX LABS — péptidos de investigación con >98% de pureza HPLC. BPC-157, Retatrutide, NAD+, GHK-Cu. Entrega rápida con InPost. Pago por Banco, BLIK y tarjetas.' : 'PEPTIVEX LABS — research peptides with >98% HPLC purity. BPC-157, Retatrutide, NAD+, GHK-Cu. Fast InPost delivery. Pay by Bank, BLIK and cards.'}
+        description={pl ? 'PEPTIVEX LABS — peptydy badawcze o czystości >98% HPLC. BPC-157, Retatrutide, NAD+, GHK-Cu. Szybka, dyskretna dostawa.' : es ? 'PEPTIVEX LABS — péptidos de investigación con >98% de pureza HPLC. BPC-157, Retatrutide, NAD+, GHK-Cu. Entrega rápida y discreta.' : 'PEPTIVEX LABS — research peptides with >98% HPLC purity. BPC-157, Retatrutide, NAD+, GHK-Cu. Fast, discreet delivery.'}
         path={`/${lang}`}
       />
 
@@ -100,7 +100,7 @@ export default function HomePage() {
             </h1>
 
             <p className="text-[#525252] text-lg sm:text-xl leading-relaxed mb-8 max-w-lg">
-              {pl ? 'Peptydy badawcze o czystości >98% z certyfikatem HPLC. Szybka dostawa InPost. Pay by Bank, BLIK, karty.' : es ? 'Péptidos de investigación con >98% de pureza, certificados por HPLC. Entrega rápida con InPost. Pago por Banco, BLIK y tarjetas.' : 'Research peptides with >98% purity, HPLC certified. Fast InPost delivery. Pay by Bank, BLIK and cards.'
+              {pl ? 'Peptydy badawcze o czystości >98% z certyfikatem HPLC. Szybka, dyskretna dostawa do PL i UK.' : es ? 'Péptidos de investigación con >98% de pureza, certificados por HPLC. Entrega rápida y discreta a PL y UK.' : 'Research peptides with >98% purity, HPLC certified. Fast, discreet delivery to PL and UK.'
               }
             </p>
 
@@ -310,8 +310,8 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-0">
             {[
               { step: '01', title: pl ? 'Wybierz peptydy' : es ? 'Seleccione Péptidos' : 'Choose Peptides', desc: pl ? 'Przejrzyj katalog, porównaj produkty i dodaj do koszyka.' : es ? 'Explore el catálogo, compare productos y añada al carrito.' : 'Browse the catalog, compare products and add to cart.', icon: FlaskConical },
-              { step: '02', title: pl ? 'Zapłać bezpiecznie' : es ? 'Pago Seguro' : 'Pay Securely', desc: pl ? 'Pay by Bank, BLIK i karty. Pełne szyfrowanie PCI DSS.' : es ? 'Pague mediante transferencia bancaria, BLIK y tarjetas. Cifrado completo PCI DSS.' : 'Pay by Bank, BLIK and cards. Full PCI DSS encryption.', icon: Shield },
-              { step: '03', title: pl ? 'Odbierz z InPost' : es ? 'Recogida en InPost' : 'Collect from InPost', desc: pl ? 'Paczkomat w Polsce lub Locker w UK. Dyskretna paczka, 1-3 dni.' : es ? 'Paczkomat en Polonia o Locker en el Reino Unido. Paquete discreto, 1-3 días.' : 'Paczkomat in Poland or Locker in UK. Discreet package, 1-3 days.', icon: Truck },
+              { step: '02', title: pl ? 'Zapłać bezpiecznie' : es ? 'Pago Seguro' : 'Pay Securely', desc: pl ? 'Bezpieczne metody płatności online z szyfrowanym potwierdzeniem.' : es ? 'Métodos de pago online seguros con confirmación cifrada.' : 'Secure online payment methods with encrypted confirmation.', icon: Shield },
+              { step: '03', title: pl ? 'Odbierz paczkę' : es ? 'Recibe tu pedido' : 'Receive Your Order', desc: pl ? 'Dyskretna paczka dostarczana w 1-3 dni do PL i UK.' : es ? 'Paquete discreto entregado en 1-3 días a PL y UK.' : 'Discreet package delivered in 1-3 days to PL and UK.', icon: Truck },
             ].map((s, i) => (
               <div key={i} className="relative text-center px-8 py-10">
                 {i < 2 && (
@@ -410,7 +410,7 @@ export default function HomePage() {
             )}
           </h2>
           <p className="text-[#525252] text-lg mb-10 max-w-lg mx-auto">
-            {pl ? 'Peptydy o czystości >98% z certyfikatem HPLC. Szybka dostawa InPost. Pay by Bank, BLIK, karty.' : es ? 'Péptidos con >98% de pureza, certificados por HPLC. Entrega rápida con InPost. Pague mediante transferencia bancaria, BLIK y tarjetas.' : 'Peptides with >98% purity, HPLC certified. Fast InPost delivery. Pay by Bank, BLIK and cards.'
+            {pl ? 'Peptydy o czystości >98% z certyfikatem HPLC. Szybka, dyskretna dostawa do PL i UK.' : es ? 'Péptidos con >98% de pureza, certificados por HPLC. Entrega rápida y discreta a PL y UK.' : 'Peptides with >98% purity, HPLC certified. Fast, discreet delivery to PL and UK.'
             }
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
