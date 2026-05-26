@@ -11,19 +11,23 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4 py-10">
         {/* Top: Logo + Links + Disclaimer */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-8">
-          {/* Logo */}
+          {/* Logo + Company */}
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-lg font-extrabold text-[#1a1a1a]">
-                PX
-              </span>
+              <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-[#ea580c] to-[#f59e0b] text-white text-xs font-extrabold shadow-[0_2px_8px_rgba(234,88,12,0.25)]">PX</span>
               <span className="text-sm font-bold text-[#1a1a1a] tracking-widest">PEPTIVEX LABS</span>
             </div>
             <p className="text-[#ea580c] text-[10px] tracking-[0.2em] uppercase mb-4 font-semibold">Research Peptides</p>
-            <p className="text-[#737373] text-xs leading-relaxed">
+            <p className="text-[#737373] text-xs leading-relaxed mb-4">
               {pl ? 'Peptydy badawcze najwyższej jakości. Wyłącznie do zastosowań laboratoryjnych.' : es ? 'Péptidos de investigación de la más alta calidad. Solo para uso en laboratorio.' : 'Highest quality research peptides. For laboratory use only.'
               }
             </p>
+            <div className="text-[#737373] text-[11px] leading-relaxed">
+              <p className="text-[#1a1a1a] font-semibold mb-0.5">PEPTIVEXLABS LTD</p>
+              <p>{pl ? 'Numer firmy' : es ? 'Número de empresa' : 'Company number'}: 17178009</p>
+              <p>66 Paul Street, London, EC2A 4NA</p>
+              <p>United Kingdom</p>
+            </div>
           </div>
 
           {/* Navigation */}
@@ -61,16 +65,6 @@ export default function Footer() {
               <p className="text-[#c2410c] text-[10px] font-semibold uppercase tracking-wide mb-0.5">⚠ {t('product.researchOnly')}</p>
               <p className="text-[#737373] text-[10px] leading-relaxed">{t('footer.disclaimer')}</p>
             </div>
-          </div>
-        </div>
-
-        {/* Company details */}
-        <div className="border-t border-[#ececec] pt-6 mb-6">
-          <div className="text-[#737373] text-xs leading-relaxed">
-            <p className="text-[#1a1a1a] font-semibold mb-1">PEPTIVEXLABS LTD</p>
-            <p>{pl ? 'Numer firmy' : es ? 'Número de empresa' : 'Company number'}: 17178009</p>
-            <p>{pl ? 'Siedziba rejestrowa' : es ? 'Domicilio social' : 'Registered office'}:</p>
-            <p>66 Paul Street, London, EC2A 4NA, United Kingdom</p>
           </div>
         </div>
 
