@@ -19,14 +19,9 @@ export default function ProductCard({ product }: { product: Product }) {
   const imgSrc = product.image || (product.format === 'pen' ? DEFAULT_PEN : DEFAULT_VIAL);
 
   return (
-    <div className="group product-card bg-white/[0.03] border border-white/[0.08] rounded-xl overflow-hidden hover:border-amber-500/30 transition-all duration-300">
+    <div className="group product-card rounded-xl overflow-hidden">
       {/* Image */}
-      <Link to={`/${lang}/product/${product.slug}`} className="block relative aspect-square overflow-hidden bg-[#0a0908]">
-        {/* Gradient frame */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40 z-10 pointer-events-none" />
-        {/* Subtle corner glow */}
-        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-amber-500/[0.08] to-transparent z-10 pointer-events-none" />
-
+      <Link to={`/${lang}/product/${product.slug}`} className="block relative aspect-square overflow-hidden bg-[#fafaf7]">
         <img
           src={imgSrc}
           alt={name}
@@ -36,24 +31,24 @@ export default function ProductCard({ product }: { product: Product }) {
         {/* Badges */}
         <div className="absolute top-3 left-3 z-20 flex flex-col gap-1.5">
           {product.featured && (
-            <span className="bg-amber-500 text-black text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-lg">
+            <span className="bg-[#ea580c] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">
               {lang === 'pl' ? 'Wyróżniony' : lang === 'es' ? 'Destacado' : 'Featured'}
             </span>
           )}
           {product.format === 'pen' && (
-            <span className="bg-teal-500/80 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-lg">
+            <span className="bg-[#1a1a1a] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">
               PEN
             </span>
           )}
           {product.pen_kit && product.format === 'vial' && (
-            <span className="bg-teal-500/80 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide shadow-lg whitespace-nowrap">
+            <span className="bg-[#1a1a1a] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide whitespace-nowrap">
               VIAL + PEN
             </span>
           )}
         </div>
 
         {/* Dosage badge bottom-right */}
-        <span className="absolute bottom-3 right-3 z-20 bg-black/60 backdrop-blur-sm text-white/80 text-[10px] font-bold px-2.5 py-1 rounded-full border border-white/10">
+        <span className="absolute bottom-3 right-3 z-20 bg-white/95 backdrop-blur-sm text-[#1a1a1a] text-[10px] font-bold px-2.5 py-1 rounded-full border border-[#ececec]">
           {product.dosage}
         </span>
       </Link>
@@ -61,26 +56,26 @@ export default function ProductCard({ product }: { product: Product }) {
       {/* Info */}
       <div className="p-4">
         <Link to={`/${lang}/product/${product.slug}`}>
-          <h3 className="text-white font-semibold text-sm mb-1 group-hover:text-amber-400 transition-colors">{name}</h3>
+          <h3 className="text-[#1a1a1a] font-semibold text-sm mb-1 group-hover:text-[#ea580c] transition-colors">{name}</h3>
         </Link>
-        <p className="text-white/40 text-xs leading-relaxed mb-2 line-clamp-2">{short}</p>
+        <p className="text-[#737373] text-xs leading-relaxed mb-2 line-clamp-2">{short}</p>
 
         {product.pen_kit && product.format === 'vial' && (
-          <p className="text-teal-400/70 text-[11px] font-semibold mb-3 flex items-center gap-1">
-            <span className="w-1 h-1 rounded-full bg-teal-400/70" />
+          <p className="text-[#525252] text-[11px] font-semibold mb-3 flex items-center gap-1">
+            <span className="w-1 h-1 rounded-full bg-[#ea580c]" />
             {lang === 'pl' ? 'Fiolka lub Reusable Pen Kit' : lang === 'es' ? 'Vial o Reusable Pen Kit' : 'Vial or Reusable Pen Kit'}
           </p>
         )}
 
         <div className="flex items-center justify-between">
-          <span className="text-amber-400 font-bold text-lg">{formatPrice(price)}</span>
+          <span className="text-[#1a1a1a] font-bold text-lg">{formatPrice(price)}</span>
           <button
             onClick={() => inStock && addItem(product)}
             disabled={!inStock}
-            className={`flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-lg transition-all ${
+            className={`flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg transition-all ${
               inStock
-                ? 'bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 border border-amber-500/20 cursor-pointer'
-                : 'bg-white/5 text-white/20 border border-white/5 cursor-not-allowed'
+                ? 'bg-[#ea580c] text-white hover:bg-[#c2410c] cursor-pointer'
+                : 'bg-[#f5f5f0] text-[#a3a3a3] cursor-not-allowed'
             }`}
           >
             <ShoppingCart size={13} />

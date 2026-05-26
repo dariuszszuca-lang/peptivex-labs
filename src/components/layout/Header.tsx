@@ -32,27 +32,26 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 bg-white/85 backdrop-blur-xl border-b border-[#ececec]">
       <div className="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link to={`/${lang}`} className="flex items-center gap-2.5 shrink-0">
-          <span className="text-xl font-extrabold tracking-tight">
-            <span className="text-teal-400">P</span>
-            <span className="text-amber-500">X</span>
+          <span className="text-xl font-extrabold tracking-tight text-[#1a1a1a]">
+            PX
           </span>
-          <span className="text-sm font-bold text-white tracking-widest hidden sm:block">PEPTIVEX LABS</span>
+          <span className="text-sm font-bold text-[#1a1a1a] tracking-widest hidden sm:block">PEPTIVEX LABS</span>
         </Link>
 
         {/* Pill Nav — desktop */}
-        <nav className="hidden lg:flex items-center bg-white/[0.06] border border-white/[0.1] rounded-full px-2 py-1.5 gap-1">
+        <nav className="hidden lg:flex items-center gap-1">
           {navItems.map(item => (
             <Link
               key={item.to}
               to={item.to}
               className={`px-4 py-1.5 rounded-full text-sm transition-all ${
                 isActive(item.to)
-                  ? 'bg-amber-500 text-black font-semibold'
-                  : 'text-white/60 hover:text-white hover:bg-white/[0.06]'
+                  ? 'bg-[#1a1a1a] text-white font-semibold'
+                  : 'text-[#525252] hover:text-[#1a1a1a] hover:bg-[#f5f5f0]'
               }`}
             >
               {item.label}
@@ -63,13 +62,13 @@ export default function Header() {
         {/* Right side */}
         <div className="flex items-center gap-3">
           {/* Lang Toggle — UK / ES / PL */}
-          <div className="flex items-center gap-0.5 bg-white/[0.06] border border-white/10 rounded-full p-0.5">
+          <div className="flex items-center gap-0.5 bg-[#fafaf7] border border-[#ececec] rounded-full p-0.5">
             <button
               onClick={() => switchLang('en')}
               className={`text-xs px-2 py-1 rounded-full transition-all ${
                 lang === 'en'
-                  ? 'bg-amber-500 text-black font-semibold'
-                  : 'text-white/50 hover:text-white'
+                  ? 'bg-[#1a1a1a] text-white font-semibold'
+                  : 'text-[#737373] hover:text-[#1a1a1a]'
               }`}
               aria-label="English"
             >
@@ -79,8 +78,8 @@ export default function Header() {
               onClick={() => switchLang('es')}
               className={`text-xs px-2 py-1 rounded-full transition-all ${
                 lang === 'es'
-                  ? 'bg-amber-500 text-black font-semibold'
-                  : 'text-white/50 hover:text-white'
+                  ? 'bg-[#1a1a1a] text-white font-semibold'
+                  : 'text-[#737373] hover:text-[#1a1a1a]'
               }`}
               aria-label="Español"
             >
@@ -90,8 +89,8 @@ export default function Header() {
               onClick={() => switchLang('pl')}
               className={`text-xs px-2 py-1 rounded-full transition-all ${
                 lang === 'pl'
-                  ? 'bg-amber-500 text-black font-semibold'
-                  : 'text-white/50 hover:text-white'
+                  ? 'bg-[#1a1a1a] text-white font-semibold'
+                  : 'text-[#737373] hover:text-[#1a1a1a]'
               }`}
               aria-label="Polski"
             >
@@ -102,7 +101,7 @@ export default function Header() {
           {/* Cart */}
           <Link
             to={`/${lang}/cart`}
-            className="relative flex items-center gap-1.5 bg-amber-500/10 border border-amber-500/20 text-amber-400 px-3 py-1.5 rounded-full hover:bg-amber-500/20 transition-all text-sm"
+            className="relative flex items-center gap-1.5 bg-[#ea580c] text-white px-3 py-1.5 rounded-full hover:bg-[#c2410c] transition-all text-sm font-semibold"
           >
             <ShoppingCart size={16} />
             {totalItems > 0 && (
@@ -113,7 +112,7 @@ export default function Header() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden text-white/50 hover:text-white transition-colors"
+            className="lg:hidden text-[#525252] hover:text-[#1a1a1a] transition-colors"
           >
             {mobileOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
@@ -122,7 +121,7 @@ export default function Header() {
 
       {/* Mobile nav */}
       {mobileOpen && (
-        <div className="lg:hidden border-t border-white/[0.06] bg-[#0a0a0a]/98 backdrop-blur-xl px-4 pb-4">
+        <div className="lg:hidden border-t border-[#ececec] bg-white px-4 pb-4">
           <nav className="flex flex-col gap-1 pt-2">
             {navItems.map(item => (
               <Link
@@ -131,8 +130,8 @@ export default function Header() {
                 onClick={() => setMobileOpen(false)}
                 className={`px-4 py-2.5 rounded-xl text-sm transition-all ${
                   isActive(item.to)
-                    ? 'bg-amber-500/15 text-amber-400 font-semibold'
-                    : 'text-white/50 hover:text-white hover:bg-white/[0.04]'
+                    ? 'bg-[#1a1a1a] text-white font-semibold'
+                    : 'text-[#525252] hover:text-[#1a1a1a] hover:bg-[#f5f5f0]'
                 }`}
               >
                 {item.label}

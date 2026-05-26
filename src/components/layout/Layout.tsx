@@ -6,7 +6,7 @@ import PaymentNotice from '../PaymentNotice';
 
 export default function Layout() {
   return (
-    <div className="min-h-screen bg-[#0c0a08] flex flex-col">
+    <div className="min-h-screen bg-[#fafaf7] flex flex-col">
       <PaymentNotice />
       <Header />
       <main className="flex-1">

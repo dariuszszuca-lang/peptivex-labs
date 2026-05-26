@@ -31,15 +31,15 @@ export default function PaymentNotice() {
   const mailto = `mailto:${ORDERS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
   return (
-    <div className="bg-amber-500/[0.08] border-b border-amber-500/20 backdrop-blur-sm">
+    <div className="bg-[#fff7ed] border-b border-[#fed7aa]">
       <div className="max-w-7xl mx-auto px-4 py-2.5 flex items-center justify-between gap-4">
         <div className="flex items-center gap-3 min-w-0">
-          <AlertCircle size={16} className="text-amber-400 shrink-0" />
-          <p className="text-amber-100/90 text-[13px] leading-snug truncate sm:whitespace-normal">
+          <AlertCircle size={16} className="text-[#ea580c] shrink-0" />
+          <p className="text-[#7c2d12] text-[13px] leading-snug truncate sm:whitespace-normal">
             <span className="font-semibold mr-1">
               {pl ? 'Płatności online czasowo niedostępne.' : es ? 'Pagos en línea temporalmente no disponibles.' : 'Online payments temporarily unavailable.'}
             </span>
-            <span className="text-amber-100/70 hidden sm:inline">
+            <span className="text-[#9a3412] hidden sm:inline">
               {pl
                 ? 'Złóż zamówienie mailowo, wyślemy link do płatności w 24h.'
                 : "Place your order via email, we'll send a payment link within 24h."}
@@ -49,14 +49,14 @@ export default function PaymentNotice() {
         <div className="flex items-center gap-2 shrink-0">
           <a
             href={mailto}
-            className="inline-flex items-center gap-1.5 bg-amber-500 text-black text-[12px] font-semibold px-3 py-1.5 rounded-md hover:bg-amber-400 transition-colors whitespace-nowrap"
+            className="inline-flex items-center gap-1.5 bg-[#ea580c] text-white text-[12px] font-semibold px-3 py-1.5 rounded-md hover:bg-[#c2410c] transition-colors whitespace-nowrap"
           >
             <Mail size={13} />
             {pl ? 'Zamów mailem' : es ? 'Pedido por correo electrónico' : 'Order by email'}
           </a>
           <button
             onClick={dismiss}
-            className="text-amber-100/40 hover:text-amber-100/80 p-1 transition-colors"
+            className="text-[#c2410c]/60 hover:text-[#c2410c] p-1 transition-colors"
             aria-label={pl ? 'Zamknij' : es ? 'Cerrar' : 'Close'}
           >
             <X size={14} />
