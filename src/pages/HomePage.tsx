@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, FlaskConical, Shield, Truck, Zap, Award, Beaker, ChevronDown, Heart, Hourglass, Flame, Dumbbell, Brain, type LucideIcon} from 'lucide-react';
+import { ArrowRight, FlaskConical, Shield, Truck, Zap, Award, Beaker, ChevronDown, Heart, Hourglass, Flame, Dumbbell, Brain, Dna, Sparkles, BatteryCharging, TrendingDown, type LucideIcon} from 'lucide-react';
 import { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { PRODUCTS } from '../data/products';
@@ -199,22 +199,22 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {([
-              { problem: pl ? 'Szlaki regeneracji tkanek' : es ? 'Vías de reparación tisular' : 'Tissue repair pathways', solution: 'BPC-157 + TB-500', icon: '🧬', slug: 'bpc-157-5mg' },
-              { problem: pl ? 'Energia komórkowa i NAD+' : es ? 'Energía celular y NAD+' : 'Cellular energy & NAD+', solution: 'NAD+', icon: '⚡', slug: 'nad-500mg' },
-              { problem: pl ? 'Szlaki GHRH/GHRP' : es ? 'Señalización GHRH / GHRP' : 'GHRH / GHRP signaling', solution: 'CJC-1295 + Ipamorelin', icon: '💪', slug: 'cjc-1295-no-dac-5mg' },
-              { problem: pl ? 'Receptory GLP-1 / GIP / Glukagon' : es ? 'Receptores GLP-1 / GIP / Glucagón' : 'GLP-1 / GIP / Glucagon receptors', solution: 'Retatrutide', icon: '🔥', slug: 'retatrutide-40mg' },
-              { problem: pl ? 'Neurotransmisja GABA' : es ? 'Neurotransmisión GABAérgica' : 'GABAergic neurotransmission', solution: 'Selank', icon: '🧠', slug: 'selank-5mg' },
-              { problem: pl ? 'Biologia skóry i modulacja genów' : es ? 'Biología de la piel y modulación génica' : 'Skin biology & gene modulation', solution: 'GHK-Cu + SNAP-8', icon: '✨', slug: 'ghk-cu-50mg' },
-              { problem: pl ? 'Bioenergetyka mitochondrialna' : es ? 'Bioenergética mitocondrial' : 'Mitochondrial bioenergetics', solution: 'SS-31 + MOTS-c', icon: '🔋', slug: 'ss-31-10mg' },
-              { problem: pl ? 'Inhibicja enzymu NNMT' : es ? 'Inhibición de la enzima NNMT' : 'NNMT enzyme inhibition', solution: '5-Amino-1MQ', icon: '📉', slug: '5-amino-1mq-10mg' },
+              { problem: pl ? 'Szlaki regeneracji tkanek' : es ? 'Vías de reparación tisular' : 'Tissue repair pathways', solution: 'BPC-157 + TB-500', Icon: Dna, slug: 'bpc-157-5mg' },
+              { problem: pl ? 'Energia komórkowa i NAD+' : es ? 'Energía celular y NAD+' : 'Cellular energy & NAD+', solution: 'NAD+', Icon: Zap, slug: 'nad-500mg' },
+              { problem: pl ? 'Szlaki GHRH/GHRP' : es ? 'Señalización GHRH / GHRP' : 'GHRH / GHRP signaling', solution: 'CJC-1295 + Ipamorelin', Icon: Dumbbell, slug: 'cjc-1295-no-dac-5mg' },
+              { problem: pl ? 'Receptory GLP-1 / GIP / Glukagon' : es ? 'Receptores GLP-1 / GIP / Glucagón' : 'GLP-1 / GIP / Glucagon receptors', solution: 'Retatrutide', Icon: Flame, slug: 'retatrutide-40mg' },
+              { problem: pl ? 'Neurotransmisja GABA' : es ? 'Neurotransmisión GABAérgica' : 'GABAergic neurotransmission', solution: 'Selank', Icon: Brain, slug: 'selank-5mg' },
+              { problem: pl ? 'Biologia skóry i modulacja genów' : es ? 'Biología de la piel y modulación génica' : 'Skin biology & gene modulation', solution: 'GHK-Cu + SNAP-8', Icon: Sparkles, slug: 'ghk-cu-50mg' },
+              { problem: pl ? 'Bioenergetyka mitochondrialna' : es ? 'Bioenergética mitocondrial' : 'Mitochondrial bioenergetics', solution: 'SS-31 + MOTS-c', Icon: BatteryCharging, slug: 'ss-31-10mg' },
+              { problem: pl ? 'Inhibicja enzymu NNMT' : es ? 'Inhibición de la enzima NNMT' : 'NNMT enzyme inhibition', solution: '5-Amino-1MQ', Icon: TrendingDown, slug: '5-amino-1mq-10mg' },
             ]).map((item, i) => (
               <Link
                 key={i}
                 to={`/${lang}/product/${item.slug}`}
                 className="group cat-card rounded-2xl p-5 transition-all duration-300"
               >
-                <div className="w-12 h-12 rounded-xl bg-[#fff7ed] border border-[#fed7aa] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-xl">{item.icon}</span>
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#ea580c] to-[#f59e0b] flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-[0_4px_14px_rgba(234,88,12,0.25)]">
+                  <item.Icon size={26} className="text-white" strokeWidth={2} />
                 </div>
                 <p className="text-[#737373] text-xs uppercase tracking-wide mb-1.5 font-semibold">{pl ? 'Szlak' : es ? 'Vía' : 'Pathway'}</p>
                 <h3 className="text-[#0a0a0a] font-bold text-sm mb-3 leading-snug">{item.problem}</h3>
@@ -258,8 +258,8 @@ export default function HomePage() {
                 to={`/${lang}/products?category=${cat.key}`}
                 className="group cat-card rounded-2xl p-6 text-center transition-all duration-300"
               >
-                <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-[#fff7ed] border border-[#fed7aa] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <cat.icon size={24} className="text-[#ea580c]" />
+                <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[#ea580c] to-[#f59e0b] flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-[0_4px_14px_rgba(234,88,12,0.25)]">
+                  <cat.icon size={26} className="text-white" strokeWidth={2} />
                 </div>
                 <span className="text-[#0a0a0a] text-sm font-semibold block mb-1">
                   {t(`categories.${cat.key}`)}
@@ -286,9 +286,9 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((f, i) => (
-              <div key={i} className="why-card rounded-2xl p-7">
-                <div className="w-12 h-12 bg-[#fff7ed] border border-[#fed7aa] rounded-xl flex items-center justify-center mb-5">
-                  <f.icon size={22} className="text-[#ea580c]" />
+              <div key={i} className="why-card rounded-2xl p-7 group">
+                <div className="w-14 h-14 bg-gradient-to-br from-[#ea580c] to-[#f59e0b] rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-[0_4px_14px_rgba(234,88,12,0.25)]">
+                  <f.icon size={26} className="text-white" strokeWidth={2} />
                 </div>
                 <h3 className="text-[#0a0a0a] text-lg font-bold mb-2">{f.title}</h3>
                 <p className="text-[#525252] text-sm leading-relaxed">{f.desc}</p>
@@ -318,8 +318,8 @@ export default function HomePage() {
                   <div className="hidden sm:block absolute top-1/3 right-0 w-full h-[1px] bg-[#ececec] translate-x-1/2" />
                 )}
                 <div className="relative z-10">
-                  <div className="w-16 h-16 mx-auto mb-5 rounded-2xl bg-[#fff7ed] border border-[#fed7aa] flex items-center justify-center">
-                    <s.icon size={24} className="text-[#ea580c]" />
+                  <div className="w-16 h-16 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-[#ea580c] to-[#f59e0b] flex items-center justify-center shadow-[0_4px_14px_rgba(234,88,12,0.25)]">
+                    <s.icon size={28} className="text-white" strokeWidth={2} />
                   </div>
                   <div className="text-[#a3a3a3] text-xs font-bold mb-2 tracking-widest">{s.step}</div>
                   <h3 className="text-[#0a0a0a] font-bold text-lg mb-2">{s.title}</h3>
