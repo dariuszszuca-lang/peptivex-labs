@@ -70,7 +70,7 @@ export default function HomePage() {
       />
 
       {/* =================== HERO =================== */}
-      <section className="relative overflow-hidden min-h-[85vh] flex items-center hero-section">
+      <section className="relative overflow-hidden hero-section">
         <div className="absolute inset-0">
           <div className="hero-gradient" />
           <ParticleField />
@@ -80,54 +80,53 @@ export default function HomePage() {
           <div className="absolute inset-0 noise-overlay" />
         </div>
 
-        <div className="max-w-6xl mx-auto px-4 py-20 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="inline-flex items-center gap-2 bg-[#fff7ed] border border-[#fed7aa] rounded-full px-4 py-1.5 mb-6">
-              <span className="w-2 h-2 bg-[#ea580c] rounded-full" />
-              <span className="text-[#c2410c] text-xs font-semibold tracking-wide">
-                {pl ? 'Peptydy badawcze premium' : es ? 'Péptidos de Investigación Premium' : 'Premium Research Peptides'}
+        <div className="max-w-6xl mx-auto px-4 pt-10 pb-16 sm:pt-12 sm:pb-20 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          <div className="lg:col-span-7">
+            <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur-sm border border-[#fed7aa] rounded-full pl-2 pr-3.5 py-1 mb-5">
+              <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-gradient-to-br from-[#ea580c] to-[#f59e0b]">
+                <span className="w-1.5 h-1.5 rounded-full bg-white" />
+              </span>
+              <span className="text-[#c2410c] text-[11px] font-semibold tracking-[0.15em] uppercase">
+                {pl ? 'Peptydy badawcze HPLC >98%' : es ? 'Péptidos de investigación HPLC >98%' : 'Research peptides · HPLC >98%'}
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#0a0a0a] leading-[1.1] mb-6">
+            <h1 className="text-[2.5rem] sm:text-5xl lg:text-[3.75rem] font-extrabold text-[#0a0a0a] leading-[1.05] tracking-tight mb-5">
               {pl ? (
-                <>Nauka spotyka<br /><span className="text-[#ea580c]">najwyższą jakość</span></>
+                <>Premium peptydy <span className="text-[#ea580c]">badawcze</span><br />BPC-157 · Retatrutide · NAD+</>
               ) : es ? (
-                <>La ciencia se encuentra con<br /><span className="text-[#ea580c]">la calidad premium</span></>
+                <>Péptidos premium <span className="text-[#ea580c]">de investigación</span><br />BPC-157 · Retatrutide · NAD+</>
               ) : (
-                <>Science meets<br /><span className="text-[#ea580c]">premium quality</span></>
+                <>Premium research <span className="text-[#ea580c]">peptides</span><br />BPC-157 · Retatrutide · NAD+</>
               )}
             </h1>
 
-            <p className="text-[#525252] text-lg sm:text-xl leading-relaxed mb-8 max-w-lg">
-              {pl ? 'Peptydy badawcze o czystości >98% z certyfikatem HPLC. Szybka, dyskretna dostawa do PL i UK.' : es ? 'Péptidos de investigación con >98% de pureza, certificados por HPLC. Entrega rápida y discreta a PL y UK.' : 'Research peptides with >98% purity, HPLC certified. Fast, discreet delivery to PL and UK.'
+            <p className="text-[#525252] text-base sm:text-lg leading-relaxed mb-7 max-w-xl">
+              {pl ? 'Czystość ponad 98% potwierdzona HPLC. Każda partia z certyfikatem analizy. Szybka, dyskretna dostawa do Polski i UK.' : es ? 'Pureza por encima del 98% verificada por HPLC. Cada lote con certificado de análisis. Entrega rápida y discreta a Polonia y Reino Unido.' : 'Above 98% purity verified by HPLC. Every batch with certificate of analysis. Fast, discreet delivery to Poland and UK.'
               }
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
               <Link
                 to={`/${lang}/products`}
-                className="cta-primary inline-flex items-center justify-center gap-2 bg-[#ea580c] text-white font-bold px-7 py-3.5 rounded-xl hover:bg-[#c2410c] transition-all text-sm"
+                className="cta-primary inline-flex items-center justify-center gap-2 bg-gradient-to-br from-[#ea580c] to-[#f59e0b] text-white font-semibold px-6 py-3 rounded-full hover:from-[#c2410c] hover:to-[#ea580c] transition-all text-sm shadow-[0_4px_14px_rgba(234,88,12,0.30)]"
               >
-                {pl ? 'Zobacz produkty' : es ? 'Explorar Productos' : 'Browse Products'}
-                <ArrowRight size={16} />
+                {pl ? 'Zobacz produkty' : es ? 'Explorar productos' : 'Browse products'}
+                <ArrowRight size={15} />
               </Link>
               <Link
-                to={`/${lang}/about`}
-                className="inline-flex items-center justify-center gap-2 bg-white border border-[#ececec] text-[#1a1a1a] font-medium px-7 py-3.5 rounded-xl hover:border-[#d4d4d4] transition-all text-sm"
+                to={`/${lang}/guide`}
+                className="inline-flex items-center gap-1.5 text-[#0a0a0a] font-semibold px-2 py-3 text-sm hover:text-[#ea580c] transition-colors group"
               >
-                {pl ? 'Dowiedz się więcej' : es ? 'Saber Más' : 'Learn More'}
+                <span className="border-b border-[#0a0a0a]/40 group-hover:border-[#ea580c] transition-colors pb-0.5">{pl ? 'Przewodnik po peptydach' : es ? 'Guía de péptidos' : 'Peptide guide'}</span>
+                <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
               </Link>
             </div>
           </div>
 
-          <div className="hidden lg:flex items-center justify-center">
+          <div className="hidden lg:flex lg:col-span-5 items-center justify-end">
             <DnaHelix />
           </div>
-        </div>
-
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <ChevronDown size={20} className="text-[#a3a3a3]" />
         </div>
       </section>
 

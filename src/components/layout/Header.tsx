@@ -32,111 +32,119 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white/85 backdrop-blur-xl border-b border-[#ececec]">
-      <div className="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
-        {/* Logo */}
-        <Link to={`/${lang}`} className="flex items-center gap-2.5 shrink-0">
-          <span className="text-xl font-extrabold tracking-tight text-[#1a1a1a]">
+    <header className="sticky top-0 z-50 bg-[#f5ebd9]/85 backdrop-blur-xl border-b border-[#ececec]/60">
+      <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-6">
+        {/* Logo — monogram + wordmark */}
+        <Link to={`/${lang}`} className="flex items-center gap-2.5 shrink-0 group">
+          <span className="relative inline-flex items-center justify-center w-9 h-9 rounded-lg bg-gradient-to-br from-[#ea580c] to-[#f59e0b] text-white font-extrabold text-sm tracking-tight shadow-[0_2px_8px_rgba(234,88,12,0.30)] group-hover:shadow-[0_4px_14px_rgba(234,88,12,0.45)] transition-shadow">
             PX
           </span>
-          <span className="text-sm font-bold text-[#1a1a1a] tracking-widest hidden sm:block">PEPTIVEX LABS</span>
+          <span className="hidden sm:flex flex-col leading-none">
+            <span className="text-[#0a0a0a] text-[13px] font-bold tracking-[0.15em]">PEPTIVEX</span>
+            <span className="text-[#a3a3a3] text-[9px] font-medium tracking-[0.3em] mt-0.5">LABS</span>
+          </span>
         </Link>
 
-        {/* Pill Nav — desktop */}
-        <nav className="hidden lg:flex items-center gap-1">
+        {/* Premium underline nav — desktop */}
+        <nav className="hidden lg:flex items-center gap-7 flex-1 justify-center">
           {navItems.map(item => (
             <Link
               key={item.to}
               to={item.to}
-              className={`px-4 py-1.5 rounded-full text-sm transition-all ${
+              className={`group/nav relative text-[13px] font-medium tracking-wide transition-colors py-1 ${
                 isActive(item.to)
-                  ? 'bg-[#1a1a1a] text-white font-semibold'
-                  : 'text-[#525252] hover:text-[#1a1a1a] hover:bg-[#f5f5f0]'
+                  ? 'text-[#0a0a0a]'
+                  : 'text-[#525252] hover:text-[#0a0a0a]'
               }`}
             >
               {item.label}
+              <span
+                className={`absolute -bottom-0.5 left-0 right-0 h-[2px] rounded-full bg-gradient-to-r from-[#ea580c] to-[#f59e0b] transition-transform origin-left ${
+                  isActive(item.to) ? 'scale-x-100' : 'scale-x-0 group-hover/nav:scale-x-100'
+                }`}
+              />
             </Link>
           ))}
         </nav>
 
         {/* Right side */}
-        <div className="flex items-center gap-3">
-          {/* Lang Toggle — UK / ES / PL */}
-          <div className="flex items-center gap-0.5 bg-[#fafaf7] border border-[#ececec] rounded-full p-0.5">
-            <button
-              onClick={() => switchLang('en')}
-              className={`text-xs px-2 py-1 rounded-full transition-all ${
-                lang === 'en'
-                  ? 'bg-[#1a1a1a] text-white font-semibold'
-                  : 'text-[#737373] hover:text-[#1a1a1a]'
-              }`}
-              aria-label="English"
-            >
-              🇬🇧 EN
-            </button>
-            <button
-              onClick={() => switchLang('es')}
-              className={`text-xs px-2 py-1 rounded-full transition-all ${
-                lang === 'es'
-                  ? 'bg-[#1a1a1a] text-white font-semibold'
-                  : 'text-[#737373] hover:text-[#1a1a1a]'
-              }`}
-              aria-label="Español"
-            >
-              🇪🇸 ES
-            </button>
-            <button
-              onClick={() => switchLang('pl')}
-              className={`text-xs px-2 py-1 rounded-full transition-all ${
-                lang === 'pl'
-                  ? 'bg-[#1a1a1a] text-white font-semibold'
-                  : 'text-[#737373] hover:text-[#1a1a1a]'
-              }`}
-              aria-label="Polski"
-            >
-              🇵🇱 PL
-            </button>
+        <div className="flex items-center gap-2.5 shrink-0">
+          {/* Lang switcher — minimal */}
+          <div className="hidden sm:flex items-center text-[11px] font-semibold tracking-widest text-[#a3a3a3]">
+            {(['en', 'es', 'pl'] as const).map((code, idx) => (
+              <span key={code} className="flex items-center">
+                {idx > 0 && <span className="mx-1.5 text-[#d4d4d4]">·</span>}
+                <button
+                  onClick={() => switchLang(code)}
+                  className={`uppercase transition-colors hover:text-[#0a0a0a] ${
+                    lang === code ? 'text-[#ea580c]' : ''
+                  }`}
+                  aria-label={code.toUpperCase()}
+                >
+                  {code}
+                </button>
+              </span>
+            ))}
           </div>
 
-          {/* Cart */}
+          {/* Cart — outline premium */}
           <Link
             to={`/${lang}/cart`}
-            className="relative flex items-center gap-1.5 bg-[#ea580c] text-white px-3 py-1.5 rounded-full hover:bg-[#c2410c] transition-all text-sm font-semibold"
+            className="relative flex items-center gap-1.5 border border-[#0a0a0a] text-[#0a0a0a] px-3 py-1.5 rounded-full hover:bg-[#0a0a0a] hover:text-white transition-colors text-[12px] font-semibold"
           >
-            <ShoppingCart size={16} />
+            <ShoppingCart size={14} strokeWidth={2.25} />
             {totalItems > 0 && (
-              <span className="text-xs font-bold">{totalItems}</span>
+              <span className="ml-0.5 inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full bg-[#ea580c] text-white text-[10px] font-bold">
+                {totalItems}
+              </span>
             )}
           </Link>
 
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden text-[#525252] hover:text-[#1a1a1a] transition-colors"
+            className="lg:hidden text-[#525252] hover:text-[#0a0a0a] transition-colors ml-1"
+            aria-label="Menu"
           >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
 
       {/* Mobile nav */}
       {mobileOpen && (
-        <div className="lg:hidden border-t border-[#ececec] bg-white px-4 pb-4">
-          <nav className="flex flex-col gap-1 pt-2">
+        <div className="lg:hidden border-t border-[#ececec] bg-white/95 backdrop-blur-xl px-4 pb-4">
+          <nav className="flex flex-col gap-0.5 pt-2">
             {navItems.map(item => (
               <Link
                 key={item.to}
                 to={item.to}
                 onClick={() => setMobileOpen(false)}
-                className={`px-4 py-2.5 rounded-xl text-sm transition-all ${
+                className={`px-3 py-2.5 rounded-lg text-sm transition-colors flex items-center gap-2 ${
                   isActive(item.to)
-                    ? 'bg-[#1a1a1a] text-white font-semibold'
-                    : 'text-[#525252] hover:text-[#1a1a1a] hover:bg-[#f5f5f0]'
+                    ? 'text-[#ea580c] font-semibold'
+                    : 'text-[#525252] hover:text-[#0a0a0a]'
                 }`}
               >
-                {item.label}
+                {isActive(item.to) && (
+                  <span className="w-1 h-4 rounded-full bg-gradient-to-b from-[#ea580c] to-[#f59e0b]" />
+                )}
+                <span className={isActive(item.to) ? '' : 'ml-3'}>{item.label}</span>
               </Link>
             ))}
+            <div className="flex items-center gap-3 px-3 pt-3 mt-2 border-t border-[#ececec] text-[11px] font-semibold tracking-widest">
+              {(['en', 'es', 'pl'] as const).map(code => (
+                <button
+                  key={code}
+                  onClick={() => { switchLang(code); setMobileOpen(false); }}
+                  className={`uppercase transition-colors ${
+                    lang === code ? 'text-[#ea580c]' : 'text-[#a3a3a3] hover:text-[#0a0a0a]'
+                  }`}
+                >
+                  {code}
+                </button>
+              ))}
+            </div>
           </nav>
         </div>
       )}
