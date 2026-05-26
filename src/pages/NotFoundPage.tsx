@@ -16,12 +16,12 @@ export default function NotFoundPage() {
         path={`/${lang}/404`}
         noIndex
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-amber-900/[0.08] via-[#0c0a08] to-[#0c0a08]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#fff7ed] via-[#f5ebd9] to-[#f5ebd9]" />
       <HexPattern className="text-[#ea580c]/[0.02]" />
 
       <div className="max-w-2xl mx-auto px-4 py-24 relative z-10 text-center">
         <p className="text-[#ea580c] text-xs tracking-[0.3em] uppercase mb-3">404</p>
-        <h1 className="text-white text-4xl sm:text-5xl font-extrabold mb-4">
+        <h1 className="text-[#0a0a0a] text-4xl sm:text-5xl font-extrabold mb-4">
           {pl ? 'Strona nie istnieje' : 'Page not found'}
         </h1>
         <p className="text-[#525252] text-base mb-10 max-w-md mx-auto leading-relaxed">
@@ -34,7 +34,7 @@ export default function NotFoundPage() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10">
           <Link
             to={`/${lang}`}
-            className="bg-[#ea580c] text-white font-bold px-6 py-3 rounded-xl hover:bg-[#c2410c] transition-colors inline-flex items-center justify-center gap-2 text-sm"
+            className="bg-[#ea580c] text-[#0a0a0a] font-bold px-6 py-3 rounded-xl hover:bg-[#c2410c] transition-colors inline-flex items-center justify-center gap-2 text-sm"
           >
             <Home size={14} />
             {pl ? 'Strona główna' : 'Homepage'}

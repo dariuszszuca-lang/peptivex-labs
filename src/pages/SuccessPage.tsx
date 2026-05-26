@@ -26,7 +26,7 @@ export default function SuccessPage() {
         path={`/${lang}/success`}
         noIndex
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-emerald-900/[0.15] via-[#0c0a08] to-[#0c0a08]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-emerald-900/[0.15] via-[#f5ebd9] to-[#f5ebd9]" />
       <HexPattern className="text-emerald-500/[0.03]" />
 
       <div className="max-w-2xl mx-auto px-4 py-20 relative z-10 text-center">
@@ -34,7 +34,7 @@ export default function SuccessPage() {
           <CheckCircle2 size={40} className="text-emerald-400" />
         </div>
 
-        <h1 className="text-white text-3xl sm:text-4xl font-extrabold mb-4">
+        <h1 className="text-[#0a0a0a] text-3xl sm:text-4xl font-extrabold mb-4">
           {pl ? 'Dziękujemy za zamówienie' : es ? 'Gracias por su pedido.' : 'Thank you for your order'}
         </h1>
 
@@ -55,7 +55,7 @@ export default function SuccessPage() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link
             to={`/${lang}/products`}
-            className="bg-[#ea580c] text-white font-bold px-6 py-3 rounded-xl hover:bg-[#c2410c] transition-colors inline-flex items-center justify-center gap-2 text-sm"
+            className="bg-[#ea580c] text-[#0a0a0a] font-bold px-6 py-3 rounded-xl hover:bg-[#c2410c] transition-colors inline-flex items-center justify-center gap-2 text-sm"
           >
             {pl ? 'Wróć do sklepu' : es ? 'Continuar comprando' : 'Continue shopping'}
             <ArrowRight size={14} />

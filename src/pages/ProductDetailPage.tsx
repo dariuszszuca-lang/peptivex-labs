@@ -87,7 +87,7 @@ export default function ProductDetailPage() {
       />
       {/* Breadcrumb with bg */}
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-amber-900/[0.06] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#fff7ed] to-transparent" />
         <HexPattern className="text-[#ea580c]/[0.02]" />
         <div className="max-w-6xl mx-auto px-4 pt-6 pb-2 relative z-10">
           <Link to={`/${lang}/products`} className="inline-flex items-center gap-1.5 text-[#737373] hover:text-[#ea580c] text-sm transition-colors">
@@ -113,7 +113,7 @@ export default function ProductDetailPage() {
                 {product.dosage}
               </span>
               {product.featured && (
-                <span className="absolute top-4 left-4 z-20 bg-[#ea580c] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide shadow-lg">
+                <span className="absolute top-4 left-4 z-20 bg-[#ea580c] text-[#0a0a0a] text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide shadow-lg">
                   {pl ? 'Wyróżniony' : es ? 'Destacado' : 'Featured'}
                 </span>
               )}
@@ -165,7 +165,7 @@ export default function ProductDetailPage() {
 
             {/* Name + Price */}
             <div>
-              <h1 className="text-white text-3xl sm:text-4xl font-extrabold mb-4">{name}</h1>
+              <h1 className="text-[#0a0a0a] text-3xl sm:text-4xl font-extrabold mb-4">{name}</h1>
               <p className="text-gradient text-3xl sm:text-4xl font-extrabold">{formatPrice(price)}</p>
             </div>
 
@@ -200,7 +200,7 @@ export default function ProductDetailPage() {
                     <FileText size={16} className="text-[#ea580c]" />
                   </div>
                   <div>
-                    <p className="text-white text-sm font-semibold">
+                    <p className="text-[#0a0a0a] text-sm font-semibold">
                       {pl ? 'Certyfikat analizy (COA)' : 'Certificate of Analysis (COA)'}
                     </p>
                     <p className="text-[#737373] text-xs">
@@ -227,7 +227,7 @@ export default function ProductDetailPage() {
                     <FileText size={16} className="text-emerald-400" />
                   </div>
                   <div>
-                    <p className="text-white text-sm font-semibold">
+                    <p className="text-[#0a0a0a] text-sm font-semibold">
                       {pl ? 'Pełny przewodnik Retatrutide' : 'Retatrutide Complete Guide'}
                     </p>
                     <p className="text-[#737373] text-xs">
@@ -260,7 +260,7 @@ export default function ProductDetailPage() {
                     <p className="text-teal-300 text-[11px] font-bold uppercase tracking-wider">
                       {pl ? 'Dostępne też jako' : es ? 'También disponible como' : 'Also available as'}
                     </p>
-                    <p className="text-white text-base font-bold mt-0.5">
+                    <p className="text-[#0a0a0a] text-base font-bold mt-0.5">
                       Reusable Pen Kit
                     </p>
                   </div>
@@ -283,7 +283,7 @@ export default function ProductDetailPage() {
                   ].map((opt, i) => (
                     <div key={i} className="rounded-lg bg-[#fafaf7] border border-[#ececec] p-2.5 text-center">
                       <p className="text-[#737373] text-[11px] leading-tight">{opt.label}</p>
-                      <p className="text-white text-base font-bold mt-1">£{(opt.price / 100).toFixed(0)}</p>
+                      <p className="text-[#0a0a0a] text-base font-bold mt-1">£{(opt.price / 100).toFixed(0)}</p>
                     </div>
                   ))}
                 </div>
@@ -300,11 +300,11 @@ export default function ProductDetailPage() {
             {/* Add to Cart */}
             <div className="flex items-center gap-3">
               <div className="flex items-center bg-[#fafaf7] border border-[#ececec] rounded-xl">
-                <button onClick={() => setQty(Math.max(1, qty - 1))} className="px-4 py-3 text-[#737373] hover:text-white transition-colors">
+                <button onClick={() => setQty(Math.max(1, qty - 1))} className="px-4 py-3 text-[#737373] hover:text-[#0a0a0a] transition-colors">
                   <Minus size={16} />
                 </button>
-                <span className="text-white text-sm w-8 text-center font-bold">{qty}</span>
-                <button onClick={() => setQty(qty + 1)} className="px-4 py-3 text-[#737373] hover:text-white transition-colors">
+                <span className="text-[#0a0a0a] text-sm w-8 text-center font-bold">{qty}</span>
+                <button onClick={() => setQty(qty + 1)} className="px-4 py-3 text-[#737373] hover:text-[#0a0a0a] transition-colors">
                   <Plus size={16} />
                 </button>
               </div>
@@ -315,7 +315,7 @@ export default function ProductDetailPage() {
                   added
                     ? 'bg-emerald-500 text-white'
                     : inStock
-                      ? 'cta-primary bg-[#ea580c] text-white hover:bg-[#c2410c] cursor-pointer'
+                      ? 'cta-primary bg-[#ea580c] text-[#0a0a0a] hover:bg-[#c2410c] cursor-pointer'
                       : 'bg-[#fafaf7] text-[#a3a3a3] cursor-not-allowed'
                 }`}
               >
@@ -347,7 +347,7 @@ export default function ProductDetailPage() {
                   <Beaker size={18} className="text-[#ea580c]" />
                 </div>
                 <div>
-                  <h2 className="text-white text-xl font-bold">
+                  <h2 className="text-[#0a0a0a] text-xl font-bold">
                     {pl ? 'Protokół badawczy — dane referencyjne' : 'Research Protocol Reference'}
                   </h2>
                   <p className="text-[#737373] text-xs">{pl ? 'Dane edukacyjne — nie stanowią porady medycznej' : 'Educational data — not medical advice'}</p>
@@ -361,7 +361,7 @@ export default function ProductDetailPage() {
                       <item.icon size={14} className="text-[#ea580c]/60" />
                       <span className="text-[#737373] text-xs uppercase tracking-wide">{item.label}</span>
                     </div>
-                    <p className="text-white text-sm font-medium">{item.value}</p>
+                    <p className="text-[#0a0a0a] text-sm font-medium">{item.value}</p>
                   </div>
                 ))}
               </div>
@@ -385,7 +385,7 @@ export default function ProductDetailPage() {
         {/* Related products */}
         {related.length > 0 && (
           <div className="mt-20">
-            <h2 className="text-white text-xl font-bold mb-6">{pl ? 'Podobne produkty' : 'Related Products'}</h2>
+            <h2 className="text-[#0a0a0a] text-xl font-bold mb-6">{pl ? 'Podobne produkty' : 'Related Products'}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
               {related.map(p => (
                 <Link key={p.id} to={`/${lang}/product/${p.slug}`} className="group bg-[#fafaf7] border border-[#ececec] rounded-xl overflow-hidden hover:border-[#fed7aa] transition-all">
@@ -397,7 +397,7 @@ export default function ProductDetailPage() {
                     />
                   </div>
                   <div className="p-4">
-                    <h3 className="text-white text-sm font-semibold group-hover:text-[#ea580c] transition-colors">{pl ? p.name_pl : es ? (p.name_es || p.name_en) : p.name_en}</h3>
+                    <h3 className="text-[#0a0a0a] text-sm font-semibold group-hover:text-[#ea580c] transition-colors">{pl ? p.name_pl : es ? (p.name_es || p.name_en) : p.name_en}</h3>
                     <p className="text-[#ea580c] font-bold mt-1">{formatPrice(pl ? p.price_pln : es ? (p.price_eur ?? p.price_gbp) : p.price_gbp)}</p>
                   </div>
                 </Link>

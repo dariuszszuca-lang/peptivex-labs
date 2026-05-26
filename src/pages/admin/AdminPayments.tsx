@@ -61,7 +61,7 @@ export default function AdminPayments() {
     <div className="p-6 max-w-6xl">
       <div className="mb-6 flex items-end justify-between">
         <div>
-          <h1 className="text-white text-2xl font-bold mb-1">Stripe — Płatności</h1>
+          <h1 className="text-[#0a0a0a] text-2xl font-bold mb-1">Stripe — Płatności</h1>
           <p className="text-[#737373] text-sm">Saldo, ostatnie płatności, status integracji</p>
         </div>
         <button
@@ -87,7 +87,7 @@ export default function AdminPayments() {
               <CreditCard size={20} className="text-violet-400" />
             </div>
             <div>
-              <h3 className="text-white font-semibold flex items-center gap-2">
+              <h3 className="text-[#0a0a0a] font-semibold flex items-center gap-2">
                 Stripe
                 <CheckCircle2 size={14} className="text-emerald-400" />
               </h3>
@@ -111,11 +111,11 @@ export default function AdminPayments() {
             <div className="bg-[#fafaf7] border border-[#ececec] rounded-lg p-4">
               <p className="text-[#737373] text-xs uppercase tracking-wide mb-2">Saldo dostępne</p>
               {data.balance.available.length === 0 ? (
-                <p className="text-white text-lg font-bold">0,00</p>
+                <p className="text-[#0a0a0a] text-lg font-bold">0,00</p>
               ) : (
                 <div className="flex flex-col gap-0.5">
                   {data.balance.available.map(b => (
-                    <p key={b.currency} className="text-white text-lg font-bold">{formatPrice(b.amount, b.currency)}</p>
+                    <p key={b.currency} className="text-[#0a0a0a] text-lg font-bold">{formatPrice(b.amount, b.currency)}</p>
                   ))}
                 </div>
               )}
@@ -149,7 +149,7 @@ export default function AdminPayments() {
 
       {/* Recent payments */}
       <div className="bg-[#fafaf7] border border-[#ececec] rounded-xl p-6">
-        <h3 className="text-white font-semibold mb-4">Ostatnie płatności (Stripe)</h3>
+        <h3 className="text-[#0a0a0a] font-semibold mb-4">Ostatnie płatności (Stripe)</h3>
         {!data || data.payments.length === 0 ? (
           <p className="text-[#737373] text-sm py-8 text-center">Brak płatności</p>
         ) : (
@@ -190,7 +190,7 @@ export default function AdminPayments() {
                         {p.status}
                       </span>
                     </td>
-                    <td className="px-2 py-2 text-right text-white text-sm font-semibold whitespace-nowrap">
+                    <td className="px-2 py-2 text-right text-[#0a0a0a] text-sm font-semibold whitespace-nowrap">
                       {formatPrice(p.amount, p.currency)}
                     </td>
                   </tr>

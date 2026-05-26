@@ -62,7 +62,7 @@ export default function AdminProducts() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-white text-2xl font-bold mb-1">Produkty</h1>
+          <h1 className="text-[#0a0a0a] text-2xl font-bold mb-1">Produkty</h1>
           <p className="text-[#737373] text-sm">{products.length} produktów w katalogu</p>
         </div>
       </div>
@@ -84,7 +84,7 @@ export default function AdminProducts() {
           value={search}
           onChange={e => setSearch(e.target.value)}
           placeholder="Szukaj produktu..."
-          className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg pl-10 pr-4 py-2.5 text-white text-sm focus:border-amber-500/40 focus:outline-none"
+          className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg pl-10 pr-4 py-2.5 text-[#0a0a0a] text-sm focus:border-amber-500/40 focus:outline-none"
         />
       </div>
 
@@ -112,7 +112,7 @@ export default function AdminProducts() {
                 {/* Info */}
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">
-                    <h3 className="text-white font-semibold text-sm">{product.name_pl}</h3>
+                    <h3 className="text-[#0a0a0a] font-semibold text-sm">{product.name_pl}</h3>
                     <span className="text-[#a3a3a3] text-xs">/ {product.name_en}</span>
                   </div>
                   <div className="flex items-center gap-2">
@@ -163,7 +163,7 @@ export default function AdminProducts() {
                           value={editForm.image || ''}
                           onChange={e => updateField('image', e.target.value || undefined)}
                           placeholder="/images/products/..."
-                          className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-3 py-2 text-white text-xs font-mono focus:border-amber-500/40 focus:outline-none"
+                          className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-3 py-2 text-[#0a0a0a] text-xs font-mono focus:border-amber-500/40 focus:outline-none"
                         />
                       </div>
 
@@ -173,7 +173,7 @@ export default function AdminProducts() {
                           <select
                             value={editForm.category}
                             onChange={e => updateField('category', e.target.value as ProductCategory)}
-                            className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-3 py-2 text-white text-sm focus:border-amber-500/40 focus:outline-none"
+                            className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-3 py-2 text-[#0a0a0a] text-sm focus:border-amber-500/40 focus:outline-none"
                           >
                             {CATEGORIES.map(c => <option key={c.value} value={c.value}>{c.label}</option>)}
                           </select>
@@ -183,7 +183,7 @@ export default function AdminProducts() {
                           <select
                             value={editForm.format}
                             onChange={e => updateField('format', e.target.value as ProductFormat)}
-                            className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-3 py-2 text-white text-sm focus:border-amber-500/40 focus:outline-none"
+                            className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-3 py-2 text-[#0a0a0a] text-sm focus:border-amber-500/40 focus:outline-none"
                           >
                             {FORMATS.map(f => <option key={f.value} value={f.value}>{f.label}</option>)}
                           </select>
@@ -195,7 +195,7 @@ export default function AdminProducts() {
                         <input
                           value={editForm.dosage}
                           onChange={e => updateField('dosage', e.target.value)}
-                          className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-3 py-2 text-white text-sm focus:border-amber-500/40 focus:outline-none"
+                          className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-3 py-2 text-[#0a0a0a] text-sm focus:border-amber-500/40 focus:outline-none"
                         />
                       </div>
 
@@ -220,7 +220,7 @@ export default function AdminProducts() {
                         <input
                           value={editForm.name_pl}
                           onChange={e => updateField('name_pl', e.target.value)}
-                          className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-3 py-2 text-white text-sm focus:border-amber-500/40 focus:outline-none"
+                          className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-3 py-2 text-[#0a0a0a] text-sm focus:border-amber-500/40 focus:outline-none"
                         />
                       </div>
                       <div>
@@ -229,7 +229,7 @@ export default function AdminProducts() {
                           value={editForm.short_pl}
                           onChange={e => updateField('short_pl', e.target.value)}
                           rows={2}
-                          className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-3 py-2 text-white text-sm focus:border-amber-500/40 focus:outline-none resize-none"
+                          className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-3 py-2 text-[#0a0a0a] text-sm focus:border-amber-500/40 focus:outline-none resize-none"
                         />
                       </div>
                       <div>
@@ -238,7 +238,7 @@ export default function AdminProducts() {
                           value={editForm.description_pl}
                           onChange={e => updateField('description_pl', e.target.value)}
                           rows={5}
-                          className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-3 py-2 text-white text-sm focus:border-amber-500/40 focus:outline-none resize-none"
+                          className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-3 py-2 text-[#0a0a0a] text-sm focus:border-amber-500/40 focus:outline-none resize-none"
                         />
                       </div>
 
@@ -260,7 +260,7 @@ export default function AdminProducts() {
                             type="number"
                             value={editForm.stock_pl}
                             onChange={e => updateField('stock_pl', Number(e.target.value))}
-                            className={`w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-3 py-2 text-sm focus:border-amber-500/40 focus:outline-none ${editForm.stock_pl < 10 ? 'text-red-400' : 'text-white'}`}
+                            className={`w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-3 py-2 text-sm focus:border-amber-500/40 focus:outline-none ${editForm.stock_pl < 10 ? 'text-red-400' : 'text-[#0a0a0a]'}`}
                           />
                         </div>
                       </div>
@@ -274,7 +274,7 @@ export default function AdminProducts() {
                         <input
                           value={editForm.name_en}
                           onChange={e => updateField('name_en', e.target.value)}
-                          className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-3 py-2 text-white text-sm focus:border-amber-500/40 focus:outline-none"
+                          className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-3 py-2 text-[#0a0a0a] text-sm focus:border-amber-500/40 focus:outline-none"
                         />
                       </div>
                       <div>
@@ -283,7 +283,7 @@ export default function AdminProducts() {
                           value={editForm.short_en}
                           onChange={e => updateField('short_en', e.target.value)}
                           rows={2}
-                          className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-3 py-2 text-white text-sm focus:border-amber-500/40 focus:outline-none resize-none"
+                          className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-3 py-2 text-[#0a0a0a] text-sm focus:border-amber-500/40 focus:outline-none resize-none"
                         />
                       </div>
                       <div>
@@ -292,7 +292,7 @@ export default function AdminProducts() {
                           value={editForm.description_en}
                           onChange={e => updateField('description_en', e.target.value)}
                           rows={5}
-                          className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-3 py-2 text-white text-sm focus:border-amber-500/40 focus:outline-none resize-none"
+                          className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-3 py-2 text-[#0a0a0a] text-sm focus:border-amber-500/40 focus:outline-none resize-none"
                         />
                       </div>
 
@@ -314,7 +314,7 @@ export default function AdminProducts() {
                             type="number"
                             value={editForm.stock_uk}
                             onChange={e => updateField('stock_uk', Number(e.target.value))}
-                            className={`w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-3 py-2 text-sm focus:border-amber-500/40 focus:outline-none ${editForm.stock_uk < 10 ? 'text-red-400' : 'text-white'}`}
+                            className={`w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-3 py-2 text-sm focus:border-amber-500/40 focus:outline-none ${editForm.stock_uk < 10 ? 'text-red-400' : 'text-[#0a0a0a]'}`}
                           />
                         </div>
                       </div>
@@ -343,7 +343,7 @@ export default function AdminProducts() {
                       </button>
                       <button
                         onClick={saveEdit}
-                        className="flex items-center gap-1.5 bg-[#ea580c] text-white font-semibold px-5 py-2 rounded-lg hover:bg-[#c2410c] transition-colors text-sm"
+                        className="flex items-center gap-1.5 bg-[#ea580c] text-[#0a0a0a] font-semibold px-5 py-2 rounded-lg hover:bg-[#c2410c] transition-colors text-sm"
                       >
                         <Save size={14} /> Zapisz zmiany
                       </button>

@@ -27,7 +27,7 @@ export default function BlogPage() {
         <HexPattern className="text-[#ea580c]/[0.02]" />
         <div className="max-w-4xl mx-auto px-4 relative z-10">
           <p className="text-[#ea580c] text-xs tracking-[0.3em] uppercase mb-3">Blog</p>
-          <h1 className="text-white text-3xl font-extrabold mb-4">
+          <h1 className="text-[#0a0a0a] text-3xl font-extrabold mb-4">
             {pl ? 'Wiedza o peptydach' : es ? 'Conocimiento sobre péptidos' : 'Peptide Knowledge'}
           </h1>
           <p className="text-[#525252] max-w-lg">
@@ -73,7 +73,7 @@ export default function BlogPage() {
                       <Clock size={11} /> {post.readTime} min
                     </span>
                   </div>
-                  <h2 className="text-white text-lg font-bold mb-2 group-hover:text-[#ea580c] transition-colors">
+                  <h2 className="text-[#0a0a0a] text-lg font-bold mb-2 group-hover:text-[#ea580c] transition-colors">
                     {pl ? post.title_pl : es ? ((post as any).title_es || post.title_en) : post.title_en}
                   </h2>
                   <p className="text-[#737373] text-sm leading-relaxed line-clamp-2">

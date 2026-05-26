@@ -37,17 +37,17 @@ export default function AboutPage() {
       <div className="relative overflow-hidden min-h-[50vh] flex items-center">
         <div className="absolute inset-0">
           <img src="/images/products/retatrutide-pens.jpg" alt="PEPTIVEX LABS research peptide products — Retatrutide injector pens" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0c0a08] via-[#0c0a08]/90 to-[#0c0a08]/60" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0c0a08] via-transparent to-[#0c0a08]/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#f5ebd9] via-[#f5ebd9]/90 to-[#f5ebd9]/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#f5ebd9] via-transparent to-[#f5ebd9]/40" />
         </div>
         <HexPattern className="text-[#ea580c]/[0.03]" />
         <div className="max-w-6xl mx-auto px-4 py-24 relative z-10">
           <div className="max-w-xl">
             <div className="inline-flex items-center gap-2 bg-[#fff7ed] border border-[#fed7aa] rounded-full px-4 py-1.5 mb-6">
-              <span className="w-2 h-2 bg-amber-500 rounded-full animate-pulse" />
+              <span className="w-2 h-2 bg-[#ea580c] rounded-full animate-pulse" />
               <span className="text-[#ea580c] text-xs font-medium tracking-wide">PEPTIVEX LABS</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-white leading-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-[#0a0a0a] leading-tight mb-6">
               {pl ? (
                 <><span className="text-gradient">Nauka</span> w służbie<br />jakości</>
               ) : es ? (
@@ -85,13 +85,13 @@ export default function AboutPage() {
 
       {/* Mission — 2 columns */}
       <section className="relative overflow-hidden py-24">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-900/[0.08] via-[#0c0a08] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#fff7ed] via-[#f5ebd9] to-transparent" />
         <HexPattern className="text-[#ea580c]/[0.02]" />
         <div className="max-w-6xl mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <p className="text-[#ea580c] text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Misja' : es ? 'Misión' : 'Mission'}</p>
-              <h2 className="text-white text-3xl font-extrabold mb-6">
+              <h2 className="text-[#0a0a0a] text-3xl font-extrabold mb-6">
                 {pl ? 'Dlaczego istniejemy?' : es ? '¿Por qué existimos?' : 'Why we exist'}
               </h2>
               <p className="text-[#525252] text-[15px] leading-[1.9] mb-6">
@@ -136,7 +136,7 @@ export default function AboutPage() {
         <div className="max-w-5xl mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <p className="text-[#ea580c] text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Proces' : es ? 'Proceso' : 'Process'}</p>
-            <h2 className="text-white text-3xl font-extrabold mb-4">
+            <h2 className="text-[#0a0a0a] text-3xl font-extrabold mb-4">
               {pl ? 'Od syntezy do dostawy' : es ? 'De la síntesis a la entrega' : 'From synthesis to delivery'}
             </h2>
             <div className="w-16 h-1 bg-gradient-to-r from-amber-500 to-teal-500 rounded-full mx-auto mt-4" />
@@ -151,7 +151,7 @@ export default function AboutPage() {
                     <span className="text-[#ea580c] text-lg font-extrabold">{String(i + 1).padStart(2, '0')}</span>
                   </div>
                   <p className="text-[#ea580c]/50 text-xs font-semibold uppercase tracking-wider mb-1">{step.year}</p>
-                  <h3 className="text-white font-bold text-lg mb-2">{step.title}</h3>
+                  <h3 className="text-[#0a0a0a] font-bold text-lg mb-2">{step.title}</h3>
                   <p className="text-[#737373] text-sm leading-relaxed">{step.desc}</p>
                 </div>
               </div>
@@ -162,13 +162,13 @@ export default function AboutPage() {
 
       {/* Features grid */}
       <section className="relative overflow-hidden py-24">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-900/[0.1] via-[#0c0a08] to-teal-900/[0.05]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#fed7aa]/30 via-[#f5ebd9] to-teal-900/[0.05]" />
         <HexPattern className="text-[#ea580c]/[0.03]" />
         <div className="absolute inset-0 noise-overlay" />
         <div className="max-w-6xl mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <p className="text-[#ea580c] text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Przewagi' : es ? 'Ventajas' : 'Advantages'}</p>
-            <h2 className="text-white text-3xl font-extrabold mb-4">
+            <h2 className="text-[#0a0a0a] text-3xl font-extrabold mb-4">
               {pl ? 'Dlaczego PEPTIVEX LABS?' : es ? '¿Por qué PEPTIVEX LABS?' : 'Why PEPTIVEX LABS?'}
             </h2>
             <div className="w-16 h-1 bg-gradient-to-r from-amber-500 to-teal-500 rounded-full mx-auto mt-4" />
@@ -183,7 +183,7 @@ export default function AboutPage() {
                   <div className={`w-14 h-14 bg-gradient-to-br ${f.color} border border-[#ececec] rounded-2xl flex items-center justify-center mb-5 group-hover:shadow-[0_0_30px_rgba(249,115,22,0.15)] group-hover:scale-110 transition-all duration-300`}>
                     <f.icon size={24} className="text-[#ea580c]" />
                   </div>
-                  <h3 className="text-white text-lg font-bold mb-3">{f.title}</h3>
+                  <h3 className="text-[#0a0a0a] text-lg font-bold mb-3">{f.title}</h3>
                   <p className="text-[#525252] text-sm leading-relaxed">{f.desc}</p>
                 </div>
               </div>
@@ -194,12 +194,12 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-600/15 via-[#0c0a08] to-amber-900/10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-600/15 via-[#f5ebd9] to-amber-900/10" />
         <HexPattern className="text-[#ea580c]/[0.04]" />
         <ParticleField />
         <div className="absolute top-1/2 left-1/3 w-[300px] h-[300px] rounded-full bg-[#fff7ed] blur-[80px]" />
         <div className="max-w-4xl mx-auto px-4 py-24 text-center relative z-10">
-          <h2 className="text-white text-3xl sm:text-4xl font-extrabold mb-5">
+          <h2 className="text-[#0a0a0a] text-3xl sm:text-4xl font-extrabold mb-5">
             {pl ? (
               <><span className="text-gradient">Zamów</span> peptydy badawcze</>
             ) : es ? (
@@ -211,7 +211,7 @@ export default function AboutPage() {
           <p className="text-[#525252] mb-8 max-w-md mx-auto">
             {pl ? 'Czystość >98%, certyfikat HPLC, szybka dostawa InPost.' : es ? 'Pureza >98%, certificado HPLC, entrega rápida con InPost.' : '>98% purity, HPLC certificate, fast InPost delivery.'}
           </p>
-          <Link to={`/${lang}/products`} className="cta-primary inline-flex items-center gap-2 bg-[#ea580c] text-white font-bold px-8 py-4 rounded-xl hover:bg-[#c2410c] transition-all text-sm">
+          <Link to={`/${lang}/products`} className="cta-primary inline-flex items-center gap-2 bg-[#ea580c] text-[#0a0a0a] font-bold px-8 py-4 rounded-xl hover:bg-[#c2410c] transition-all text-sm">
             {pl ? 'Zobacz produkty' : es ? 'Explorar Productos' : 'Browse Products'} <ArrowRight size={16} />
           </Link>
         </div>

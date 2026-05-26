@@ -17,7 +17,7 @@ export default function CancelPage() {
         path={`/${lang}/cancel`}
         noIndex
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-red-900/[0.1] via-[#0c0a08] to-[#0c0a08]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-red-900/[0.1] via-[#f5ebd9] to-[#f5ebd9]" />
       <HexPattern className="text-red-500/[0.02]" />
 
       <div className="max-w-2xl mx-auto px-4 py-20 relative z-10 text-center">
@@ -25,7 +25,7 @@ export default function CancelPage() {
           <XCircle size={40} className="text-red-400" />
         </div>
 
-        <h1 className="text-white text-3xl sm:text-4xl font-extrabold mb-4">
+        <h1 className="text-[#0a0a0a] text-3xl sm:text-4xl font-extrabold mb-4">
           {pl ? 'Płatność anulowana' : es ? 'Pago cancelado' : 'Payment cancelled'}
         </h1>
 
@@ -37,7 +37,7 @@ export default function CancelPage() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link
             to={`/${lang}/cart`}
-            className="bg-[#ea580c] text-white font-bold px-6 py-3 rounded-xl hover:bg-[#c2410c] transition-colors inline-flex items-center justify-center gap-2 text-sm"
+            className="bg-[#ea580c] text-[#0a0a0a] font-bold px-6 py-3 rounded-xl hover:bg-[#c2410c] transition-colors inline-flex items-center justify-center gap-2 text-sm"
           >
             <ArrowLeft size={14} />
             {pl ? 'Wróć do koszyka' : es ? 'Volver al carrito' : 'Back to cart'}

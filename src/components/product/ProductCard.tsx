@@ -31,17 +31,17 @@ export default function ProductCard({ product }: { product: Product }) {
         {/* Badges */}
         <div className="absolute top-3 left-3 z-20 flex flex-col gap-1.5">
           {product.featured && (
-            <span className="bg-[#ea580c] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">
+            <span className="bg-[#ea580c] text-[#0a0a0a] text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">
               {lang === 'pl' ? 'Wyróżniony' : lang === 'es' ? 'Destacado' : 'Featured'}
             </span>
           )}
           {product.format === 'pen' && (
-            <span className="bg-[#1a1a1a] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">
+            <span className="bg-[#1a1a1a] text-[#0a0a0a] text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">
               PEN
             </span>
           )}
           {product.pen_kit && product.format === 'vial' && (
-            <span className="bg-[#1a1a1a] text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide whitespace-nowrap">
+            <span className="bg-[#1a1a1a] text-[#0a0a0a] text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide whitespace-nowrap">
               VIAL + PEN
             </span>
           )}
@@ -74,7 +74,7 @@ export default function ProductCard({ product }: { product: Product }) {
             disabled={!inStock}
             className={`flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg transition-all ${
               inStock
-                ? 'bg-[#ea580c] text-white hover:bg-[#c2410c] cursor-pointer'
+                ? 'bg-[#ea580c] text-[#0a0a0a] hover:bg-[#c2410c] cursor-pointer'
                 : 'bg-[#f5f5f0] text-[#a3a3a3] cursor-not-allowed'
             }`}
           >

@@ -62,14 +62,14 @@ export default function LegalNoticePage() {
       />
       {/* Hero */}
       <div className="relative overflow-hidden py-16">
-        <div className="absolute inset-0 bg-gradient-to-b from-red-900/[0.1] via-[#0c0a08] to-[#0c0a08]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-red-900/[0.1] via-[#f5ebd9] to-[#f5ebd9]" />
         <HexPattern className="text-[#ea580c]/[0.02]" />
         <div className="max-w-3xl mx-auto px-4 relative z-10">
           <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 rounded-full px-4 py-1.5 mb-4">
             <AlertTriangle size={12} className="text-red-400" />
             <span className="text-red-400 text-xs font-medium uppercase tracking-wide">{pl ? 'Ważne' : es ? 'Importante' : 'Important'}</span>
           </div>
-          <h1 className="text-white text-3xl sm:text-4xl font-extrabold mb-4">
+          <h1 className="text-[#0a0a0a] text-3xl sm:text-4xl font-extrabold mb-4">
             {pl ? 'Informacja prawna' : es ? 'Aviso Legal' : 'Legal Notice'}
           </h1>
           <p className="text-[#737373] max-w-lg">{pl ? 'Zastrzeżenie dotyczące użytkowania produktów' : es ? 'Descargo de Responsabilidad sobre el Uso del Producto' : 'Product Use Disclaimer'}</p>
@@ -102,7 +102,7 @@ export default function LegalNoticePage() {
                 <div className="w-full h-full rounded-2xl bg-white" />
               </div>
               <div className="relative z-10 p-6">
-                <h2 className="text-white text-lg font-bold mb-3">{s.title}</h2>
+                <h2 className="text-[#0a0a0a] text-lg font-bold mb-3">{s.title}</h2>
                 <p className="text-[#525252] text-sm leading-[1.8]">{s.text}</p>
               </div>
             </div>
@@ -127,7 +127,7 @@ export default function LegalNoticePage() {
             <div className="w-full h-full rounded-2xl bg-white" />
           </div>
           <div className="relative z-10 p-6">
-            <h2 className="text-white text-lg font-bold mb-4">
+            <h2 className="text-[#0a0a0a] text-lg font-bold mb-4">
               {pl ? 'Dane firmy' : es ? 'Datos de la empresa' : 'Company details'}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
@@ -135,7 +135,7 @@ export default function LegalNoticePage() {
                 <p className="text-[#737373] text-xs uppercase tracking-wide mb-2">
                   {pl ? 'Spółka' : es ? 'Empresa' : 'Company'}
                 </p>
-                <p className="text-white font-semibold mb-1">PEPTIVEXLABS LTD</p>
+                <p className="text-[#0a0a0a] font-semibold mb-1">PEPTIVEXLABS LTD</p>
                 <p className="text-[#525252] mb-1">
                   {pl ? 'Numer firmy' : es ? 'Número de empresa' : 'Company number'}: 17178009
                 </p>

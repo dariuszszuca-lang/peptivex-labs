@@ -166,7 +166,7 @@ export default function CookieBanner() {
           <div className="p-5 pt-2 flex flex-col sm:flex-row gap-2">
             <button
               onClick={acceptAll}
-              className="flex-1 bg-[#ea580c] text-white font-bold py-2.5 rounded-xl hover:bg-[#c2410c] transition-all text-sm"
+              className="flex-1 bg-[#ea580c] text-[#0a0a0a] font-bold py-2.5 rounded-xl hover:bg-[#c2410c] transition-all text-sm"
             >
               {pl ? 'Akceptuję wszystkie' : es ? 'Aceptar todas' : 'Accept All'}
             </button>

@@ -111,7 +111,7 @@ export default function AdminCustomers() {
     <div className="p-6 max-w-6xl">
       <div className="mb-6 flex items-end justify-between">
         <div>
-          <h1 className="text-white text-2xl font-bold mb-1">Klienci</h1>
+          <h1 className="text-[#0a0a0a] text-2xl font-bold mb-1">Klienci</h1>
           <p className="text-[#737373] text-sm">{customers.length} unikalnych klientów</p>
         </div>
         <button
@@ -136,14 +136,14 @@ export default function AdminCustomers() {
           value={search}
           onChange={e => setSearch(e.target.value)}
           placeholder="Szukaj po emailu, imieniu lub telefonie..."
-          className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg pl-10 pr-4 py-2.5 text-white text-sm focus:border-amber-500/40 focus:outline-none"
+          className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg pl-10 pr-4 py-2.5 text-[#0a0a0a] text-sm focus:border-amber-500/40 focus:outline-none"
         />
       </div>
 
       {!loading && filtered.length === 0 && !error ? (
         <div className="bg-[#fafaf7] border border-[#ececec] rounded-xl p-16 text-center">
           <div className="text-4xl mb-4 opacity-20">👥</div>
-          <h2 className="text-white text-lg font-semibold mb-2">{customers.length === 0 ? 'Brak klientów' : 'Brak wyników'}</h2>
+          <h2 className="text-[#0a0a0a] text-lg font-semibold mb-2">{customers.length === 0 ? 'Brak klientów' : 'Brak wyników'}</h2>
           <p className="text-[#737373] text-sm max-w-sm mx-auto">
             {customers.length === 0
               ? 'Klienci pojawią się po pierwszym zamówieniu.'
@@ -167,7 +167,7 @@ export default function AdminCustomers() {
               {filtered.map(c => (
                 <tr key={c.email} className="border-b border-white/[0.03] hover:bg-[#fafaf7]">
                   <td className="px-4 py-3">
-                    <p className="text-white text-sm font-medium">{c.name || '—'}</p>
+                    <p className="text-[#0a0a0a] text-sm font-medium">{c.name || '—'}</p>
                   </td>
                   <td className="px-4 py-3">
                     <a href={`mailto:${c.email}`} className="text-[#525252] hover:text-[#ea580c] text-xs flex items-center gap-1.5">
@@ -187,7 +187,7 @@ export default function AdminCustomers() {
                   <td className="px-4 py-3">
                     <div className="flex flex-col gap-0.5">
                       {Object.entries(c.totalSpent).map(([curr, amount]) => (
-                        <span key={curr} className="text-white text-sm font-medium">{formatPrice(amount, curr)}</span>
+                        <span key={curr} className="text-[#0a0a0a] text-sm font-medium">{formatPrice(amount, curr)}</span>
                       ))}
                     </div>
                   </td>

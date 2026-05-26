@@ -79,7 +79,7 @@ export default function PeptideGuidePage() {
 
       {/* Hero */}
       <div className="relative overflow-hidden min-h-[60vh] flex items-center">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-900/[0.15] via-[#0c0a08] to-teal-900/[0.08]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-900/[0.15] via-[#f5ebd9] to-teal-900/[0.08]" />
         <HexPattern className="text-[#ea580c]/[0.04]" />
         <ParticleField />
         <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] rounded-full bg-[#fff7ed] blur-[100px]" />
@@ -88,7 +88,7 @@ export default function PeptideGuidePage() {
             <FlaskConical size={12} className="text-[#ea580c]" />
             <span className="text-[#ea580c] text-xs font-medium tracking-wide">2026 EDITION</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-white leading-tight mb-6">
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-[#0a0a0a] leading-tight mb-6">
             {pl ? (
               <><span className="text-gradient">Przewodnik</span> po peptydach<br />badawczych</>
             ) : es ? (
@@ -101,7 +101,7 @@ export default function PeptideGuidePage() {
             {pl ? 'Kompletny przewodnik: kategorie, protokoły, dawkowanie, rekonstytucja, stacki i przechowywanie. 19 peptydów z danymi referencyjnymi.' : es ? 'Guía completa: categorías, protocolos, dosificación, reconstitución, combinaciones (stacks) y almacenamiento. 19 péptidos con datos de referencia.' : 'Complete guide: categories, protocols, dosing, reconstitution, stacks, and storage. 19 peptides with reference data.'
             }
           </p>
-          <a href="#categories" className="cta-primary inline-flex items-center gap-2 bg-[#ea580c] text-white font-bold px-7 py-3.5 rounded-xl hover:bg-[#c2410c] transition-all text-sm">
+          <a href="#categories" className="cta-primary inline-flex items-center gap-2 bg-[#ea580c] text-[#0a0a0a] font-bold px-7 py-3.5 rounded-xl hover:bg-[#c2410c] transition-all text-sm">
             {pl ? 'Przejdź do przewodnika' : es ? 'Ir a la guía' : 'Jump to guide'} <ArrowRight size={16} />
           </a>
         </div>
@@ -113,7 +113,7 @@ export default function PeptideGuidePage() {
         <div className="max-w-5xl mx-auto px-4 relative z-10">
           <div className="text-center mb-14">
             <p className="text-[#ea580c] text-xs tracking-[0.3em] uppercase mb-3">FRAMEWORK</p>
-            <h2 className="text-white text-3xl font-extrabold mb-4">
+            <h2 className="text-[#0a0a0a] text-3xl font-extrabold mb-4">
               {pl ? 'Framework 3 poziomów' : es ? 'El Marco de 3 Niveles' : 'The 3-Level Framework'}
             </h2>
             <p className="text-[#737373] text-sm max-w-lg mx-auto">
@@ -132,7 +132,7 @@ export default function PeptideGuidePage() {
                     <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500/15 to-amber-500/5 border border-[#fed7aa] flex items-center justify-center mb-5">
                       <span className="text-[#ea580c] text-lg font-extrabold">{f.level}</span>
                     </div>
-                    <h3 className="text-white text-lg font-bold mb-4">{f.title}</h3>
+                    <h3 className="text-[#0a0a0a] text-lg font-bold mb-4">{f.title}</h3>
                     <ul className="flex flex-col gap-2">
                       {f.items.map((item, j) => (
                         <li key={j} className="flex items-start gap-2 text-[#525252] text-sm">
@@ -151,12 +151,12 @@ export default function PeptideGuidePage() {
 
       {/* Categories with peptide tables */}
       <section id="categories" className="relative py-20">
-        <div className="absolute inset-0 bg-gradient-to-b from-amber-900/[0.06] via-[#0c0a08] to-amber-900/[0.04]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#fff7ed] via-[#f5ebd9] to-amber-900/[0.04]" />
         <HexPattern className="text-[#ea580c]/[0.02]" />
         <div className="max-w-6xl mx-auto px-4 relative z-10">
           <div className="text-center mb-14">
             <p className="text-[#ea580c] text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Katalog' : es ? 'Catálogo' : 'Catalog'}</p>
-            <h2 className="text-white text-3xl font-extrabold mb-4">
+            <h2 className="text-[#0a0a0a] text-3xl font-extrabold mb-4">
               {pl ? 'Peptydy według kategorii' : es ? 'Péptidos por Categoría' : 'Peptides by Category'}
             </h2>
             <div className="w-16 h-1 bg-gradient-to-r from-amber-500 to-teal-500 rounded-full mx-auto mt-4" />
@@ -177,7 +177,7 @@ export default function PeptideGuidePage() {
                         <cat.icon size={22} className={cat.color.split(' ')[0]} />
                       </div>
                       <div>
-                        <h3 className="text-white text-lg font-bold">{cat.title}</h3>
+                        <h3 className="text-[#0a0a0a] text-lg font-bold">{cat.title}</h3>
                         <p className="text-[#737373] text-sm">{cat.desc}</p>
                       </div>
                     </div>
@@ -202,7 +202,7 @@ export default function PeptideGuidePage() {
                             return (
                               <tr key={pi} className="border-b border-white/[0.03] hover:bg-[#fafaf7] transition-colors">
                                 <td className="px-6 py-3">
-                                  <Link to={`/${lang}/product/${p.slug}`} className="text-white font-medium hover:text-[#ea580c] transition-colors">
+                                  <Link to={`/${lang}/product/${p.slug}`} className="text-[#0a0a0a] font-medium hover:text-[#ea580c] transition-colors">
                                     {pl ? p.name_pl : p.name_en}
                                   </Link>
                                 </td>
@@ -234,7 +234,7 @@ export default function PeptideGuidePage() {
         <div className="max-w-4xl mx-auto px-4 relative z-10">
           <div className="text-center mb-12">
             <p className="text-[#ea580c] text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Ważne' : es ? 'Importante' : 'Important'}</p>
-            <h2 className="text-white text-3xl font-extrabold mb-4">
+            <h2 className="text-[#0a0a0a] text-3xl font-extrabold mb-4">
               {pl ? 'Badania na ludziach vs badania na zwierzętach' : es ? 'Investigación en Humanos vs. Investigación en Animales' : 'Human Research vs Animal Research'}
             </h2>
           </div>
@@ -243,7 +243,7 @@ export default function PeptideGuidePage() {
               <div className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-b from-emerald-500/20 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"><div className="w-full h-full rounded-2xl bg-white" /></div>
               <div className="relative z-10 p-7">
                 <div className="w-3 h-3 rounded-full bg-emerald-400 mb-4" />
-                <h3 className="text-white font-bold mb-3">{pl ? 'Badania kliniczne (ludzie)' : es ? 'Ensayos Clínicos (Humanos)' : 'Clinical Trials (Humans)'}</h3>
+                <h3 className="text-[#0a0a0a] font-bold mb-3">{pl ? 'Badania kliniczne (ludzie)' : es ? 'Ensayos Clínicos (Humanos)' : 'Clinical Trials (Humans)'}</h3>
                 <p className="text-[#525252] text-sm leading-relaxed mb-4">
                   {pl ? 'Niektóre peptydy (tirzepatid, tesamorelin, retatrutide) przeszły lub przechodzą badania kliniczne z udziałem ludzi. Mają ustalony profil bezpieczeństwa.' : es ? 'Algunos péptidos (tirzepatide, tesamorelin, retatrutide) han sido o están siendo sometidos a ensayos clínicos en humanos. Poseen un perfil de seguridad establecido.' : 'Some peptides (tirzepatide, tesamorelin, retatrutide) have undergone or are undergoing human clinical trials. They have an established safety profile.'
                   }
@@ -258,7 +258,7 @@ export default function PeptideGuidePage() {
               <div className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-b from-amber-500/20 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"><div className="w-full h-full rounded-2xl bg-white" /></div>
               <div className="relative z-10 p-7">
                 <div className="w-3 h-3 rounded-full bg-amber-400 mb-4" />
-                <h3 className="text-white font-bold mb-3">{pl ? 'Badania przedkliniczne (zwierzęta)' : es ? 'Estudios Preclínicos (Animales)' : 'Preclinical Studies (Animals)'}</h3>
+                <h3 className="text-[#0a0a0a] font-bold mb-3">{pl ? 'Badania przedkliniczne (zwierzęta)' : es ? 'Estudios Preclínicos (Animales)' : 'Preclinical Studies (Animals)'}</h3>
                 <p className="text-[#525252] text-sm leading-relaxed mb-4">
                   {pl ? 'Większość peptydów badawczych (MOTS-c, TB-500, Selank, SS-31) ma dane głównie z badań na modelach zwierzęcych. Wyniki zwierzęce nie zawsze przekładają się na ludzi.' : es ? 'La mayoría de los péptidos de investigación (MOTS-c, TB-500, Selank, SS-31) tienen datos principalmente de estudios en modelos animales. Los resultados en animales no siempre se traducen a humanos.' : 'Most research peptides (MOTS-c, TB-500, Selank, SS-31) have data primarily from animal model studies. Animal results do not always translate to humans.'
                   }
@@ -283,11 +283,11 @@ export default function PeptideGuidePage() {
 
       {/* Quick Reference: Reconstitution */}
       <section className="relative py-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-900/[0.08] via-[#0c0a08] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#fff7ed] via-[#f5ebd9] to-transparent" />
         <div className="max-w-4xl mx-auto px-4 relative z-10">
           <div className="text-center mb-12">
             <p className="text-[#ea580c] text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Ściągawka' : es ? 'Hoja de Consulta Rápida' : 'Cheat Sheet'}</p>
-            <h2 className="text-white text-2xl font-extrabold mb-4">
+            <h2 className="text-[#0a0a0a] text-2xl font-extrabold mb-4">
               {pl ? 'Szybka referencja: rekonstytucja' : es ? 'Referencia Rápida: Reconstitución' : 'Quick Reference: Reconstitution'}
             </h2>
           </div>
@@ -314,12 +314,12 @@ export default function PeptideGuidePage() {
 
       {/* CTA */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-600/15 via-[#0c0a08] to-amber-900/10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-600/15 via-[#f5ebd9] to-amber-900/10" />
         <HexPattern className="text-[#ea580c]/[0.04]" />
         <ParticleField />
         <div className="absolute top-1/2 left-1/3 w-[300px] h-[300px] rounded-full bg-[#fff7ed] blur-[80px]" />
         <div className="max-w-4xl mx-auto px-4 py-24 text-center relative z-10">
-          <h2 className="text-white text-3xl sm:text-4xl font-extrabold mb-5">
+          <h2 className="text-[#0a0a0a] text-3xl sm:text-4xl font-extrabold mb-5">
             {pl ? (
               <><span className="text-gradient">Zamów</span> peptydy badawcze</>
             ) : es ? (
@@ -331,7 +331,7 @@ export default function PeptideGuidePage() {
           <p className="text-[#525252] mb-8 max-w-md mx-auto">
             {pl ? 'Czystość >98% HPLC, szybka dostawa InPost, Pay by Bank, BLIK i karty.' : es ? 'Pureza HPLC >98%, entrega rápida InPost, Pago por Banco, BLIK y tarjetas.' : '>98% HPLC purity, fast InPost delivery, Pay by Bank, BLIK and cards.'}
           </p>
-          <Link to={`/${lang}/products`} className="cta-primary inline-flex items-center gap-2 bg-[#ea580c] text-white font-bold px-8 py-4 rounded-xl hover:bg-[#c2410c] transition-all text-sm">
+          <Link to={`/${lang}/products`} className="cta-primary inline-flex items-center gap-2 bg-[#ea580c] text-[#0a0a0a] font-bold px-8 py-4 rounded-xl hover:bg-[#c2410c] transition-all text-sm">
             {pl ? 'Przeglądaj produkty' : es ? 'Explorar Productos' : 'Browse Products'} <ArrowRight size={16} />
           </Link>
         </div>

@@ -124,12 +124,12 @@ export default function FaqPage() {
       />
       {/* Hero */}
       <div className="relative overflow-hidden py-16 sm:py-20">
-        <div className="absolute inset-0 bg-gradient-to-b from-amber-900/[0.1] via-[#0c0a08] to-[#0c0a08]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#fed7aa]/30 via-[#f5ebd9] to-[#f5ebd9]" />
         <HexPattern className="text-[#ea580c]/[0.03]" />
         <div className="absolute top-0 right-1/3 w-[300px] h-[300px] rounded-full bg-[#fff7ed] blur-[100px]" />
         <div className="max-w-4xl mx-auto px-4 relative z-10">
           <p className="text-[#ea580c] text-xs tracking-[0.3em] uppercase mb-3">FAQ</p>
-          <h1 className="text-white text-3xl sm:text-4xl font-extrabold mb-4">
+          <h1 className="text-[#0a0a0a] text-3xl sm:text-4xl font-extrabold mb-4">
             {pl ? (
               <>Najczęściej zadawane <span className="text-gradient">pytania</span></>
             ) : es ? (
@@ -150,7 +150,7 @@ export default function FaqPage() {
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
               placeholder={pl ? 'Szukaj w FAQ...' : es ? 'Buscar FAQ...' : 'Search FAQ...'}
-              className="w-full bg-[#fafaf7] border border-[#ececec] rounded-xl pl-11 pr-4 py-3 text-white text-sm placeholder:text-[#a3a3a3] focus:border-amber-500/40 focus:outline-none transition-colors"
+              className="w-full bg-[#fafaf7] border border-[#ececec] rounded-xl pl-11 pr-4 py-3 text-[#0a0a0a] text-sm placeholder:text-[#a3a3a3] focus:border-amber-500/40 focus:outline-none transition-colors"
             />
           </div>
         </div>
@@ -168,7 +168,7 @@ export default function FaqPage() {
                     <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${open === item.id ? 'bg-[#fff7ed]' : 'bg-[#fafaf7]'}`}>
                       <item.icon size={14} className={item.color} />
                     </div>
-                    <span className={`font-medium flex-1 ${open === item.id ? 'text-white' : 'text-[#525252]'}`}>{pl ? item.q_pl : item.q_en}</span>
+                    <span className={`font-medium flex-1 ${open === item.id ? 'text-[#0a0a0a]' : 'text-[#525252]'}`}>{pl ? item.q_pl : item.q_en}</span>
                     <div className={`shrink-0 transition-transform duration-300 ${open === item.id ? 'rotate-180' : ''}`}>
                       <ChevronDown size={16} className={open === item.id ? 'text-[#ea580c]' : 'text-[#a3a3a3]'} />
                     </div>
@@ -193,7 +193,7 @@ export default function FaqPage() {
                   onClick={() => { setActiveCategory(cat.key); setOpen(null); }}
                   className={`flex items-center gap-3 px-4 py-3 rounded-xl text-left whitespace-nowrap transition-all ${
                     activeCategory === cat.key
-                      ? 'bg-[#fff7ed] border border-[#fed7aa] text-white shadow-[0_0_20px_rgba(249,115,22,0.06)]'
+                      ? 'bg-[#fff7ed] border border-[#fed7aa] text-[#0a0a0a] shadow-[0_0_20px_rgba(249,115,22,0.06)]'
                       : 'bg-[#fafaf7] border border-[#ececec] text-[#737373] hover:text-[#525252] hover:border-[#ececec]'
                   }`}
                 >
@@ -215,7 +215,7 @@ export default function FaqPage() {
                       <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 ${isOpen ? 'bg-[#fff7ed] text-[#ea580c]' : 'bg-[#fafaf7] text-[#a3a3a3]'}`}>
                         <span className="text-xs font-bold">{String(i + 1).padStart(2, '0')}</span>
                       </div>
-                      <span className={`font-medium flex-1 pr-4 transition-colors ${isOpen ? 'text-white' : 'text-[#525252]'}`}>{pl ? faq.q_pl : faq.q_en}</span>
+                      <span className={`font-medium flex-1 pr-4 transition-colors ${isOpen ? 'text-[#0a0a0a]' : 'text-[#525252]'}`}>{pl ? faq.q_pl : faq.q_en}</span>
                       <div className={`shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
                         <ChevronDown size={16} className={isOpen ? 'text-[#ea580c]' : 'text-[#a3a3a3]'} />
                       </div>
@@ -240,10 +240,10 @@ export default function FaqPage() {
           </div>
           <div className="relative z-10 p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
-              <h3 className="text-white text-xl font-bold mb-2">{pl ? 'Nie znalazłeś odpowiedzi?' : "Didn't find your answer?"}</h3>
+              <h3 className="text-[#0a0a0a] text-xl font-bold mb-2">{pl ? 'Nie znalazłeś odpowiedzi?' : "Didn't find your answer?"}</h3>
               <p className="text-[#737373] text-sm">{pl ? 'Napisz do nas — odpowiadamy w ciągu 24 godzin.' : es ? 'Contáctenos — respondemos en un plazo de 24 horas.' : 'Contact us — we respond within 24 hours.'}</p>
             </div>
-            <Link to={`/${lang}/contact`} className="cta-primary bg-[#ea580c] text-white font-bold px-6 py-3 rounded-xl hover:bg-[#c2410c] transition-all text-sm flex items-center gap-2 shrink-0">
+            <Link to={`/${lang}/contact`} className="cta-primary bg-[#ea580c] text-[#0a0a0a] font-bold px-6 py-3 rounded-xl hover:bg-[#c2410c] transition-all text-sm flex items-center gap-2 shrink-0">
               {pl ? 'Kontakt' : es ? 'Contáctenos' : 'Contact Us'} <ArrowRight size={14} />
             </Link>
           </div>

@@ -78,7 +78,7 @@ export default function AdminStats() {
     new: 'Nowe',
   };
   const statusColors: Record<string, string> = {
-    paid: 'bg-amber-500',
+    paid: 'bg-[#ea580c]',
     shipped: 'bg-violet-500',
     delivered: 'bg-emerald-500',
     cancelled: 'bg-red-500',
@@ -89,7 +89,7 @@ export default function AdminStats() {
     <div className="p-6 max-w-6xl">
       <div className="mb-6 flex items-end justify-between">
         <div>
-          <h1 className="text-white text-2xl font-bold mb-1">Statystyki</h1>
+          <h1 className="text-[#0a0a0a] text-2xl font-bold mb-1">Statystyki</h1>
           <p className="text-[#737373] text-sm">Przychody, zamówienia, trendy</p>
         </div>
         <button
@@ -120,7 +120,7 @@ export default function AdminStats() {
         <div className="bg-[#fafaf7] border border-[#ececec] rounded-xl p-5">
           <div className="flex items-center gap-2 mb-4">
             <TrendingUp size={16} className="text-[#ea580c]" />
-            <h3 className="text-white font-semibold text-sm">Zamówienia — ostatnie 30 dni</h3>
+            <h3 className="text-[#0a0a0a] font-semibold text-sm">Zamówienia — ostatnie 30 dni</h3>
           </div>
           {dailyEntries.length === 0 ? (
             <div className="h-40 flex items-center justify-center border border-dashed border-[#ececec] rounded-lg">
@@ -137,7 +137,7 @@ export default function AdminStats() {
                     className={`w-full rounded-t ${count > 0 ? 'bg-amber-500/60 group-hover:bg-[#c2410c]' : 'bg-[#fafaf7]'} transition-colors`}
                     style={{ height: `${(count / maxDaily) * 100}%`, minHeight: count > 0 ? '4px' : '2px' }}
                   />
-                  <div className="absolute bottom-full mb-1 opacity-0 group-hover:opacity-100 bg-black/90 text-white text-xs px-2 py-1 rounded whitespace-nowrap pointer-events-none z-10">
+                  <div className="absolute bottom-full mb-1 opacity-0 group-hover:opacity-100 bg-black/90 text-[#0a0a0a] text-xs px-2 py-1 rounded whitespace-nowrap pointer-events-none z-10">
                     {day}: {count}
                   </div>
                 </div>
@@ -151,7 +151,7 @@ export default function AdminStats() {
         <div className="bg-[#fafaf7] border border-[#ececec] rounded-xl p-5">
           <div className="flex items-center gap-2 mb-4">
             <Package size={16} className="text-[#ea580c]" />
-            <h3 className="text-white font-semibold text-sm">Najpopularniejsze produkty</h3>
+            <h3 className="text-[#0a0a0a] font-semibold text-sm">Najpopularniejsze produkty</h3>
           </div>
           {!stats || stats.topProducts.length === 0 ? (
             <div className="h-40 flex items-center justify-center border border-dashed border-[#ececec] rounded-lg">
@@ -181,7 +181,7 @@ export default function AdminStats() {
         <div className="bg-[#fafaf7] border border-[#ececec] rounded-xl p-5">
           <div className="flex items-center gap-2 mb-4">
             <BarChart3 size={16} className="text-[#ea580c]" />
-            <h3 className="text-white font-semibold text-sm">Statusy zamówień</h3>
+            <h3 className="text-[#0a0a0a] font-semibold text-sm">Statusy zamówień</h3>
           </div>
           <div className="space-y-2">
             {statusOrder.map(s => {
@@ -207,7 +207,7 @@ export default function AdminStats() {
         <div className="bg-[#fafaf7] border border-[#ececec] rounded-xl p-5">
           <div className="flex items-center gap-2 mb-4">
             <BarChart3 size={16} className="text-[#ea580c]" />
-            <h3 className="text-white font-semibold text-sm">Języki zamówień</h3>
+            <h3 className="text-[#0a0a0a] font-semibold text-sm">Języki zamówień</h3>
           </div>
           {langTotal === 0 ? (
             <div className="h-40 flex items-center justify-center border border-dashed border-[#ececec] rounded-lg">
@@ -238,7 +238,7 @@ export default function AdminStats() {
       {/* Top products revenue table */}
       {stats && stats.topProducts.length > 0 && (
         <div className="mt-6 bg-[#fafaf7] border border-[#ececec] rounded-xl p-5">
-          <h3 className="text-white font-semibold text-sm mb-4">Przychód per produkt</h3>
+          <h3 className="text-[#0a0a0a] font-semibold text-sm mb-4">Przychód per produkt</h3>
           <div className="space-y-1">
             {stats.topProducts.map(p => (
               <div key={p.name} className="flex justify-between py-1.5 border-b border-[#ececec] last:border-0">

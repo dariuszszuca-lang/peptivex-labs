@@ -34,11 +34,11 @@ export default function TermsPage() {
         path={`/${lang}/terms`}
       />
       <div className="relative overflow-hidden py-16">
-        <div className="absolute inset-0 bg-gradient-to-b from-amber-900/[0.08] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#fff7ed] to-transparent" />
         <HexPattern className="text-[#ea580c]/[0.02]" />
         <div className="max-w-3xl mx-auto px-4 relative z-10">
           <p className="text-[#ea580c] text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Prawne' : es ? 'Legal' : 'Legal'}</p>
-          <h1 className="text-white text-3xl font-extrabold">{pl ? 'Regulamin' : es ? 'Términos y Condiciones' : 'Terms & Conditions'}</h1>
+          <h1 className="text-[#0a0a0a] text-3xl font-extrabold">{pl ? 'Regulamin' : es ? 'Términos y Condiciones' : 'Terms & Conditions'}</h1>
         </div>
       </div>
       <div className="max-w-3xl mx-auto px-4 py-12 flex flex-col gap-6">
@@ -48,7 +48,7 @@ export default function TermsPage() {
               <div className="w-full h-full rounded-2xl bg-white" />
             </div>
             <div className="relative z-10 p-6">
-              <h2 className="text-white text-lg font-bold mb-3">{s.title}</h2>
+              <h2 className="text-[#0a0a0a] text-lg font-bold mb-3">{s.title}</h2>
               <p className="text-[#525252] text-sm leading-[1.8]">{s.text}</p>
             </div>
           </div>

@@ -38,16 +38,16 @@ export default function ProductsPage() {
       />
       {/* Hero header */}
       <div className="relative overflow-hidden py-16 sm:py-20">
-        <div className="absolute inset-0 bg-gradient-to-b from-amber-900/[0.1] via-[#0c0a08] to-[#0c0a08]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#fed7aa]/30 via-[#f5ebd9] to-[#f5ebd9]" />
         <HexPattern className="text-[#ea580c]/[0.03]" />
         <ParticleField />
         <div className="absolute top-0 right-1/4 w-[300px] h-[300px] rounded-full bg-[#fff7ed] blur-[100px]" />
         <div className="max-w-6xl mx-auto px-4 relative z-10">
           <div className="inline-flex items-center gap-2 bg-[#fff7ed] border border-[#fed7aa] rounded-full px-4 py-1.5 mb-4">
-            <span className="w-2 h-2 bg-amber-500 rounded-full animate-pulse" />
+            <span className="w-2 h-2 bg-[#ea580c] rounded-full animate-pulse" />
             <span className="text-[#ea580c] text-xs font-medium">{filtered.length} {pl ? 'produktów' : 'products'}</span>
           </div>
-          <h1 className="text-white text-3xl sm:text-4xl font-extrabold mb-3">
+          <h1 className="text-[#0a0a0a] text-3xl sm:text-4xl font-extrabold mb-3">
             {pl ? (
               <><span className="text-gradient">Katalog</span> peptydów</>
             ) : es ? (
@@ -70,7 +70,7 @@ export default function ProductsPage() {
               value={search}
               onChange={e => setSearch(e.target.value)}
               placeholder={pl ? 'Szukaj produktu...' : 'Search products...'}
-              className="w-full bg-[#fafaf7] border border-[#ececec] rounded-xl pl-10 pr-4 py-3 text-white text-sm placeholder:text-[#737373] focus:border-amber-500/40 focus:outline-none transition-colors"
+              className="w-full bg-[#fafaf7] border border-[#ececec] rounded-xl pl-10 pr-4 py-3 text-[#0a0a0a] text-sm placeholder:text-[#737373] focus:border-amber-500/40 focus:outline-none transition-colors"
             />
           </div>
         </div>

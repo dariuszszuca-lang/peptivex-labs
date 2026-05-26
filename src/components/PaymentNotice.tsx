@@ -49,7 +49,7 @@ export default function PaymentNotice() {
         <div className="flex items-center gap-2 shrink-0">
           <a
             href={mailto}
-            className="inline-flex items-center gap-1.5 bg-[#ea580c] text-white text-[12px] font-semibold px-3 py-1.5 rounded-md hover:bg-[#c2410c] transition-colors whitespace-nowrap"
+            className="inline-flex items-center gap-1.5 bg-[#ea580c] text-[#0a0a0a] text-[12px] font-semibold px-3 py-1.5 rounded-md hover:bg-[#c2410c] transition-colors whitespace-nowrap"
           >
             <Mail size={13} />
             {pl ? 'Zamów mailem' : es ? 'Pedido por correo electrónico' : 'Order by email'}

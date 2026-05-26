@@ -102,7 +102,7 @@ export default function AdminDashboard() {
     <div className="p-6 max-w-6xl">
       <div className="mb-8 flex items-end justify-between">
         <div>
-          <h1 className="text-white text-2xl font-bold mb-1">Dashboard</h1>
+          <h1 className="text-[#0a0a0a] text-2xl font-bold mb-1">Dashboard</h1>
           <p className="text-[#737373] text-sm">Przegląd sklepu PEPTIVEX LABS</p>
         </div>
         <button
@@ -156,7 +156,7 @@ export default function AdminDashboard() {
         {/* Recent Orders */}
         <div className="bg-[#fafaf7] border border-[#ececec] rounded-xl p-5">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-white font-semibold flex items-center gap-2">
+            <h2 className="text-[#0a0a0a] font-semibold flex items-center gap-2">
               <Clock size={16} className="text-[#ea580c]" />
               Ostatnie zamówienia
             </h2>
@@ -172,7 +172,7 @@ export default function AdminDashboard() {
               {recentOrders.map(order => (
                 <div key={order.stripeSessionId} className="flex items-center justify-between py-2 border-b border-[#ececec] last:border-0">
                   <div className="min-w-0 flex-1">
-                    <p className="text-white text-sm truncate">{order.customer.name || order.customer.email}</p>
+                    <p className="text-[#0a0a0a] text-sm truncate">{order.customer.name || order.customer.email}</p>
                     <p className="text-[#737373] text-xs font-mono">#{order.stripeSessionId.slice(-12)} · {formatDate(order.createdAt)}</p>
                   </div>
                   <span className="text-[#ea580c] font-semibold text-sm whitespace-nowrap ml-3">
@@ -187,7 +187,7 @@ export default function AdminDashboard() {
         {/* Low Stock Alert */}
         <div className="bg-[#fafaf7] border border-[#ececec] rounded-xl p-5">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-white font-semibold flex items-center gap-2">
+            <h2 className="text-[#0a0a0a] font-semibold flex items-center gap-2">
               <Package size={16} className="text-[#ea580c]" />
               Niski stan magazynowy
             </h2>
@@ -198,7 +198,7 @@ export default function AdminDashboard() {
               {lowStock.slice(0, 6).map(p => (
                 <div key={p.id} className="flex items-center justify-between py-2 border-b border-[#ececec] last:border-0">
                   <div>
-                    <span className="text-white text-sm">{p.name_pl}</span>
+                    <span className="text-[#0a0a0a] text-sm">{p.name_pl}</span>
                     <span className="text-[#a3a3a3] text-xs ml-2">{p.dosage}</span>
                   </div>
                   <div className="flex gap-3">
@@ -221,7 +221,7 @@ export default function AdminDashboard() {
       {/* Top products */}
       {stats && stats.topProducts.length > 0 && (
         <div className="mt-6 bg-[#fafaf7] border border-[#ececec] rounded-xl p-5">
-          <h2 className="text-white font-semibold mb-4">Top produkty (wszystkie zamówienia)</h2>
+          <h2 className="text-[#0a0a0a] font-semibold mb-4">Top produkty (wszystkie zamówienia)</h2>
           <div className="space-y-2">
             {stats.topProducts.slice(0, 5).map(p => (
               <div key={p.name} className="flex items-center justify-between py-1.5">
@@ -235,7 +235,7 @@ export default function AdminDashboard() {
 
       {/* Integration Status */}
       <div className="mt-6 bg-[#fafaf7] border border-[#ececec] rounded-xl p-5">
-        <h2 className="text-white font-semibold mb-4">Status integracji</h2>
+        <h2 className="text-[#0a0a0a] font-semibold mb-4">Status integracji</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <IntegrationCard
             name="Stripe"
@@ -275,7 +275,7 @@ function StatCard({ icon: Icon, color, label, value, sub }: {
           <Icon size={18} className={color} />
         </div>
       </div>
-      <p className="text-white text-2xl font-bold">{value}</p>
+      <p className="text-[#0a0a0a] text-2xl font-bold">{value}</p>
       <p className="text-[#737373] text-xs mt-1">{label}</p>
       {sub && <p className="text-[#a3a3a3] text-[11px] mt-0.5">{sub}</p>}
     </div>
@@ -298,7 +298,7 @@ function IntegrationCard({ name, status, desc, href }: {
     <div className="flex items-center gap-3 p-3 rounded-lg bg-[#fafaf7] border border-[#ececec]">
       <span className={`w-2 h-2 rounded-full ${colors[status]}`} />
       <div className="flex-1 min-w-0">
-        <p className="text-white text-sm font-medium flex items-center gap-1.5">
+        <p className="text-[#0a0a0a] text-sm font-medium flex items-center gap-1.5">
           {name}
           <span className="text-[10px] text-[#737373] uppercase tracking-wide">{labels[status]}</span>
         </p>

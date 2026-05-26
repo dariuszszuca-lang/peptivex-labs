@@ -45,19 +45,19 @@ export default function AdminLayout() {
           className="max-w-sm w-full text-center"
         >
           <div className="text-4xl mb-4">🔒</div>
-          <h1 className="text-white text-xl font-bold mb-4">Admin Panel</h1>
+          <h1 className="text-[#0a0a0a] text-xl font-bold mb-4">Admin Panel</h1>
           <input
             type="password"
             placeholder="Admin password"
             value={password}
             onChange={(e) => { setPassword(e.target.value); setLoginError(null); }}
             autoFocus
-            className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-4 py-3 text-white text-sm mb-3 focus:border-amber-500/40 focus:outline-none"
+            className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-4 py-3 text-[#0a0a0a] text-sm mb-3 focus:border-amber-500/40 focus:outline-none"
           />
           <button
             type="submit"
             disabled={loginLoading}
-            className="w-full bg-[#ea580c] text-white font-bold py-3 rounded-lg hover:bg-[#c2410c] disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 transition-colors"
+            className="w-full bg-[#ea580c] text-[#0a0a0a] font-bold py-3 rounded-lg hover:bg-[#c2410c] disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 transition-colors"
           >
             {loginLoading ? <Loader2 size={16} className="animate-spin" /> : null}
             Zaloguj

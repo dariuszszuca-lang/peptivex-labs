@@ -158,7 +158,7 @@ export default function AdminOrders() {
     <div className="p-6 max-w-6xl">
       <div className="mb-6 flex items-end justify-between gap-3 flex-wrap">
         <div>
-          <h1 className="text-white text-2xl font-bold mb-1">Zamówienia</h1>
+          <h1 className="text-[#0a0a0a] text-2xl font-bold mb-1">Zamówienia</h1>
           <p className="text-[#737373] text-sm">{orders.length} zamówień łącznie</p>
         </div>
         <div className="flex gap-2">
@@ -192,7 +192,7 @@ export default function AdminOrders() {
             value={search}
             onChange={e => setSearch(e.target.value)}
             placeholder="Szukaj po kliencie, emailu lub ID..."
-            className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg pl-10 pr-4 py-2.5 text-white text-sm focus:border-amber-500/40 focus:outline-none"
+            className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg pl-10 pr-4 py-2.5 text-[#0a0a0a] text-sm focus:border-amber-500/40 focus:outline-none"
           />
         </div>
         <div className="flex gap-2 flex-wrap">
@@ -235,7 +235,7 @@ export default function AdminOrders() {
       {!loading && filtered.length === 0 && !error ? (
         <div className="bg-[#fafaf7] border border-[#ececec] rounded-xl p-16 text-center">
           <div className="text-4xl mb-4 opacity-20">📦</div>
-          <h2 className="text-white text-lg font-semibold mb-2">{orders.length === 0 ? 'Brak zamówień' : 'Brak wyników'}</h2>
+          <h2 className="text-[#0a0a0a] text-lg font-semibold mb-2">{orders.length === 0 ? 'Brak zamówień' : 'Brak wyników'}</h2>
           <p className="text-[#737373] text-sm max-w-sm mx-auto">
             {orders.length === 0 ? 'Pierwsze zamówienie pojawi się tu po pierwszej płatności.' : 'Zmień filtry lub wyszukiwanie.'}
           </p>
@@ -264,11 +264,11 @@ export default function AdminOrders() {
                     <td className="px-4 py-3 text-[#525252] text-xs font-mono">{order.stripeSessionId.slice(-12)}</td>
                     <td className="px-4 py-3 text-[#737373] text-sm whitespace-nowrap">{formatDate(order.createdAt)}</td>
                     <td className="px-4 py-3">
-                      <p className="text-white text-sm">{order.customer.name || '—'}</p>
+                      <p className="text-[#0a0a0a] text-sm">{order.customer.name || '—'}</p>
                       <p className="text-[#a3a3a3] text-xs">{order.customer.email}</p>
                     </td>
                     <td className="px-4 py-3 text-[#525252] text-sm max-w-[200px] truncate" title={itemsLabel}>{itemsLabel}</td>
-                    <td className="px-4 py-3 text-white font-medium text-sm whitespace-nowrap">{formatPrice(order.amountTotal, order.currency)}</td>
+                    <td className="px-4 py-3 text-[#0a0a0a] font-medium text-sm whitespace-nowrap">{formatPrice(order.amountTotal, order.currency)}</td>
                     <td className="px-4 py-3 text-[#525252] text-sm uppercase">{order.lang}</td>
                     <td className="px-4 py-3">
                       <span className={`text-xs px-2 py-1 rounded-full font-medium ${sc.color}`}>
@@ -278,7 +278,7 @@ export default function AdminOrders() {
                     <td className="px-4 py-3 text-right">
                       <button
                         onClick={() => setOpenOrder(order)}
-                        className="p-1.5 rounded hover:bg-[#f5f5f0] text-[#737373] hover:text-white transition-colors"
+                        className="p-1.5 rounded hover:bg-[#f5f5f0] text-[#737373] hover:text-[#0a0a0a] transition-colors"
                       >
                         <Eye size={14} />
                       </button>
@@ -299,7 +299,7 @@ export default function AdminOrders() {
           >
             <div className="flex items-start justify-between mb-4">
               <div>
-                <h2 className="text-white text-lg font-bold">Zamówienie #{openOrder.stripeSessionId.slice(-12)}</h2>
+                <h2 className="text-[#0a0a0a] text-lg font-bold">Zamówienie #{openOrder.stripeSessionId.slice(-12)}</h2>
                 <p className="text-[#737373] text-xs">{formatDate(openOrder.createdAt)}</p>
               </div>
               <a
@@ -334,7 +334,7 @@ export default function AdminOrders() {
               </div>
               <div className="border-b border-[#ececec] pb-2">
                 <p className="text-[#737373] text-xs uppercase tracking-wide mb-1">Klient</p>
-                <p className="text-white">{openOrder.customer.name}</p>
+                <p className="text-[#0a0a0a]">{openOrder.customer.name}</p>
                 <p className="text-[#525252]">{openOrder.customer.email}</p>
                 {openOrder.customer.phone && <p className="text-[#525252]">{openOrder.customer.phone}</p>}
               </div>
@@ -362,7 +362,7 @@ export default function AdminOrders() {
                       });
                     }
                   }}
-                  className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-3 py-2 text-white text-sm font-mono focus:border-amber-500/40 focus:outline-none"
+                  className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-3 py-2 text-[#0a0a0a] text-sm font-mono focus:border-amber-500/40 focus:outline-none"
                 />
                 <p className="text-[#737373] text-xs mt-1">Wpisz numer + Tab — automatycznie zmieni status na &ldquo;Wysłane&rdquo;.</p>
               </div>
@@ -378,7 +378,7 @@ export default function AdminOrders() {
                       className={`text-xs px-3 py-1.5 rounded-lg border transition-colors ${
                         openOrder.status === s
                           ? 'bg-[#fff7ed] border-amber-500/30 text-[#ea580c] cursor-default'
-                          : 'bg-[#fafaf7] border-[#ececec] text-[#525252] hover:text-white hover:border-[#d4d4d4]'
+                          : 'bg-[#fafaf7] border-[#ececec] text-[#525252] hover:text-[#0a0a0a] hover:border-[#d4d4d4]'
                       }`}
                     >
                       {statusConfig[s].label}

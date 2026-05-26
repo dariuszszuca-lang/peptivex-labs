@@ -59,7 +59,7 @@ export default function BlogPostPage() {
       {/* Hero banner */}
       <div className="relative h-64 sm:h-80 overflow-hidden">
         <img src={post.heroImage} alt={title} className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-[#1a1a1a]/40 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 max-w-3xl mx-auto px-4 pb-8">
           <div className="flex items-center gap-3 mb-3">
             <span className="text-[10px] px-2 py-0.5 rounded bg-[#fff7ed] text-[#ea580c] uppercase tracking-wide font-semibold">
@@ -68,7 +68,7 @@ export default function BlogPostPage() {
             <span className="text-[#737373] text-xs flex items-center gap-1"><Calendar size={11} /> {post.date}</span>
             <span className="text-[#737373] text-xs flex items-center gap-1"><Clock size={11} /> {post.readTime} min</span>
           </div>
-          <h1 className="text-white text-2xl sm:text-3xl font-extrabold">{title}</h1>
+          <h1 className="text-[#0a0a0a] text-2xl sm:text-3xl font-extrabold">{title}</h1>
         </div>
       </div>
 
@@ -82,7 +82,7 @@ export default function BlogPostPage() {
           {sections.map((section: any, i: number) => (
             <section key={i}>
               {section.heading && (
-                <h2 className="text-white text-xl font-bold mb-4">{section.heading}</h2>
+                <h2 className="text-[#0a0a0a] text-xl font-bold mb-4">{section.heading}</h2>
               )}
               {section.image && (
                 <div className="rounded-xl overflow-hidden border border-[#ececec] mb-5">
@@ -108,13 +108,13 @@ export default function BlogPostPage() {
 
         {/* CTA */}
         <div className="mt-12 bg-[#fafaf7] border border-[#ececec] rounded-xl p-6 text-center">
-          <p className="text-white font-semibold mb-2">
+          <p className="text-[#0a0a0a] font-semibold mb-2">
             {pl ? 'Szukasz peptydów badawczych?' : 'Looking for research peptides?'}
           </p>
           <p className="text-[#737373] text-sm mb-4">
             {pl ? 'Sprawdź nasz katalog — czystość >98%, szybka dostawa InPost.' : 'Check our catalog — >98% purity, fast InPost delivery.'}
           </p>
-          <Link to={`/${lang}/products`} className="inline-flex items-center gap-2 bg-[#ea580c] text-white font-bold px-6 py-2.5 rounded-xl hover:bg-[#c2410c] transition-all text-sm">
+          <Link to={`/${lang}/products`} className="inline-flex items-center gap-2 bg-[#ea580c] text-[#0a0a0a] font-bold px-6 py-2.5 rounded-xl hover:bg-[#c2410c] transition-all text-sm">
             {pl ? 'Zobacz produkty' : 'Browse Products'}
           </Link>
         </div>

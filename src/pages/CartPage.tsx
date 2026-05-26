@@ -82,7 +82,7 @@ export default function CartPage() {
       <div className="max-w-2xl mx-auto px-4 py-20 text-center">
         {seoBlock}
         <div className="text-5xl mb-6 opacity-20">🛒</div>
-        <h1 className="text-white text-xl font-bold mb-3">{t('cart.empty')}</h1>
+        <h1 className="text-[#0a0a0a] text-xl font-bold mb-3">{t('cart.empty')}</h1>
         <Link to={`/${lang}/products`} className="text-[#ea580c] hover:text-[#ea580c] text-sm inline-flex items-center gap-1.5">
           <ArrowLeft size={14} /> {t('cart.continueShopping')}
         </Link>
@@ -93,7 +93,7 @@ export default function CartPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">
       {seoBlock}
-      <h1 className="text-white text-2xl font-bold mb-8">{t('cart.title')}</h1>
+      <h1 className="text-[#0a0a0a] text-2xl font-bold mb-8">{t('cart.title')}</h1>
 
       {/* Items */}
       <div className="flex flex-col gap-3 mb-8">
@@ -110,15 +110,15 @@ export default function CartPage() {
                 />
               </div>
               <div className="flex-1 min-w-0">
-                <h3 className="text-white text-sm font-semibold truncate">{name}</h3>
+                <h3 className="text-[#0a0a0a] text-sm font-semibold truncate">{name}</h3>
                 <p className="text-[#737373] text-xs">{item.product.dosage} · {t(`product.${item.product.format}`)}</p>
               </div>
               <div className="flex items-center bg-[#fafaf7] border border-[#ececec] rounded-lg">
-                <button onClick={() => updateQuantity(item.product.id, item.quantity - 1)} className="px-2 py-1 text-[#737373] hover:text-white">
+                <button onClick={() => updateQuantity(item.product.id, item.quantity - 1)} className="px-2 py-1 text-[#737373] hover:text-[#0a0a0a]">
                   <Minus size={12} />
                 </button>
-                <span className="text-white text-xs w-6 text-center">{item.quantity}</span>
-                <button onClick={() => updateQuantity(item.product.id, item.quantity + 1)} className="px-2 py-1 text-[#737373] hover:text-white">
+                <span className="text-[#0a0a0a] text-xs w-6 text-center">{item.quantity}</span>
+                <button onClick={() => updateQuantity(item.product.id, item.quantity + 1)} className="px-2 py-1 text-[#737373] hover:text-[#0a0a0a]">
                   <Plus size={12} />
                 </button>
               </div>
@@ -135,11 +135,11 @@ export default function CartPage() {
       <div className="bg-[#fafaf7] border border-[#ececec] rounded-xl p-6">
         <div className="flex justify-between text-sm mb-2">
           <span className="text-[#525252]">{lang === 'pl' ? 'Produkty' : 'Subtotal'}</span>
-          <span className="text-white">{formatPrice(total)}</span>
+          <span className="text-[#0a0a0a]">{formatPrice(total)}</span>
         </div>
         <div className="flex justify-between text-sm mb-4">
           <span className="text-[#525252]">{t('checkout.shipping')}</span>
-          <span className="text-white">
+          <span className="text-[#0a0a0a]">
             {shippingCost === 0
               ? (lang === 'pl' ? 'GRATIS' : 'FREE')
               : formatPrice(shippingCost)
@@ -152,7 +152,7 @@ export default function CartPage() {
           </p>
         )}
         <div className="border-t border-[#ececec] pt-4 flex justify-between items-center">
-          <span className="text-white font-bold">{t('cart.total')}</span>
+          <span className="text-[#0a0a0a] font-bold">{t('cart.total')}</span>
           <span className="text-[#ea580c] text-2xl font-extrabold">{formatPrice(grandTotal)}</span>
         </div>
 
@@ -196,7 +196,7 @@ export default function CartPage() {
         {accepted ? (
           <a
             href={buildMailto({ items, lang, formatPrice, priceKey, total, shippingCost, grandTotal })}
-            className="w-full mt-3 bg-[#ea580c] text-white font-semibold py-3 rounded-lg hover:bg-[#c2410c] transition-colors flex items-center justify-center gap-2"
+            className="w-full mt-3 bg-[#ea580c] text-[#0a0a0a] font-semibold py-3 rounded-lg hover:bg-[#c2410c] transition-colors flex items-center justify-center gap-2"
           >
             <Mail size={16} />
             {lang === 'pl' ? 'Wyślij zamówienie mailem' : 'Send order by email'}
@@ -204,7 +204,7 @@ export default function CartPage() {
         ) : (
           <button
             disabled
-            className="w-full mt-3 bg-[#ea580c] text-white font-semibold py-3 rounded-lg flex items-center justify-center gap-2 opacity-50 cursor-not-allowed"
+            className="w-full mt-3 bg-[#ea580c] text-[#0a0a0a] font-semibold py-3 rounded-lg flex items-center justify-center gap-2 opacity-50 cursor-not-allowed"
           >
             <Mail size={16} />
             {lang === 'pl' ? 'Wyślij zamówienie mailem' : 'Send order by email'}
