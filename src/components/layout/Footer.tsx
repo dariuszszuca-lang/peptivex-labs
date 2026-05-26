@@ -66,19 +66,11 @@ export default function Footer() {
 
         {/* Company details */}
         <div className="border-t border-[#ececec] pt-6 mb-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-[#737373] text-xs leading-relaxed">
-            <div>
-              <p className="text-[#1a1a1a] font-semibold mb-1">PEPTIVEXLABS LTD</p>
-              <p>{pl ? 'Numer firmy' : es ? 'Número de empresa' : 'Company number'}: 17178009</p>
-              <p>{pl ? 'Siedziba rejestrowa' : es ? 'Domicilio social' : 'Registered office'}:</p>
-              <p>66 Paul Street, London, EC2A 4NA, United Kingdom</p>
-            </div>
-            <div>
-              <p className="text-[#1a1a1a] font-semibold mb-1">{pl ? 'Adres korespondencyjny' : es ? 'Dirección operativa' : 'Operational address'}</p>
-              <p>4th Floor, The Featherstone Building</p>
-              <p>66 City Road, London, EC1Y 2AL</p>
-              <p>United Kingdom</p>
-            </div>
+          <div className="text-[#737373] text-xs leading-relaxed">
+            <p className="text-[#1a1a1a] font-semibold mb-1">PEPTIVEXLABS LTD</p>
+            <p>{pl ? 'Numer firmy' : es ? 'Número de empresa' : 'Company number'}: 17178009</p>
+            <p>{pl ? 'Siedziba rejestrowa' : es ? 'Domicilio social' : 'Registered office'}:</p>
+            <p>66 Paul Street, London, EC2A 4NA, United Kingdom</p>
           </div>
         </div>
 

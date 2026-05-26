@@ -150,17 +150,9 @@ export default function LegalNoticePage() {
                 <p className="text-[#737373] text-xs uppercase tracking-wide mb-2">
                   {pl ? 'Siedziba rejestrowa' : es ? 'Domicilio social' : 'Registered office'}
                 </p>
-                <p className="text-[#525252] leading-relaxed mb-4">
+                <p className="text-[#525252] leading-relaxed">
                   66 Paul Street<br />
                   London, EC2A 4NA<br />
-                  United Kingdom
-                </p>
-                <p className="text-[#737373] text-xs uppercase tracking-wide mb-2">
-                  {pl ? 'Adres korespondencyjny' : es ? 'Dirección operativa' : 'Operational address'}
-                </p>
-                <p className="text-[#525252] leading-relaxed">
-                  4th Floor, The Featherstone Building<br />
-                  66 City Road, London, EC1Y 2AL<br />
                   United Kingdom
                 </p>
               </div>

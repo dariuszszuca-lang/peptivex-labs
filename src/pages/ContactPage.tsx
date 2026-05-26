@@ -48,7 +48,7 @@ export default function ContactPage() {
               { icon: Mail, title: 'Email', value: 'info@peptivexlabs.com', color: 'text-[#ea580c]' },
               { icon: Clock, title: pl ? 'Czas odpowiedzi' : es ? 'Tiempo de respuesta' : 'Response Time', value: pl ? 'Do 24h w dni robocze' : es ? 'En un plazo de 24 horas en días laborables' : 'Within 24h on business days', color: 'text-emerald-400' },
               { icon: MessageCircle, title: 'Social', value: 'TikTok: @peptivexlabs', color: 'text-sky-400' },
-              { icon: Building2, title: pl ? 'Adres' : es ? 'Dirección' : 'Address', value: '4th Floor, The Featherstone Building, 66 City Road, London, EC1Y 2AL, UK', color: 'text-violet-400' },
+              { icon: Building2, title: pl ? 'Adres' : es ? 'Dirección' : 'Address', value: '66 Paul Street, London, EC2A 4NA, United Kingdom', color: 'text-violet-400' },
             ].map((item, i) => (
               <div key={i} className="group why-card relative rounded-2xl overflow-hidden transition-all duration-300">
                 <div className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-b from-amber-500/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
