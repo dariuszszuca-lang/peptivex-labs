@@ -346,7 +346,7 @@ export default function HomePage() {
                 }
               </p>
               <div className="rounded-2xl overflow-hidden border border-[#ececec] hidden lg:block">
-                <img src="/images/products/retatrutide-pens-20mg.jpg" alt="PEPTIVEX LABS Retatrutide research peptide pens" className="w-full h-48 object-cover" />
+                <img src="/images/products/retatrutide-set.jpg" alt="PEPTIVEX LABS Retatrutide research peptide set" className="w-full h-48 object-cover" />
               </div>
               <Link to={`/${lang}/faq`} className="mt-6 inline-flex items-center gap-2 text-[#ea580c] hover:text-[#c2410c] text-sm font-semibold border border-[#fed7aa] px-5 py-2 rounded-xl hover:bg-[#fff7ed] transition-all">
                 {pl ? 'Wszystkie pytania' : es ? 'Todas las preguntas' : 'All questions'} <ArrowRight size={14} />

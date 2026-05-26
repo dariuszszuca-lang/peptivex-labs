@@ -27,7 +27,7 @@ export default function HeroShowcase() {
           <span>BPC-157</span>
         </div>
         <div className="showcase-thumb showcase-thumb-brand">
-          <img src="/images/brand/peptivex-box.png" alt="PEPTIVEX packaging" />
+          <img src="/images/products/peptivex-pen-reusable.jpg" alt="PEPTIVEX reusable pen" />
           <span>Premium</span>
         </div>
       </div>

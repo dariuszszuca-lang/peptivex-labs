@@ -60,7 +60,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         heading: 'Jak produkuje się peptydy?',
-        image: '/images/brand/peptivex-box.png',
+        image: '/images/products/peptivex-pen-reusable.jpg',
         paragraphs: [
           'Peptydy badawcze produkowane są metodą syntezy w fazie stałej (SPPS — Solid Phase Peptide Synthesis). Proces polega na sekwencyjnym dołączaniu aminokwasów do rosnącego łańcucha, który jest zakotwiczony na stałym nośniku.',
           'Po syntezie peptyd jest oczyszczany metodą HPLC (High Performance Liquid Chromatography), co pozwala osiągnąć czystość powyżej 98%. Końcowy produkt jest liofilizowany — zamrażany i suszony próżniowo, co daje stabilny proszek nadający się do długotrwałego przechowywania.',
@@ -130,7 +130,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         heading: 'How are peptides manufactured?',
-        image: '/images/brand/peptivex-box.png',
+        image: '/images/products/peptivex-pen-reusable.jpg',
         paragraphs: [
           'Research peptides are manufactured using Solid Phase Peptide Synthesis (SPPS). The process involves sequentially adding amino acids to a growing chain anchored on a solid support.',
           'After synthesis, the peptide is purified using HPLC (High Performance Liquid Chromatography), achieving purity above 98%. The final product is lyophilized — frozen and vacuum-dried, producing a stable powder suitable for long-term storage.',
@@ -200,7 +200,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         heading: '¿Cómo se fabrican los péptidos?',
-        image: '/images/brand/peptivex-box.png',
+        image: '/images/products/peptivex-pen-reusable.jpg',
         paragraphs: [
           'Los péptidos de investigación se fabrican utilizando la Síntesis de Péptidos en Fase Sólida (SPPS). El proceso implica la adición secuencial de aminoácidos a una cadena creciente anclada en un soporte sólido.',
           'Después de la síntesis, el péptido se purifica utilizando HPLC (Cromatografía Líquida de Alta Eficacia), alcanzando una pureza superior al 98%. El producto final se liofiliza — congelado y secado al vacío, produciendo un polvo estable adecuado para el almacenamiento a largo plazo.',
@@ -729,7 +729,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         heading: 'Odchudzanie i metabolizm',
-        image: '/images/products/retatrutide-pens-20mg.jpg',
+        image: '/images/products/retatrutide-set.jpg',
         paragraphs: [
           'Kategoria Fat Loss / Metabolic to najszybciej rosnący segment peptydów badawczych. Kluczowe molekuły to:',
           'Retatrutide (GLP-3) — potrójny agonista receptorów GLP-1, GIP i glukagonu. Najnowsza generacja, faza 3 badań klinicznych Eli Lilly. Format pen (wstrzykiwacz), dawkowanie 0.5-2mg tygodniowo z powolną titracją.',
@@ -815,7 +815,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         heading: 'Weight loss and metabolism',
-        image: '/images/products/retatrutide-pens-20mg.jpg',
+        image: '/images/products/retatrutide-set.jpg',
         paragraphs: [
           'The Fat Loss / Metabolic category is the fastest-growing segment of research peptides. Key molecules include:',
           'Retatrutide (GLP-3) — triple agonist targeting GLP-1, GIP, and glucagon receptors. Latest generation, phase 3 clinical trials by Eli Lilly. Pen format (injector), dosing 0.5-2mg weekly with slow titration.',
@@ -901,7 +901,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         heading: 'Pérdida de peso y metabolismo',
-        image: '/images/products/retatrutide-pens-20mg.jpg',
+        image: '/images/products/retatrutide-set.jpg',
         paragraphs: [
           'La categoría de Pérdida de Grasa / Metabólica es el segmento de más rápido crecimiento de los péptidos de investigación. Las moléculas clave incluyen:',
           'Retatrutide (GLP-3) — agonista triple que se dirige a los receptores GLP-1, GIP y glucagón. Última generación, ensayos clínicos de fase 3 por Eli Lilly. Formato de pluma (inyector), dosificación de 0.5-2mg semanalmente con titulación lenta.',
