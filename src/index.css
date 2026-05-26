@@ -2,7 +2,7 @@
 
 body {
   margin: 0;
-  background: #0c0a08;
+  background: #2a2520;
   font-family: 'Inter', -apple-system, 'Segoe UI', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
@@ -253,26 +253,26 @@ body {
 
 /* ====== SECTION BACKGROUNDS ====== */
 .section-warm {
-  background: linear-gradient(180deg, #14100a 0%, #0c0a08 100%);
+  background: linear-gradient(180deg, #322b24 0%, #2a2520 100%);
   box-shadow: inset 0 1px 0 rgba(249,115,22,0.06);
 }
 
 .section-dark {
-  background: linear-gradient(180deg, #0e0c09 0%, #0c0a08 100%);
+  background: linear-gradient(180deg, #2c2620 0%, #2a2520 100%);
   border-top: 1px solid rgba(249,115,22,0.06);
   border-bottom: 1px solid rgba(249,115,22,0.06);
 }
 
 .section-accent {
-  background: linear-gradient(135deg, #140f08 0%, #0c0a08 50%, #100d08 100%);
+  background: linear-gradient(135deg, #332c23 0%, #2a2520 50%, #2e2820 100%);
 }
 
 .hero-section {
-  background: linear-gradient(160deg, #181208 0%, #0c0a08 40%, #100e0a 100%);
+  background: linear-gradient(160deg, #38302a 0%, #2a2520 40%, #2f2922 100%);
 }
 
 .cta-section {
-  background: linear-gradient(135deg, #1a1208 0%, #0c0a08 100%);
+  background: linear-gradient(135deg, #3a3024 0%, #2a2520 100%);
 }
 
 /* ====== NOISE TEXTURE ====== */
@@ -323,8 +323,8 @@ body {
 
 /* ====== CATEGORY CARD ====== */
 .cat-card {
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
   transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 

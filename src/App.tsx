@@ -1,9 +1,9 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { CartProvider } from './contexts/CartContext';
 import AgeGate from './components/AgeGate';
 import Layout from './components/layout/Layout';
-import SplashPage from './pages/SplashPage';
 import HomePage from './pages/HomePage';
 import ProductsPage from './pages/ProductsPage';
 import ProductDetailPage from './pages/ProductDetailPage';
@@ -30,6 +30,16 @@ import AdminShipping from './pages/admin/AdminShipping';
 import AdminPayments from './pages/admin/AdminPayments';
 import AdminSettings from './pages/admin/AdminSettings';
 
+function RootRedirect() {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const n = navigator.language?.toLowerCase() ?? '';
+    const lang = n.startsWith('pl') ? 'pl' : n.startsWith('es') ? 'es' : 'en';
+    navigate(`/${lang}`, { replace: true });
+  }, [navigate]);
+  return null;
+}
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -37,8 +47,7 @@ export default function App() {
       <LanguageProvider>
         <CartProvider>
           <Routes>
-            {/* Splash — language selection */}
-            <Route path="/" element={<SplashPage />} />
+            <Route path="/" element={<RootRedirect />} />
 
             {/* PL Routes */}
             <Route path="/pl" element={<Layout />}>

@@ -46,8 +46,8 @@ export default function AgeGate({ children }: Props) {
 
   return (
     <>
-      <div className="fixed inset-0 z-[100] bg-[#060606]/95 backdrop-blur-md flex items-center justify-center p-4">
-        <div className="max-w-md w-full bg-[#13110f] border border-amber-500/20 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.6),0_0_40px_rgba(249,115,22,0.08)] overflow-hidden">
+      <div className="fixed inset-0 z-[100] bg-[#1f1a16]/95 backdrop-blur-md flex items-center justify-center p-4">
+        <div className="max-w-md w-full bg-[#2f2a24] border border-amber-500/20 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.6),0_0_40px_rgba(249,115,22,0.08)] overflow-hidden">
           <div className="p-6 sm:p-8">
             <div className="flex items-center gap-3 mb-5">
               <div className="w-11 h-11 rounded-xl bg-amber-500/10 border border-amber-500/25 flex items-center justify-center shrink-0">
