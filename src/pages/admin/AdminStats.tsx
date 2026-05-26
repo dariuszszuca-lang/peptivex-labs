@@ -90,11 +90,11 @@ export default function AdminStats() {
       <div className="mb-6 flex items-end justify-between">
         <div>
           <h1 className="text-white text-2xl font-bold mb-1">Statystyki</h1>
-          <p className="text-white/40 text-sm">Przychody, zamówienia, trendy</p>
+          <p className="text-[#737373] text-sm">Przychody, zamówienia, trendy</p>
         </div>
         <button
           onClick={load}
-          className="bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] text-white/70 px-3 py-1.5 rounded-lg text-xs flex items-center gap-1.5 transition-colors"
+          className="bg-[#fafaf7] hover:bg-[#f5f5f0] border border-[#ececec] text-[#525252] px-3 py-1.5 rounded-lg text-xs flex items-center gap-1.5 transition-colors"
         >
           <RefreshCw size={12} className={loading ? 'animate-spin' : ''} /> Odśwież
         </button>
@@ -103,7 +103,7 @@ export default function AdminStats() {
       {error && (
         <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 mb-6">
           <p className="text-red-400 text-sm font-semibold mb-1">Błąd</p>
-          <p className="text-white/50 text-xs font-mono break-all">{error}</p>
+          <p className="text-[#525252] text-xs font-mono break-all">{error}</p>
         </div>
       )}
 
@@ -117,14 +117,14 @@ export default function AdminStats() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Daily orders chart */}
-        <div className="bg-white/[0.03] border border-white/[0.06] rounded-xl p-5">
+        <div className="bg-[#fafaf7] border border-[#ececec] rounded-xl p-5">
           <div className="flex items-center gap-2 mb-4">
-            <TrendingUp size={16} className="text-amber-500" />
+            <TrendingUp size={16} className="text-[#ea580c]" />
             <h3 className="text-white font-semibold text-sm">Zamówienia — ostatnie 30 dni</h3>
           </div>
           {dailyEntries.length === 0 ? (
-            <div className="h-40 flex items-center justify-center border border-dashed border-white/[0.06] rounded-lg">
-              <p className="text-white/20 text-sm">Brak danych</p>
+            <div className="h-40 flex items-center justify-center border border-dashed border-[#ececec] rounded-lg">
+              <p className="text-[#a3a3a3] text-sm">Brak danych</p>
             </div>
           ) : (
             <div className="flex items-end gap-1 h-40">
@@ -134,7 +134,7 @@ export default function AdminStats() {
                   className="flex-1 flex flex-col items-center justify-end group relative"
                 >
                   <div
-                    className={`w-full rounded-t ${count > 0 ? 'bg-amber-500/60 group-hover:bg-amber-400' : 'bg-white/[0.04]'} transition-colors`}
+                    className={`w-full rounded-t ${count > 0 ? 'bg-amber-500/60 group-hover:bg-[#c2410c]' : 'bg-[#fafaf7]'} transition-colors`}
                     style={{ height: `${(count / maxDaily) * 100}%`, minHeight: count > 0 ? '4px' : '2px' }}
                   />
                   <div className="absolute bottom-full mb-1 opacity-0 group-hover:opacity-100 bg-black/90 text-white text-xs px-2 py-1 rounded whitespace-nowrap pointer-events-none z-10">
@@ -144,18 +144,18 @@ export default function AdminStats() {
               ))}
             </div>
           )}
-          <p className="text-white/30 text-[11px] mt-2">Łącznie ten miesiąc: {stats?.ordersMonth ?? '—'}</p>
+          <p className="text-[#737373] text-[11px] mt-2">Łącznie ten miesiąc: {stats?.ordersMonth ?? '—'}</p>
         </div>
 
         {/* Top products */}
-        <div className="bg-white/[0.03] border border-white/[0.06] rounded-xl p-5">
+        <div className="bg-[#fafaf7] border border-[#ececec] rounded-xl p-5">
           <div className="flex items-center gap-2 mb-4">
-            <Package size={16} className="text-amber-500" />
+            <Package size={16} className="text-[#ea580c]" />
             <h3 className="text-white font-semibold text-sm">Najpopularniejsze produkty</h3>
           </div>
           {!stats || stats.topProducts.length === 0 ? (
-            <div className="h-40 flex items-center justify-center border border-dashed border-white/[0.06] rounded-lg">
-              <p className="text-white/20 text-sm">Brak sprzedaży</p>
+            <div className="h-40 flex items-center justify-center border border-dashed border-[#ececec] rounded-lg">
+              <p className="text-[#a3a3a3] text-sm">Brak sprzedaży</p>
             </div>
           ) : (
             <div className="space-y-2">
@@ -164,10 +164,10 @@ export default function AdminStats() {
                 return (
                   <div key={p.name}>
                     <div className="flex justify-between text-xs mb-1">
-                      <span className="text-white/70 truncate flex-1">{p.name}</span>
-                      <span className="text-amber-400 font-semibold ml-2">{p.quantity}×</span>
+                      <span className="text-[#525252] truncate flex-1">{p.name}</span>
+                      <span className="text-[#ea580c] font-semibold ml-2">{p.quantity}×</span>
                     </div>
-                    <div className="h-1.5 bg-white/[0.04] rounded-full overflow-hidden">
+                    <div className="h-1.5 bg-[#fafaf7] rounded-full overflow-hidden">
                       <div className="h-full bg-amber-500/60 rounded-full" style={{ width: `${(p.quantity / maxQty) * 100}%` }} />
                     </div>
                   </div>
@@ -178,9 +178,9 @@ export default function AdminStats() {
         </div>
 
         {/* Status split */}
-        <div className="bg-white/[0.03] border border-white/[0.06] rounded-xl p-5">
+        <div className="bg-[#fafaf7] border border-[#ececec] rounded-xl p-5">
           <div className="flex items-center gap-2 mb-4">
-            <BarChart3 size={16} className="text-amber-500" />
+            <BarChart3 size={16} className="text-[#ea580c]" />
             <h3 className="text-white font-semibold text-sm">Statusy zamówień</h3>
           </div>
           <div className="space-y-2">
@@ -191,10 +191,10 @@ export default function AdminStats() {
               return (
                 <div key={s}>
                   <div className="flex justify-between text-xs mb-1">
-                    <span className="text-white/70">{statusLabels[s]}</span>
-                    <span className="text-white/50">{count}</span>
+                    <span className="text-[#525252]">{statusLabels[s]}</span>
+                    <span className="text-[#525252]">{count}</span>
                   </div>
-                  <div className="h-1.5 bg-white/[0.04] rounded-full overflow-hidden">
+                  <div className="h-1.5 bg-[#fafaf7] rounded-full overflow-hidden">
                     <div className={`h-full ${statusColors[s]} rounded-full opacity-60`} style={{ width: `${percent}%` }} />
                   </div>
                 </div>
@@ -204,14 +204,14 @@ export default function AdminStats() {
         </div>
 
         {/* Lang split */}
-        <div className="bg-white/[0.03] border border-white/[0.06] rounded-xl p-5">
+        <div className="bg-[#fafaf7] border border-[#ececec] rounded-xl p-5">
           <div className="flex items-center gap-2 mb-4">
-            <BarChart3 size={16} className="text-amber-500" />
+            <BarChart3 size={16} className="text-[#ea580c]" />
             <h3 className="text-white font-semibold text-sm">Języki zamówień</h3>
           </div>
           {langTotal === 0 ? (
-            <div className="h-40 flex items-center justify-center border border-dashed border-white/[0.06] rounded-lg">
-              <p className="text-white/20 text-sm">Brak danych</p>
+            <div className="h-40 flex items-center justify-center border border-dashed border-[#ececec] rounded-lg">
+              <p className="text-[#a3a3a3] text-sm">Brak danych</p>
             </div>
           ) : (
             <div className="space-y-2">
@@ -221,10 +221,10 @@ export default function AdminStats() {
                 return (
                   <div key={lang}>
                     <div className="flex justify-between text-xs mb-1">
-                      <span className="text-white/70">{flag} {lang.toUpperCase()}</span>
-                      <span className="text-white/50">{count} ({percent.toFixed(0)}%)</span>
+                      <span className="text-[#525252]">{flag} {lang.toUpperCase()}</span>
+                      <span className="text-[#525252]">{count} ({percent.toFixed(0)}%)</span>
                     </div>
-                    <div className="h-1.5 bg-white/[0.04] rounded-full overflow-hidden">
+                    <div className="h-1.5 bg-[#fafaf7] rounded-full overflow-hidden">
                       <div className="h-full bg-sky-500/60 rounded-full" style={{ width: `${percent}%` }} />
                     </div>
                   </div>
@@ -237,15 +237,15 @@ export default function AdminStats() {
 
       {/* Top products revenue table */}
       {stats && stats.topProducts.length > 0 && (
-        <div className="mt-6 bg-white/[0.03] border border-white/[0.06] rounded-xl p-5">
+        <div className="mt-6 bg-[#fafaf7] border border-[#ececec] rounded-xl p-5">
           <h3 className="text-white font-semibold text-sm mb-4">Przychód per produkt</h3>
           <div className="space-y-1">
             {stats.topProducts.map(p => (
-              <div key={p.name} className="flex justify-between py-1.5 border-b border-white/[0.04] last:border-0">
-                <span className="text-white/70 text-sm">{p.name}</span>
+              <div key={p.name} className="flex justify-between py-1.5 border-b border-[#ececec] last:border-0">
+                <span className="text-[#525252] text-sm">{p.name}</span>
                 <div className="flex gap-3">
-                  <span className="text-white/40 text-xs">{p.quantity}×</span>
-                  <span className="text-amber-400 text-sm font-semibold">
+                  <span className="text-[#737373] text-xs">{p.quantity}×</span>
+                  <span className="text-[#ea580c] text-sm font-semibold">
                     {Object.entries(p.revenue).map(([c, a]) => formatPrice(a, c)).join(' · ')}
                   </span>
                 </div>
@@ -260,9 +260,9 @@ export default function AdminStats() {
 
 function SummaryCard({ label, value, highlight }: { label: string; value: string; highlight?: boolean }) {
   return (
-    <div className="bg-white/[0.03] border border-white/[0.06] rounded-xl p-4">
+    <div className="bg-[#fafaf7] border border-[#ececec] rounded-xl p-4">
       <p className={`text-${highlight ? 'amber-400' : 'white'} text-lg font-bold leading-tight`}>{value}</p>
-      <p className="text-white/30 text-xs mt-1">{label}</p>
+      <p className="text-[#737373] text-xs mt-1">{label}</p>
     </div>
   );
 }

@@ -28,7 +28,7 @@ const FAQ_DATA: FaqCategory[] = [
     label_pl: 'Ogólne',
     label_en: 'General',
     icon: FlaskConical,
-    color: 'text-amber-400',
+    color: 'text-[#ea580c]',
     items: [
       { q_pl: 'Czym są peptydy badawcze?', q_en: 'What are research peptides?', a_pl: 'Peptydy badawcze to syntetyczne łańcuchy aminokwasów przeznaczone wyłącznie do zastosowań laboratoryjnych i naukowych. Nie są zarejestrowanymi lekami ani suplementami diety. Każdy peptyd w naszej ofercie jest testowany pod kątem czystości metodą HPLC i spełnia normy powyżej 98%.', a_en: 'Research peptides are synthetic amino acid chains intended exclusively for laboratory and scientific use. They are not registered drugs or dietary supplements. Every peptide in our catalog is HPLC-tested for purity and meets standards above 98%.' },
       { q_pl: 'Czy potrzebuję kwalifikacji, żeby kupić?', q_en: 'Do I need qualifications to purchase?', a_pl: 'Nasze produkty są przeznaczone do zastosowań badawczych. Przy składaniu zamówienia potwierdzasz, że zakup jest do celów badawczych i laboratoryjnych. Nie wymagamy formalnych certyfikatów.', a_en: 'Our products are intended for research use. When placing an order, you confirm that the purchase is for research and laboratory purposes. We do not require formal certificates.' },
@@ -125,10 +125,10 @@ export default function FaqPage() {
       {/* Hero */}
       <div className="relative overflow-hidden py-16 sm:py-20">
         <div className="absolute inset-0 bg-gradient-to-b from-amber-900/[0.1] via-[#0c0a08] to-[#0c0a08]" />
-        <HexPattern className="text-amber-500/[0.03]" />
-        <div className="absolute top-0 right-1/3 w-[300px] h-[300px] rounded-full bg-amber-500/[0.06] blur-[100px]" />
+        <HexPattern className="text-[#ea580c]/[0.03]" />
+        <div className="absolute top-0 right-1/3 w-[300px] h-[300px] rounded-full bg-[#fff7ed] blur-[100px]" />
         <div className="max-w-4xl mx-auto px-4 relative z-10">
-          <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">FAQ</p>
+          <p className="text-[#ea580c] text-xs tracking-[0.3em] uppercase mb-3">FAQ</p>
           <h1 className="text-white text-3xl sm:text-4xl font-extrabold mb-4">
             {pl ? (
               <>Najczęściej zadawane <span className="text-gradient">pytania</span></>
@@ -138,19 +138,19 @@ export default function FaqPage() {
               <>Frequently asked <span className="text-gradient">questions</span></>
             )}
           </h1>
-          <p className="text-white/40 max-w-lg mb-8">
+          <p className="text-[#737373] max-w-lg mb-8">
             {pl ? 'Nie znalazłeś odpowiedzi? Napisz do nas — odpowiadamy w ciągu 24h.' : "Can't find your answer? Contact us — we respond within 24h."}
           </p>
 
           {/* Search */}
           <div className="relative max-w-md">
-            <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30" />
+            <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-[#737373]" />
             <input
               type="text"
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
               placeholder={pl ? 'Szukaj w FAQ...' : es ? 'Buscar FAQ...' : 'Search FAQ...'}
-              className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl pl-11 pr-4 py-3 text-white text-sm placeholder:text-white/25 focus:border-amber-500/40 focus:outline-none transition-colors"
+              className="w-full bg-[#fafaf7] border border-[#ececec] rounded-xl pl-11 pr-4 py-3 text-white text-sm placeholder:text-[#a3a3a3] focus:border-amber-500/40 focus:outline-none transition-colors"
             />
           </div>
         </div>
@@ -160,22 +160,22 @@ export default function FaqPage() {
         {searchResults ? (
           /* Search results */
           <div>
-            <p className="text-white/40 text-sm mb-6">{searchResults.length} {pl ? 'wyników' : es ? 'resultados' : 'results'}</p>
+            <p className="text-[#737373] text-sm mb-6">{searchResults.length} {pl ? 'wyników' : es ? 'resultados' : 'results'}</p>
             <div className="flex flex-col gap-3">
               {searchResults.map(item => (
-                <div key={item.id} className={`rounded-2xl overflow-hidden transition-all duration-300 ${open === item.id ? 'bg-gradient-to-r from-amber-500/[0.06] to-transparent border border-amber-500/20' : 'bg-white/[0.03] border border-white/[0.06] hover:border-white/[0.1]'}`}>
+                <div key={item.id} className={`rounded-2xl overflow-hidden transition-all duration-300 ${open === item.id ? 'bg-gradient-to-r from-amber-500/[0.06] to-transparent border border-[#fed7aa]' : 'bg-[#fafaf7] border border-[#ececec] hover:border-[#ececec]'}`}>
                   <button onClick={() => toggleFaq(item.id)} className="w-full flex items-center gap-4 px-6 py-5 text-left">
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${open === item.id ? 'bg-amber-500/20' : 'bg-white/[0.04]'}`}>
+                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${open === item.id ? 'bg-[#fff7ed]' : 'bg-[#fafaf7]'}`}>
                       <item.icon size={14} className={item.color} />
                     </div>
-                    <span className={`font-medium flex-1 ${open === item.id ? 'text-white' : 'text-white/70'}`}>{pl ? item.q_pl : item.q_en}</span>
+                    <span className={`font-medium flex-1 ${open === item.id ? 'text-white' : 'text-[#525252]'}`}>{pl ? item.q_pl : item.q_en}</span>
                     <div className={`shrink-0 transition-transform duration-300 ${open === item.id ? 'rotate-180' : ''}`}>
-                      <ChevronDown size={16} className={open === item.id ? 'text-amber-500' : 'text-white/20'} />
+                      <ChevronDown size={16} className={open === item.id ? 'text-[#ea580c]' : 'text-[#a3a3a3]'} />
                     </div>
                   </button>
                   {open === item.id && (
                     <div className="px-6 pb-5 pl-[4.5rem]">
-                      <p className="text-white/50 text-sm leading-[1.8]">{pl ? item.a_pl : item.a_en}</p>
+                      <p className="text-[#525252] text-sm leading-[1.8]">{pl ? item.a_pl : item.a_en}</p>
                     </div>
                   )}
                 </div>
@@ -193,13 +193,13 @@ export default function FaqPage() {
                   onClick={() => { setActiveCategory(cat.key); setOpen(null); }}
                   className={`flex items-center gap-3 px-4 py-3 rounded-xl text-left whitespace-nowrap transition-all ${
                     activeCategory === cat.key
-                      ? 'bg-amber-500/10 border border-amber-500/20 text-white shadow-[0_0_20px_rgba(249,115,22,0.06)]'
-                      : 'bg-white/[0.02] border border-white/[0.04] text-white/40 hover:text-white/60 hover:border-white/[0.08]'
+                      ? 'bg-[#fff7ed] border border-[#fed7aa] text-white shadow-[0_0_20px_rgba(249,115,22,0.06)]'
+                      : 'bg-[#fafaf7] border border-[#ececec] text-[#737373] hover:text-[#525252] hover:border-[#ececec]'
                   }`}
                 >
-                  <cat.icon size={16} className={activeCategory === cat.key ? 'text-amber-400' : cat.color} />
+                  <cat.icon size={16} className={activeCategory === cat.key ? 'text-[#ea580c]' : cat.color} />
                   <span className="text-sm font-medium">{pl ? cat.label_pl : cat.label_en}</span>
-                  <span className="text-xs text-white/20 ml-auto">{cat.items.length}</span>
+                  <span className="text-xs text-[#a3a3a3] ml-auto">{cat.items.length}</span>
                 </button>
               ))}
             </div>
@@ -210,19 +210,19 @@ export default function FaqPage() {
                 const id = `${currentCategory.key}-${i}`;
                 const isOpen = open === id;
                 return (
-                  <div key={id} className={`rounded-2xl overflow-hidden transition-all duration-300 ${isOpen ? 'bg-gradient-to-r from-amber-500/[0.06] to-transparent border border-amber-500/20 shadow-[0_0_30px_rgba(249,115,22,0.06)]' : 'bg-white/[0.03] border border-white/[0.06] hover:border-white/[0.1]'}`}>
+                  <div key={id} className={`rounded-2xl overflow-hidden transition-all duration-300 ${isOpen ? 'bg-gradient-to-r from-amber-500/[0.06] to-transparent border border-[#fed7aa] shadow-[0_0_30px_rgba(249,115,22,0.06)]' : 'bg-[#fafaf7] border border-[#ececec] hover:border-[#ececec]'}`}>
                     <button onClick={() => toggleFaq(id)} className="w-full flex items-center gap-4 px-6 py-5 text-left">
-                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 ${isOpen ? 'bg-amber-500/20 text-amber-400' : 'bg-white/[0.04] text-white/20'}`}>
+                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300 ${isOpen ? 'bg-[#fff7ed] text-[#ea580c]' : 'bg-[#fafaf7] text-[#a3a3a3]'}`}>
                         <span className="text-xs font-bold">{String(i + 1).padStart(2, '0')}</span>
                       </div>
-                      <span className={`font-medium flex-1 pr-4 transition-colors ${isOpen ? 'text-white' : 'text-white/70'}`}>{pl ? faq.q_pl : faq.q_en}</span>
+                      <span className={`font-medium flex-1 pr-4 transition-colors ${isOpen ? 'text-white' : 'text-[#525252]'}`}>{pl ? faq.q_pl : faq.q_en}</span>
                       <div className={`shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
-                        <ChevronDown size={16} className={isOpen ? 'text-amber-500' : 'text-white/20'} />
+                        <ChevronDown size={16} className={isOpen ? 'text-[#ea580c]' : 'text-[#a3a3a3]'} />
                       </div>
                     </button>
                     {isOpen && (
                       <div className="px-6 pb-5 pl-[4.5rem]">
-                        <p className="text-white/50 text-sm leading-[1.8]">{pl ? faq.a_pl : faq.a_en}</p>
+                        <p className="text-[#525252] text-sm leading-[1.8]">{pl ? faq.a_pl : faq.a_en}</p>
                       </div>
                     )}
                   </div>
@@ -236,14 +236,14 @@ export default function FaqPage() {
         <div className="mt-16 relative rounded-2xl overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-amber-500/[0.08] to-transparent" />
           <div className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-r from-amber-500/20 to-transparent">
-            <div className="w-full h-full rounded-2xl bg-[#0e0c09]" />
+            <div className="w-full h-full rounded-2xl bg-white" />
           </div>
           <div className="relative z-10 p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
               <h3 className="text-white text-xl font-bold mb-2">{pl ? 'Nie znalazłeś odpowiedzi?' : "Didn't find your answer?"}</h3>
-              <p className="text-white/40 text-sm">{pl ? 'Napisz do nas — odpowiadamy w ciągu 24 godzin.' : es ? 'Contáctenos — respondemos en un plazo de 24 horas.' : 'Contact us — we respond within 24 hours.'}</p>
+              <p className="text-[#737373] text-sm">{pl ? 'Napisz do nas — odpowiadamy w ciągu 24 godzin.' : es ? 'Contáctenos — respondemos en un plazo de 24 horas.' : 'Contact us — we respond within 24 hours.'}</p>
             </div>
-            <Link to={`/${lang}/contact`} className="cta-primary bg-amber-500 text-black font-bold px-6 py-3 rounded-xl hover:bg-amber-400 transition-all text-sm flex items-center gap-2 shrink-0">
+            <Link to={`/${lang}/contact`} className="cta-primary bg-[#ea580c] text-white font-bold px-6 py-3 rounded-xl hover:bg-[#c2410c] transition-all text-sm flex items-center gap-2 shrink-0">
               {pl ? 'Kontakt' : es ? 'Contáctenos' : 'Contact Us'} <ArrowRight size={14} />
             </Link>
           </div>

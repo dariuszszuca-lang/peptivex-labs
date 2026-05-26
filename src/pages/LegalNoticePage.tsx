@@ -63,7 +63,7 @@ export default function LegalNoticePage() {
       {/* Hero */}
       <div className="relative overflow-hidden py-16">
         <div className="absolute inset-0 bg-gradient-to-b from-red-900/[0.1] via-[#0c0a08] to-[#0c0a08]" />
-        <HexPattern className="text-amber-500/[0.02]" />
+        <HexPattern className="text-[#ea580c]/[0.02]" />
         <div className="max-w-3xl mx-auto px-4 relative z-10">
           <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 rounded-full px-4 py-1.5 mb-4">
             <AlertTriangle size={12} className="text-red-400" />
@@ -72,7 +72,7 @@ export default function LegalNoticePage() {
           <h1 className="text-white text-3xl sm:text-4xl font-extrabold mb-4">
             {pl ? 'Informacja prawna' : es ? 'Aviso Legal' : 'Legal Notice'}
           </h1>
-          <p className="text-white/40 max-w-lg">{pl ? 'Zastrzeżenie dotyczące użytkowania produktów' : es ? 'Descargo de Responsabilidad sobre el Uso del Producto' : 'Product Use Disclaimer'}</p>
+          <p className="text-[#737373] max-w-lg">{pl ? 'Zastrzeżenie dotyczące użytkowania produktów' : es ? 'Descargo de Responsabilidad sobre el Uso del Producto' : 'Product Use Disclaimer'}</p>
         </div>
       </div>
 
@@ -80,14 +80,14 @@ export default function LegalNoticePage() {
         {/* Intro */}
         <div className="relative rounded-2xl overflow-hidden mb-8">
           <div className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-b from-amber-500/20 to-transparent">
-            <div className="w-full h-full rounded-2xl bg-[#0e0c09]" />
+            <div className="w-full h-full rounded-2xl bg-white" />
           </div>
           <div className="relative z-10 p-6">
-            <p className="text-white/60 text-[15px] leading-[1.8]">
+            <p className="text-[#525252] text-[15px] leading-[1.8]">
               {pl ? 'Produkty sprzedawane przez PEPTIVEX LABS są przeznaczone wyłącznie do badań laboratoryjnych, analiz chemicznych i celów edukacyjnych. Nie są przeznaczone do użytku na ludziach ani zwierzętach, ani do stosowania w jakichkolwiek procedurach medycznych, diagnostycznych lub terapeutycznych.' : es ? 'Los productos vendidos por PEPTIVEX LABS están destinados estrictamente a la investigación de laboratorio, el análisis químico y fines educativos. No están destinados al consumo humano o animal, ni a su uso en ningún procedimiento médico, diagnóstico o terapéutico.' : 'The products sold by PEPTIVEX LABS are intended strictly for laboratory research, chemical analysis, and educational purposes. They are not intended for human or animal consumption, nor for use in any medical, diagnostic, or therapeutic procedures.'
               }
             </p>
-            <p className="text-white/50 text-[15px] leading-[1.8] mt-4">
+            <p className="text-[#525252] text-[15px] leading-[1.8] mt-4">
               {pl ? 'Dokonując zakupu w PEPTIVEX LABS, przyjmujesz do wiadomości i zgadzasz się z następującymi warunkami:' : es ? 'Al comprar en PEPTIVEX LABS, usted reconoce y acepta los siguientes términos:' : 'By purchasing from PEPTIVEX LABS, you acknowledge and agree to the following terms:'
               }
             </p>
@@ -99,23 +99,23 @@ export default function LegalNoticePage() {
           {sections.map((s, i) => (
             <div key={i} className="group why-card relative rounded-2xl overflow-hidden">
               <div className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-b from-white/[0.06] to-transparent opacity-50 group-hover:opacity-100 group-hover:from-amber-500/20 transition-all duration-300">
-                <div className="w-full h-full rounded-2xl bg-[#0e0c09]" />
+                <div className="w-full h-full rounded-2xl bg-white" />
               </div>
               <div className="relative z-10 p-6">
                 <h2 className="text-white text-lg font-bold mb-3">{s.title}</h2>
-                <p className="text-white/45 text-sm leading-[1.8]">{s.text}</p>
+                <p className="text-[#525252] text-sm leading-[1.8]">{s.text}</p>
               </div>
             </div>
           ))}
         </div>
 
         {/* Bottom disclaimer */}
-        <div className="mt-10 bg-amber-500/[0.06] border border-amber-500/20 rounded-2xl p-6 text-center">
-          <AlertTriangle size={20} className="text-amber-500 mx-auto mb-3" />
-          <p className="text-amber-400 text-xs font-bold uppercase tracking-wide mb-2">
+        <div className="mt-10 bg-[#fff7ed] border border-[#fed7aa] rounded-2xl p-6 text-center">
+          <AlertTriangle size={20} className="text-[#ea580c] mx-auto mb-3" />
+          <p className="text-[#ea580c] text-xs font-bold uppercase tracking-wide mb-2">
             {pl ? 'ODCZYNNIK LABORATORYJNY. DO CELÓW BADAWCZYCH' : es ? 'REACTIVO DE LABORATORIO. SOLO PARA USO EN INVESTIGACIÓN' : 'LABORATORY REAGENT. FOR RESEARCH USE ONLY'}
           </p>
-          <p className="text-white/40 text-sm">
+          <p className="text-[#737373] text-sm">
             {pl ? 'Składając zamówienie w PEPTIVEX LABS, potwierdzasz, że przeczytałeś i akceptujesz powyższe warunki.' : es ? 'Al realizar un pedido con PEPTIVEX LABS, usted confirma que ha leído y acepta los términos anteriores.' : 'By placing an order with PEPTIVEX LABS, you confirm that you have read and accept the above terms.'
             }
           </p>
@@ -124,7 +124,7 @@ export default function LegalNoticePage() {
         {/* Company details */}
         <div className="mt-10 relative rounded-2xl overflow-hidden">
           <div className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-b from-white/[0.08] to-transparent">
-            <div className="w-full h-full rounded-2xl bg-[#0e0c09]" />
+            <div className="w-full h-full rounded-2xl bg-white" />
           </div>
           <div className="relative z-10 p-6">
             <h2 className="text-white text-lg font-bold mb-4">
@@ -132,40 +132,40 @@ export default function LegalNoticePage() {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
               <div>
-                <p className="text-white/40 text-xs uppercase tracking-wide mb-2">
+                <p className="text-[#737373] text-xs uppercase tracking-wide mb-2">
                   {pl ? 'Spółka' : es ? 'Empresa' : 'Company'}
                 </p>
                 <p className="text-white font-semibold mb-1">PEPTIVEXLABS LTD</p>
-                <p className="text-white/50 mb-1">
+                <p className="text-[#525252] mb-1">
                   {pl ? 'Numer firmy' : es ? 'Número de empresa' : 'Company number'}: 17178009
                 </p>
-                <p className="text-white/50 mb-1">
+                <p className="text-[#525252] mb-1">
                   {pl ? 'Forma prawna' : es ? 'Tipo de empresa' : 'Company type'}: Private Limited Company
                 </p>
-                <p className="text-white/50">
+                <p className="text-[#525252]">
                   {pl ? 'Jurysdykcja' : es ? 'Jurisdicción' : 'Jurisdiction'}: England &amp; Wales
                 </p>
               </div>
               <div>
-                <p className="text-white/40 text-xs uppercase tracking-wide mb-2">
+                <p className="text-[#737373] text-xs uppercase tracking-wide mb-2">
                   {pl ? 'Siedziba rejestrowa' : es ? 'Domicilio social' : 'Registered office'}
                 </p>
-                <p className="text-white/60 leading-relaxed mb-4">
+                <p className="text-[#525252] leading-relaxed mb-4">
                   66 Paul Street<br />
                   London, EC2A 4NA<br />
                   United Kingdom
                 </p>
-                <p className="text-white/40 text-xs uppercase tracking-wide mb-2">
+                <p className="text-[#737373] text-xs uppercase tracking-wide mb-2">
                   {pl ? 'Adres korespondencyjny' : es ? 'Dirección operativa' : 'Operational address'}
                 </p>
-                <p className="text-white/60 leading-relaxed">
+                <p className="text-[#525252] leading-relaxed">
                   4th Floor, The Featherstone Building<br />
                   66 City Road, London, EC1Y 2AL<br />
                   United Kingdom
                 </p>
               </div>
             </div>
-            <div className="mt-6 pt-4 border-t border-white/[0.06] text-xs text-white/40">
+            <div className="mt-6 pt-4 border-t border-[#ececec] text-xs text-[#737373]">
               <p>
                 {pl ? 'Spółka zarejestrowana w Companies House (Wielka Brytania). Pełne dane dostępne na find-and-update.company-information.service.gov.uk.' : es ? 'Empresa registrada en Companies House (Reino Unido). Registros completos disponibles en find-and-update.company-information.service.gov.uk.' : 'Company registered with Companies House (United Kingdom). Full records available at find-and-update.company-information.service.gov.uk.'
                 }

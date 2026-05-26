@@ -35,9 +35,9 @@ export default function TermsPage() {
       />
       <div className="relative overflow-hidden py-16">
         <div className="absolute inset-0 bg-gradient-to-b from-amber-900/[0.08] to-transparent" />
-        <HexPattern className="text-amber-500/[0.02]" />
+        <HexPattern className="text-[#ea580c]/[0.02]" />
         <div className="max-w-3xl mx-auto px-4 relative z-10">
-          <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Prawne' : es ? 'Legal' : 'Legal'}</p>
+          <p className="text-[#ea580c] text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Prawne' : es ? 'Legal' : 'Legal'}</p>
           <h1 className="text-white text-3xl font-extrabold">{pl ? 'Regulamin' : es ? 'Términos y Condiciones' : 'Terms & Conditions'}</h1>
         </div>
       </div>
@@ -45,11 +45,11 @@ export default function TermsPage() {
         {sections.map((s, i) => (
           <div key={i} className="group why-card relative rounded-2xl overflow-hidden">
             <div className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-b from-white/[0.06] to-transparent opacity-50">
-              <div className="w-full h-full rounded-2xl bg-[#0e0c09]" />
+              <div className="w-full h-full rounded-2xl bg-white" />
             </div>
             <div className="relative z-10 p-6">
               <h2 className="text-white text-lg font-bold mb-3">{s.title}</h2>
-              <p className="text-white/45 text-sm leading-[1.8]">{s.text}</p>
+              <p className="text-[#525252] text-sm leading-[1.8]">{s.text}</p>
             </div>
           </div>
         ))}

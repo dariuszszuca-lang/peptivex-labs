@@ -55,7 +55,7 @@ export default function PeptideGuidePage() {
     },
     {
       icon: Zap,
-      color: 'text-amber-400 border-amber-500/20 from-amber-500/15',
+      color: 'text-[#ea580c] border-[#fed7aa] from-amber-500/15',
       key: 'other',
       title: pl ? 'Inne' : es ? 'Otros' : 'Other',
       desc: pl ? 'Melanogeneza, kosmeceutyki i inne kategorie badawcze.' : es ? 'Melanogénesis, cosmecéuticos y otras categorías de investigación.' : 'Melanogenesis, cosmeceuticals, and other research categories.',
@@ -80,13 +80,13 @@ export default function PeptideGuidePage() {
       {/* Hero */}
       <div className="relative overflow-hidden min-h-[60vh] flex items-center">
         <div className="absolute inset-0 bg-gradient-to-br from-amber-900/[0.15] via-[#0c0a08] to-teal-900/[0.08]" />
-        <HexPattern className="text-amber-500/[0.04]" />
+        <HexPattern className="text-[#ea580c]/[0.04]" />
         <ParticleField />
-        <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] rounded-full bg-amber-500/[0.06] blur-[100px]" />
+        <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] rounded-full bg-[#fff7ed] blur-[100px]" />
         <div className="max-w-4xl mx-auto px-4 py-24 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 rounded-full px-4 py-1.5 mb-6">
-            <FlaskConical size={12} className="text-amber-400" />
-            <span className="text-amber-400 text-xs font-medium tracking-wide">2026 EDITION</span>
+          <div className="inline-flex items-center gap-2 bg-[#fff7ed] border border-[#fed7aa] rounded-full px-4 py-1.5 mb-6">
+            <FlaskConical size={12} className="text-[#ea580c]" />
+            <span className="text-[#ea580c] text-xs font-medium tracking-wide">2026 EDITION</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white leading-tight mb-6">
             {pl ? (
@@ -97,11 +97,11 @@ export default function PeptideGuidePage() {
               <>The Research<br /><span className="text-gradient">Peptide Guide</span></>
             )}
           </h1>
-          <p className="text-white/50 text-lg max-w-xl mx-auto mb-8">
+          <p className="text-[#525252] text-lg max-w-xl mx-auto mb-8">
             {pl ? 'Kompletny przewodnik: kategorie, protokoły, dawkowanie, rekonstytucja, stacki i przechowywanie. 19 peptydów z danymi referencyjnymi.' : es ? 'Guía completa: categorías, protocolos, dosificación, reconstitución, combinaciones (stacks) y almacenamiento. 19 péptidos con datos de referencia.' : 'Complete guide: categories, protocols, dosing, reconstitution, stacks, and storage. 19 peptides with reference data.'
             }
           </p>
-          <a href="#categories" className="cta-primary inline-flex items-center gap-2 bg-amber-500 text-black font-bold px-7 py-3.5 rounded-xl hover:bg-amber-400 transition-all text-sm">
+          <a href="#categories" className="cta-primary inline-flex items-center gap-2 bg-[#ea580c] text-white font-bold px-7 py-3.5 rounded-xl hover:bg-[#c2410c] transition-all text-sm">
             {pl ? 'Przejdź do przewodnika' : es ? 'Ir a la guía' : 'Jump to guide'} <ArrowRight size={16} />
           </a>
         </div>
@@ -109,14 +109,14 @@ export default function PeptideGuidePage() {
 
       {/* Framework */}
       <section className="relative overflow-hidden section-dark py-20">
-        <HexPattern className="text-amber-500/[0.02]" />
+        <HexPattern className="text-[#ea580c]/[0.02]" />
         <div className="max-w-5xl mx-auto px-4 relative z-10">
           <div className="text-center mb-14">
-            <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">FRAMEWORK</p>
+            <p className="text-[#ea580c] text-xs tracking-[0.3em] uppercase mb-3">FRAMEWORK</p>
             <h2 className="text-white text-3xl font-extrabold mb-4">
               {pl ? 'Framework 3 poziomów' : es ? 'El Marco de 3 Niveles' : 'The 3-Level Framework'}
             </h2>
-            <p className="text-white/40 text-sm max-w-lg mx-auto">
+            <p className="text-[#737373] text-sm max-w-lg mx-auto">
               {pl ? 'Peptydy to precyzyjne narzędzia — działają najlepiej na solidnym fundamencie zdrowia.' : es ? 'Los péptidos son herramientas de precisión: funcionan mejor sobre una base de salud sólida.' : 'Peptides are precision tools — they work best on a solid health foundation.'}
             </p>
           </div>
@@ -126,17 +126,17 @@ export default function PeptideGuidePage() {
                 {i < 2 && <div className="hidden sm:block absolute top-10 right-0 w-full h-[1px] bg-gradient-to-r from-transparent via-amber-500/20 to-transparent translate-x-1/2 z-0" />}
                 <div className="relative z-10 why-card rounded-2xl overflow-hidden">
                   <div className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-b from-amber-500/20 via-transparent to-transparent opacity-40 group-hover:opacity-100 transition-opacity">
-                    <div className="w-full h-full rounded-2xl bg-[#0e0c09]" />
+                    <div className="w-full h-full rounded-2xl bg-white" />
                   </div>
                   <div className="relative z-10 p-7">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500/15 to-amber-500/5 border border-amber-500/15 flex items-center justify-center mb-5">
-                      <span className="text-amber-400 text-lg font-extrabold">{f.level}</span>
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500/15 to-amber-500/5 border border-[#fed7aa] flex items-center justify-center mb-5">
+                      <span className="text-[#ea580c] text-lg font-extrabold">{f.level}</span>
                     </div>
                     <h3 className="text-white text-lg font-bold mb-4">{f.title}</h3>
                     <ul className="flex flex-col gap-2">
                       {f.items.map((item, j) => (
-                        <li key={j} className="flex items-start gap-2 text-white/45 text-sm">
-                          <span className="text-amber-500 mt-0.5 shrink-0">•</span>
+                        <li key={j} className="flex items-start gap-2 text-[#525252] text-sm">
+                          <span className="text-[#ea580c] mt-0.5 shrink-0">•</span>
                           <span>{item}</span>
                         </li>
                       ))}
@@ -152,10 +152,10 @@ export default function PeptideGuidePage() {
       {/* Categories with peptide tables */}
       <section id="categories" className="relative py-20">
         <div className="absolute inset-0 bg-gradient-to-b from-amber-900/[0.06] via-[#0c0a08] to-amber-900/[0.04]" />
-        <HexPattern className="text-amber-500/[0.02]" />
+        <HexPattern className="text-[#ea580c]/[0.02]" />
         <div className="max-w-6xl mx-auto px-4 relative z-10">
           <div className="text-center mb-14">
-            <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Katalog' : es ? 'Catálogo' : 'Catalog'}</p>
+            <p className="text-[#ea580c] text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Katalog' : es ? 'Catálogo' : 'Catalog'}</p>
             <h2 className="text-white text-3xl font-extrabold mb-4">
               {pl ? 'Peptydy według kategorii' : es ? 'Péptidos por Categoría' : 'Peptides by Category'}
             </h2>
@@ -168,7 +168,7 @@ export default function PeptideGuidePage() {
               return (
                 <div key={ci} className="relative rounded-2xl overflow-hidden">
                   <div className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-b from-white/[0.06] to-transparent opacity-50">
-                    <div className="w-full h-full rounded-2xl bg-[#0e0c09]" />
+                    <div className="w-full h-full rounded-2xl bg-white" />
                   </div>
                   <div className="relative z-10">
                     {/* Category header */}
@@ -178,7 +178,7 @@ export default function PeptideGuidePage() {
                       </div>
                       <div>
                         <h3 className="text-white text-lg font-bold">{cat.title}</h3>
-                        <p className="text-white/40 text-sm">{cat.desc}</p>
+                        <p className="text-[#737373] text-sm">{cat.desc}</p>
                       </div>
                     </div>
 
@@ -186,32 +186,32 @@ export default function PeptideGuidePage() {
                     <div className="overflow-x-auto">
                       <table className="w-full text-sm">
                         <thead>
-                          <tr className="border-t border-b border-white/[0.06]">
-                            <th className="text-left text-white/30 text-xs uppercase tracking-wide px-6 py-3">{pl ? 'Peptyd' : es ? 'Péptido' : 'Peptide'}</th>
-                            <th className="text-left text-white/30 text-xs uppercase tracking-wide px-4 py-3">{pl ? 'Dawka' : es ? 'Dosis' : 'Dose'}</th>
-                            <th className="text-left text-white/30 text-xs uppercase tracking-wide px-4 py-3">{pl ? 'Rekonstytucja' : es ? 'Reconstitución' : 'Reconstitution'}</th>
-                            <th className="text-left text-white/30 text-xs uppercase tracking-wide px-4 py-3">{pl ? 'Typowa dawka' : es ? 'Dosis Típica' : 'Typical Dose'}</th>
-                            <th className="text-left text-white/30 text-xs uppercase tracking-wide px-4 py-3">{pl ? 'Częstotliwość' : es ? 'Frecuencia' : 'Frequency'}</th>
-                            <th className="text-left text-white/30 text-xs uppercase tracking-wide px-4 py-3">{pl ? 'Cykl' : es ? 'Ciclo' : 'Cycle'}</th>
-                            <th className="text-right text-white/30 text-xs uppercase tracking-wide px-6 py-3">{pl ? 'Cena' : es ? 'Precio' : 'Price'}</th>
+                          <tr className="border-t border-b border-[#ececec]">
+                            <th className="text-left text-[#737373] text-xs uppercase tracking-wide px-6 py-3">{pl ? 'Peptyd' : es ? 'Péptido' : 'Peptide'}</th>
+                            <th className="text-left text-[#737373] text-xs uppercase tracking-wide px-4 py-3">{pl ? 'Dawka' : es ? 'Dosis' : 'Dose'}</th>
+                            <th className="text-left text-[#737373] text-xs uppercase tracking-wide px-4 py-3">{pl ? 'Rekonstytucja' : es ? 'Reconstitución' : 'Reconstitution'}</th>
+                            <th className="text-left text-[#737373] text-xs uppercase tracking-wide px-4 py-3">{pl ? 'Typowa dawka' : es ? 'Dosis Típica' : 'Typical Dose'}</th>
+                            <th className="text-left text-[#737373] text-xs uppercase tracking-wide px-4 py-3">{pl ? 'Częstotliwość' : es ? 'Frecuencia' : 'Frequency'}</th>
+                            <th className="text-left text-[#737373] text-xs uppercase tracking-wide px-4 py-3">{pl ? 'Cykl' : es ? 'Ciclo' : 'Cycle'}</th>
+                            <th className="text-right text-[#737373] text-xs uppercase tracking-wide px-6 py-3">{pl ? 'Cena' : es ? 'Precio' : 'Price'}</th>
                           </tr>
                         </thead>
                         <tbody>
                           {prods.map((p, pi) => {
                             const proto = PROTOCOLS[p.id];
                             return (
-                              <tr key={pi} className="border-b border-white/[0.03] hover:bg-white/[0.02] transition-colors">
+                              <tr key={pi} className="border-b border-white/[0.03] hover:bg-[#fafaf7] transition-colors">
                                 <td className="px-6 py-3">
-                                  <Link to={`/${lang}/product/${p.slug}`} className="text-white font-medium hover:text-amber-400 transition-colors">
+                                  <Link to={`/${lang}/product/${p.slug}`} className="text-white font-medium hover:text-[#ea580c] transition-colors">
                                     {pl ? p.name_pl : p.name_en}
                                   </Link>
                                 </td>
-                                <td className="px-4 py-3 text-white/50">{p.dosage}</td>
-                                <td className="px-4 py-3 text-white/40">{proto?.reconstitution[lang] || '—'}</td>
-                                <td className="px-4 py-3 text-white/50">{proto?.typicalDose[lang] || '—'}</td>
-                                <td className="px-4 py-3 text-white/40">{proto?.frequency[lang] || '—'}</td>
-                                <td className="px-4 py-3 text-white/40">{proto?.cycleLength[lang] || '—'}</td>
-                                <td className="px-6 py-3 text-right text-amber-400 font-semibold">
+                                <td className="px-4 py-3 text-[#525252]">{p.dosage}</td>
+                                <td className="px-4 py-3 text-[#737373]">{proto?.reconstitution[lang] || '—'}</td>
+                                <td className="px-4 py-3 text-[#525252]">{proto?.typicalDose[lang] || '—'}</td>
+                                <td className="px-4 py-3 text-[#737373]">{proto?.frequency[lang] || '—'}</td>
+                                <td className="px-4 py-3 text-[#737373]">{proto?.cycleLength[lang] || '—'}</td>
+                                <td className="px-6 py-3 text-right text-[#ea580c] font-semibold">
                                   {formatPrice(pl ? p.price_pln : p.price_gbp)}
                                 </td>
                               </tr>
@@ -230,21 +230,21 @@ export default function PeptideGuidePage() {
 
       {/* Human vs Animal Research */}
       <section className="relative overflow-hidden section-dark py-20">
-        <HexPattern className="text-amber-500/[0.02]" />
+        <HexPattern className="text-[#ea580c]/[0.02]" />
         <div className="max-w-4xl mx-auto px-4 relative z-10">
           <div className="text-center mb-12">
-            <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Ważne' : es ? 'Importante' : 'Important'}</p>
+            <p className="text-[#ea580c] text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Ważne' : es ? 'Importante' : 'Important'}</p>
             <h2 className="text-white text-3xl font-extrabold mb-4">
               {pl ? 'Badania na ludziach vs badania na zwierzętach' : es ? 'Investigación en Humanos vs. Investigación en Animales' : 'Human Research vs Animal Research'}
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="why-card relative rounded-2xl overflow-hidden group">
-              <div className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-b from-emerald-500/20 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"><div className="w-full h-full rounded-2xl bg-[#0e0c09]" /></div>
+              <div className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-b from-emerald-500/20 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"><div className="w-full h-full rounded-2xl bg-white" /></div>
               <div className="relative z-10 p-7">
                 <div className="w-3 h-3 rounded-full bg-emerald-400 mb-4" />
                 <h3 className="text-white font-bold mb-3">{pl ? 'Badania kliniczne (ludzie)' : es ? 'Ensayos Clínicos (Humanos)' : 'Clinical Trials (Humans)'}</h3>
-                <p className="text-white/45 text-sm leading-relaxed mb-4">
+                <p className="text-[#525252] text-sm leading-relaxed mb-4">
                   {pl ? 'Niektóre peptydy (tirzepatid, tesamorelin, retatrutide) przeszły lub przechodzą badania kliniczne z udziałem ludzi. Mają ustalony profil bezpieczeństwa.' : es ? 'Algunos péptidos (tirzepatide, tesamorelin, retatrutide) han sido o están siendo sometidos a ensayos clínicos en humanos. Poseen un perfil de seguridad establecido.' : 'Some peptides (tirzepatide, tesamorelin, retatrutide) have undergone or are undergoing human clinical trials. They have an established safety profile.'
                   }
                 </p>
@@ -255,25 +255,25 @@ export default function PeptideGuidePage() {
               </div>
             </div>
             <div className="why-card relative rounded-2xl overflow-hidden group">
-              <div className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-b from-amber-500/20 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"><div className="w-full h-full rounded-2xl bg-[#0e0c09]" /></div>
+              <div className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-b from-amber-500/20 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"><div className="w-full h-full rounded-2xl bg-white" /></div>
               <div className="relative z-10 p-7">
                 <div className="w-3 h-3 rounded-full bg-amber-400 mb-4" />
                 <h3 className="text-white font-bold mb-3">{pl ? 'Badania przedkliniczne (zwierzęta)' : es ? 'Estudios Preclínicos (Animales)' : 'Preclinical Studies (Animals)'}</h3>
-                <p className="text-white/45 text-sm leading-relaxed mb-4">
+                <p className="text-[#525252] text-sm leading-relaxed mb-4">
                   {pl ? 'Większość peptydów badawczych (MOTS-c, TB-500, Selank, SS-31) ma dane głównie z badań na modelach zwierzęcych. Wyniki zwierzęce nie zawsze przekładają się na ludzi.' : es ? 'La mayoría de los péptidos de investigación (MOTS-c, TB-500, Selank, SS-31) tienen datos principalmente de estudios en modelos animales. Los resultados en animales no siempre se traducen a humanos.' : 'Most research peptides (MOTS-c, TB-500, Selank, SS-31) have data primarily from animal model studies. Animal results do not always translate to humans.'
                   }
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <span className="text-xs px-2 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/15">MOTS-c</span>
-                  <span className="text-xs px-2 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/15">TB-500</span>
-                  <span className="text-xs px-2 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/15">SS-31</span>
-                  <span className="text-xs px-2 py-1 rounded bg-amber-500/10 text-amber-400 border border-amber-500/15">Selank</span>
+                  <span className="text-xs px-2 py-1 rounded bg-[#fff7ed] text-[#ea580c] border border-[#fed7aa]">MOTS-c</span>
+                  <span className="text-xs px-2 py-1 rounded bg-[#fff7ed] text-[#ea580c] border border-[#fed7aa]">TB-500</span>
+                  <span className="text-xs px-2 py-1 rounded bg-[#fff7ed] text-[#ea580c] border border-[#fed7aa]">SS-31</span>
+                  <span className="text-xs px-2 py-1 rounded bg-[#fff7ed] text-[#ea580c] border border-[#fed7aa]">Selank</span>
                 </div>
               </div>
             </div>
           </div>
-          <div className="mt-6 bg-white/[0.03] border border-white/[0.06] rounded-xl p-5 text-center">
-            <p className="text-white/40 text-sm">
+          <div className="mt-6 bg-[#fafaf7] border border-[#ececec] rounded-xl p-5 text-center">
+            <p className="text-[#737373] text-sm">
               {pl ? 'Wszystkie peptydy w naszej ofercie są przeznaczone wyłącznie do zastosowań badawczych i laboratoryjnych. Nie stanowią porad medycznych.' : es ? 'Todos los péptidos de nuestro catálogo están destinados exclusivamente para uso en investigación y laboratorio. No constituyen asesoramiento médico.' : 'All peptides in our catalog are intended exclusively for research and laboratory use. Not medical advice.'
               }
             </p>
@@ -286,7 +286,7 @@ export default function PeptideGuidePage() {
         <div className="absolute inset-0 bg-gradient-to-br from-amber-900/[0.08] via-[#0c0a08] to-transparent" />
         <div className="max-w-4xl mx-auto px-4 relative z-10">
           <div className="text-center mb-12">
-            <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Ściągawka' : es ? 'Hoja de Consulta Rápida' : 'Cheat Sheet'}</p>
+            <p className="text-[#ea580c] text-xs tracking-[0.3em] uppercase mb-3">{pl ? 'Ściągawka' : es ? 'Hoja de Consulta Rápida' : 'Cheat Sheet'}</p>
             <h2 className="text-white text-2xl font-extrabold mb-4">
               {pl ? 'Szybka referencja: rekonstytucja' : es ? 'Referencia Rápida: Reconstitución' : 'Quick Reference: Reconstitution'}
             </h2>
@@ -298,14 +298,14 @@ export default function PeptideGuidePage() {
               { calc: '50 mg + 3 mL → 16.7 mg/mL', example: pl ? '1.7 mg ≈ 0.10 mL ≈ 10 jedn.' : es ? '1.7 mg ≈ 0.10 mL ≈ 10 unidades' : '1.7 mg ≈ 0.10 mL ≈ 10 units' },
               { calc: pl ? 'Ogólna zasada' : es ? 'Regla general' : 'General rule', example: pl ? 'Stężenie = ilość (mg) ÷ objętość wody (mL)' : es ? 'Concentración = cantidad (mg) ÷ volumen de agua (mL)' : 'Concentration = amount (mg) ÷ water volume (mL)' },
             ].map((item, i) => (
-              <div key={i} className="bg-white/[0.03] border border-white/[0.06] rounded-xl p-5 hover:border-amber-500/15 transition-colors">
-                <p className="text-amber-400 font-mono text-sm font-bold mb-1">{item.calc}</p>
-                <p className="text-white/40 text-xs">{item.example}</p>
+              <div key={i} className="bg-[#fafaf7] border border-[#ececec] rounded-xl p-5 hover:border-[#fed7aa] transition-colors">
+                <p className="text-[#ea580c] font-mono text-sm font-bold mb-1">{item.calc}</p>
+                <p className="text-[#737373] text-xs">{item.example}</p>
               </div>
             ))}
           </div>
           <div className="mt-6 text-center">
-            <p className="text-white/20 text-xs">
+            <p className="text-[#a3a3a3] text-xs">
               {pl ? '1 mL = 100 jednostek na strzykawce insulinowej U-100' : es ? '1 mL = 100 unidades en una jeringa de insulina U-100' : '1 mL = 100 units on a U-100 insulin syringe'}
             </p>
           </div>
@@ -315,9 +315,9 @@ export default function PeptideGuidePage() {
       {/* CTA */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-amber-600/15 via-[#0c0a08] to-amber-900/10" />
-        <HexPattern className="text-amber-500/[0.04]" />
+        <HexPattern className="text-[#ea580c]/[0.04]" />
         <ParticleField />
-        <div className="absolute top-1/2 left-1/3 w-[300px] h-[300px] rounded-full bg-amber-500/[0.06] blur-[80px]" />
+        <div className="absolute top-1/2 left-1/3 w-[300px] h-[300px] rounded-full bg-[#fff7ed] blur-[80px]" />
         <div className="max-w-4xl mx-auto px-4 py-24 text-center relative z-10">
           <h2 className="text-white text-3xl sm:text-4xl font-extrabold mb-5">
             {pl ? (
@@ -328,10 +328,10 @@ export default function PeptideGuidePage() {
               <><span className="text-gradient">Order</span> research peptides</>
             )}
           </h2>
-          <p className="text-white/50 mb-8 max-w-md mx-auto">
+          <p className="text-[#525252] mb-8 max-w-md mx-auto">
             {pl ? 'Czystość >98% HPLC, szybka dostawa InPost, Pay by Bank, BLIK i karty.' : es ? 'Pureza HPLC >98%, entrega rápida InPost, Pago por Banco, BLIK y tarjetas.' : '>98% HPLC purity, fast InPost delivery, Pay by Bank, BLIK and cards.'}
           </p>
-          <Link to={`/${lang}/products`} className="cta-primary inline-flex items-center gap-2 bg-amber-500 text-black font-bold px-8 py-4 rounded-xl hover:bg-amber-400 transition-all text-sm">
+          <Link to={`/${lang}/products`} className="cta-primary inline-flex items-center gap-2 bg-[#ea580c] text-white font-bold px-8 py-4 rounded-xl hover:bg-[#c2410c] transition-all text-sm">
             {pl ? 'Przeglądaj produkty' : es ? 'Explorar Productos' : 'Browse Products'} <ArrowRight size={16} />
           </Link>
         </div>

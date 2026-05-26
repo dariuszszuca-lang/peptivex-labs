@@ -83,7 +83,7 @@ export default function CartPage() {
         {seoBlock}
         <div className="text-5xl mb-6 opacity-20">🛒</div>
         <h1 className="text-white text-xl font-bold mb-3">{t('cart.empty')}</h1>
-        <Link to={`/${lang}/products`} className="text-amber-500 hover:text-amber-400 text-sm inline-flex items-center gap-1.5">
+        <Link to={`/${lang}/products`} className="text-[#ea580c] hover:text-[#ea580c] text-sm inline-flex items-center gap-1.5">
           <ArrowLeft size={14} /> {t('cart.continueShopping')}
         </Link>
       </div>
@@ -101,8 +101,8 @@ export default function CartPage() {
           const name = lang === 'pl' ? item.product.name_pl : lang === 'es' ? (item.product.name_es || item.product.name_en) : item.product.name_en;
           const price = item.product[priceKey] ?? item.product.price_gbp;
           return (
-            <div key={item.product.id} className="bg-white/[0.03] border border-white/[0.08] rounded-xl p-4 flex items-center gap-4">
-              <div className="w-14 h-14 bg-white/[0.03] rounded-lg overflow-hidden shrink-0">
+            <div key={item.product.id} className="bg-[#fafaf7] border border-[#ececec] rounded-xl p-4 flex items-center gap-4">
+              <div className="w-14 h-14 bg-[#fafaf7] rounded-lg overflow-hidden shrink-0">
                 <img
                   src={item.product.image || (item.product.format === 'pen' ? '/images/products/retatrutide-pens.jpg' : '/images/products/bpc-157-vial.png')}
                   alt={name}
@@ -111,19 +111,19 @@ export default function CartPage() {
               </div>
               <div className="flex-1 min-w-0">
                 <h3 className="text-white text-sm font-semibold truncate">{name}</h3>
-                <p className="text-white/30 text-xs">{item.product.dosage} · {t(`product.${item.product.format}`)}</p>
+                <p className="text-[#737373] text-xs">{item.product.dosage} · {t(`product.${item.product.format}`)}</p>
               </div>
-              <div className="flex items-center bg-white/[0.04] border border-white/10 rounded-lg">
-                <button onClick={() => updateQuantity(item.product.id, item.quantity - 1)} className="px-2 py-1 text-white/40 hover:text-white">
+              <div className="flex items-center bg-[#fafaf7] border border-[#ececec] rounded-lg">
+                <button onClick={() => updateQuantity(item.product.id, item.quantity - 1)} className="px-2 py-1 text-[#737373] hover:text-white">
                   <Minus size={12} />
                 </button>
                 <span className="text-white text-xs w-6 text-center">{item.quantity}</span>
-                <button onClick={() => updateQuantity(item.product.id, item.quantity + 1)} className="px-2 py-1 text-white/40 hover:text-white">
+                <button onClick={() => updateQuantity(item.product.id, item.quantity + 1)} className="px-2 py-1 text-[#737373] hover:text-white">
                   <Plus size={12} />
                 </button>
               </div>
-              <span className="text-amber-400 font-semibold text-sm w-24 text-right">{formatPrice(price * item.quantity)}</span>
-              <button onClick={() => removeItem(item.product.id)} className="text-white/20 hover:text-red-400 transition-colors">
+              <span className="text-[#ea580c] font-semibold text-sm w-24 text-right">{formatPrice(price * item.quantity)}</span>
+              <button onClick={() => removeItem(item.product.id)} className="text-[#a3a3a3] hover:text-red-400 transition-colors">
                 <Trash2 size={14} />
               </button>
             </div>
@@ -132,13 +132,13 @@ export default function CartPage() {
       </div>
 
       {/* Summary */}
-      <div className="bg-white/[0.03] border border-white/[0.08] rounded-xl p-6">
+      <div className="bg-[#fafaf7] border border-[#ececec] rounded-xl p-6">
         <div className="flex justify-between text-sm mb-2">
-          <span className="text-white/50">{lang === 'pl' ? 'Produkty' : 'Subtotal'}</span>
+          <span className="text-[#525252]">{lang === 'pl' ? 'Produkty' : 'Subtotal'}</span>
           <span className="text-white">{formatPrice(total)}</span>
         </div>
         <div className="flex justify-between text-sm mb-4">
-          <span className="text-white/50">{t('checkout.shipping')}</span>
+          <span className="text-[#525252]">{t('checkout.shipping')}</span>
           <span className="text-white">
             {shippingCost === 0
               ? (lang === 'pl' ? 'GRATIS' : 'FREE')
@@ -147,19 +147,19 @@ export default function CartPage() {
           </span>
         </div>
         {shippingCost > 0 && (
-          <p className="text-amber-500/60 text-xs mb-4">
+          <p className="text-[#ea580c]/60 text-xs mb-4">
             {t('checkout.freeFrom')}
           </p>
         )}
-        <div className="border-t border-white/[0.06] pt-4 flex justify-between items-center">
+        <div className="border-t border-[#ececec] pt-4 flex justify-between items-center">
           <span className="text-white font-bold">{t('cart.total')}</span>
-          <span className="text-amber-400 text-2xl font-extrabold">{formatPrice(grandTotal)}</span>
+          <span className="text-[#ea580c] text-2xl font-extrabold">{formatPrice(grandTotal)}</span>
         </div>
 
         {/* Payment unavailable notice */}
-        <div className="mt-6 bg-amber-500/[0.08] border border-amber-500/25 rounded-lg p-4">
+        <div className="mt-6 bg-[#fff7ed] border border-[#fed7aa] rounded-lg p-4">
           <div className="flex gap-3">
-            <AlertCircle size={18} className="text-amber-400 shrink-0 mt-0.5" />
+            <AlertCircle size={18} className="text-[#ea580c] shrink-0 mt-0.5" />
             <div>
               <p className="text-amber-100 text-sm font-semibold mb-1">
                 {lang === 'pl' ? 'Płatności online czasowo niedostępne' : 'Online payments temporarily unavailable'}
@@ -174,11 +174,11 @@ export default function CartPage() {
         </div>
 
         {/* RUO disclaimer + required acceptance */}
-        <div className="mt-3 bg-amber-500/[0.05] border border-amber-500/20 rounded-lg p-3">
-          <p className="text-amber-500/90 text-[10px] font-semibold uppercase tracking-wide mb-1.5">
+        <div className="mt-3 bg-amber-500/[0.05] border border-[#fed7aa] rounded-lg p-3">
+          <p className="text-[#ea580c]/90 text-[10px] font-semibold uppercase tracking-wide mb-1.5">
             ⚠ {t('product.researchOnly')}
           </p>
-          <p className="text-white/45 text-[11px] leading-relaxed mb-3">
+          <p className="text-[#525252] text-[11px] leading-relaxed mb-3">
             {t('checkout.disclaimer')}
           </p>
           <label className="flex items-start gap-2 cursor-pointer">
@@ -186,9 +186,9 @@ export default function CartPage() {
               type="checkbox"
               checked={accepted}
               onChange={(e) => setAccepted(e.target.checked)}
-              className="mt-0.5 w-4 h-4 accent-amber-500 cursor-pointer shrink-0"
+              className="mt-0.5 w-4 h-4 accent-[#ea580c] cursor-pointer shrink-0"
             />
-            <span className="text-white/70 text-xs leading-snug">{t('checkout.confirmAccept')}</span>
+            <span className="text-[#525252] text-xs leading-snug">{t('checkout.confirmAccept')}</span>
           </label>
         </div>
 
@@ -196,7 +196,7 @@ export default function CartPage() {
         {accepted ? (
           <a
             href={buildMailto({ items, lang, formatPrice, priceKey, total, shippingCost, grandTotal })}
-            className="w-full mt-3 bg-amber-500 text-black font-semibold py-3 rounded-lg hover:bg-amber-400 transition-colors flex items-center justify-center gap-2"
+            className="w-full mt-3 bg-[#ea580c] text-white font-semibold py-3 rounded-lg hover:bg-[#c2410c] transition-colors flex items-center justify-center gap-2"
           >
             <Mail size={16} />
             {lang === 'pl' ? 'Wyślij zamówienie mailem' : 'Send order by email'}
@@ -204,21 +204,21 @@ export default function CartPage() {
         ) : (
           <button
             disabled
-            className="w-full mt-3 bg-amber-500 text-black font-semibold py-3 rounded-lg flex items-center justify-center gap-2 opacity-50 cursor-not-allowed"
+            className="w-full mt-3 bg-[#ea580c] text-white font-semibold py-3 rounded-lg flex items-center justify-center gap-2 opacity-50 cursor-not-allowed"
           >
             <Mail size={16} />
             {lang === 'pl' ? 'Wyślij zamówienie mailem' : 'Send order by email'}
           </button>
         )}
-        <p className="text-white/30 text-[10px] text-center mt-3">
+        <p className="text-[#737373] text-[10px] text-center mt-3">
           orders@peptivexlabs.com
         </p>
-        <p className="text-white/20 text-[10px] text-center mt-1">
+        <p className="text-[#a3a3a3] text-[10px] text-center mt-1">
           {lang === 'pl' ? 'Pay by Bank · BLIK · Karty (po dostarczeniu linku)' : 'Pay by Bank · BLIK · Cards (after link is sent)'}
         </p>
       </div>
 
-      <Link to={`/${lang}/products`} className="text-amber-500/60 hover:text-amber-400 text-sm inline-flex items-center gap-1.5 mt-6">
+      <Link to={`/${lang}/products`} className="text-[#ea580c]/60 hover:text-[#ea580c] text-sm inline-flex items-center gap-1.5 mt-6">
         <ArrowLeft size={14} /> {t('cart.continueShopping')}
       </Link>
     </div>

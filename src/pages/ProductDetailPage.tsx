@@ -22,7 +22,7 @@ export default function ProductDetailPage() {
 
   const product = PRODUCTS.find(p => p.slug === slug);
   if (!product) {
-    return <div className="max-w-6xl mx-auto px-4 py-20 text-center text-white/30">Product not found.</div>;
+    return <div className="max-w-6xl mx-auto px-4 py-20 text-center text-[#737373]">Product not found.</div>;
   }
 
   const defaultImage = product.image || (product.format === 'pen' ? '/images/products/retatrutide-pens.jpg' : '/images/products/bpc-157-vial.png');
@@ -88,9 +88,9 @@ export default function ProductDetailPage() {
       {/* Breadcrumb with bg */}
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-amber-900/[0.06] to-transparent" />
-        <HexPattern className="text-amber-500/[0.02]" />
+        <HexPattern className="text-[#ea580c]/[0.02]" />
         <div className="max-w-6xl mx-auto px-4 pt-6 pb-2 relative z-10">
-          <Link to={`/${lang}/products`} className="inline-flex items-center gap-1.5 text-white/30 hover:text-amber-400 text-sm transition-colors">
+          <Link to={`/${lang}/products`} className="inline-flex items-center gap-1.5 text-[#737373] hover:text-[#ea580c] text-sm transition-colors">
             <ArrowLeft size={14} />
             {t('nav.products')}
           </Link>
@@ -101,7 +101,7 @@ export default function ProductDetailPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Image + Gallery */}
           <div className="flex flex-col gap-3">
-            <div className="relative rounded-2xl overflow-hidden border border-white/[0.06] aspect-square group">
+            <div className="relative rounded-2xl overflow-hidden border border-[#ececec] aspect-square group">
               <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/30 z-10 pointer-events-none" />
               <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl from-amber-500/[0.08] to-transparent z-10 pointer-events-none" />
               <img
@@ -109,11 +109,11 @@ export default function ProductDetailPage() {
                 alt={name}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <span className="absolute bottom-4 right-4 z-20 bg-black/60 backdrop-blur-sm text-white/80 text-xs font-bold px-3 py-1.5 rounded-full border border-white/10">
+              <span className="absolute bottom-4 right-4 z-20 bg-black/60 backdrop-blur-sm text-[#1a1a1a] text-xs font-bold px-3 py-1.5 rounded-full border border-[#ececec]">
                 {product.dosage}
               </span>
               {product.featured && (
-                <span className="absolute top-4 left-4 z-20 bg-amber-500 text-black text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide shadow-lg">
+                <span className="absolute top-4 left-4 z-20 bg-[#ea580c] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide shadow-lg">
                   {pl ? 'Wyróżniony' : es ? 'Destacado' : 'Featured'}
                 </span>
               )}
@@ -130,7 +130,7 @@ export default function ProductDetailPage() {
                       className={`relative shrink-0 w-20 h-20 rounded-xl overflow-hidden border transition-all ${
                         isActive
                           ? 'border-amber-500 ring-2 ring-amber-500/30'
-                          : 'border-white/[0.08] hover:border-white/30'
+                          : 'border-[#ececec] hover:border-white/30'
                       }`}
                       aria-label={`Zdjęcie ${idx + 1}`}
                     >
@@ -146,7 +146,7 @@ export default function ProductDetailPage() {
           <div className="flex flex-col gap-5">
             {/* Badges */}
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="text-[11px] px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 uppercase tracking-wide font-semibold border border-amber-500/20">
+              <span className="text-[11px] px-3 py-1 rounded-full bg-[#fff7ed] text-[#ea580c] uppercase tracking-wide font-semibold border border-[#fed7aa]">
                 {t(`categories.${product.category}`)}
               </span>
               {product.pen_kit && product.format === 'vial' ? (
@@ -154,11 +154,11 @@ export default function ProductDetailPage() {
                   {pl ? 'Fiolka lub Pen Kit' : es ? 'Vial o Pen Kit' : 'Vial or Pen Kit'}
                 </span>
               ) : (
-                <span className="text-[11px] px-3 py-1 rounded-full bg-white/[0.06] text-white/40 uppercase tracking-wide border border-white/[0.06]">
+                <span className="text-[11px] px-3 py-1 rounded-full bg-[#f5f5f0] text-[#737373] uppercase tracking-wide border border-[#ececec]">
                   {t(`product.${product.format}`)}
                 </span>
               )}
-              <span className="text-[11px] px-3 py-1 rounded-full bg-white/[0.06] text-white/40 uppercase tracking-wide border border-white/[0.06]">
+              <span className="text-[11px] px-3 py-1 rounded-full bg-[#f5f5f0] text-[#737373] uppercase tracking-wide border border-[#ececec]">
                 {product.dosage}
               </span>
             </div>
@@ -170,7 +170,7 @@ export default function ProductDetailPage() {
             </div>
 
             {/* Description */}
-            <p className="text-white/45 text-[15px] leading-[1.8]">{description}</p>
+            <p className="text-[#525252] text-[15px] leading-[1.8]">{description}</p>
 
             {/* Trust signals */}
             <div className={`grid gap-3 ${product.coa ? 'grid-cols-2 sm:grid-cols-4' : 'grid-cols-3'}`}>
@@ -180,9 +180,9 @@ export default function ProductDetailPage() {
                 { icon: Shield, text: pl ? 'Płatność bezpieczna' : 'Secure Checkout' },
                 ...(product.coa ? [{ icon: Award, text: pl ? 'COA dostępne' : 'COA Available' }] : []),
               ].map((ts, i) => (
-                <div key={i} className="flex items-center gap-2 p-2.5 rounded-lg bg-white/[0.03] border border-white/[0.06]">
-                  <ts.icon size={14} className="text-amber-500/60 shrink-0" />
-                  <span className="text-white/40 text-xs">{ts.text}</span>
+                <div key={i} className="flex items-center gap-2 p-2.5 rounded-lg bg-[#fafaf7] border border-[#ececec]">
+                  <ts.icon size={14} className="text-[#ea580c]/60 shrink-0" />
+                  <span className="text-[#737373] text-xs">{ts.text}</span>
                 </div>
               ))}
             </div>
@@ -193,22 +193,22 @@ export default function ProductDetailPage() {
                 href={product.coa}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between gap-3 p-3 rounded-xl bg-amber-500/[0.05] border border-amber-500/20 hover:bg-amber-500/10 hover:border-amber-500/40 transition-all group"
+                className="flex items-center justify-between gap-3 p-3 rounded-xl bg-amber-500/[0.05] border border-[#fed7aa] hover:bg-[#fff7ed] hover:border-[#fed7aa] transition-all group"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">
-                    <FileText size={16} className="text-amber-400" />
+                  <div className="w-9 h-9 rounded-lg bg-[#fff7ed] border border-[#fed7aa] flex items-center justify-center">
+                    <FileText size={16} className="text-[#ea580c]" />
                   </div>
                   <div>
                     <p className="text-white text-sm font-semibold">
                       {pl ? 'Certyfikat analizy (COA)' : 'Certificate of Analysis (COA)'}
                     </p>
-                    <p className="text-white/40 text-xs">
+                    <p className="text-[#737373] text-xs">
                       {pl ? 'Niezależne badanie czystości produktu — pobierz PDF' : 'Independent third-party purity test — download PDF'}
                     </p>
                   </div>
                 </div>
-                <span className="text-amber-400 text-xs font-bold uppercase tracking-wide group-hover:translate-x-1 transition-transform">
+                <span className="text-[#ea580c] text-xs font-bold uppercase tracking-wide group-hover:translate-x-1 transition-transform">
                   PDF →
                 </span>
               </a>
@@ -230,7 +230,7 @@ export default function ProductDetailPage() {
                     <p className="text-white text-sm font-semibold">
                       {pl ? 'Pełny przewodnik Retatrutide' : 'Retatrutide Complete Guide'}
                     </p>
-                    <p className="text-white/40 text-xs">
+                    <p className="text-[#737373] text-xs">
                       {pl ? 'Mechanizm, protokoły badawcze, przechowywanie — pobierz PDF' : 'Mechanism, research protocols, storage — download PDF'}
                     </p>
                   </div>
@@ -244,7 +244,7 @@ export default function ProductDetailPage() {
             {/* Stock */}
             <div className="flex items-center gap-2">
               <span className={`w-2 h-2 rounded-full ${inStock ? 'bg-emerald-400' : 'bg-red-400'}`} />
-              <span className="text-white/30 text-xs">
+              <span className="text-[#737373] text-xs">
                 {inStock
                   ? (pl ? `${stock} szt. w magazynie` : `${stock} in stock`)
                   : (pl ? 'Brak w magazynie' : 'Out of stock')
@@ -268,7 +268,7 @@ export default function ProductDetailPage() {
                     PEN
                   </span>
                 </div>
-                <p className="text-white/45 text-[13px] leading-[1.6]">
+                <p className="text-[#525252] text-[13px] leading-[1.6]">
                   {pl
                     ? 'Zestaw startowy: wielokrotnego użytku metalowy pen + etui z systemem chłodzenia + wkład(y).'
                     : es
@@ -281,13 +281,13 @@ export default function ProductDetailPage() {
                     { label: '2× ' + (pl ? 'wkłady' : es ? 'cartuchos' : 'cartridges'), price: product.pen_kit.cartridge_2x_gbp },
                     { label: '3× ' + (pl ? 'wkłady' : es ? 'cartuchos' : 'cartridges'), price: product.pen_kit.cartridge_3x_gbp },
                   ].map((opt, i) => (
-                    <div key={i} className="rounded-lg bg-white/[0.04] border border-white/[0.06] p-2.5 text-center">
-                      <p className="text-white/40 text-[11px] leading-tight">{opt.label}</p>
+                    <div key={i} className="rounded-lg bg-[#fafaf7] border border-[#ececec] p-2.5 text-center">
+                      <p className="text-[#737373] text-[11px] leading-tight">{opt.label}</p>
                       <p className="text-white text-base font-bold mt-1">£{(opt.price / 100).toFixed(0)}</p>
                     </div>
                   ))}
                 </div>
-                <p className="text-white/30 text-[11px] italic">
+                <p className="text-[#737373] text-[11px] italic">
                   {pl
                     ? 'Zamówienia Pen Kit — kontakt mailowy.'
                     : es
@@ -299,12 +299,12 @@ export default function ProductDetailPage() {
 
             {/* Add to Cart */}
             <div className="flex items-center gap-3">
-              <div className="flex items-center bg-white/[0.04] border border-white/[0.08] rounded-xl">
-                <button onClick={() => setQty(Math.max(1, qty - 1))} className="px-4 py-3 text-white/40 hover:text-white transition-colors">
+              <div className="flex items-center bg-[#fafaf7] border border-[#ececec] rounded-xl">
+                <button onClick={() => setQty(Math.max(1, qty - 1))} className="px-4 py-3 text-[#737373] hover:text-white transition-colors">
                   <Minus size={16} />
                 </button>
                 <span className="text-white text-sm w-8 text-center font-bold">{qty}</span>
-                <button onClick={() => setQty(qty + 1)} className="px-4 py-3 text-white/40 hover:text-white transition-colors">
+                <button onClick={() => setQty(qty + 1)} className="px-4 py-3 text-[#737373] hover:text-white transition-colors">
                   <Plus size={16} />
                 </button>
               </div>
@@ -315,8 +315,8 @@ export default function ProductDetailPage() {
                   added
                     ? 'bg-emerald-500 text-white'
                     : inStock
-                      ? 'cta-primary bg-amber-500 text-black hover:bg-amber-400 cursor-pointer'
-                      : 'bg-white/5 text-white/20 cursor-not-allowed'
+                      ? 'cta-primary bg-[#ea580c] text-white hover:bg-[#c2410c] cursor-pointer'
+                      : 'bg-[#fafaf7] text-[#a3a3a3] cursor-not-allowed'
                 }`}
               >
                 {added ? <><Check size={16} /> {pl ? 'Dodano!' : 'Added!'}</> : <><ShoppingCart size={16} /> {t('product.addToCart')}</>}
@@ -343,23 +343,23 @@ export default function ProductDetailPage() {
           return (
             <div className="mt-16">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500/15 to-amber-500/5 border border-amber-500/15 flex items-center justify-center">
-                  <Beaker size={18} className="text-amber-400" />
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500/15 to-amber-500/5 border border-[#fed7aa] flex items-center justify-center">
+                  <Beaker size={18} className="text-[#ea580c]" />
                 </div>
                 <div>
                   <h2 className="text-white text-xl font-bold">
                     {pl ? 'Protokół badawczy — dane referencyjne' : 'Research Protocol Reference'}
                   </h2>
-                  <p className="text-white/30 text-xs">{pl ? 'Dane edukacyjne — nie stanowią porady medycznej' : 'Educational data — not medical advice'}</p>
+                  <p className="text-[#737373] text-xs">{pl ? 'Dane edukacyjne — nie stanowią porady medycznej' : 'Educational data — not medical advice'}</p>
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {protocolItems.map((item, i) => (
-                  <div key={i} className="bg-white/[0.03] border border-white/[0.06] rounded-xl p-4 hover:border-amber-500/15 transition-colors">
+                  <div key={i} className="bg-[#fafaf7] border border-[#ececec] rounded-xl p-4 hover:border-[#fed7aa] transition-colors">
                     <div className="flex items-center gap-2 mb-2">
-                      <item.icon size={14} className="text-amber-500/60" />
-                      <span className="text-white/40 text-xs uppercase tracking-wide">{item.label}</span>
+                      <item.icon size={14} className="text-[#ea580c]/60" />
+                      <span className="text-[#737373] text-xs uppercase tracking-wide">{item.label}</span>
                     </div>
                     <p className="text-white text-sm font-medium">{item.value}</p>
                   </div>
@@ -368,12 +368,12 @@ export default function ProductDetailPage() {
 
               {proto.stackNotes && (
                 <div className="mt-4 bg-amber-500/[0.04] border border-amber-500/10 rounded-xl p-4">
-                  <p className="text-amber-500/60 text-xs uppercase tracking-wide mb-1">{pl ? 'Notatki / Stacki' : 'Notes / Stacks'}</p>
-                  <p className="text-white/60 text-sm">{proto.stackNotes[lang]}</p>
+                  <p className="text-[#ea580c]/60 text-xs uppercase tracking-wide mb-1">{pl ? 'Notatki / Stacki' : 'Notes / Stacks'}</p>
+                  <p className="text-[#525252] text-sm">{proto.stackNotes[lang]}</p>
                 </div>
               )}
 
-              <p className="text-white/15 text-[10px] mt-4 text-center">
+              <p className="text-[#a3a3a3] text-[10px] mt-4 text-center">
                 {pl
                   ? 'Dane referencyjne na podstawie opublikowanych przewodników badawczych. Wyłącznie do celów edukacyjnych i laboratoryjnych.'
                   : 'Reference data based on published research guides. For educational and laboratory purposes only.'}
@@ -388,7 +388,7 @@ export default function ProductDetailPage() {
             <h2 className="text-white text-xl font-bold mb-6">{pl ? 'Podobne produkty' : 'Related Products'}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
               {related.map(p => (
-                <Link key={p.id} to={`/${lang}/product/${p.slug}`} className="group bg-white/[0.03] border border-white/[0.06] rounded-xl overflow-hidden hover:border-amber-500/20 transition-all">
+                <Link key={p.id} to={`/${lang}/product/${p.slug}`} className="group bg-[#fafaf7] border border-[#ececec] rounded-xl overflow-hidden hover:border-[#fed7aa] transition-all">
                   <div className="aspect-video overflow-hidden">
                     <img
                       src={p.image || (p.format === 'pen' ? '/images/products/retatrutide-pens.jpg' : '/images/products/bpc-157-vial.png')}
@@ -397,8 +397,8 @@ export default function ProductDetailPage() {
                     />
                   </div>
                   <div className="p-4">
-                    <h3 className="text-white text-sm font-semibold group-hover:text-amber-400 transition-colors">{pl ? p.name_pl : es ? (p.name_es || p.name_en) : p.name_en}</h3>
-                    <p className="text-amber-400 font-bold mt-1">{formatPrice(pl ? p.price_pln : es ? (p.price_eur ?? p.price_gbp) : p.price_gbp)}</p>
+                    <h3 className="text-white text-sm font-semibold group-hover:text-[#ea580c] transition-colors">{pl ? p.name_pl : es ? (p.name_es || p.name_en) : p.name_en}</h3>
+                    <p className="text-[#ea580c] font-bold mt-1">{formatPrice(pl ? p.price_pln : es ? (p.price_eur ?? p.price_gbp) : p.price_gbp)}</p>
                   </div>
                 </Link>
               ))}

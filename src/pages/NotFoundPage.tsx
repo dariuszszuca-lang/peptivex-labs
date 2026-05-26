@@ -17,14 +17,14 @@ export default function NotFoundPage() {
         noIndex
       />
       <div className="absolute inset-0 bg-gradient-to-b from-amber-900/[0.08] via-[#0c0a08] to-[#0c0a08]" />
-      <HexPattern className="text-amber-500/[0.02]" />
+      <HexPattern className="text-[#ea580c]/[0.02]" />
 
       <div className="max-w-2xl mx-auto px-4 py-24 relative z-10 text-center">
-        <p className="text-amber-500 text-xs tracking-[0.3em] uppercase mb-3">404</p>
+        <p className="text-[#ea580c] text-xs tracking-[0.3em] uppercase mb-3">404</p>
         <h1 className="text-white text-4xl sm:text-5xl font-extrabold mb-4">
           {pl ? 'Strona nie istnieje' : 'Page not found'}
         </h1>
-        <p className="text-white/50 text-base mb-10 max-w-md mx-auto leading-relaxed">
+        <p className="text-[#525252] text-base mb-10 max-w-md mx-auto leading-relaxed">
           {pl
             ? 'Adres, który próbujesz otworzyć, nie istnieje lub został przeniesiony. Wróć na stronę główną albo przejrzyj produkty.'
             : 'The page you are looking for does not exist or has been moved. Go back to the homepage or browse our products.'
@@ -34,14 +34,14 @@ export default function NotFoundPage() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10">
           <Link
             to={`/${lang}`}
-            className="bg-amber-500 text-black font-bold px-6 py-3 rounded-xl hover:bg-amber-400 transition-colors inline-flex items-center justify-center gap-2 text-sm"
+            className="bg-[#ea580c] text-white font-bold px-6 py-3 rounded-xl hover:bg-[#c2410c] transition-colors inline-flex items-center justify-center gap-2 text-sm"
           >
             <Home size={14} />
             {pl ? 'Strona główna' : 'Homepage'}
           </Link>
           <Link
             to={`/${lang}/products`}
-            className="bg-white/[0.04] border border-white/[0.08] text-white/70 font-medium px-6 py-3 rounded-xl hover:bg-white/[0.07] transition-colors inline-flex items-center justify-center gap-2 text-sm"
+            className="bg-[#fafaf7] border border-[#ececec] text-[#525252] font-medium px-6 py-3 rounded-xl hover:bg-white/[0.07] transition-colors inline-flex items-center justify-center gap-2 text-sm"
           >
             <Search size={14} />
             {pl ? 'Przeglądaj produkty' : 'Browse products'}
@@ -58,14 +58,14 @@ export default function NotFoundPage() {
             <Link
               key={item.to}
               to={item.to}
-              className="bg-white/[0.02] border border-white/[0.06] rounded-lg px-3 py-2 text-white/40 hover:text-white/80 hover:bg-white/[0.05] text-xs transition-colors"
+              className="bg-[#fafaf7] border border-[#ececec] rounded-lg px-3 py-2 text-[#737373] hover:text-[#1a1a1a] hover:bg-[#fafaf7] text-xs transition-colors"
             >
               {item.label}
             </Link>
           ))}
         </div>
 
-        <Link to={`/${lang}`} className="text-white/30 hover:text-white/60 text-xs inline-flex items-center gap-1 mt-10 transition-colors">
+        <Link to={`/${lang}`} className="text-[#737373] hover:text-[#525252] text-xs inline-flex items-center gap-1 mt-10 transition-colors">
           <ArrowLeft size={12} /> {pl ? 'Wróć' : 'Back'}
         </Link>
       </div>

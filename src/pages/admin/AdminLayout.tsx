@@ -39,7 +39,7 @@ export default function AdminLayout() {
 
   if (!isAdmin) {
     return (
-      <div className="min-h-screen bg-[#0c0a08] flex items-center justify-center px-4">
+      <div className="min-h-screen bg-[#fafaf7] flex items-center justify-center px-4">
         <form
           onSubmit={(e) => { e.preventDefault(); tryLogin(password); }}
           className="max-w-sm w-full text-center"
@@ -52,18 +52,18 @@ export default function AdminLayout() {
             value={password}
             onChange={(e) => { setPassword(e.target.value); setLoginError(null); }}
             autoFocus
-            className="w-full bg-white/[0.04] border border-white/[0.08] rounded-lg px-4 py-3 text-white text-sm mb-3 focus:border-amber-500/40 focus:outline-none"
+            className="w-full bg-[#fafaf7] border border-[#ececec] rounded-lg px-4 py-3 text-white text-sm mb-3 focus:border-amber-500/40 focus:outline-none"
           />
           <button
             type="submit"
             disabled={loginLoading}
-            className="w-full bg-amber-500 text-black font-bold py-3 rounded-lg hover:bg-amber-400 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 transition-colors"
+            className="w-full bg-[#ea580c] text-white font-bold py-3 rounded-lg hover:bg-[#c2410c] disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 transition-colors"
           >
             {loginLoading ? <Loader2 size={16} className="animate-spin" /> : null}
             Zaloguj
           </button>
           {loginError && <p className="text-red-400 text-xs mt-3">{loginError}</p>}
-          <p className="text-white/20 text-xs mt-3">Hasło: {password.length} znaków</p>
+          <p className="text-[#a3a3a3] text-xs mt-3">Hasło: {password.length} znaków</p>
         </form>
       </div>
     );
@@ -81,20 +81,20 @@ export default function AdminLayout() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0c0a08] flex">
+    <div className="min-h-screen bg-[#fafaf7] flex">
       <Helmet>
         <title>Admin — PEPTIVEX LABS</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       {/* Sidebar */}
-      <aside className={`${collapsed ? 'w-16' : 'w-56'} bg-[#0a0908] border-r border-amber-500/[0.06] flex flex-col transition-all duration-200 shrink-0`}>
+      <aside className={`${collapsed ? 'w-16' : 'w-56'} bg-[#fafaf7] border-r border-amber-500/[0.06] flex flex-col transition-all duration-200 shrink-0`}>
         {/* Logo */}
-        <div className="h-14 flex items-center px-4 border-b border-white/[0.04]">
+        <div className="h-14 flex items-center px-4 border-b border-[#ececec]">
           <span className="text-lg font-extrabold">
             <span className="text-teal-400">P</span>
-            <span className="text-amber-500">X</span>
+            <span className="text-[#ea580c]">X</span>
           </span>
-          {!collapsed && <span className="text-xs font-bold text-white/60 ml-2 tracking-widest">ADMIN</span>}
+          {!collapsed && <span className="text-xs font-bold text-[#525252] ml-2 tracking-widest">ADMIN</span>}
         </div>
 
         {/* Nav */}
@@ -107,8 +107,8 @@ export default function AdminLayout() {
               className={({ isActive }) =>
                 `flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-all ${
                   isActive
-                    ? 'bg-amber-500/10 text-amber-400 font-medium'
-                    : 'text-white/40 hover:text-white/70 hover:bg-white/[0.03]'
+                    ? 'bg-[#fff7ed] text-[#ea580c] font-medium'
+                    : 'text-[#737373] hover:text-[#525252] hover:bg-[#fafaf7]'
                 }`
               }
             >
@@ -119,17 +119,17 @@ export default function AdminLayout() {
         </nav>
 
         {/* Bottom */}
-        <div className="p-2 border-t border-white/[0.04] flex flex-col gap-1">
+        <div className="p-2 border-t border-[#ececec] flex flex-col gap-1">
           <button
             onClick={() => navigate('/pl')}
-            className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-white/30 hover:text-white/50 transition-colors"
+            className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-[#737373] hover:text-[#525252] transition-colors"
           >
             <ArrowLeft size={18} />
             {!collapsed && <span>Sklep</span>}
           </button>
           <button
             onClick={() => { localStorage.removeItem('px-admin'); localStorage.removeItem('px-admin-password'); window.location.reload(); }}
-            className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-white/30 hover:text-red-400 transition-colors"
+            className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-[#737373] hover:text-red-400 transition-colors"
           >
             <LogOut size={18} />
             {!collapsed && <span>Wyloguj</span>}

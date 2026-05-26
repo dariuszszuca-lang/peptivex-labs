@@ -29,7 +29,7 @@ export default function CancelPage() {
           {pl ? 'Płatność anulowana' : es ? 'Pago cancelado' : 'Payment cancelled'}
         </h1>
 
-        <p className="text-white/50 text-base mb-8 max-w-md mx-auto leading-relaxed">
+        <p className="text-[#525252] text-base mb-8 max-w-md mx-auto leading-relaxed">
           {pl ? 'Twoje zamówienie nie zostało zrealizowane. Produkty pozostały w koszyku, możesz dokończyć zakup w dowolnym momencie.' : es ? 'Su pedido no fue completado. Los artículos permanecen en su carrito y puede completar la compra en cualquier momento.' : 'Your order was not completed. Items remain in your cart and you can complete the purchase anytime.'
           }
         </p>
@@ -37,14 +37,14 @@ export default function CancelPage() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link
             to={`/${lang}/cart`}
-            className="bg-amber-500 text-black font-bold px-6 py-3 rounded-xl hover:bg-amber-400 transition-colors inline-flex items-center justify-center gap-2 text-sm"
+            className="bg-[#ea580c] text-white font-bold px-6 py-3 rounded-xl hover:bg-[#c2410c] transition-colors inline-flex items-center justify-center gap-2 text-sm"
           >
             <ArrowLeft size={14} />
             {pl ? 'Wróć do koszyka' : es ? 'Volver al carrito' : 'Back to cart'}
           </Link>
           <Link
             to={`/${lang}/products`}
-            className="bg-white/[0.04] border border-white/[0.08] text-white/70 font-medium px-6 py-3 rounded-xl hover:bg-white/[0.07] transition-colors inline-flex items-center justify-center gap-2 text-sm"
+            className="bg-[#fafaf7] border border-[#ececec] text-[#525252] font-medium px-6 py-3 rounded-xl hover:bg-white/[0.07] transition-colors inline-flex items-center justify-center gap-2 text-sm"
           >
             {pl ? 'Kontynuuj zakupy' : es ? 'Continuar comprando' : 'Continue shopping'}
           </Link>

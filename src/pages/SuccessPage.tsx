@@ -38,31 +38,31 @@ export default function SuccessPage() {
           {pl ? 'Dziękujemy za zamówienie' : es ? 'Gracias por su pedido.' : 'Thank you for your order'}
         </h1>
 
-        <p className="text-white/50 text-base mb-8 max-w-md mx-auto leading-relaxed">
+        <p className="text-[#525252] text-base mb-8 max-w-md mx-auto leading-relaxed">
           {pl ? 'Płatność została zarejestrowana. Wysłaliśmy potwierdzenie na Twój adres e-mail. Status przesyłki otrzymasz w ciągu 24 godzin.' : es ? 'Su pago ha sido registrado. Hemos enviado una confirmación a su correo electrónico. El estado del envío se comunicará en las próximas 24 horas.' : 'Your payment has been registered. We sent a confirmation to your email. Shipping status follows within 24 hours.'
           }
         </p>
 
         {sessionId && (
-          <div className="inline-flex items-center gap-2 bg-white/[0.04] border border-white/[0.08] rounded-full px-4 py-1.5 mb-8">
-            <span className="text-white/40 text-xs uppercase tracking-wide">
+          <div className="inline-flex items-center gap-2 bg-[#fafaf7] border border-[#ececec] rounded-full px-4 py-1.5 mb-8">
+            <span className="text-[#737373] text-xs uppercase tracking-wide">
               {pl ? 'ID zamówienia' : es ? 'ID de pedido' : 'Order ID'}:
             </span>
-            <span className="text-amber-400 text-xs font-mono">{sessionId.slice(-12)}</span>
+            <span className="text-[#ea580c] text-xs font-mono">{sessionId.slice(-12)}</span>
           </div>
         )}
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link
             to={`/${lang}/products`}
-            className="bg-amber-500 text-black font-bold px-6 py-3 rounded-xl hover:bg-amber-400 transition-colors inline-flex items-center justify-center gap-2 text-sm"
+            className="bg-[#ea580c] text-white font-bold px-6 py-3 rounded-xl hover:bg-[#c2410c] transition-colors inline-flex items-center justify-center gap-2 text-sm"
           >
             {pl ? 'Wróć do sklepu' : es ? 'Continuar comprando' : 'Continue shopping'}
             <ArrowRight size={14} />
           </Link>
           <a
             href="mailto:info@peptivexlabs.com"
-            className="bg-white/[0.04] border border-white/[0.08] text-white/70 font-medium px-6 py-3 rounded-xl hover:bg-white/[0.07] transition-colors inline-flex items-center justify-center gap-2 text-sm"
+            className="bg-[#fafaf7] border border-[#ececec] text-[#525252] font-medium px-6 py-3 rounded-xl hover:bg-white/[0.07] transition-colors inline-flex items-center justify-center gap-2 text-sm"
           >
             <Mail size={14} />
             {pl ? 'Skontaktuj się' : es ? 'Contáctenos' : 'Contact us'}

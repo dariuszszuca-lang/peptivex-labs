@@ -62,11 +62,11 @@ export default function AdminPayments() {
       <div className="mb-6 flex items-end justify-between">
         <div>
           <h1 className="text-white text-2xl font-bold mb-1">Stripe — Płatności</h1>
-          <p className="text-white/40 text-sm">Saldo, ostatnie płatności, status integracji</p>
+          <p className="text-[#737373] text-sm">Saldo, ostatnie płatności, status integracji</p>
         </div>
         <button
           onClick={load}
-          className="bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] text-white/70 px-3 py-1.5 rounded-lg text-xs flex items-center gap-1.5 transition-colors"
+          className="bg-[#fafaf7] hover:bg-[#f5f5f0] border border-[#ececec] text-[#525252] px-3 py-1.5 rounded-lg text-xs flex items-center gap-1.5 transition-colors"
         >
           <RefreshCw size={12} className={loading ? 'animate-spin' : ''} /> Odśwież
         </button>
@@ -75,12 +75,12 @@ export default function AdminPayments() {
       {error && (
         <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 mb-6">
           <p className="text-red-400 text-sm font-semibold mb-1">Błąd</p>
-          <p className="text-white/50 text-xs font-mono break-all">{error}</p>
+          <p className="text-[#525252] text-xs font-mono break-all">{error}</p>
         </div>
       )}
 
       {/* Status card */}
-      <div className="bg-white/[0.03] border border-white/[0.06] rounded-xl p-6 mb-6">
+      <div className="bg-[#fafaf7] border border-[#ececec] rounded-xl p-6 mb-6">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-violet-500/10 rounded-lg flex items-center justify-center">
@@ -91,7 +91,7 @@ export default function AdminPayments() {
                 Stripe
                 <CheckCircle2 size={14} className="text-emerald-400" />
               </h3>
-              <p className="text-white/30 text-xs">Karta · BLIK · Przelewy24 · Apple Pay</p>
+              <p className="text-[#737373] text-xs">Karta · BLIK · Przelewy24 · Apple Pay</p>
             </div>
           </div>
           {data && (
@@ -108,8 +108,8 @@ export default function AdminPayments() {
         {/* Balance */}
         {data && (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
-            <div className="bg-white/[0.02] border border-white/[0.04] rounded-lg p-4">
-              <p className="text-white/40 text-xs uppercase tracking-wide mb-2">Saldo dostępne</p>
+            <div className="bg-[#fafaf7] border border-[#ececec] rounded-lg p-4">
+              <p className="text-[#737373] text-xs uppercase tracking-wide mb-2">Saldo dostępne</p>
               {data.balance.available.length === 0 ? (
                 <p className="text-white text-lg font-bold">0,00</p>
               ) : (
@@ -120,14 +120,14 @@ export default function AdminPayments() {
                 </div>
               )}
             </div>
-            <div className="bg-white/[0.02] border border-white/[0.04] rounded-lg p-4">
-              <p className="text-white/40 text-xs uppercase tracking-wide mb-2">Saldo oczekujące</p>
+            <div className="bg-[#fafaf7] border border-[#ececec] rounded-lg p-4">
+              <p className="text-[#737373] text-xs uppercase tracking-wide mb-2">Saldo oczekujące</p>
               {data.balance.pending.length === 0 ? (
-                <p className="text-white/60 text-lg font-bold">0,00</p>
+                <p className="text-[#525252] text-lg font-bold">0,00</p>
               ) : (
                 <div className="flex flex-col gap-0.5">
                   {data.balance.pending.map(b => (
-                    <p key={b.currency} className="text-white/60 text-lg font-bold">{formatPrice(b.amount, b.currency)}</p>
+                    <p key={b.currency} className="text-[#525252] text-lg font-bold">{formatPrice(b.amount, b.currency)}</p>
                   ))}
                 </div>
               )}
@@ -140,7 +140,7 @@ export default function AdminPayments() {
             href={data?.mode === 'live' ? 'https://dashboard.stripe.com' : 'https://dashboard.stripe.com/test'}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-1.5 text-amber-400 hover:text-amber-300 text-sm transition-colors"
+            className="flex items-center gap-1.5 text-[#ea580c] hover:text-amber-300 text-sm transition-colors"
           >
             Stripe Dashboard <ExternalLink size={12} />
           </a>
@@ -148,44 +148,44 @@ export default function AdminPayments() {
       </div>
 
       {/* Recent payments */}
-      <div className="bg-white/[0.03] border border-white/[0.06] rounded-xl p-6">
+      <div className="bg-[#fafaf7] border border-[#ececec] rounded-xl p-6">
         <h3 className="text-white font-semibold mb-4">Ostatnie płatności (Stripe)</h3>
         {!data || data.payments.length === 0 ? (
-          <p className="text-white/30 text-sm py-8 text-center">Brak płatności</p>
+          <p className="text-[#737373] text-sm py-8 text-center">Brak płatności</p>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-white/[0.06]">
-                  <th className="text-left text-white/40 text-xs uppercase tracking-wide px-2 py-2">Data</th>
-                  <th className="text-left text-white/40 text-xs uppercase tracking-wide px-2 py-2">ID</th>
-                  <th className="text-left text-white/40 text-xs uppercase tracking-wide px-2 py-2">Email</th>
-                  <th className="text-left text-white/40 text-xs uppercase tracking-wide px-2 py-2">Status</th>
-                  <th className="text-right text-white/40 text-xs uppercase tracking-wide px-2 py-2">Kwota</th>
+                <tr className="border-b border-[#ececec]">
+                  <th className="text-left text-[#737373] text-xs uppercase tracking-wide px-2 py-2">Data</th>
+                  <th className="text-left text-[#737373] text-xs uppercase tracking-wide px-2 py-2">ID</th>
+                  <th className="text-left text-[#737373] text-xs uppercase tracking-wide px-2 py-2">Email</th>
+                  <th className="text-left text-[#737373] text-xs uppercase tracking-wide px-2 py-2">Status</th>
+                  <th className="text-right text-[#737373] text-xs uppercase tracking-wide px-2 py-2">Kwota</th>
                 </tr>
               </thead>
               <tbody>
                 {data.payments.map(p => (
-                  <tr key={p.id} className="border-b border-white/[0.03] hover:bg-white/[0.02]">
-                    <td className="px-2 py-2 text-white/40 text-xs whitespace-nowrap">{formatDate(p.created)}</td>
-                    <td className="px-2 py-2 text-white/60 text-xs font-mono">
+                  <tr key={p.id} className="border-b border-white/[0.03] hover:bg-[#fafaf7]">
+                    <td className="px-2 py-2 text-[#737373] text-xs whitespace-nowrap">{formatDate(p.created)}</td>
+                    <td className="px-2 py-2 text-[#525252] text-xs font-mono">
                       <a
                         href={`https://dashboard.stripe.com/${data.mode === 'test' ? 'test/' : ''}payments/${p.id}`}
                         target="_blank"
                         rel="noreferrer"
-                        className="hover:text-amber-400"
+                        className="hover:text-[#ea580c]"
                       >
                         {p.id.slice(-12)}
                       </a>
                     </td>
-                    <td className="px-2 py-2 text-white/60 text-xs">{p.receiptEmail || '—'}</td>
+                    <td className="px-2 py-2 text-[#525252] text-xs">{p.receiptEmail || '—'}</td>
                     <td className="px-2 py-2">
                       <span className={`text-xs px-2 py-0.5 rounded-full ${
                         p.status === 'succeeded'
                           ? 'bg-emerald-500/10 text-emerald-400'
                           : p.status === 'requires_payment_method'
                           ? 'bg-red-500/10 text-red-400'
-                          : 'bg-amber-500/10 text-amber-400'
+                          : 'bg-[#fff7ed] text-[#ea580c]'
                       }`}>
                         {p.status}
                       </span>

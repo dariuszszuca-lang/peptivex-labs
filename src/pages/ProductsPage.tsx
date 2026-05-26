@@ -39,13 +39,13 @@ export default function ProductsPage() {
       {/* Hero header */}
       <div className="relative overflow-hidden py-16 sm:py-20">
         <div className="absolute inset-0 bg-gradient-to-b from-amber-900/[0.1] via-[#0c0a08] to-[#0c0a08]" />
-        <HexPattern className="text-amber-500/[0.03]" />
+        <HexPattern className="text-[#ea580c]/[0.03]" />
         <ParticleField />
-        <div className="absolute top-0 right-1/4 w-[300px] h-[300px] rounded-full bg-amber-500/[0.06] blur-[100px]" />
+        <div className="absolute top-0 right-1/4 w-[300px] h-[300px] rounded-full bg-[#fff7ed] blur-[100px]" />
         <div className="max-w-6xl mx-auto px-4 relative z-10">
-          <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 rounded-full px-4 py-1.5 mb-4">
+          <div className="inline-flex items-center gap-2 bg-[#fff7ed] border border-[#fed7aa] rounded-full px-4 py-1.5 mb-4">
             <span className="w-2 h-2 bg-amber-500 rounded-full animate-pulse" />
-            <span className="text-amber-400 text-xs font-medium">{filtered.length} {pl ? 'produktów' : 'products'}</span>
+            <span className="text-[#ea580c] text-xs font-medium">{filtered.length} {pl ? 'produktów' : 'products'}</span>
           </div>
           <h1 className="text-white text-3xl sm:text-4xl font-extrabold mb-3">
             {pl ? (
@@ -56,7 +56,7 @@ export default function ProductsPage() {
               <>Peptide <span className="text-gradient">Catalog</span></>
             )}
           </h1>
-          <p className="text-white/40 text-sm max-w-lg">{pl ? 'Peptydy badawcze o czystości >98%. Każda partia z certyfikatem HPLC.' : 'Research peptides with >98% purity. Every batch HPLC certified.'}</p>
+          <p className="text-[#737373] text-sm max-w-lg">{pl ? 'Peptydy badawcze o czystości >98%. Każda partia z certyfikatem HPLC.' : 'Research peptides with >98% purity. Every batch HPLC certified.'}</p>
         </div>
       </div>
 
@@ -64,13 +64,13 @@ export default function ProductsPage() {
         {/* Search + Filters */}
         <div className="flex flex-col sm:flex-row gap-4 mb-8">
           <div className="relative flex-1">
-            <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/30" />
+            <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#737373]" />
             <input
               type="text"
               value={search}
               onChange={e => setSearch(e.target.value)}
               placeholder={pl ? 'Szukaj produktu...' : 'Search products...'}
-              className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl pl-10 pr-4 py-3 text-white text-sm placeholder:text-white/30 focus:border-amber-500/40 focus:outline-none transition-colors"
+              className="w-full bg-[#fafaf7] border border-[#ececec] rounded-xl pl-10 pr-4 py-3 text-white text-sm placeholder:text-[#737373] focus:border-amber-500/40 focus:outline-none transition-colors"
             />
           </div>
         </div>
@@ -79,7 +79,7 @@ export default function ProductsPage() {
         <div className="flex flex-wrap gap-2 mb-10">
           <button
             onClick={() => setSearchParams({})}
-            className={`text-xs px-4 py-2 rounded-full border transition-all ${!activeCategory ? 'bg-amber-500/15 border-amber-500/40 text-amber-400 shadow-[0_0_15px_rgba(249,115,22,0.1)]' : 'bg-white/[0.03] border-white/10 text-white/40 hover:border-amber-500/20'}`}
+            className={`text-xs px-4 py-2 rounded-full border transition-all ${!activeCategory ? 'bg-[#fff7ed] border-amber-500/40 text-[#ea580c] shadow-[0_0_15px_rgba(249,115,22,0.1)]' : 'bg-[#fafaf7] border-[#ececec] text-[#737373] hover:border-[#fed7aa]'}`}
           >
             {pl ? 'Wszystkie' : 'All'}
           </button>
@@ -87,7 +87,7 @@ export default function ProductsPage() {
             <button
               key={cat}
               onClick={() => setSearchParams({ category: cat })}
-              className={`text-xs px-4 py-2 rounded-full border transition-all ${activeCategory === cat ? 'bg-amber-500/15 border-amber-500/40 text-amber-400 shadow-[0_0_15px_rgba(249,115,22,0.1)]' : 'bg-white/[0.03] border-white/10 text-white/40 hover:border-amber-500/20'}`}
+              className={`text-xs px-4 py-2 rounded-full border transition-all ${activeCategory === cat ? 'bg-[#fff7ed] border-amber-500/40 text-[#ea580c] shadow-[0_0_15px_rgba(249,115,22,0.1)]' : 'bg-[#fafaf7] border-[#ececec] text-[#737373] hover:border-[#fed7aa]'}`}
             >
               {t(`categories.${cat}`)}
             </button>
@@ -102,7 +102,7 @@ export default function ProductsPage() {
         ) : (
           <div className="text-center py-20">
             <div className="text-4xl mb-4 opacity-20">🔍</div>
-            <p className="text-white/30">{pl ? 'Brak produktów pasujących do filtrów.' : 'No products match your filters.'}</p>
+            <p className="text-[#737373]">{pl ? 'Brak produktów pasujących do filtrów.' : 'No products match your filters.'}</p>
           </div>
         )}
       </div>

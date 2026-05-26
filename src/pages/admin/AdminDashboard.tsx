@@ -103,11 +103,11 @@ export default function AdminDashboard() {
       <div className="mb-8 flex items-end justify-between">
         <div>
           <h1 className="text-white text-2xl font-bold mb-1">Dashboard</h1>
-          <p className="text-white/40 text-sm">Przegląd sklepu PEPTIVEX LABS</p>
+          <p className="text-[#737373] text-sm">Przegląd sklepu PEPTIVEX LABS</p>
         </div>
         <button
           onClick={load}
-          className="bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] text-white/70 px-3 py-1.5 rounded-lg text-xs flex items-center gap-1.5 transition-colors"
+          className="bg-[#fafaf7] hover:bg-[#f5f5f0] border border-[#ececec] text-[#525252] px-3 py-1.5 rounded-lg text-xs flex items-center gap-1.5 transition-colors"
         >
           <RefreshCw size={12} className={loading ? 'animate-spin' : ''} /> Odśwież
         </button>
@@ -116,7 +116,7 @@ export default function AdminDashboard() {
       {error && (
         <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 mb-6">
           <p className="text-red-400 text-sm font-semibold mb-1">Błąd ładowania</p>
-          <p className="text-white/50 text-xs font-mono">{error}</p>
+          <p className="text-[#525252] text-xs font-mono">{error}</p>
         </div>
       )}
 
@@ -124,7 +124,7 @@ export default function AdminDashboard() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <StatCard
           icon={ShoppingCart}
-          color="text-amber-400"
+          color="text-[#ea580c]"
           label="Zamówienia dziś"
           value={stats ? String(stats.ordersToday) : '—'}
           sub={stats ? `${stats.ordersMonth} w tym mies.` : undefined}
@@ -154,28 +154,28 @@ export default function AdminDashboard() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Recent Orders */}
-        <div className="bg-white/[0.03] border border-white/[0.06] rounded-xl p-5">
+        <div className="bg-[#fafaf7] border border-[#ececec] rounded-xl p-5">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-white font-semibold flex items-center gap-2">
-              <Clock size={16} className="text-amber-500" />
+              <Clock size={16} className="text-[#ea580c]" />
               Ostatnie zamówienia
             </h2>
-            <Link to="/admin/orders" className="text-amber-400 text-xs hover:underline">Wszystkie →</Link>
+            <Link to="/admin/orders" className="text-[#ea580c] text-xs hover:underline">Wszystkie →</Link>
           </div>
           {recentOrders.length === 0 ? (
             <div className="text-center py-10">
               <div className="text-3xl mb-3 opacity-20">📦</div>
-              <p className="text-white/30 text-sm">Brak zamówień</p>
+              <p className="text-[#737373] text-sm">Brak zamówień</p>
             </div>
           ) : (
             <div className="flex flex-col gap-2">
               {recentOrders.map(order => (
-                <div key={order.stripeSessionId} className="flex items-center justify-between py-2 border-b border-white/[0.04] last:border-0">
+                <div key={order.stripeSessionId} className="flex items-center justify-between py-2 border-b border-[#ececec] last:border-0">
                   <div className="min-w-0 flex-1">
                     <p className="text-white text-sm truncate">{order.customer.name || order.customer.email}</p>
-                    <p className="text-white/30 text-xs font-mono">#{order.stripeSessionId.slice(-12)} · {formatDate(order.createdAt)}</p>
+                    <p className="text-[#737373] text-xs font-mono">#{order.stripeSessionId.slice(-12)} · {formatDate(order.createdAt)}</p>
                   </div>
-                  <span className="text-amber-400 font-semibold text-sm whitespace-nowrap ml-3">
+                  <span className="text-[#ea580c] font-semibold text-sm whitespace-nowrap ml-3">
                     {formatPrice(order.amountTotal, order.currency)}
                   </span>
                 </div>
@@ -185,27 +185,27 @@ export default function AdminDashboard() {
         </div>
 
         {/* Low Stock Alert */}
-        <div className="bg-white/[0.03] border border-white/[0.06] rounded-xl p-5">
+        <div className="bg-[#fafaf7] border border-[#ececec] rounded-xl p-5">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-white font-semibold flex items-center gap-2">
-              <Package size={16} className="text-amber-500" />
+              <Package size={16} className="text-[#ea580c]" />
               Niski stan magazynowy
             </h2>
-            <Link to="/admin/products" className="text-amber-400 text-xs hover:underline">Produkty →</Link>
+            <Link to="/admin/products" className="text-[#ea580c] text-xs hover:underline">Produkty →</Link>
           </div>
           {lowStock.length > 0 ? (
             <div className="flex flex-col gap-2">
               {lowStock.slice(0, 6).map(p => (
-                <div key={p.id} className="flex items-center justify-between py-2 border-b border-white/[0.04] last:border-0">
+                <div key={p.id} className="flex items-center justify-between py-2 border-b border-[#ececec] last:border-0">
                   <div>
                     <span className="text-white text-sm">{p.name_pl}</span>
-                    <span className="text-white/20 text-xs ml-2">{p.dosage}</span>
+                    <span className="text-[#a3a3a3] text-xs ml-2">{p.dosage}</span>
                   </div>
                   <div className="flex gap-3">
-                    <span className={`text-xs px-2 py-0.5 rounded ${p.stock_pl < 10 ? 'bg-red-500/10 text-red-400' : 'bg-white/[0.04] text-white/30'}`}>
+                    <span className={`text-xs px-2 py-0.5 rounded ${p.stock_pl < 10 ? 'bg-red-500/10 text-red-400' : 'bg-[#fafaf7] text-[#737373]'}`}>
                       PL: {p.stock_pl}
                     </span>
-                    <span className={`text-xs px-2 py-0.5 rounded ${p.stock_uk < 10 ? 'bg-red-500/10 text-red-400' : 'bg-white/[0.04] text-white/30'}`}>
+                    <span className={`text-xs px-2 py-0.5 rounded ${p.stock_uk < 10 ? 'bg-red-500/10 text-red-400' : 'bg-[#fafaf7] text-[#737373]'}`}>
                       UK: {p.stock_uk}
                     </span>
                   </div>
@@ -213,20 +213,20 @@ export default function AdminDashboard() {
               ))}
             </div>
           ) : (
-            <p className="text-white/30 text-sm text-center py-10">Wszystkie produkty mają wystarczający stan</p>
+            <p className="text-[#737373] text-sm text-center py-10">Wszystkie produkty mają wystarczający stan</p>
           )}
         </div>
       </div>
 
       {/* Top products */}
       {stats && stats.topProducts.length > 0 && (
-        <div className="mt-6 bg-white/[0.03] border border-white/[0.06] rounded-xl p-5">
+        <div className="mt-6 bg-[#fafaf7] border border-[#ececec] rounded-xl p-5">
           <h2 className="text-white font-semibold mb-4">Top produkty (wszystkie zamówienia)</h2>
           <div className="space-y-2">
             {stats.topProducts.slice(0, 5).map(p => (
               <div key={p.name} className="flex items-center justify-between py-1.5">
-                <span className="text-white/70 text-sm truncate flex-1">{p.name}</span>
-                <span className="text-amber-400 text-xs font-semibold ml-3">{p.quantity}× sprzedanych</span>
+                <span className="text-[#525252] text-sm truncate flex-1">{p.name}</span>
+                <span className="text-[#ea580c] text-xs font-semibold ml-3">{p.quantity}× sprzedanych</span>
               </div>
             ))}
           </div>
@@ -234,7 +234,7 @@ export default function AdminDashboard() {
       )}
 
       {/* Integration Status */}
-      <div className="mt-6 bg-white/[0.03] border border-white/[0.06] rounded-xl p-5">
+      <div className="mt-6 bg-[#fafaf7] border border-[#ececec] rounded-xl p-5">
         <h2 className="text-white font-semibold mb-4">Status integracji</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <IntegrationCard
@@ -269,15 +269,15 @@ function StatCard({ icon: Icon, color, label, value, sub }: {
   sub?: string;
 }) {
   return (
-    <div className="bg-white/[0.03] border border-white/[0.06] rounded-xl p-5">
+    <div className="bg-[#fafaf7] border border-[#ececec] rounded-xl p-5">
       <div className="flex items-center justify-between mb-3">
-        <div className="w-9 h-9 rounded-lg bg-white/[0.04] flex items-center justify-center">
+        <div className="w-9 h-9 rounded-lg bg-[#fafaf7] flex items-center justify-center">
           <Icon size={18} className={color} />
         </div>
       </div>
       <p className="text-white text-2xl font-bold">{value}</p>
-      <p className="text-white/30 text-xs mt-1">{label}</p>
-      {sub && <p className="text-white/20 text-[11px] mt-0.5">{sub}</p>}
+      <p className="text-[#737373] text-xs mt-1">{label}</p>
+      {sub && <p className="text-[#a3a3a3] text-[11px] mt-0.5">{sub}</p>}
     </div>
   );
 }
@@ -295,17 +295,17 @@ function IntegrationCard({ name, status, desc, href }: {
   };
   const labels = { live: 'Live', test: 'Test', config: 'Setup' };
   return (
-    <div className="flex items-center gap-3 p-3 rounded-lg bg-white/[0.02] border border-white/[0.04]">
+    <div className="flex items-center gap-3 p-3 rounded-lg bg-[#fafaf7] border border-[#ececec]">
       <span className={`w-2 h-2 rounded-full ${colors[status]}`} />
       <div className="flex-1 min-w-0">
         <p className="text-white text-sm font-medium flex items-center gap-1.5">
           {name}
-          <span className="text-[10px] text-white/40 uppercase tracking-wide">{labels[status]}</span>
+          <span className="text-[10px] text-[#737373] uppercase tracking-wide">{labels[status]}</span>
         </p>
-        <p className="text-white/30 text-xs truncate">{desc}</p>
+        <p className="text-[#737373] text-xs truncate">{desc}</p>
       </div>
       {href && (
-        <a href={href} target="_blank" rel="noreferrer" className="text-white/30 hover:text-white/60">
+        <a href={href} target="_blank" rel="noreferrer" className="text-[#737373] hover:text-[#525252]">
           <ExternalLink size={12} />
         </a>
       )}
