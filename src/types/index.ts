@@ -41,9 +41,15 @@ export interface Product {
     storage: string;
   };
   pen_kit?: {
-    cartridge_1x_gbp: number; // in pence (5500 = £55.00)
+    cartridge_1x_gbp: number; // in pence (10000 = £100.00)
     cartridge_2x_gbp: number;
     cartridge_3x_gbp: number;
+    cartridge_1x_pln?: number; // in grosze (50000 = 500.00 PLN)
+    cartridge_2x_pln?: number;
+    cartridge_3x_pln?: number;
+    cartridge_1x_eur?: number; // in cents
+    cartridge_2x_eur?: number;
+    cartridge_3x_eur?: number;
   };
   featured: boolean;
   order: number;

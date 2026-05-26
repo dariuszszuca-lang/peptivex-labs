@@ -275,15 +275,18 @@ export default function ProductDetailPage() {
                 </p>
                 <div className="grid grid-cols-3 gap-2">
                   {[
-                    { label: '1× ' + (pl ? 'wkład' : es ? 'cartucho' : 'cartridge'), price: product.pen_kit.cartridge_1x_gbp },
-                    { label: '2× ' + (pl ? 'wkłady' : es ? 'cartuchos' : 'cartridges'), price: product.pen_kit.cartridge_2x_gbp },
-                    { label: '3× ' + (pl ? 'wkłady' : es ? 'cartuchos' : 'cartridges'), price: product.pen_kit.cartridge_3x_gbp },
-                  ].map((opt, i) => (
-                    <div key={i} className="rounded-lg bg-[#fafaf7] border border-[#ececec] p-2.5 text-center">
-                      <p className="text-[#737373] text-[11px] leading-tight">{opt.label}</p>
-                      <p className="text-[#0a0a0a] text-base font-bold mt-1">£{(opt.price / 100).toFixed(0)}</p>
-                    </div>
-                  ))}
+                    { label: '1× ' + (pl ? 'wkład' : es ? 'cartucho' : 'cartridge'), gbp: product.pen_kit.cartridge_1x_gbp, pln: product.pen_kit.cartridge_1x_pln, eur: product.pen_kit.cartridge_1x_eur },
+                    { label: '2× ' + (pl ? 'wkłady' : es ? 'cartuchos' : 'cartridges'), gbp: product.pen_kit.cartridge_2x_gbp, pln: product.pen_kit.cartridge_2x_pln, eur: product.pen_kit.cartridge_2x_eur },
+                    { label: '3× ' + (pl ? 'wkłady' : es ? 'cartuchos' : 'cartridges'), gbp: product.pen_kit.cartridge_3x_gbp, pln: product.pen_kit.cartridge_3x_pln, eur: product.pen_kit.cartridge_3x_eur },
+                  ].map((opt, i) => {
+                    const display = pl ? `${((opt.pln ?? opt.gbp) / 100).toFixed(0)} zł` : es ? `€${((opt.eur ?? opt.gbp) / 100).toFixed(0)}` : `£${(opt.gbp / 100).toFixed(0)}`;
+                    return (
+                      <div key={i} className="rounded-lg bg-[#fafaf7] border border-[#ececec] p-2.5 text-center">
+                        <p className="text-[#737373] text-[11px] leading-tight">{opt.label}</p>
+                        <p className="text-[#0a0a0a] text-base font-bold mt-1">{display}</p>
+                      </div>
+                    );
+                  })}
                 </div>
                 <p className="text-[#737373] text-[11px] italic">
                   {pl
