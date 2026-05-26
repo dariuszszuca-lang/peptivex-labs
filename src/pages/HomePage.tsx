@@ -5,6 +5,9 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { PRODUCTS } from '../data/products';
 import ProductCard from '../components/product/ProductCard';
 import DnaHelix from '../components/home/DnaHelix';
+import ParticleField from '../components/home/ParticleField';
+import HexPattern from '../components/home/HexPattern';
+import LabBackground from '../components/home/LabBackground';
 import SeoHead from '../components/SeoHead';
 
 export default function HomePage() {
@@ -67,7 +70,16 @@ export default function HomePage() {
       />
 
       {/* =================== HERO =================== */}
-      <section className="relative min-h-[80vh] flex items-center hero-section">
+      <section className="relative overflow-hidden min-h-[85vh] flex items-center hero-section">
+        <div className="absolute inset-0">
+          <div className="hero-gradient" />
+          <ParticleField />
+          <HexPattern className="text-[#ea580c]/[0.08]" />
+          <div className="hero-glow" />
+          <div className="hero-glow-teal" />
+          <div className="absolute inset-0 noise-overlay" />
+        </div>
+
         <div className="max-w-6xl mx-auto px-4 py-20 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <div className="inline-flex items-center gap-2 bg-[#fff7ed] border border-[#fed7aa] rounded-full px-4 py-1.5 mb-6">
@@ -134,8 +146,9 @@ export default function HomePage() {
       </section>
 
       {/* =================== FEATURED PRODUCTS =================== */}
-      <section className="section-warm">
-        <div className="max-w-6xl mx-auto px-4 py-20">
+      <section className="relative overflow-hidden section-warm">
+        <LabBackground />
+        <div className="max-w-6xl mx-auto px-4 py-20 relative z-10">
           <div className="text-center mb-12">
             <p className="text-[#ea580c] text-xs tracking-[0.3em] uppercase mb-3 font-semibold">
               {pl ? 'Bestsellery' : es ? 'Los más vendidos' : 'Bestsellers'}
@@ -163,8 +176,11 @@ export default function HomePage() {
       </section>
 
       {/* =================== PROBLEM → PEPTIDE =================== */}
-      <section className="section-dark py-24">
-        <div className="max-w-5xl mx-auto px-4">
+      <section className="relative overflow-hidden section-dark py-24">
+        <HexPattern className="text-[#ea580c]/[0.06]" />
+        <div className="absolute top-1/3 left-1/4 w-[350px] h-[350px] rounded-full bg-[#ea580c]/[0.10] blur-[100px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] rounded-full bg-[#f59e0b]/[0.08] blur-[80px]" />
+        <div className="max-w-5xl mx-auto px-4 relative z-10">
           <div className="text-center mb-14">
             <p className="text-[#ea580c] text-xs tracking-[0.3em] uppercase mb-3 font-semibold">{pl ? 'Rozwiązania' : es ? 'Soluciones' : 'Solutions'}</p>
             <h2 className="text-[#0a0a0a] text-3xl sm:text-4xl font-extrabold mb-4">
@@ -222,8 +238,10 @@ export default function HomePage() {
       </section>
 
       {/* =================== CATEGORIES =================== */}
-      <section className="section-warm py-20">
-        <div className="max-w-6xl mx-auto px-4">
+      <section className="relative overflow-hidden section-warm py-20">
+        <HexPattern className="text-[#ea580c]/[0.05]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#ea580c]/[0.08] blur-[120px]" />
+        <div className="max-w-6xl mx-auto px-4 relative z-10">
           <div className="text-center mb-14">
             <p className="text-[#ea580c] text-xs tracking-[0.3em] uppercase mb-3 font-semibold">{pl ? 'Eksploruj' : es ? 'Explorar' : 'Explore'}</p>
             <h2 className="text-[#0a0a0a] text-3xl font-extrabold mb-4">
@@ -254,8 +272,10 @@ export default function HomePage() {
       </section>
 
       {/* =================== WHY PEPTIVEX =================== */}
-      <section className="section-dark py-24">
-        <div className="max-w-6xl mx-auto px-4">
+      <section className="relative overflow-hidden section-dark py-24">
+        <HexPattern className="text-[#ea580c]/[0.06]" />
+        <div className="absolute inset-0 noise-overlay" />
+        <div className="max-w-6xl mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <p className="text-[#ea580c] text-xs tracking-[0.3em] uppercase mb-3 font-semibold">
               {pl ? 'Dlaczego my' : es ? '¿Por qué nosotros?' : 'Why Us'}
@@ -369,8 +389,13 @@ export default function HomePage() {
       </section>
 
       {/* =================== CTA BANNER =================== */}
-      <section className="cta-section">
-        <div className="max-w-4xl mx-auto px-4 py-28 text-center">
+      <section className="relative overflow-hidden cta-section">
+        <HexPattern className="text-[#ea580c]/[0.08]" />
+        <ParticleField />
+        <div className="absolute inset-0 noise-overlay" />
+        <div className="absolute top-1/2 left-1/4 w-[300px] h-[300px] rounded-full bg-[#ea580c]/[0.12] blur-[80px]" />
+        <div className="absolute top-1/2 right-1/4 w-[200px] h-[200px] rounded-full bg-[#f59e0b]/[0.10] blur-[60px]" />
+        <div className="max-w-4xl mx-auto px-4 py-28 text-center relative z-10">
           <div className="inline-flex items-center gap-2 bg-[#fff7ed] border border-[#fed7aa] rounded-full px-4 py-1.5 mb-6">
             <span className="w-2 h-2 bg-[#ea580c] rounded-full" />
             <span className="text-[#c2410c] text-xs font-semibold">{pl ? 'Wysyłka w 24h' : es ? 'Envío en 24h' : '24h dispatch'}</span>
