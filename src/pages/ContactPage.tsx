@@ -10,10 +10,36 @@ export default function ContactPage() {
   const es = lang === 'es';
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
+    setErrorMsg(null);
+    setSending(true);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, lang }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.error) {
+        throw new Error(data.error || `HTTP ${res.status}`);
+      }
+      setSent(true);
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : 'unknown';
+      setErrorMsg(
+        pl
+          ? `Nie udało się wysłać wiadomości (${msg}). Spróbuj jeszcze raz lub napisz wprost na info@peptivexlabs.com.`
+          : es
+          ? `No se pudo enviar el mensaje (${msg}). Inténtelo de nuevo o escriba directamente a info@peptivexlabs.com.`
+          : `Could not send message (${msg}). Please try again or email info@peptivexlabs.com directly.`
+      );
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -106,9 +132,20 @@ export default function ContactPage() {
                     <label className="text-[#737373] text-xs uppercase tracking-wide mb-1.5 block">{pl ? 'Wiadomość' : es ? 'Mensaje' : 'Message'}</label>
                     <textarea required rows={5} value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} className="w-full bg-[#fafaf7] border border-[#ececec] rounded-xl px-4 py-3 text-[#0a0a0a] text-sm focus:border-amber-500/40 focus:outline-none transition-colors resize-none" />
                   </div>
-                  <button type="submit" className="cta-primary bg-[#ea580c] text-white font-bold py-3.5 rounded-xl hover:bg-[#c2410c] transition-all flex items-center justify-center gap-2 text-sm">
+                  {errorMsg && (
+                    <div className="bg-red-50 border border-red-200 rounded-xl p-4 text-sm text-red-800">
+                      {errorMsg}
+                    </div>
+                  )}
+                  <button
+                    type="submit"
+                    disabled={sending}
+                    className="cta-primary bg-[#ea580c] text-white font-bold py-3.5 rounded-xl hover:bg-[#c2410c] disabled:opacity-60 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2 text-sm"
+                  >
                     <Send size={16} />
-                    {pl ? 'Wyślij wiadomość' : es ? 'Enviar mensaje' : 'Send Message'}
+                    {sending
+                      ? (pl ? 'Wysyłanie...' : es ? 'Enviando...' : 'Sending...')
+                      : (pl ? 'Wyślij wiadomość' : es ? 'Enviar mensaje' : 'Send Message')}
                   </button>
                 </div>
               </form>
