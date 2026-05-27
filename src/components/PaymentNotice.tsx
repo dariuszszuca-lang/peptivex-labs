@@ -3,7 +3,7 @@ import { Mail, X, AlertCircle } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const STORAGE_KEY = 'px-payment-notice-dismissed';
-const ORDERS_EMAIL = 'orders@peptivexlabs.com';
+const ORDERS_EMAIL = 'info@peptivexlabs.com';
 
 export default function PaymentNotice() {
   const { lang } = useLanguage();

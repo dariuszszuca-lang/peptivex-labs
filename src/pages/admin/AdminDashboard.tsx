@@ -246,7 +246,7 @@ export default function AdminDashboard() {
           <IntegrationCard
             name="Resend (e-mail)"
             status="live"
-            desc="orders@peptivexlabs.com"
+            desc="info@peptivexlabs.com"
             href="https://resend.com"
           />
           <IntegrationCard

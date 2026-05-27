@@ -6,7 +6,7 @@ import { useCart } from '../contexts/CartContext';
 import type { CartItem } from '../types';
 import SeoHead from '../components/SeoHead';
 
-const ORDERS_EMAIL = 'orders@peptivexlabs.com';
+const ORDERS_EMAIL = 'info@peptivexlabs.com';
 
 type MailtoArgs = {
   items: CartItem[];
@@ -211,7 +211,7 @@ export default function CartPage() {
           </button>
         )}
         <p className="text-[#737373] text-[10px] text-center mt-3">
-          orders@peptivexlabs.com
+          info@peptivexlabs.com
         </p>
         <p className="text-[#a3a3a3] text-[10px] text-center mt-1">
           {lang === 'pl' ? 'Bezpieczne płatności online (po dostarczeniu linku)' : 'Secure online payments (after link is sent)'}
