@@ -161,10 +161,10 @@ export default function CartPage() {
           <div className="flex gap-3">
             <AlertCircle size={18} className="text-[#ea580c] shrink-0 mt-0.5" />
             <div>
-              <p className="text-amber-100 text-sm font-semibold mb-1">
+              <p className="text-[#9a3412] text-sm font-semibold mb-1">
                 {lang === 'pl' ? 'Płatności online czasowo niedostępne' : 'Online payments temporarily unavailable'}
               </p>
-              <p className="text-amber-100/70 text-xs leading-relaxed">
+              <p className="text-[#7c2d12] text-xs leading-relaxed">
                 {lang === 'pl'
                   ? 'Wyślij zamówienie mailem (z poniższego przycisku). W ciągu 24h dostaniesz spersonalizowany link do płatności.'
                   : "Send your order by email (button below). Within 24h you'll receive a personalized payment link."}
