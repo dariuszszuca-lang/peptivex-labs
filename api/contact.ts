@@ -115,7 +115,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (!body.email || typeof body.email !== 'string' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(body.email)) {
     return res.status(400).json({ error: 'invalid_email' });
   }
-  if (!body.message || typeof body.message !== 'string' || body.message.trim().length < 5) {
+  if (!body.message || typeof body.message !== 'string' || body.message.trim().length < 2) {
     return res.status(400).json({ error: 'invalid_message' });
   }
   if (body.message.length > 5000) {
