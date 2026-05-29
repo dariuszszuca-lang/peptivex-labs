@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
+import SocialLinks from '../SocialLinks';
 
 export default function Footer() {
   const { lang, t } = useLanguage();
@@ -42,6 +43,14 @@ export default function Footer() {
               <Link to={`/${lang}/contact`} className="text-[#525252] hover:text-[#ea580c] text-sm transition-colors">{t('nav.contact')}</Link>
               <Link to={`/${lang}/guide`} className="text-[#525252] hover:text-[#ea580c] text-sm transition-colors">{pl ? 'Przewodnik' : es ? 'Guía' : 'Guide'}</Link>
               <Link to={`/${lang}/faq`} className="text-[#525252] hover:text-[#ea580c] text-sm transition-colors">FAQ</Link>
+            </div>
+
+            {/* Social */}
+            <div className="mt-6">
+              <h4 className="text-[#1a1a1a] text-xs font-semibold uppercase tracking-wide mb-3">
+                {pl ? 'Obserwuj nas' : es ? 'Síguenos' : 'Follow us'}
+              </h4>
+              <SocialLinks variant="footer" />
             </div>
           </div>
 

@@ -73,7 +73,10 @@ export default function ContactPage() {
             {[
               { icon: Mail, title: 'Email', value: 'info@peptivexlabs.com', color: 'text-[#ea580c]' },
               { icon: Clock, title: pl ? 'Czas odpowiedzi' : es ? 'Tiempo de respuesta' : 'Response Time', value: pl ? 'Do 24h w dni robocze' : es ? 'En un plazo de 24 horas en días laborables' : 'Within 24h on business days', color: 'text-emerald-400' },
-              { icon: MessageCircle, title: 'Social', value: 'TikTok: @peptivexlabs', color: 'text-sky-400' },
+              { icon: MessageCircle, title: 'Social', color: 'text-sky-400', links: [
+                { label: 'Instagram: @peptivexlabs', href: 'https://www.instagram.com/peptivexlabs/' },
+                { label: 'TikTok: @pepers337', href: 'https://www.tiktok.com/@pepers337' },
+              ] },
               { icon: Building2, title: pl ? 'Adres' : es ? 'Dirección' : 'Address', value: '66 Paul Street, London, EC2A 4NA, United Kingdom', color: 'text-violet-400' },
             ].map((item, i) => (
               <div key={i} className="group why-card relative rounded-2xl overflow-hidden transition-all duration-300">
@@ -85,7 +88,23 @@ export default function ContactPage() {
                     <item.icon size={18} className={item.color} />
                   </div>
                   <h3 className="text-[#0a0a0a] text-sm font-semibold mb-1">{item.title}</h3>
-                  <p className="text-[#737373] text-sm">{item.value}</p>
+                  {item.links ? (
+                    <div className="flex flex-col gap-0.5">
+                      {item.links.map(l => (
+                        <a
+                          key={l.href}
+                          href={l.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[#737373] hover:text-[#ea580c] text-sm transition-colors"
+                        >
+                          {l.label}
+                        </a>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-[#737373] text-sm">{item.value}</p>
+                  )}
                 </div>
               </div>
             ))}

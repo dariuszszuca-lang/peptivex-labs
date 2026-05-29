@@ -3,6 +3,7 @@ import { ShoppingCart, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useCart } from '../../contexts/CartContext';
+import SocialLinks from '../SocialLinks';
 
 export default function Header() {
   const { lang, t } = useLanguage();
@@ -69,6 +70,11 @@ export default function Header() {
 
         {/* Right side */}
         <div className="flex items-center gap-2.5 shrink-0">
+          {/* Social — IG + TikTok */}
+          <div className="hidden sm:flex">
+            <SocialLinks variant="header" />
+          </div>
+
           {/* Lang switcher — flag circles */}
           <div className="hidden sm:flex items-center gap-1.5">
             {(['en', 'es', 'pl'] as const).map(code => {
@@ -137,18 +143,21 @@ export default function Header() {
                 <span className={isActive(item.to) ? '' : 'ml-3'}>{item.label}</span>
               </Link>
             ))}
-            <div className="flex items-center gap-3 px-3 pt-3 mt-2 border-t border-[#ececec] text-[11px] font-semibold tracking-widest">
-              {(['en', 'es', 'pl'] as const).map(code => (
-                <button
-                  key={code}
-                  onClick={() => { switchLang(code); setMobileOpen(false); }}
-                  className={`uppercase transition-colors ${
-                    lang === code ? 'text-[#ea580c]' : 'text-[#a3a3a3] hover:text-[#0a0a0a]'
-                  }`}
-                >
-                  {code}
-                </button>
-              ))}
+            <div className="flex items-center justify-between gap-3 px-3 pt-3 mt-2 border-t border-[#ececec]">
+              <div className="flex items-center gap-3 text-[11px] font-semibold tracking-widest">
+                {(['en', 'es', 'pl'] as const).map(code => (
+                  <button
+                    key={code}
+                    onClick={() => { switchLang(code); setMobileOpen(false); }}
+                    className={`uppercase transition-colors ${
+                      lang === code ? 'text-[#ea580c]' : 'text-[#a3a3a3] hover:text-[#0a0a0a]'
+                    }`}
+                  >
+                    {code}
+                  </button>
+                ))}
+              </div>
+              <SocialLinks variant="header" />
             </div>
           </nav>
         </div>
