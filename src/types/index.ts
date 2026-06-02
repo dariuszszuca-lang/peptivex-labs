@@ -28,7 +28,10 @@ export interface Product {
   dosage: string;
   image?: string;
   gallery?: string[];
-  coa?: string;
+  coa?: string; // fallback / legacy (gdy brak wersji jezykowej)
+  coa_pl?: string;
+  coa_en?: string;
+  coa_es?: string;
   disclaimer: boolean;
   protocol?: {
     reconstitution: string;

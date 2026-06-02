@@ -34,6 +34,13 @@ export default function ProductDetailPage() {
   const price = pl ? product.price_pln : es ? (product.price_eur ?? product.price_gbp) : product.price_gbp;
   const stock = pl ? product.stock_pl : es ? (product.stock_es ?? product.stock_uk) : product.stock_uk;
   const inStock = stock > 0;
+  // COA per jezyk z fallbackiem do legacy `coa`
+  const coaUrl =
+    pl
+      ? product.coa_pl || product.coa
+      : es
+        ? product.coa_es || product.coa_en || product.coa
+        : product.coa_en || product.coa;
 
   const handleAdd = () => {
     for (let i = 0; i < qty; i++) addItem(product);
@@ -171,12 +178,12 @@ export default function ProductDetailPage() {
             <p className="text-[#525252] text-[15px] leading-[1.8]">{description}</p>
 
             {/* Trust signals */}
-            <div className={`grid gap-3 ${product.coa ? 'grid-cols-2 sm:grid-cols-4' : 'grid-cols-3'}`}>
+            <div className={`grid gap-3 ${coaUrl ? 'grid-cols-2 sm:grid-cols-4' : 'grid-cols-3'}`}>
               {[
                 { icon: FlaskConical, text: pl ? 'Czystość >98%' : 'Purity >98%' },
                 { icon: Truck, text: pl ? 'Wysyłka 24h' : '24h Dispatch' },
                 { icon: Shield, text: pl ? 'Płatność bezpieczna' : 'Secure Checkout' },
-                ...(product.coa ? [{ icon: Award, text: pl ? 'COA dostępne' : 'COA Available' }] : []),
+                ...(coaUrl ? [{ icon: Award, text: pl ? 'COA dostępne' : 'COA Available' }] : []),
               ].map((ts, i) => (
                 <div key={i} className="flex items-center gap-2 p-2.5 rounded-lg bg-[#fafaf7] border border-[#ececec]">
                   <ts.icon size={14} className="text-[#ea580c]/60 shrink-0" />
@@ -186,9 +193,9 @@ export default function ProductDetailPage() {
             </div>
 
             {/* COA (Certificate of Analysis) */}
-            {product.coa && (
+            {coaUrl && (
               <a
-                href={product.coa}
+                href={coaUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-between gap-3 p-3 rounded-xl bg-amber-500/[0.05] border border-[#fed7aa] hover:bg-[#fff7ed] hover:border-[#fed7aa] transition-all group"
