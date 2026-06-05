@@ -4,6 +4,7 @@ import { Search } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { PRODUCTS } from '../data/products';
 import ProductCard from '../components/product/ProductCard';
+import ProductRangeCatalog from '../components/product/ProductRangeCatalog';
 import HexPattern from '../components/home/HexPattern';
 import SeoHead from '../components/SeoHead';
 import ParticleField from '../components/home/ParticleField';
@@ -106,6 +107,8 @@ export default function ProductsPage() {
           </div>
         )}
       </div>
+
+      <ProductRangeCatalog />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { PRODUCTS } from '../data/products';
 import ProductCard from '../components/product/ProductCard';
+import ProductRangeCatalog from '../components/product/ProductRangeCatalog';
 import DnaHelix from '../components/home/DnaHelix';
 import ParticleField from '../components/home/ParticleField';
 import HexPattern from '../components/home/HexPattern';
@@ -274,6 +275,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* =================== FULL PRODUCT RANGE CATALOG =================== */}
+      <ProductRangeCatalog />
 
       {/* =================== WHY PEPTIVEX =================== */}
       <section className="relative overflow-hidden section-dark py-24">
