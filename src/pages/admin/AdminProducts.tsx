@@ -71,7 +71,7 @@ export default function AdminProducts() {
       <div className="bg-[#fff7ed] border border-[#fed7aa] rounded-xl p-4 mb-6 text-xs text-[#525252]">
         <p className="font-semibold text-[#ea580c] mb-1">⚠ Produkty są zarządzane w kodzie</p>
         <p>
-          Lista produktów, ceny (PLN/GBP) i opisy są w pliku <code className="bg-[#fafaf7] px-1.5 py-0.5 rounded">src/data/products.ts</code> oraz <code className="bg-[#fafaf7] px-1.5 py-0.5 rounded">api/_products.ts</code> (kopia dla Stripe).
+          Lista produktów, ceny (PLN/GBP) i opisy są w pliku <code className="bg-[#fafaf7] px-1.5 py-0.5 rounded">src/data/products.ts</code> oraz <code className="bg-[#fafaf7] px-1.5 py-0.5 rounded">api/_products.ts</code> (kopia dla API).
           Edycja w panelu poniżej jest <strong>tylko lokalna</strong> — nie zapisuje się do bazy. Aby trwale zmienić produkt: edytuj kod, commit, push do GitHub.
         </p>
       </div>

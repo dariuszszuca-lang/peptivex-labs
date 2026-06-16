@@ -1,5 +1,5 @@
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
-import { LayoutDashboard, Package, ShoppingCart, Users, BarChart3, Settings, Truck, CreditCard, LogOut, ArrowLeft, Loader2 } from 'lucide-react';
+import { LayoutDashboard, Package, ShoppingCart, Users, BarChart3, Settings, Truck, LogOut, ArrowLeft, Loader2 } from 'lucide-react';
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 
@@ -76,7 +76,6 @@ export default function AdminLayout() {
     { to: '/admin/customers', icon: Users, label: 'Klienci', end: false },
     { to: '/admin/stats', icon: BarChart3, label: 'Statystyki', end: false },
     { to: '/admin/shipping', icon: Truck, label: 'InPost', end: false },
-    { to: '/admin/payments', icon: CreditCard, label: 'Stripe', end: false },
     { to: '/admin/settings', icon: Settings, label: 'Ustawienia', end: false },
   ];
 

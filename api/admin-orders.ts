@@ -22,6 +22,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         const data = d.data();
         return {
           ...data,
+          id: d.id,
           createdAt: data.createdAt?.toDate?.()?.toISOString() || null,
           updatedAt: data.updatedAt?.toDate?.()?.toISOString() || null,
         };

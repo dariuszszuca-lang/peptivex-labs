@@ -77,7 +77,6 @@ export interface Order {
     lockerId?: string;
     lockerName?: string;
   };
-  stripeSessionId?: string;
   trackingNumber?: string;
   createdAt: string;
 }

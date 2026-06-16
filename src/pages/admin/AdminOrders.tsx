@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 type OrderStatus = 'paid' | 'shipped' | 'delivered' | 'cancelled' | 'new';
 
 interface ApiOrder {
-  stripeSessionId: string;
+  id: string;
   status: OrderStatus;
   amountTotal: number;
   currency: string;
@@ -83,11 +83,11 @@ export default function AdminOrders() {
 
   const filtered = orders.filter(o => {
     if (statusFilter !== 'all' && o.status !== statusFilter) return false;
-    if (modeFilter === 'live' && !o.stripeSessionId.startsWith('cs_live_')) return false;
-    if (modeFilter === 'test' && !o.stripeSessionId.startsWith('cs_test_')) return false;
+    if (modeFilter === 'live' && !o.id.startsWith('cs_live_')) return false;
+    if (modeFilter === 'test' && !o.id.startsWith('cs_test_')) return false;
     if (search) {
       const s = search.toLowerCase();
-      const haystack = `${o.customer.name} ${o.customer.email} ${o.stripeSessionId}`.toLowerCase();
+      const haystack = `${o.customer.name} ${o.customer.email} ${o.id}`.toLowerCase();
       if (!haystack.includes(s)) return false;
     }
     return true;
@@ -113,7 +113,7 @@ export default function AdminOrders() {
   };
 
   const deleteAllTest = async () => {
-    const testOrders = orders.filter(o => o.stripeSessionId.startsWith('cs_test_'));
+    const testOrders = orders.filter(o => o.id.startsWith('cs_test_'));
     if (testOrders.length === 0) {
       alert('Brak testowych zamówień do usunięcia.');
       return;
@@ -122,7 +122,7 @@ export default function AdminOrders() {
     try {
       const password = localStorage.getItem('px-admin-password') || '';
       for (const o of testOrders) {
-        await fetch(`/api/admin-orders?orderId=${encodeURIComponent(o.stripeSessionId)}`, {
+        await fetch(`/api/admin-orders?orderId=${encodeURIComponent(o.id)}`, {
           method: 'DELETE',
           headers: { 'X-Admin-Password': password },
         });
@@ -146,7 +146,7 @@ export default function AdminOrders() {
         throw new Error(data.error || `HTTP ${res.status}`);
       }
       await load();
-      if (openOrder && openOrder.stripeSessionId === orderId) {
+      if (openOrder && openOrder.id === orderId) {
         setOpenOrder({ ...openOrder, ...updates } as ApiOrder);
       }
     } catch (e) {
@@ -260,8 +260,8 @@ export default function AdminOrders() {
                 const sc = statusConfig[order.status];
                 const itemsLabel = order.items.map(i => `${i.quantity}× ${i.name}`).join(', ');
                 return (
-                  <tr key={order.stripeSessionId} className="border-b border-white/[0.03] hover:bg-[#fafaf7]">
-                    <td className="px-4 py-3 text-[#525252] text-xs font-mono">{order.stripeSessionId.slice(-12)}</td>
+                  <tr key={order.id} className="border-b border-white/[0.03] hover:bg-[#fafaf7]">
+                    <td className="px-4 py-3 text-[#525252] text-xs font-mono">{order.id.slice(-12)}</td>
                     <td className="px-4 py-3 text-[#737373] text-sm whitespace-nowrap">{formatDate(order.createdAt)}</td>
                     <td className="px-4 py-3">
                       <p className="text-[#0a0a0a] text-sm">{order.customer.name || '—'}</p>
@@ -299,11 +299,11 @@ export default function AdminOrders() {
           >
             <div className="flex items-start justify-between mb-4">
               <div>
-                <h2 className="text-[#0a0a0a] text-lg font-bold">Zamówienie #{openOrder.stripeSessionId.slice(-12)}</h2>
+                <h2 className="text-[#0a0a0a] text-lg font-bold">Zamówienie #{openOrder.id.slice(-12)}</h2>
                 <p className="text-[#737373] text-xs">{formatDate(openOrder.createdAt)}</p>
               </div>
               <a
-                href={`https://dashboard.stripe.com/${openOrder.stripeSessionId.startsWith('cs_test') ? 'test/' : ''}payments/${openOrder.stripeSessionId}`}
+                href={`https://dashboard.stripe.com/${openOrder.id.startsWith('cs_test') ? 'test/' : ''}payments/${openOrder.id}`}
                 target="_blank"
                 rel="noreferrer"
                 className="text-[#ea580c] text-xs flex items-center gap-1 hover:underline"
@@ -355,7 +355,7 @@ export default function AdminOrders() {
                   onBlur={async e => {
                     const value = e.target.value.trim();
                     if (value !== (openOrder.trackingNumber || '')) {
-                      await updateOrder(openOrder.stripeSessionId, {
+                      await updateOrder(openOrder.id, {
                         trackingNumber: value || null,
                         carrier: value ? 'inpost' : null,
                         status: value && openOrder.status === 'paid' ? 'shipped' : openOrder.status,
@@ -373,7 +373,7 @@ export default function AdminOrders() {
                   {(['paid', 'shipped', 'delivered', 'cancelled'] as const).map(s => (
                     <button
                       key={s}
-                      onClick={() => updateOrder(openOrder.stripeSessionId, { status: s })}
+                      onClick={() => updateOrder(openOrder.id, { status: s })}
                       disabled={openOrder.status === s}
                       className={`text-xs px-3 py-1.5 rounded-lg border transition-colors ${
                         openOrder.status === s
@@ -390,7 +390,7 @@ export default function AdminOrders() {
 
             <div className="flex gap-2 mt-6">
               <button
-                onClick={() => deleteOrder(openOrder.stripeSessionId)}
+                onClick={() => deleteOrder(openOrder.id)}
                 className="flex-1 bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-400 py-2.5 rounded-lg text-sm transition-colors flex items-center justify-center gap-1.5"
               >
                 <Trash2 size={14} /> Usuń

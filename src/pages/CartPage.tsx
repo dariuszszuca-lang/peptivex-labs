@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Trash2, Plus, Minus, ArrowLeft, Mail, AlertCircle } from 'lucide-react';
+import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useCart } from '../contexts/CartContext';
 import type { CartItem } from '../types';
@@ -59,14 +60,19 @@ function buildMailto({ items, lang, formatPrice, priceKey, total, shippingCost, 
 
 export default function CartPage() {
   const { lang, t, formatPrice } = useLanguage();
-  const { items, removeItem, updateQuantity, totalPrice } = useCart();
+  const { items, removeItem, updateQuantity, totalPrice, clearCart } = useCart();
   const [accepted, setAccepted] = useState(false);
+  const [payError, setPayError] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const priceKey = lang === 'pl' ? 'price_pln' as const : lang === 'es' ? 'price_eur' as const : 'price_gbp' as const;
   const total = totalPrice(priceKey);
   const shippingThreshold = lang === 'pl' ? 50000 : lang === 'es' ? 11500 : 10000;
   const shippingCost = total >= shippingThreshold ? 0 : (lang === 'pl' ? 1299 : lang === 'es' ? 999 : 766);
   const grandTotal = total + shippingCost;
+
+  const ppCurrency = lang === 'pl' ? 'PLN' : lang === 'es' ? 'EUR' : 'GBP';
+  const paypalClientId = import.meta.env.VITE_PAYPAL_CLIENT_ID as string | undefined;
 
   const seoBlock = (
     <SeoHead
@@ -162,12 +168,14 @@ export default function CartPage() {
             <AlertCircle size={18} className="text-[#ea580c] shrink-0 mt-0.5" />
             <div>
               <p className="text-[#9a3412] text-sm font-semibold mb-1">
-                {lang === 'pl' ? 'Płatności online czasowo niedostępne' : 'Online payments temporarily unavailable'}
+                {lang === 'pl' ? 'Zapłać przez PayPal albo zamów mailem' : lang === 'es' ? 'Paga con PayPal o pide por correo' : 'Pay with PayPal or order by email'}
               </p>
               <p className="text-[#7c2d12] text-xs leading-relaxed">
                 {lang === 'pl'
-                  ? 'Wyślij zamówienie mailem (z poniższego przycisku). W ciągu 24h dostaniesz spersonalizowany link do płatności.'
-                  : "Send your order by email (button below). Within 24h you'll receive a personalized payment link."}
+                  ? 'Zapłać od razu przez PayPal, albo wyślij zamówienie mailem, a dostaniesz link do płatności.'
+                  : lang === 'es'
+                  ? 'Paga al instante con PayPal, o envía tu pedido por correo y recibirás un enlace de pago.'
+                  : "Pay instantly with PayPal, or send your order by email and we'll send a payment link."}
               </p>
             </div>
           </div>
@@ -191,6 +199,52 @@ export default function CartPage() {
             <span className="text-[#525252] text-xs leading-snug">{t('checkout.confirmAccept')}</span>
           </label>
         </div>
+
+        {/* PayPal — gated by RUO acceptance */}
+        {accepted && paypalClientId && (
+          <div className="mt-4">
+            <PayPalScriptProvider key={ppCurrency} options={{ clientId: paypalClientId, currency: ppCurrency, intent: 'capture' }}>
+              <PayPalButtons
+                style={{ layout: 'vertical', color: 'gold', shape: 'rect', label: 'pay' }}
+                createOrder={async () => {
+                  setPayError(null);
+                  const res = await fetch('/api/paypal-create-order', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ items: items.map((i) => ({ productId: i.product.id, quantity: i.quantity })), lang }),
+                  });
+                  const data = await res.json();
+                  if (!res.ok || !data.orderID) throw new Error(data.error || 'create failed');
+                  return data.orderID as string;
+                }}
+                onApprove={async (data) => {
+                  const res = await fetch('/api/paypal-capture', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ orderID: data.orderID, lang }),
+                  });
+                  const r = await res.json();
+                  if (!res.ok || r.status !== 'COMPLETED') {
+                    setPayError(lang === 'pl' ? 'Płatność nie powiodła się. Spróbuj ponownie.' : lang === 'es' ? 'El pago falló. Inténtalo de nuevo.' : 'Payment failed. Please try again.');
+                    return;
+                  }
+                  clearCart();
+                  navigate(`/${lang}/success`);
+                }}
+                onError={(err) => {
+                  console.error('[paypal] error', err);
+                  setPayError(lang === 'pl' ? 'Błąd PayPal. Spróbuj ponownie lub zamów mailem.' : lang === 'es' ? 'Error de PayPal. Inténtalo o pide por correo.' : 'PayPal error. Try again or order by email.');
+                }}
+              />
+            </PayPalScriptProvider>
+            {payError && <p className="text-red-500 text-xs mt-2 text-center">{payError}</p>}
+            <div className="flex items-center gap-3 my-4">
+              <div className="flex-1 h-px bg-[#ececec]" />
+              <span className="text-[#a3a3a3] text-[10px] uppercase">{lang === 'pl' ? 'lub' : lang === 'es' ? 'o' : 'or'}</span>
+              <div className="flex-1 h-px bg-[#ececec]" />
+            </div>
+          </div>
+        )}
 
         {/* Email order button — gated by RUO acceptance */}
         {accepted ? (

@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { Search, Mail, Phone, Package, RefreshCw } from 'lucide-react';
 
 interface ApiOrder {
-  stripeSessionId: string;
+  id: string;
   status: 'paid' | 'shipped' | 'delivered' | 'cancelled' | 'new';
   amountTotal: number;
   currency: string;

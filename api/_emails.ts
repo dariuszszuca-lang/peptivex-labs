@@ -174,7 +174,6 @@ export function buildAdminEmail(data: OrderEmailData): { subject: string; html: 
     ${data.customerPhone ? `<div class="row"><span class="label">Phone</span><span class="value">${data.customerPhone}</span></div>` : ''}
     <div class="row"><span class="label">Lang</span><span class="value">${data.lang.toUpperCase()}</span></div>
     ${address ? `<div class="row"><span class="label">Shipping</span><span class="value">${address}</span></div>` : ''}
-    <p style="margin-top:24px;">Stripe Dashboard: <a href="https://dashboard.stripe.com/payments/${data.orderId}">View payment</a></p>
   </div>
 </div>
 </body></html>`;
@@ -191,7 +190,6 @@ Customer: ${data.customerName || '—'}
 Email: ${data.customerEmail}
 ${data.customerPhone ? `Phone: ${data.customerPhone}\n` : ''}Lang: ${data.lang.toUpperCase()}
 ${address ? `Shipping: ${address}\n` : ''}
-https://dashboard.stripe.com/payments/${data.orderId}`;
 
   return { subject: c.adminSubject(id, amount), html, text };
 }

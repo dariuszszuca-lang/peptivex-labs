@@ -17,7 +17,7 @@ interface StatsResponse {
 }
 
 interface RecentOrder {
-  stripeSessionId: string;
+  id: string;
   status: string;
   amountTotal: number;
   currency: string;
@@ -59,7 +59,6 @@ export default function AdminDashboard() {
   const [recentOrders, setRecentOrders] = useState<RecentOrder[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [stripeMode, setStripeMode] = useState<'live' | 'test' | null>(null);
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -68,10 +67,9 @@ export default function AdminDashboard() {
       const password = localStorage.getItem('px-admin-password') || '';
       const headers = { 'X-Admin-Password': password };
 
-      const [statsRes, ordersRes, stripeRes] = await Promise.all([
+      const [statsRes, ordersRes] = await Promise.all([
         fetch('/api/admin-stats', { headers }),
         fetch('/api/admin-orders', { headers }),
-        fetch('/api/admin-stripe', { headers }).catch(() => null),
       ]);
 
       if (!statsRes.ok) throw new Error(`Stats: HTTP ${statsRes.status}`);
@@ -81,11 +79,6 @@ export default function AdminDashboard() {
       if (ordersRes.ok) {
         const ordersData = await ordersRes.json();
         setRecentOrders((ordersData.orders || []).slice(0, 5));
-      }
-
-      if (stripeRes && stripeRes.ok) {
-        const stripeData = await stripeRes.json();
-        setStripeMode(stripeData.mode);
       }
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
@@ -170,10 +163,10 @@ export default function AdminDashboard() {
           ) : (
             <div className="flex flex-col gap-2">
               {recentOrders.map(order => (
-                <div key={order.stripeSessionId} className="flex items-center justify-between py-2 border-b border-[#ececec] last:border-0">
+                <div key={order.id} className="flex items-center justify-between py-2 border-b border-[#ececec] last:border-0">
                   <div className="min-w-0 flex-1">
                     <p className="text-[#0a0a0a] text-sm truncate">{order.customer.name || order.customer.email}</p>
-                    <p className="text-[#737373] text-xs font-mono">#{order.stripeSessionId.slice(-12)} · {formatDate(order.createdAt)}</p>
+                    <p className="text-[#737373] text-xs font-mono">#{order.id.slice(-12)} · {formatDate(order.createdAt)}</p>
                   </div>
                   <span className="text-[#ea580c] font-semibold text-sm whitespace-nowrap ml-3">
                     {formatPrice(order.amountTotal, order.currency)}
@@ -238,10 +231,10 @@ export default function AdminDashboard() {
         <h2 className="text-[#0a0a0a] font-semibold mb-4">Status integracji</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <IntegrationCard
-            name="Stripe"
-            status={stripeMode === 'live' ? 'live' : stripeMode === 'test' ? 'test' : 'config'}
-            desc={stripeMode === 'live' ? 'Prawdziwe płatności' : stripeMode === 'test' ? 'Tryb testowy' : 'Wymaga klucza API'}
-            href="https://dashboard.stripe.com"
+            name="PayPal"
+            status="config"
+            desc="Płatności PayPal"
+            href="https://www.paypal.com/businessmanage/account/money"
           />
           <IntegrationCard
             name="Resend (e-mail)"
