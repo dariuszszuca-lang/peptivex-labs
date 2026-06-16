@@ -23,8 +23,8 @@ export const PRODUCTS: Product[] = [
     format: 'pen',
     dosage: '40mg',
     disclaimer: true,
-    featured: true,
-    order: 1,
+    featured: false,
+    order: 12.5,
     protocol: {
       reconstitution: 'Pre-filled pen — no reconstitution needed',
       concentration: '40mg per pen',
@@ -62,8 +62,8 @@ export const PRODUCTS: Product[] = [
     format: 'pen',
     dosage: '20mg',
     disclaimer: true,
-    featured: true,
-    order: 2,
+    featured: false,
+    order: 12.6,
   },
   {
     id: 'bpc-157-5mg',
