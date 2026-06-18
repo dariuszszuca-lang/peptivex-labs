@@ -189,7 +189,7 @@ ${itemsText}
 Customer: ${data.customerName || '—'}
 Email: ${data.customerEmail}
 ${data.customerPhone ? `Phone: ${data.customerPhone}\n` : ''}Lang: ${data.lang.toUpperCase()}
-${address ? `Shipping: ${address}\n` : ''}
+${address ? `Shipping: ${address}\n` : ''}`;
 
   return { subject: c.adminSubject(id, amount), html, text };
 }
