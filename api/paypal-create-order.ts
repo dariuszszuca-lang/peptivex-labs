@@ -73,9 +73,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           },
         ],
         application_context: {
-          // GET_FROM_FILE: PayPal zbiera adres wysylki (tez przy karcie-goscie),
-          // capture odczytuje go i wstawia do maila/zamowienia.
-          shipping_preference: 'GET_FROM_FILE',
+          // Adres zbieramy formularzem na stronie -> PayPal nie pyta o adres.
+          shipping_preference: 'NO_SHIPPING',
           user_action: 'PAY_NOW',
           brand_name: 'PEPTIVEX LABS',
         },

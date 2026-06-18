@@ -63,6 +63,10 @@ export default function CartPage() {
   const { items, removeItem, updateQuantity, totalPrice, clearCart } = useCart();
   const [accepted, setAccepted] = useState(false);
   const [payError, setPayError] = useState<string | null>(null);
+  const [ship, setShip] = useState({ name: '', email: '', phone: '', line1: '', line2: '', postal: '', city: '', country: lang === 'pl' ? 'Polska' : lang === 'es' ? 'España' : 'United Kingdom' });
+  const sf = (k: keyof typeof ship, v: string) => setShip((s) => ({ ...s, [k]: v }));
+  const shipValid = !!(ship.name.trim() && /.+@.+\..+/.test(ship.email) && ship.line1.trim() && ship.postal.trim() && ship.city.trim() && ship.country.trim());
+  const shipInputCls = 'bg-white border border-[#e5e5e5] rounded-lg px-3 py-2.5 text-sm text-[#171717] placeholder-[#a3a3a3] focus:border-[#ea580c] focus:outline-none w-full';
   const navigate = useNavigate();
 
   const priceKey = lang === 'pl' ? 'price_pln' as const : lang === 'es' ? 'price_eur' as const : 'price_gbp' as const;
@@ -200,8 +204,32 @@ export default function CartPage() {
           </label>
         </div>
 
-        {/* PayPal — gated by RUO acceptance */}
-        {accepted && paypalClientId && (
+        {/* Adres dostawy — wymagany przed płatnością */}
+        {accepted && (
+          <div className="mt-4">
+            <p className="text-[#171717] text-sm font-semibold mb-2">
+              {lang === 'pl' ? 'Adres dostawy' : lang === 'es' ? 'Dirección de envío' : 'Shipping address'}
+            </p>
+            <div className="grid grid-cols-2 gap-2">
+              <input className={shipInputCls} placeholder={lang === 'pl' ? 'Imię i nazwisko' : lang === 'es' ? 'Nombre completo' : 'Full name'} value={ship.name} onChange={(e) => sf('name', e.target.value)} />
+              <input className={shipInputCls} placeholder="E-mail" type="email" value={ship.email} onChange={(e) => sf('email', e.target.value)} />
+              <input className={shipInputCls} placeholder={lang === 'pl' ? 'Telefon' : lang === 'es' ? 'Teléfono' : 'Phone'} value={ship.phone} onChange={(e) => sf('phone', e.target.value)} />
+              <input className={shipInputCls} placeholder={lang === 'pl' ? 'Kraj' : lang === 'es' ? 'País' : 'Country'} value={ship.country} onChange={(e) => sf('country', e.target.value)} />
+              <input className={`${shipInputCls} col-span-2`} placeholder={lang === 'pl' ? 'Ulica i numer' : lang === 'es' ? 'Calle y número' : 'Street and number'} value={ship.line1} onChange={(e) => sf('line1', e.target.value)} />
+              <input className={`${shipInputCls} col-span-2`} placeholder={lang === 'pl' ? 'Mieszkanie / dodatkowe (opcjonalnie)' : lang === 'es' ? 'Piso / extra (opcional)' : 'Apt / extra (optional)'} value={ship.line2} onChange={(e) => sf('line2', e.target.value)} />
+              <input className={shipInputCls} placeholder={lang === 'pl' ? 'Kod pocztowy' : lang === 'es' ? 'Código postal' : 'Postal code'} value={ship.postal} onChange={(e) => sf('postal', e.target.value)} />
+              <input className={shipInputCls} placeholder={lang === 'pl' ? 'Miasto' : lang === 'es' ? 'Ciudad' : 'City'} value={ship.city} onChange={(e) => sf('city', e.target.value)} />
+            </div>
+            {!shipValid && (
+              <p className="text-[#a3a3a3] text-xs mt-2">
+                {lang === 'pl' ? 'Uzupełnij adres dostawy, aby zapłacić.' : lang === 'es' ? 'Completa la dirección de envío para pagar.' : 'Fill in the shipping address to pay.'}
+              </p>
+            )}
+          </div>
+        )}
+
+        {/* PayPal — gated by RUO + adres dostawy */}
+        {accepted && shipValid && paypalClientId && (
           <div className="mt-4">
             <p className="text-[#525252] text-xs leading-snug mb-3 text-center">
               {lang === 'pl'
@@ -228,7 +256,20 @@ export default function CartPage() {
                   const res = await fetch('/api/paypal-capture', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ orderID: data.orderID, lang }),
+                    body: JSON.stringify({
+                      orderID: data.orderID,
+                      lang,
+                      shipping: {
+                        name: ship.name.trim(),
+                        email: ship.email.trim(),
+                        phone: ship.phone.trim(),
+                        line1: ship.line1.trim(),
+                        line2: ship.line2.trim(),
+                        postal_code: ship.postal.trim(),
+                        city: ship.city.trim(),
+                        country: ship.country.trim(),
+                      },
+                    }),
                   });
                   const r = await res.json();
                   if (!res.ok || r.status !== 'COMPLETED') {

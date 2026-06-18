@@ -16,7 +16,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return;
   }
   try {
-    const { orderID, lang: langRaw } = req.body as { orderID?: string; lang?: Lang };
+    const { orderID, lang: langRaw, shipping: form } = req.body as {
+      orderID?: string;
+      lang?: Lang;
+      shipping?: {
+        name?: string; email?: string; phone?: string;
+        line1?: string; line2?: string; postal_code?: string; city?: string; country?: string;
+      };
+    };
     if (!orderID) {
       res.status(400).json({ error: 'Missing orderID' });
       return;
@@ -50,18 +57,29 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       amount: Math.round(parseFloat(it.unit_amount.value) * 100) * Number(it.quantity),
     }));
 
-    const customerName = `${payer?.name?.given_name || ''} ${payer?.name?.surname || ''}`.trim();
-    const customerEmail = payer?.email_address || '';
+    // Dane klienta i adres bierzemy z formularza na stronie (PayPal ma NO_SHIPPING).
+    // Fallback do danych z PayPala, gdyby formularz byl pusty.
+    const customerName = form?.name?.trim() || `${payer?.name?.given_name || ''} ${payer?.name?.surname || ''}`.trim();
+    const customerEmail = form?.email?.trim() || payer?.email_address || '';
     const a = shipping?.address;
-    const shippingAddress = a
-      ? {
-          line1: a.address_line_1 || null,
-          line2: a.address_line_2 || null,
-          postal_code: a.postal_code || null,
-          city: a.admin_area_2 || null,
-          country: a.country_code || null,
-        }
-      : null;
+    const shippingAddress =
+      form && (form.line1 || form.city)
+        ? {
+            line1: form.line1 || null,
+            line2: form.line2 || null,
+            postal_code: form.postal_code || null,
+            city: form.city || null,
+            country: form.country || null,
+          }
+        : a
+        ? {
+            line1: a.address_line_1 || null,
+            line2: a.address_line_2 || null,
+            postal_code: a.postal_code || null,
+            city: a.admin_area_2 || null,
+            country: a.country_code || null,
+          }
+        : null;
 
     const orderData = {
       orderId: orderID,
@@ -69,7 +87,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       currency,
       customerName,
       customerEmail,
-      customerPhone: null,
+      customerPhone: form?.phone?.trim() || null,
       items,
       shippingAddress,
       lang,
@@ -86,7 +104,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           currency,
           lang,
           items,
-          customer: { name: customerName, email: customerEmail, phone: null },
+          customer: { name: customerName, email: customerEmail, phone: form?.phone?.trim() || null },
           shippingAddress,
           shippingName: shipping?.name?.full_name || customerName || null,
           trackingNumber: null,
