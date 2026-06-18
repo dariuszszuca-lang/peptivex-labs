@@ -204,9 +204,8 @@ export default function CartPage() {
           </label>
         </div>
 
-        {/* Adres dostawy — wymagany przed płatnością */}
-        {accepted && (
-          <div className="mt-4">
+        {/* Adres dostawy — zawsze widoczny, wymagany do platnosci */}
+        <div className="mt-4">
             <p className="text-[#171717] text-sm font-semibold mb-2">
               {lang === 'pl' ? 'Adres dostawy' : lang === 'es' ? 'Dirección de envío' : 'Shipping address'}
             </p>
@@ -225,11 +224,10 @@ export default function CartPage() {
                 {lang === 'pl' ? 'Uzupełnij adres dostawy, aby zapłacić.' : lang === 'es' ? 'Completa la dirección de envío para pagar.' : 'Fill in the shipping address to pay.'}
               </p>
             )}
-          </div>
-        )}
+        </div>
 
-        {/* PayPal — gated by RUO + adres dostawy */}
-        {accepted && shipValid && paypalClientId && (
+        {/* PayPal — zawsze widoczny; walidacja zgody i adresu w onClick */}
+        {paypalClientId && (
           <div className="mt-4">
             <p className="text-[#525252] text-xs leading-snug mb-3 text-center">
               {lang === 'pl'
@@ -240,7 +238,16 @@ export default function CartPage() {
             </p>
             <PayPalScriptProvider key={ppCurrency} options={{ clientId: paypalClientId, currency: ppCurrency, intent: 'capture', 'disable-funding': 'card,credit,paylater,blik,p24,sepa,bancontact,eps,giropay,ideal,mybank,sofort' }}>
               <PayPalButtons
+                forceReRender={[accepted, shipValid, ppCurrency]}
                 style={{ layout: 'vertical', color: 'gold', shape: 'rect', label: 'pay' }}
+                onClick={(_data, actions) => {
+                  if (!accepted || !shipValid) {
+                    setPayError(lang === 'pl' ? 'Zaznacz zgodę i uzupełnij adres dostawy, aby zapłacić.' : lang === 'es' ? 'Acepta las condiciones y completa la dirección de envío para pagar.' : 'Accept the terms and fill in the shipping address to pay.');
+                    return actions.reject();
+                  }
+                  setPayError(null);
+                  return actions.resolve();
+                }}
                 createOrder={async () => {
                   setPayError(null);
                   const res = await fetch('/api/paypal-create-order', {
