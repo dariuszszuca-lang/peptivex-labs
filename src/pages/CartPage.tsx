@@ -203,7 +203,14 @@ export default function CartPage() {
         {/* PayPal — gated by RUO acceptance */}
         {accepted && paypalClientId && (
           <div className="mt-4">
-            <PayPalScriptProvider key={ppCurrency} options={{ clientId: paypalClientId, currency: ppCurrency, intent: 'capture' }}>
+            <p className="text-[#525252] text-xs leading-snug mb-3 text-center">
+              {lang === 'pl'
+                ? 'Nie musisz zakładać konta PayPal. Kliknij „Zapłać z PayPal”, a w okienku wybierz „Zapłać kartą debetową lub kredytową”, podaj dane karty i gotowe.'
+                : lang === 'es'
+                ? 'No necesitas una cuenta de PayPal. Pulsa «Pagar con PayPal» y luego elige «Pagar con tarjeta de débito o crédito», introduce los datos y listo.'
+                : 'You don’t need a PayPal account. Click “Pay with PayPal”, then choose “Pay with Debit or Credit Card”, enter your card details and you’re done.'}
+            </p>
+            <PayPalScriptProvider key={ppCurrency} options={{ clientId: paypalClientId, currency: ppCurrency, intent: 'capture', 'disable-funding': 'card,credit,paylater,blik,p24,sepa,bancontact,eps,giropay,ideal,mybank,sofort' }}>
               <PayPalButtons
                 style={{ layout: 'vertical', color: 'gold', shape: 'rect', label: 'pay' }}
                 createOrder={async () => {
