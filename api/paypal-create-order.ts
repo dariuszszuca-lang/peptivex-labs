@@ -61,21 +61,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         intent: 'CAPTURE',
         purchase_units: [
           {
-            amount: {
-              currency_code: currency,
-              value: money(total),
-              breakdown: {
-                item_total: { currency_code: currency, value: money(subtotal) },
-                shipping: { currency_code: currency, value: money(shipping) },
-              },
-            },
-            items: ppItems,
+            // Wersja "chuda" jak Payment Link: sama kwota, bez items/breakdown,
+            // NO_SHIPPING (PayPal nie wymaga adresu) - eliminuje "nie mozna sfinalizowac".
+            amount: { currency_code: currency, value: money(total) },
+            description: 'PEPTIVEX LABS',
           },
         ],
         application_context: {
-          shipping_preference: 'GET_FROM_FILE',
-          user_action: 'PAY_NOW',
           brand_name: 'PEPTIVEX LABS',
+          user_action: 'PAY_NOW',
+          shipping_preference: 'NO_SHIPPING',
         },
       }),
     });
